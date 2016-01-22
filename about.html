@@ -73,6 +73,8 @@
 
     <li><label>Categories</label></li>
 
+        
+            <li><a href="Note.html">Note</a></li>
          
 
       </ul>
@@ -86,131 +88,25 @@
        
 
  <script type="text/javascript">
-  $(function(){
-    $('#menu_item_index').addClass('is_active');
-  });
+	$(function(){
+		var currentURL = 'about.html';
+		currentURL = currentURL.substr(0,currentURL.length-5);
+		$('#menu_item_'+currentURL).addClass('is_active');
+	});
 </script>
 <div class="row">
-  <div class="large-8 medium-8 columns">
-      <div class="markdown-body article-wrap">
-       <div class="article">
-          
-          <h1>About</h1>
-     
-        <div class="read-more clearfix">
-          <span class="date">2016/1/22</span>
 
-          
-           
-         
-          <span class="comments">
-            
+    <div id="single-page-wrap">
+        <h1>About</h1>
 
-            
-              &nbsp;<a  class="ds-thread-count" data-thread-key="about.html" data-count-type="comments" href="about.html#ds-thread"></a>
-            
-          </span>
-
-        </div>
-      </div><!-- article -->
-
-      <div class="article-content">
-      <p>我是luke,一个不靠谱的UI设计师</p>
+        <div class="markdown-body post-page">
+        <p>我是luke,一个不靠谱的UI设计师</p>
 
 <p>邮箱：<a href="mailto:ilayliu@gmail.com">ilayliu@gmail.com</a></p>
 
-      </div>
-
-      <div class="row">
-        <div class="large-6 columns">
-        <p class="text-left" style="padding:15px 0px;">
-      
-        </p>
         </div>
-        <div class="large-6 columns">
-      <p class="text-right" style="padding:15px 0px;">
-      
-      </p>
-        </div>
-      </div>
-      <div class="comments-wrap">
-        <div class="share-comments">
-          
-
-          
-
-          
-              <div class="ds-thread" data-thread-key="about.html" data-url="http://leeoo.cc/about.html" data-title="About"></div>
-          
-        </div>
-      </div>
-    </div><!-- article-wrap -->
-  </div><!-- large 8 -->
-
-
-
-
- <div class="large-4 medium-4 columns">
-  <div class="hide-for-small">
-    <div id="sidebar" class="sidebar">
-          <div id="site-info" class="site-info">
-            
-                <div class="site-a-logo"><img src="asset/img/icon.jpg" /></div>
-            
-                <h1>Leeoo</h1>
-                <div class="site-des">这是网址描述</div>
-                <div class="social">
-
-
-
-
-
-
-
-<a class="weibo" target="_blank" href="http://weibo.com/llcool" title="weibo">Weibo</a>
-
-
-<a class="email" href="mailto:layliu@foxmail.com" title="Email">Email</a>
-  <a class="rss" href="atom.xml" title="RSS">RSS</a>
-                
-              	 </div>
-          	</div>
-              <div id="site-categories" class="side-item ">
-                <div class="side-header">
-                  <h2>Categories</h2>
-                </div>
-                <div class="side-content">
-
-      	<p class="cat-list">
-         
-        </p>
-
-
-                </div>
-              </div>
-
-              <div id="site-categories" class="side-item">
-                <div class="side-header">
-                  <h2>Recent Posts</h2>
-                </div>
-                <div class="side-content">
-                <ul class="posts-list">
-	      
-		      
-			      <li class="post">
-			        <a href="about.html">About</a>
-			      </li>
-		     
-		   
-		  		</ul>
-                </div>
-              </div>
-        </div><!-- sidebar -->
-      </div><!-- hide for small -->
-</div><!-- large 4 -->
-
-</div><!-- row -->
-
+    </div>
+</div>              
  <div class="page-bottom clearfix">
   <div class="row">
    <p class="copyright">Copyright &copy; 2015
