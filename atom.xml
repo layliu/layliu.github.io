@@ -4,7 +4,7 @@
   <title><![CDATA[Leeoo]]></title>
   <link href="http://leeoo.cc/atom.xml" rel="self"/>
   <link href="http://leeoo.cc/"/>
-  <updated>2016-01-23T00:49:20+08:00</updated>
+  <updated>2016-01-23T13:58:36+08:00</updated>
   <id>http://leeoo.cc/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -13,7 +13,17 @@
   <generator uri="http://www.mweb.im/">MWeb</generator>
   
   <entry>
-    <title type="html"><![CDATA[这是为什么呢]]></title>
+    <title type="html"><![CDATA[https://www.zhihu.com/question/39037456]]></title>
+    <link href="http://leeoo.cc/14562107327863.html"/>
+    <updated>2016-02-23T14:58:52+08:00</updated>
+    <id>http://leeoo.cc/14562107327863.html</id>
+    <content type="html"><![CDATA[
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[]]></title>
     <link href="http://leeoo.cc/14534813475221.html"/>
     <updated>2016-01-23T00:49:07+08:00</updated>
     <id>http://leeoo.cc/14534813475221.html</id>
