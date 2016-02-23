@@ -4,7 +4,7 @@
   <title><![CDATA[Leeoo]]></title>
   <link href="http://leeoo.cc/atom.xml" rel="self"/>
   <link href="http://leeoo.cc/"/>
-  <updated>2016-01-23T13:58:36+08:00</updated>
+  <updated>2016-02-23T15:01:15+08:00</updated>
   <id>http://leeoo.cc/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -13,21 +13,17 @@
   <generator uri="http://www.mweb.im/">MWeb</generator>
   
   <entry>
-    <title type="html"><![CDATA[https://www.zhihu.com/question/39037456]]></title>
+    <title type="html"><![CDATA[知乎：从锤子阅读的界面看，锤子是不是要走扁平路线了？]]></title>
     <link href="http://leeoo.cc/14562107327863.html"/>
     <updated>2016-02-23T14:58:52+08:00</updated>
     <id>http://leeoo.cc/14562107327863.html</id>
     <content type="html"><![CDATA[
+<p><a href="https://www.zhihu.com/question/39037456">https://www.zhihu.com/question/39037456</a></p>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[]]></title>
-    <link href="http://leeoo.cc/14534813475221.html"/>
-    <updated>2016-01-23T00:49:07+08:00</updated>
-    <id>http://leeoo.cc/14534813475221.html</id>
-    <content type="html"><![CDATA[
+<p>应该不会。<br/>
+锤子科技的UI设计总监方尺在一次节目中说过，他们在进行界面设计时会遵循内容与视觉的平衡。内容不足的时候就用视觉补足，使用更多的视觉装饰，保证应用的精致感；内容很满的时候就尽量简洁，做到不干扰用户。<br/>
+锤子阅读的干净和简洁或许也是来源于此。对于这种阅读工具，无疑是内容至上，用户在使用时可能会长时间聚焦在信息筛选和信息阅读中，为了保证信息清晰，获得高效的阅读体验，所以选择了比较这种保守不干扰的设计风格吧。<br/>
+最后再说一下扁平化和拟物化，其实一直以来我都认为扁平或拟物只是一个相对的概念，iOS/Android的设计中也有拟物的部分，锤子系统中也有扁平的部分，只是各自的偏向不同。就锤子阅读来讲，虽然相对如锤子便签，锤子时钟等看起来更扁平一些；但如果和iOS/Android规范下的应用比较的话其实依然是更拟物的。而且锤子阅读中所有的UI控件如导航，搜索，光影按钮，字体颜色，图标表单样式等都和锤子系统是高度一致的，只是界面的色彩层级较弱，所以会看起来更扁平一些吧。</p>
 
 ]]></content>
   </entry>
