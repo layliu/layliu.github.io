@@ -4,7 +4,7 @@
   <title><![CDATA[LukeLiu]]></title>
   <link href="http://lukeliu.cc/atom.xml" rel="self"/>
   <link href="http://lukeliu.cc/"/>
-  <updated>2016-03-18T13:47:59+08:00</updated>
+  <updated>2016-03-18T17:21:42+08:00</updated>
   <id>http://lukeliu.cc/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -29,13 +29,22 @@
 <p><img src="media/14569030639313/cep_2.png" alt="cep_2"/></p>
 
 <p>当然，Adobe 官方也提供了彻底解决这个问题的方法，只需替换一个程序包里的原始文件就可以了。<br/>
-首先，备份原始文件到其他地方（比如桌面），避免替换后软件出错。</p>
+第一步，备份原始文件到其他地方（比如桌面），避免替换后软件出错。</p>
 
 <ul>
-<li>Photoshop: /Applications/Adobe Photoshop CC 2015/Adobe Photoshop CC 2015.app/Contents/Required/CEP/extensions/com.adobe.DesignLibraryPanel.html/</li>
-<li>Illustrator: /Applications/Adobe Illustrator CC 2015/CEP/extensions/com.adobe.DesignLibraries.angular/</li>
-<li>InDesign: /Applications/Adobe InDesign CC 2015/Resources/CEP/extensions/com.adobe.DesignLibraries.angular/</li>
+<li>Photoshop 文件路径: /Applications/Adobe Photoshop CC 2015/Adobe Photoshop CC 2015.app/Contents/Required/CEP/extensions/com.adobe.DesignLibraryPanel.html/</li>
+<li>Illustrator 文件路径: /Applications/Adobe Illustrator CC 2015/CEP/extensions/com.adobe.DesignLibraries.angular/</li>
+<li>InDesign 文件路径: /Applications/Adobe InDesign CC 2015/Resources/CEP/extensions/com.adobe.DesignLibraries.angular/</li>
 </ul>
+
+<p><img src="media/14569030639313/cep_4.png" alt="cep_4"/></p>
+
+<p>第二步，下载 <a href="https://files.acrobat.com/a/preview/31a2a46d-7ae3-4f3c-8192-a295def745a1">DL.zip</a> 解压后拷入当前目录</p>
+
+<p><img src="media/14569030639313/cep_5.png" alt="cep_5"/><br/>
+完成之后，重启应用。CPU 的占用就正常了😋</p>
+
+<p><img src="media/14569030639313/cep_1.png" alt="cep_1"/></p>
 
 ]]></content>
   </entry>
