@@ -1743,9 +1743,7 @@ meta.foundation-mq-topbar {
     font-size: 0.75rem;
     height: 1.75rem;
     padding-bottom: .35rem;
-    padding-top: .35rem;
-    border-radius: 4px;
-  }
+    padding-top: .35rem; }
   .top-bar .button, .top-bar button {
     font-size: 0.75rem;
     margin-bottom: 0;
@@ -2067,8 +2065,7 @@ meta.foundation-mq-topbar {
       font-size: 0.875rem;
       height: 1.75rem;
       position: relative;
-      top: 0.53125rem; 
-      border-radius: 4px;}
+      top: 0.53125rem; }
     .top-bar.expanded {
       background: #333333; }
 
