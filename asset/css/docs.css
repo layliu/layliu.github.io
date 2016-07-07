@@ -23,8 +23,8 @@ color:#fff;
 .top-bar,.tab-bar{ background-color: #fff; height: 65px;  border-bottom: solid 1px #F5F5F5;}
 
 .tab-bar{ padding-top: 6px; height: 59px;}
-.tab-bar .menu-icon{ width: 100%; color: #7A8599; }
-.tab-bar .menu-icon span::after{ box-shadow: 0 0 0 1px #7A8599,0 7px 0 1px #7A8599,0 14px 0 1px #7A8599;}
+.tab-bar .menu-icon{ width: 100%; color: #2B1F1F; }
+.tab-bar .menu-icon span::after{ box-shadow: 0 0 0 1px #2B1F1F,0 7px 0 1px #2B1F1F,0 14px 0 1px #2B1F1F;}
 .top-bar .row, .row{ max-width: 1100px;}
 
 
@@ -49,30 +49,30 @@ color:#fff;
   overflow: hidden;
   height: 66px;
 }
-.top-bar-section ul li:hover:not(.has-form) > a,.top-bar-section li.hover > a:not(.button),.top-bar-section li:not(.has-form) a:not(.button):hover,.no-js .top-bar-section ul li:hover > a,.top-bar-section .dropdown li:not(.has-form):not(.active):hover > a:not(.button){ background: transparent; color: #7A8599;  }
+.top-bar-section ul li:hover:not(.has-form) > a,.top-bar-section li.hover > a:not(.button),.top-bar-section li:not(.has-form) a:not(.button):hover,.no-js .top-bar-section ul li:hover > a,.top-bar-section .dropdown li:not(.has-form):not(.active):hover > a:not(.button){ background: transparent; color: #2B1F1F;  }
 
 .top-bar-section li:not(.has-form) a:not(.button):hover {
   background: transparent;
-  color: #7A8599; 
+  color: #2B1F1F; 
   font-weight: normal;
   
 }
 .top-bar-section li.is_active:not(.has-form) a:not(.button) {
     background: transparent;
     font-weight: 700;
-    color: #7A8599; 
+    color: #2B1F1F; 
     border-bottom: 2px rgba(0,0,0,0.8) solid;
 }
 .top-bar-section li.is_active:not(.has-form) a:not(.button):hover {
     background: transparent;
     font-weight: 700;
-    color: #7A8599; 
+    color: #2B1F1F; 
     border-bottom: 2px rgba(0,0,0,0.8) solid;
 }
 #main-menu{ padding-left: 0.93rem; padding-right: 0.93rem;}
 #site-logo{margin: 0; padding: 0;  margin-right: 40px;}
 #site-logo h1{ margin: 0; padding: 0; padding-top: 17px; font-size: 22px; font-weight: bold; }
-#site-logo h1 a{margin: 0; padding: 0;text-transform:capitalize;  color: #7A8599; font-size: 22px; font-weight: bold; }
+#site-logo h1 a{margin: 0; padding: 0;text-transform:capitalize;  color: #2B1F1F; font-size: 22px; font-weight: bold; }
 #search-wrap li{ margin-right: 0; padding-top: 10px;padding-right: 1rem;}
 #search-input{ width: 180px;}
 
@@ -213,9 +213,9 @@ padding: 8px 0px; margin: 0;
 .markdown-body {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  color: #7A8599;
+  color: #2B1F1F;
   overflow: hidden;
-  font-family: "SF UI Display", ".PingFang SC","PingFang SC", "Neue Haas Grotesk Text Pro", "Arial Nova", "Segoe UI", "Microsoft YaHei", "Microsoft JhengHei", "Helvetica Neue", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "Hiragino Sans GB", sans-serif;
+  font-family: "Lato", "Helvetica Neue", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
 
 
   font-size: 16px;
@@ -453,7 +453,7 @@ padding: 8px 0px; margin: 0;
   margin-bottom: 16px;
   font-weight: bold;
     /* chinese */
-font-family: "PT Sans", "SF UI Display", ".PingFang SC","PingFang SC", "Neue Haas Grotesk Text Pro", "Arial Nova", "Segoe UI", "Microsoft YaHei", "Microsoft JhengHei", "Helvetica Neue", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "Hiragino Sans GB", sans-serif;
+font-family: "PT Sans", "Lato", "Helvetica Neue", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
 
 }
 
@@ -720,7 +720,7 @@ font-family: "PT Sans", "SF UI Display", ".PingFang SC","PingFang SC", "Neue Haa
   margin: 0.3rem 0 0.25rem -1.6rem;
   vertical-align: middle;
 }
-#main-content .markdown-body a.clearlink{ text-decoration: none; color: #7A8599;}
+#main-content .markdown-body a.clearlink{ text-decoration: none; color: #2B1F1F;}
 #main-content .home-categories h1,#main-content .home-categories h2,#main-content .home-categories h3,#main-content .home-categories h4,#main-content .home-categories h5,#main-content .home-categories h6{
   margin: 0; padding: 0px; padding-bottom: 16px;
 }
@@ -738,7 +738,7 @@ font-family: "PT Sans", "SF UI Display", ".PingFang SC","PingFang SC", "Neue Haa
 #main-content .markdown-body h5{font-size: 18px;}
 #main-content .markdown-body h6{font-size: 18px;}
 
-#main-content .markdown-body .article{ padding: 38px 0px; border-bottom: solid 1px #e6e6e6;}
+#main-content .markdown-body .article{ padding: 20px 0px; border-bottom: solid 1px #e6e6e6;}
 #main-content .markdown-body .article:first-child{padding-top: 20px;}
 #main-content .markdown-body .a-content{padding-bottom: 20px; padding-left: 2px; line-height: 1.6rem;}
 
@@ -757,7 +757,7 @@ font-family: "PT Sans", "SF UI Display", ".PingFang SC","PingFang SC", "Neue Haa
 .article-wrap{ max-width: 640px;  padding: 0px 0px; }
 #main-content .article-wrap h1{border-bottom: solid 1px #eee; }
 #main-content .article-wrap h2{border-bottom: solid 1px #eee; }
-#main-content .article-wrap .article{ margin-bottom: 38px;}
+#main-content .article-wrap .article{ margin-bottom: 20px;}
 #main-content .article-wrap .article h1{border-bottom: none; margin: 0; padding: 0; padding-bottom: 8px; }
 
 #main-content .archives-wrap h1{ font-size: 20px; margin: 0; padding: 0; padding-bottom: 4px;}

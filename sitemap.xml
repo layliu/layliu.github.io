@@ -2,7 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
   <loc>http://lukeliu.cc/</loc>
-  <lastmod>2016-06-21T16:47:29+08:00</lastmod>
+  <lastmod>2016-07-07T17:40:08+08:00</lastmod>
+</url>
+
+<url>
+  <loc>http://lukeliu.cc/14673008881497.html</loc>
+  <lastmod>2016-06-30T23:34:48+08:00</lastmod>
+</url>
+
+<url>
+  <loc>http://lukeliu.cc/14665011793014.html</loc>
+  <lastmod>2016-06-21T17:26:19+08:00</lastmod>
 </url>
 
 <url>
@@ -18,16 +28,20 @@
 
 <url>
   <loc>http://lukeliu.cc/about.html</loc>
-  <lastmod>2016-04-06T14:57:43+08:00</lastmod>
+  <lastmod>2016-07-07T11:37:50+08:00</lastmod>
 </url>
 
 
 <url>
-  <loc>http://lukeliu.cc/Software.html</loc>
+  <loc>http://lukeliu.cc/Note.html</loc>
 </url>
 
 <url>
   <loc>http://lukeliu.cc/Design.html</loc>
+</url>
+
+<url>
+  <loc>http://lukeliu.cc/Software.html</loc>
 </url>
 
 
