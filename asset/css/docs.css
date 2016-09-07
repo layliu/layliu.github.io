@@ -1,14 +1,14 @@
 /*文字选中变色*/
 ::selection {
-background:#fff159; 
+background:#fff159;
 /*color:#fff;*/
 }
 ::-moz-selection {
-background:#fff159; 
+background:#fff159;
 /*color:#fff;*/
 }
 ::-webkit-selection {
-background:#ee3189; 
+background:#ee3189;
 /*color:#fff;*/
 }
 
@@ -30,20 +30,22 @@ background:#ee3189;
 
 .top-bar-section ul li{ background: transparent;}
 .top-bar-section li:not(.has-form){   display: inline-block;
-    margin-right: 20px; 
+    margin-right: 20px;
 }
 .top-bar-section li{ }
 #sidebar{ margin-top: 0px;}
+
+/*这是导航*/
 .top-bar-section li:not(.has-form) a:not(.button){
   background-color: transparent;
   color: #666;
   line-height: 1rem;
   display: inline-block;
-    font-size: 12px;
-    text-transform: uppercase;
+  font-size: 20px;
+  /*text-transform: uppercase;*/
 
-   margin:0; 
-  font-family: "jaf-bernino-sans","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
+  margin:0;
+  font-family: Seravek, 'Myriad Pro', Myriad, 'Open Sans', 'Helvetica Neue', Helvetica, 'Segoe UI', 'Lucida Grande', Arial, 'Arial-Black', 'Arial Black', sans-serif;
   letter-spacing: .1rem;
   padding: 28px 0 0px 0;
   overflow: hidden;
@@ -53,20 +55,20 @@ background:#ee3189;
 
 .top-bar-section li:not(.has-form) a:not(.button):hover {
   background: transparent;
-  color: #2B1F1F; 
+  color: #2B1F1F;
   font-weight: normal;
-  
+
 }
 .top-bar-section li.is_active:not(.has-form) a:not(.button) {
     background: transparent;
     font-weight: 700;
-    color: #2B1F1F; 
+    color: #2B1F1F;
     border-bottom: 2px rgba(0,0,0,0.8) solid;
 }
 .top-bar-section li.is_active:not(.has-form) a:not(.button):hover {
     background: transparent;
     font-weight: 700;
-    color: #2B1F1F; 
+    color: #2B1F1F;
     border-bottom: 2px rgba(0,0,0,0.8) solid;
 }
 #main-menu{ padding-left: 0.93rem; padding-right: 0.93rem;}
@@ -91,20 +93,25 @@ background:#ee3189;
 }
 .side-item{ padding-top:40px;}
 .side-item .side-header{ border-top: solid 1px #eee; height: 52px; position: relative;}
+
+/*这是分类*/
 .side-item .side-header h2{margin: 0; padding: 0; padding-top: 14px; position: absolute; top: -1px; border-top:solid 1px #868686;
   font-size: 12px;
  text-transform: uppercase;
-  font-family: "jaf-bernino-sans","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
+  font-family: Seravek, 'Myriad Pro', Myriad, 'Open Sans', 'Helvetica Neue', Helvetica, 'Segoe UI', 'Lucida Grande', Arial, 'Arial-Black', 'Arial Black', sans-serif;
   letter-spacing: .1rem;
   line-height: 1rem;
-font-weight: 700;
+	font-weight: bold;
    }
-#site-info h1{ margin:0; padding:0; padding-top: 25px; font-size: 15px;
- text-transform: uppercase;
-  font-family: "jaf-bernino-sans","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
-  letter-spacing: .1rem;color: #444;
+	 /*这是网站用户名*/
+#site-info h1{ margin:0; padding:0; padding-top: 25px; padding-bottom: 25px; font-size: 30px;
+ /*text-transform: uppercase;*/
+  font-family: Seravek, 'Myriad Pro', Myriad, 'Open Sans', 'Helvetica Neue', Helvetica, 'Segoe UI', 'Lucida Grande', Arial, 'Arial-Black', 'Arial Black', sans-serif;
+  letter-spacing: .1rem;
+	color: #444;
   line-height: 1rem;
-font-weight: bold; text-align: center;}
+	/*font-weight: bold;*/
+	text-align: center;}
 #site-info .site-des{ padding: 8px 0; font-size: 14px; text-align: center;color: #666;}
 
 #site-categories .categories-list{ list-style: none; margin: 0;  padding: 0; }
@@ -119,9 +126,9 @@ padding: 8px 0px; margin: 0;
   display: inline-block;
   color: rgba(0,0,0,0.6);
     background: rgba(255,255,255,0.97);
-    font-family: "jaf-bernino-sans","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
+    font-family: "Lato", "Helvetica Neue", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
     letter-spacing: -0.02rem;
-    font-weight: 400;
+    /*font-weight: 400;*/
     font-style: normal;
     color: rgba(0,0,0,0.44);
     font-size: 12px;
@@ -140,7 +147,7 @@ padding: 8px 0px; margin: 0;
 
 #site-categories .posts-list{ list-style: none; padding: 0; margin: 0; }
 #site-categories .posts-list li{
-    
+
     margin: 0; padding: 12px 0;
     display: block;
     border-bottom: 1px solid #eee; font-size: 12px;
@@ -152,7 +159,7 @@ padding: 8px 0px; margin: 0;
 #site-categories .posts-list li:first-child{padding-top: 0px;}
 #site-categories .posts-list li:last-child{ border-bottom: none;}
 #site-categories .posts-list li a{    color: #666;
-    text-decoration: none;  white-space: nowrap; 
+    text-decoration: none;  white-space: nowrap;
     cursor: pointer;
   }
 #site-categories .posts-list li a:hover{/*text-decoration: underline;*/border-bottom: 1px solid ;}
