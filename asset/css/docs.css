@@ -104,7 +104,7 @@ background:#ee3189;
 	font-weight: bold;
    }
 	 /*这是网站用户名*/
-#site-info h1{ margin:0; padding:0; padding-top: 25px; padding-bottom: 25px; font-size: 30px;
+#site-info h1{ margin:0; padding:0; padding-top: 25px; padding-bottom: 8px; font-size: 30px;
  /*text-transform: uppercase;*/
   font-family: Seravek, 'Myriad Pro', Myriad, 'Open Sans', 'Helvetica Neue', Helvetica, 'Segoe UI', 'Lucida Grande', Arial, 'Arial-Black', 'Arial Black', sans-serif;
   letter-spacing: .1rem;
@@ -112,7 +112,7 @@ background:#ee3189;
   line-height: 1rem;
 	/*font-weight: bold;*/
 	text-align: center;}
-#site-info .site-des{ padding: 8px 0; font-size: 14px; text-align: center;color: #666;}
+#site-info .site-des{ padding: 8px 0 25px 0; font-size: 14px; text-align: center;color: #666;}
 
 #site-categories .categories-list{ list-style: none; margin: 0;  padding: 0; }
 #site-categories .categories-list li{padding: 2px 0px; }
@@ -309,10 +309,29 @@ padding: 8px 0px; margin: 0;
 }
 
 .markdown-body a {
-  color: #3769c9;
+  /*color: #3769c9;*/
   text-decoration: none;
-
 }
+/*增加连接下划线*/
+.article-content a {
+	border-bottom: 1px solid #a4a4a4;
+	padding-bottom:2px;
+	color: #2B1F1F;
+}
+.a-content a {
+	border-bottom: 1px solid #a4a4a4;
+	padding-bottom:2px;
+	color: #2B1F1F;
+}
+
+/*两端对齐*/
+.article-content {
+	text-align: justify;
+}
+.a-content{
+	text-align: justify;
+}
+
 /*增加链接间距*/
 .article-content a{
   margin: 0 0.1em;
@@ -323,6 +342,7 @@ padding: 8px 0px; margin: 0;
 .markdown-body a:active {
   /*text-decoration: underline;*/
   border-bottom: 1px solid ;
+	color: #3769c9;
 }
 
 .markdown-body hr {
