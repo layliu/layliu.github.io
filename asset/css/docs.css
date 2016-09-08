@@ -324,6 +324,10 @@ padding: 8px 0px; margin: 0;
 	color: #2B1F1F;
 }
 
+.row a{
+	color: #5c5c5c;
+}
+
 /*两端对齐*/
 .article-content {
 	text-align: justify;
@@ -777,7 +781,7 @@ font-family: "PT Sans", "Lato", "Helvetica Neue", "Arial", "PingFang SC", "Hirag
 
 #main-content .markdown-body .article .read-more{padding-left: 2px; color: #bababa; font-size: 14px;font-family: "Alright Sans LP","Avenir Next","Helvetica Neue",Helvetica,Arial,"PingFang SC","Source Han Sans SC","Hiragino Sans GB","Microsoft YaHei","WenQuanYi MicroHei",sans-serif;
 }
-#main-content .markdown-body .article .read-more a{color: #57ad68; }
+#main-content .markdown-body .article .read-more a{color: #bababa; }
 #main-content .markdown-body .article .f-img{ padding-bottom: 16px;}
 #main-content .markdown-body .article .posted-in{ padding-left: 2px; font-style: none; padding-right: 2px;}
 #main-content .markdown-body .article .a-content-img{float: left; padding-right: 12px; padding-bottom: 12px;}
