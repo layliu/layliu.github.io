@@ -314,19 +314,25 @@ padding: 8px 0px; margin: 0;
 }
 /*增加连接下划线*/
 .article-content a {
-	border-bottom: 1px solid #a4a4a4;
-	padding-bottom:2px;
+	border-bottom: 1px solid #2B1F1F;
+	padding-bottom:3px;
 	color: #2B1F1F;
 }
 .a-content a {
-	border-bottom: 1px solid #a4a4a4;
-	padding-bottom:2px;
+	border-bottom: 1px solid #2B1F1F;
+	padding-bottom:3px;
 	color: #2B1F1F;
 }
 
-.row a{
-	color: #5c5c5c;
+
+/*去掉多余连接*/
+a.clearlink {
+    border-bottom: 0px;
 }
+a.clearlink:hover {
+	border-bottom: 0px !important;
+}
+
 
 /*两端对齐*/
 .article-content {
@@ -767,13 +773,13 @@ font-family: "PT Sans", "Lato", "Helvetica Neue", "Arial", "PingFang SC", "Hirag
   margin-top: 1rem;
 }
 
-
-#main-content .markdown-body h1{font-size: 28px;border-bottom: none; }
-#main-content .markdown-body h2{font-size: 24px;border-bottom: none;}
-#main-content .markdown-body h3{font-size: 22px;}
-#main-content .markdown-body h4{font-size: 20px;}
-#main-content .markdown-body h5{font-size: 18px;}
-#main-content .markdown-body h6{font-size: 18px;}
+/*修改文章标题字大小*/
+#main-content .markdown-body h1{font-size: 24px;border-bottom: none; }
+#main-content .markdown-body h2{font-size: 22px;border-bottom: none;}
+#main-content .markdown-body h3{font-size: 20px;}
+#main-content .markdown-body h4{font-size: 18px;}
+#main-content .markdown-body h5{font-size: 16px;}
+#main-content .markdown-body h6{font-size: 16px;}
 
 #main-content .markdown-body .article{ padding: 20px 0px; border-bottom: solid 1px #e6e6e6;}
 #main-content .markdown-body .article:first-child{padding-top: 20px;}
