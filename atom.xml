@@ -4,32 +4,13 @@
   <title><![CDATA[Lay.Design]]></title>
   <link href="http://lay.design/atom.xml" rel="self"/>
   <link href="http://lay.design/"/>
-  <updated>2016-09-08T23:24:41+08:00</updated>
+  <updated>2016-09-11T21:46:21+08:00</updated>
   <id>http://lay.design/</id>
   <author>
     <name><![CDATA[]]></name>
     
   </author>
   <generator uri="http://www.mweb.im/">MWeb</generator>
-  
-  <entry>
-    <title type="html"><![CDATA[San Francisco 字体笔记]]></title>
-    <link href="http://lay.design/14733358467615.html"/>
-    <updated>2016-09-08T19:57:26+08:00</updated>
-    <id>http://lay.design/14733358467615.html</id>
-    <content type="html"><![CDATA[
-<p>这篇文章的内容总结于字体播客节目 <a href="http://www.typeisbeautiful.com/2015/10/9609/trackback/">Type is Beautiful 的「苹果字体极简史-圣弗朗西斯科」</a>，里面除了 San Francisco 的部分还讲到了很多字体设计上有趣的知识，正好最近在看小林章的《西文字体》，对字体相关的内容就比较感兴趣了，所以就把这些东西总结在博客里，希望能够活学活用吧。</p>
-
-<span id="more"></span><!-- more -->
-
-<p>苹果去年在 <a href="https://developer.apple.com/videos/wwdc/2015/?id=804">WWDC 2015 上介绍了一款全新的系统字体 San Francisco </a>，现在看来，这是一款成熟度非常高的字体，如此广的字符集和适用型应该是无法在一两年内能够完成的，可以推断苹果公司在系统界面字体上面布了一个很长的棋。那么苹果为什么要花费这么多精力去设计一款全新的字体呢？</p>
-
-<h3 id="toc_0">San Francisco 字体特性</h3>
-
-<p>严格来讲，San Francisco 共有两款字体，苹果官方</p>
-
-]]></content>
-  </entry>
   
   <entry>
     <title type="html"><![CDATA[用 Sketch 快速导出设计板]]></title>
