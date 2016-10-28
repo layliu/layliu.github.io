@@ -6446,7 +6446,7 @@ blockquote,blockquote p {
 
 .left-off-canvas-menu {
 	-webkit-backface-visibility: hidden;
-	background: #333;
+	background: #000;
 	bottom: 0;
 	box-sizing: content-box;
 	-webkit-overflow-scrolling: touch;
