@@ -4,13 +4,56 @@
   <title><![CDATA[Lay.Design]]></title>
   <link href="http://lay.design/atom.xml" rel="self"/>
   <link href="http://lay.design/"/>
-  <updated>2016-10-31T10:58:18+08:00</updated>
+  <updated>2016-11-22T16:28:02+08:00</updated>
   <id>http://lay.design/</id>
   <author>
     <name><![CDATA[]]></name>
     
   </author>
   <generator uri="http://www.mweb.im/">MWeb</generator>
+  
+  <entry>
+    <title type="html"><![CDATA[San Francisco 字体笔记]]></title>
+    <link href="http://lay.design/14798031615565.html"/>
+    <updated>2016-11-22T16:26:01+08:00</updated>
+    <id>http://lay.design/14798031615565.html</id>
+    <content type="html"><![CDATA[
+<p>这篇文章的内容总结于字体播客节目 <a href="http://www.typeisbeautiful.com/2015/10/9609/trackback/">Type is Beautiful 的「苹果字体极简史-圣弗朗西斯科」</a>，里面除了 San Francisco 的部分还讲到了很多字体设计上有趣的知识，正好最近在看小林章的《西文字体》，对字体相关的内容就比较感兴趣了，所以就把这些东西总结在博客里，希望能够活学活用吧。</p>
+
+<span id="more"></span><!-- more -->
+
+<p>苹果去年在 <a href="https://developer.apple.com/videos/wwdc/2015/?id=804">WWDC 2015 上介绍了一款全新的系统字体 San Francisco </a>，这款字体被广泛应用在苹果系统界面，硬件产品，以及市场营销上。现在看来，这是一款成熟度非常高的字体，如此广的字符集和适用型应该是无法在一两年内能够完成的，可以推断苹果公司在系统界面字体上面布了一个很长的棋，花费了很多精力做了一套全新的字体出来。</p>
+
+<p>San Francisco 第一次出现是在苹果手表上，当时刚发布的时候其实给人感觉有点像德国的 <a href="https://en.wikipedia.org/wiki/DIN_1451">DIN</a> 字体，DIN 是德国工业标准字体，非常适合做导向字体，字母看齐来比较方🌝，比如字母 O 就挺像跑道的。</p>
+
+<p>严格来讲，San Francisco 共包含了两款字体：为 iOS，macOS，tvOS 设计的 SF，以及为 Watch OS 设计的 SF Compact 。两款字体从字形上来讲相差还挺大的，SF Compact 比较像 DIN，而 SF 更接近 Helvetica 。但可能苹果为了品牌概念的考虑，所以被都叫作 San Francisco 了。</p>
+
+<p>同时这两种字体又分别分为 Text 和 Display 两种（可以翻译为是<strong>正文字</strong>和<strong>标题字</strong>，有人将 Display 译为屏显，但这样其实这太好理解），在数位字体上很少看到有这样分类的，但这也不算是苹果首创。Adobe 早期提过类似的概念—<a href="https://en.wikipedia.org/wiki/Font%23Optical_size">Optical Size</a>（视觉字号），并在千禧年的时候推出了具有 Optical Size 特性的 <a href="https://en.wikipedia.org/wiki/Minion_(typeface)">Minion</a> 字体。但后来，也许是不太易用的缘由，使用这款字体的人并不是很多。</p>
+
+<p>套用中文字体来讲的话，其实有点类似于中文的「书宋」和「标宋」，顾名思义书宋就是给正文使用的，标宋就是给标题使用的。由于使用场景不同，字形也有所差异，比如标宋的横竖粗度对比强烈，横是比较细的，会有一定的装饰感，显得比较秀气，但是如果用标宋来排正文字的话，细横可能就看不见了，相反如果书宋如果放大做标题字的话，就会显得笔画比较粗大，笨重，不够优雅了。</p>
+
+<p>所以，总得来说，区分标题和正文的字的字体设计是自古就有的。不过在这之前没有被普及是因为这种分类方式对大多数人来说并不用，而且也不易用。但是 San Francisco 这次却采用了这种方式而且是应用在 UI 字体上，其实是让人有的吃惊的，那么 San Francisco 是怎么解决易用的问题的呢？</p>
+
+<p>首先先来了解下 Text 和 Display 。Text 的字重有6级，Display 的字重有9级。Display 多的3个字重是在更细的区域要多2个，更粗的区域多1个。因为特别细或者特别粗的字对字号是有一定要求的，特别细的字体排的过小可能就断线了，特别粗的字排的过小就会糊成一团，中间的空白可能就看不清了，所以也只有大标题可以将细字体和粗字体显示清楚。同时，苹果为了保证在不同字号下字体的易认性，Display 和 Text 的造型设计也是有微妙变化的。比如 Display 的字母开口区域更大一些，以遍清晰的显示标题。另外小写字母 r ，Display 伸出来的耳朵比较短，text 的就要长一些。</p>
+
+<h3 id="toc_0">两款字体</h3>
+
+<h3 id="toc_1">Text 和 Display</h3>
+
+<h3 id="toc_2">造型差异</h3>
+
+<h3 id="toc_3">使用场景</h3>
+
+<h3 id="toc_4">SF设计</h3>
+
+<h3 id="toc_5">应用</h3>
+
+<h3 id="toc_6">总结</h3>
+
+<p>严格来讲，San Francisco 应该是两款字体因为应用在手表上的 San Francisco 字体和其他平台的 San Francisco 字体，字形相差还挺大的，但可能苹果为了品牌概念的考虑，所以都叫 San Francisco 了。</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[用 Sketch 快速导出设计板]]></title>
