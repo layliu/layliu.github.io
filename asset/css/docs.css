@@ -190,8 +190,8 @@ padding: 8px 0px; margin: 0;
 #site-info .social a.stackoverflow{background:url('../img/social/stackoverflow.png?1419407210') center no-repeat #EF7522;background-size:20px 20px;border:1px solid #EF7522}
 #site-info .social a.stackoverflow:hover{border:1px solid #CC7A00}
 #site-info .social a.linkedin{background:url('../img/social/linkedin.png?1419407210') center no-repeat #005A87;background-size:20px 20px;border:1px solid #005A87}
-#site-info .social a.pinterest{background:url('../img/social/pinterest.png?1419407210') center no-repeat #ec3789;background-size:20px 20px;border:1px solid #ec3789}
-#site-info .social a.pinterest:hover{border:1px solid #de2076}
+#site-info .social a.pinterest{background:url('../img/social/pinterest.png?1419407210') center no-repeat #888;background-size:20px 20px;border:1px solid #888}
+#site-info .social a.pinterest:hover{border:1px solid #888}
 #site-info .social a.delicious{background:url('../img/social/delicious.png?1419407210') center no-repeat #3271cb;background-size:20px 20px;border:1px solid #3271cb}
 #site-info .social a.delicious:hover{border:1px solid #285aa2}
 #site-info .social a.pinboard{background:url('../img/social/pinboard.png?1419407210') center no-repeat #0066c8;background-size:20px 20px;border:1px solid #3a729f}
@@ -200,16 +200,16 @@ padding: 8px 0px; margin: 0;
 #site-info .social a.douban:hover{border:1px solid #004d16}
 #site-info .social a.quora{background:url('../img/social/quora.png?1419407210') center no-repeat #a82400;background-size:20px 20px;border:1px solid #a82400}
 #site-info .social a.quora:hover{border:1px solid #751900}
-#site-info .social a.instagram{background:url('../img/social/instagram.png?1419407210') center no-repeat #0363fa;background-size:20px 20px;border:1px solid #0363fa}
-#site-info .social a.instagram:hover{border:1px solid #0052d2}
+#site-info .social a.instagram{background:url('../img/social/instagram.png?1419407210') center no-repeat #888;background-size:20px 20px;border:1px solid #888}
+#site-info .social a.instagram:hover{border:1px solid #888}
 #site-info .social a.behance{background:url('../img/social/behance.png?1419407210') center no-repeat #1769ff;background-size:20px 20px;border:1px solid #1769ff}
 #site-info .social a.behance:hover{border:1px solid #0052d2}
-#site-info .social a.rss{background:url('../img/social/rss.png?1419407210') center no-repeat #EF7522;background-size:20px 20px;border:1px solid #EF7522}
-#site-info .social a.rss:hover{border:1px solid #cf5d0f}
+#site-info .social a.rss{background:url('../img/social/rss.png?1419407210') center no-repeat #888;background-size:20px 20px;border:1px solid #888}
+#site-info .social a.rss:hover{border:1px solid #888}
 #site-info .social a.weibo {
-    background: url('../img/social/weibo.png?1419407210') center no-repeat #ec3737;
+    background: url('../img/social/weibo.png?1419407210') center no-repeat #888;
     background-size:20px 20px;
-    border: 1px solid #ec3737;
+    border: 1px solid #888;
     }
 
 
