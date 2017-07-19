@@ -329,6 +329,18 @@ padding: 8px 0px; margin: 0;
 }
 
 
+/*去掉引用和目录连接下划线*/
+.markdown-body blockquote a {
+	border-bottom: 1px solid #6f6f6f;
+	color: #6f6f6f;
+}
+
+.article-content ul li a {
+	border-bottom: 1px solid #6f6f6f !important;
+	font-size: 0.89em;
+}
+
+
 /*去掉多余连接*/
 a.clearlink {
     border-bottom: 0px;
