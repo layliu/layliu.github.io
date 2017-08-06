@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
   
-  解决 CEPHtmlEngine CPU 高占用问题 - Lay.Design
+  产品设计语录 - Lay.Design
   
   </title>
   
@@ -100,19 +100,19 @@
       <div class="markdown-body article-wrap">
        <div class="article">
           
-          <h1>解决 CEPHtmlEngine CPU 高占用问题</h1>
+          <h1>产品设计语录</h1>
      
         <div class="read-more clearfix">
-          <span class="date">2016/2/3</span>
+          <span class="date">2017/3/20</span>
 
           <span>posted in&nbsp;</span> 
           
-              <span class="posted-in"><a href='Software.html'>技巧</a></span>
+              <span class="posted-in"><a href='%E6%94%B6%E9%9B%86.html'>收集</a></span>
            
          
           <span class="comments">
             
-              <a href="http://lay.design/14569030639313.html#disqus_thread">comments</a>
+              <a href="http://lay.design/15005652042020.html#disqus_thread">comments</a>
             
 
             
@@ -122,48 +122,28 @@
       </div><!-- article -->
 
       <div class="article-content">
-      <p>升级了 Adobe cc 2015 系列的 Photoshop 和 illustrations ，但软件打开后不久风扇就开始狂转。打开活动监视器后，发现有个 CEPHtmlEngine 进程一直处于 CPU 高占用状态。</p>
+      <p>在浏览一些设计博文的时候，总会遇到一些让人耳目一新的总结，这些总结不一定绝对正确，但是对自己在设计沟通上也有挺大的帮助的，所以将此摘录到这里📝，定期回顾：</p>
 
 <span id="more"></span><!-- more -->
 
-<p><img src="http://7xrfdc.com1.z0.glb.clouddn.com/2017-01-12-cep_3.jpg" alt="cep_3"/></p>
-
-<p>搜索引擎查询了之后发现是新版 Adobe 扩展程序的 Bug 导致的，如果你用不到 Adobe 的库和扩展程序，那就在首选项面板中把「扩展程序」的相关项勾掉就不会出现 CPU 高占用的问题了。</p>
-
-<p><img src="http://7xrfdc.com1.z0.glb.clouddn.com/2017-01-12-cep_2.png" alt="cep_2"/></p>
-
-<p>当然，Adobe 官方也提供了彻底解决这个问题的方法，只需替换一个程序包里的原始文件就可以了。
-第一步，备份原始文件到其他地方（比如桌面），避免替换后软件出错。</p>
-
-<ul>
-<li>Photoshop 文件路径: </li>
-</ul>
-
-<pre><code>/Applications/Adobe Photoshop CC 2015/Adobe Photoshop CC 2015.app/Contents/Required/CEP/extensions/com.adobe.DesignLibraryPanel.html/
-</code></pre>
-
-<ul>
-<li>Illustrator 文件路径: </li>
-</ul>
-
-<pre><code>/Applications/Adobe Illustrator CC 2015/CEP/extensions/com.adobe.DesignLibraries.angular/
-</code></pre>
-
-<ul>
-<li>InDesign 文件路径: </li>
-</ul>
-
-<pre><code>/Applications/Adobe InDesign CC 2015/Resources/CEP/extensions/com.adobe.DesignLibraries.angular/
-</code></pre>
-
-<p><img src="http://7xrfdc.com1.z0.glb.clouddn.com/2017-01-12-cep_4.png" alt="cep_4"/></p>
-
-<p>第二步，下载  <a href="https://files.acrobat.com/a/preview/31a2a46d-7ae3-4f3c-8192-a295def745a1">DL.zip</a>  解压后拷入当前目录</p>
-
-<p><img src="http://7xrfdc.com1.z0.glb.clouddn.com/2017-01-12-cep_5.png" alt="cep_5"/>
-完成之后，重启应用。CPU 的占用就正常了😋</p>
-
-<p><img src="http://7xrfdc.com1.z0.glb.clouddn.com/2017-01-12-cep_1.png" alt="cep_1"/></p>
+<ol>
+<li>无论何处都需要高补偿的情感，社会中高技术的越多，我们就越渴望高情感的环境，用设计软性的一面来平衡技术硬的一面。设计作为人的创造性活动，不是摒除激情或者情感，而是要创造一种中性的、能容纳和激起使用者情感的东西，这种东西是一种境界。</li>
+<li>界面设计时会遵循内容与视觉的平衡，内容不足的时候就用视觉补足，使用更多的视觉装饰，保证应用的精致感；内容很满的时候就尽量简洁，做到不干扰用户。</li>
+<li>苹果的设计是直接但妥协的，稳定而顽固的，而 Android 的设计是复杂但直接的，善变但灵活的。</li>
+<li>规范是确定设计质量下线的，不是拉高设计质量上线的</li>
+<li>节省设计师的精力和时间，真正去研究用设计解决问题，而不是专门为了沟通输出一堆复杂的中间产物</li>
+<li>初心者：了解业务，参与设计｜进阶者：理解业务，执行设计｜高阶者：精通业务，主导设计｜统领者：参与业务定制，引导整个设计   你们在哪个级别，关注的层面和你能主导的层面是不一样的，吵架的对象也是不一样的，你一个总监会跑去和一个初心者码农吵架？你一个死美工跑去和部门经理吵架？</li>
+<li>理想的反馈是发生在操作空间自身，如 Twitter 的 Favorite 按钮，触发与否都用动画来表达。第一做到了操作与反馈一体，第二避免了 按钮被反复点击触发多个 Toasts 所引起的坏体验。</li>
+<li>「学到知识」的市场远不如「感觉学到了知识」的市场大，所以产品应该面向后边这种幻觉做重点设计。</li>
+<li>美国流行的一句话，形容学习资源过剩，如果一个人绳子太多的话，搞不好会把自己吊死</li>
+<li>对于一个公司是否需要配备交互设计师很多人很困惑，其实如果站在CEO的角度，这其实是一个投入产出比的问题，如果一个交互设计团队通过对交互的优化能够带来巨大收益，那肯定就需要了，比如淘宝的交互设计团队对一个小按钮的位置大小文案的研究优化，可能就会带来转化率的优化，而淘宝的用户量巨大，就算是提升10%的转化率，可能就会有百万的收益。</li>
+<li>用户体验=新体验-旧体验-迁移成本</li>
+<li>多数APP设计，复用成熟的交互框架与控件就可以了，并不需要做什么设计上的创新。对它们来说，难点是选择题，而不是填空题，选好“要这个，要那个”就够了，设计上从前人的成熟经验里挑一些来复用。必须依赖“创新”的产品其实是很少很少的。当然，选择题有时候比填空题更难。</li>
+<li>审美常常并不需要知道原理，但创造美的人必须有方法论，否则不可能持续创造，应该是这个道理罢？我们去餐馆吃饭，好不好吃，常常并不需要我们先有精湛的厨艺，但厨子却是必须知道“怎样做才能好吃”的人。</li>
+<li>社交媒体倦怠是最近学会的一个术语，大概意思是指在社交媒体的活跃率越来越低的现象，比如朋友圈以前很活跃的一个人但最后却逐渐不发朋友圈，甚至是关闭朋友圈。</li>
+<li>高门槛便于区分用户群，可以减少无意义的咨询。</li>
+<li>生态圈的构建过程是不断为用户的典型需求情境提供典型工具并使这些工具互相贯通以打造无缝体验的过程，抱着“能否以一当十在所有时候解决所有问题”的标准来审视任何单一设备类型的做法早已不合时宜</li>
+</ol>
 
       </div>
 
@@ -171,13 +151,16 @@
         <div class="large-6 columns">
         <p class="text-left" style="padding:15px 0px;">
       
-          <a href="14665011793014.html" 
-          title="Previous Post: 我与「小鹤双拼」输入法">&laquo; 我与「小鹤双拼」输入法</a>
+          <a href="15012114257969.html" 
+          title="Previous Post: 一些优秀的设计规范">&laquo; 一些优秀的设计规范</a>
       
         </p>
         </div>
         <div class="large-6 columns">
       <p class="text-right" style="padding:15px 0px;">
+      
+          <a  href="14798031615565.html" 
+          title="Next Post: San Francisco 字体笔记">San Francisco 字体笔记 &raquo;</a>
       
       </p>
         </div>
