@@ -5191,7 +5191,7 @@ code {
 
 ul,ol,dl {
 	font-family: inherit;
-	font-size: 1.1rem;
+	/* font-size: 1.1rem; */
 	line-height: 1.8;
 	list-style-position: outside;
 	margin-bottom: 1.25rem
