@@ -4,7 +4,7 @@
   <title><![CDATA[Lay.Design]]></title>
   <link href="http://lay.design/atom.xml" rel="self"/>
   <link href="http://lay.design/"/>
-  <updated>2017-11-12T21:29:41+08:00</updated>
+  <updated>2017-11-13T00:03:07+08:00</updated>
   <id>http://lay.design/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -126,7 +126,7 @@
 <li><p><strong>使用自动化工具实现自动导入：</strong>
 灵感截屏后，为了存档备份，一般会导到电脑上用统一的工具管理。但是由于我们经常不在电脑旁边，有时候会忘了导入存档，
 所以如果有一款工具能够帮助我们把屏幕截图自动导入到电脑上，甚至是自动导入到工具中，那就完美了。
-这个时候就要请出大名鼎鼎的 <a href="https://ifttt.com">IFTTT</a> 工具了，IFTTT 是  If this then that 的缩写，可以理解为如果×××就×××，它借助第三方产品公开的 API 可以实现很多有趣的自动化流程，使用起来也非常简单，只要在手机上安装 IFTTT 客户端，点开应用，安装对应的 Applets（可以理解成小程序） 就可以了。我们这里主要是使用的是<a href="https://ifttt.com/applets/103373p-add-your-latest-iphone-screenshots-to-a-dropbox-folder">保存最新屏幕截图到 Dropbox</a> 这个小程序，它可以把我每次的屏幕截图都自动上传到指定的 Dropbox 文件夹（当然也可以使用 Google Drive 或 One Drive 等云盘服务）。每次打开电脑后，截图就会保存到电脑的 Dropbox 文件夹，然后我们可以再借用 Pixave 的<a href="http://littlehj.com/wordpress/?page_id=553">自动导入</a>功能，就可以实现该 Dropbox 文件夹下的屏幕截图自动导入到 Pixave 了。</p></li>
+这个时候就要请出大名鼎鼎的 <a href="https://ifttt.com">IFTTT</a> 工具了，IFTTT 是  If this then that 的缩写，可以理解为如果×××就×××，它借助第三方产品公开的 API 可以实现很多有趣的自动化流程，使用起来也非常简单，只要在手机上安装 IFTTT 客户端，点开应用，安装对应的 Applets（可以理解成小程序） 就可以了。我们这里主要是使用的是<a href="https://ifttt.com/applets/103373p-add-your-latest-iphone-screenshots-to-a-dropbox-folder">如果手机有屏幕截图就保存到 Dropbox</a> 这个小程序，它可以把我每次的屏幕截图都自动上传到指定的 Dropbox 文件夹（当然也可以使用 Google Drive 或 One Drive 等云盘服务）。每次打开电脑后，截图就会保存到电脑的 Dropbox 文件夹，然后我们可以再借用 Pixave 的<a href="http://littlehj.com/wordpress/?page_id=553">自动导入</a>功能，就可以实现该 Dropbox 文件夹下的屏幕截图自动导入到 Pixave 了。</p></li>
 </ol>
 
 <h4 id="toc_6">🌁 图片压缩</h4>
