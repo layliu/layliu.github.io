@@ -4,13 +4,59 @@
   <title><![CDATA[Lay.Design]]></title>
   <link href="http://lay.design/atom.xml" rel="self"/>
   <link href="http://lay.design/"/>
-  <updated>2017-11-13T11:01:59+08:00</updated>
+  <updated>2018-01-12T21:47:45+08:00</updated>
   <id>http://lay.design/</id>
   <author>
     <name><![CDATA[]]></name>
     
   </author>
   <generator uri="http://www.mweb.im/">MWeb</generator>
+  
+  <entry>
+    <title type="html"><![CDATA[通过AI动作快速的绘制立体场景插画]]></title>
+    <link href="http://lay.design/15157599880879.html"/>
+    <updated>2018-01-12T20:26:28+08:00</updated>
+    <id>http://lay.design/15157599880879.html</id>
+    <content type="html"><![CDATA[
+<p>不论是国内还是国外，最近经常看到有看到这种等角透视的立体插画，这种透视感强烈的图也可以让画面更加生动也更有趣。绘制这种插画也有很多种方法，在这之前，比较常见的有两种方法：</p>
+
+<span id="more"></span><!-- more -->
+
+<ol>
+<li>一种是绘制等角透视的辅助线，然后按照辅助线，然后按照辅助线勾出需要的形状。</li>
+<li>另外一种就是利用AI自带的3D突出来实现等角透视的效果</li>
+</ol>
+
+<p>不过这两种方式实现起来效率都不是特别高，一种是需要手动绘制，一种需要不断控制3D物体的厚度方向等，还要扩展之后才能上色。但最近浏览 <a href="https://dribbble.com/shots/3702541-Freebie-Illustrator-isometric-actions">Dribbble</a> 的时候发现了一种非常高效的实现等角视图的办法，直接使用 AI 的动作预设就可以实现快速建立透视效果。</p>
+
+<p><img src="media/15157599880879/cube-5.gif" alt="cube-5"/></p>
+
+<p>这个动作预设里包含了有6个动作，分别是：</p>
+
+<ol>
+<li>Isometry top </li>
+<li>Isometry left </li>
+<li>Isometry right </li>
+<li>Undo isometry top </li>
+<li>Undo isometry left </li>
+<li>Undo isometry right</li>
+</ol>
+
+<p>上面三个动作快速建立形状等角视图的顶面，左边和右边。下面三个则可以撤销（还原）之前的动作。如果再为这些动作配置上快捷键，实现等角透视就相当方便了。</p>
+
+<p><img src="media/15157599880879/15157634475430.jpg" alt=""/></p>
+
+<p>下面是我尝试这个动作实现的三张立体插画的图：
+</br>
+</br>
+<img src="media/15157599880879/isometric_transformations.png" alt="isometric_transformations"/>
+</br>
+</br></p>
+
+<p>动作下载：<a href="https://dribbble.com/shots/3702541-Freebie-Illustrator-isometric-actions/attachments/829437">isometric_transformations.aia</a></p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[用「标签」代替「文件夹」实现更高效的灵感素材管理]]></title>
