@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
   <loc>http://lay.design/</loc>
-  <lastmod>2018-01-13T15:31:58+08:00</lastmod>
+  <lastmod>2018-01-13T18:51:32+08:00</lastmod>
 </url>
 
 <url>
@@ -26,11 +26,6 @@
 </url>
 
 <url>
-  <loc>http://lay.design/15158154467053.html</loc>
-  <lastmod>2017-04-02T11:50:46+08:00</lastmod>
-</url>
-
-<url>
   <loc>http://lay.design/15018544222857.html</loc>
   <lastmod>2017-03-25T09:44:00+08:00</lastmod>
 </url>
@@ -48,6 +43,11 @@
 <url>
   <loc>http://lay.design/14798031615565.html</loc>
   <lastmod>2016-11-22T16:26:01+08:00</lastmod>
+</url>
+
+<url>
+  <loc>http://lay.design/15158154467053.html</loc>
+  <lastmod>2016-11-02T11:50:46+08:00</lastmod>
 </url>
 
 <url>
@@ -73,7 +73,7 @@
 
 <url>
   <loc>http://lay.design/about.html</loc>
-  <lastmod>2018-01-13T12:43:40+08:00</lastmod>
+  <lastmod>2018-01-13T18:39:24+08:00</lastmod>
 </url>
 
 
@@ -83,6 +83,10 @@
 
 <url>
   <loc>http://lay.design/Design.html</loc>
+</url>
+
+<url>
+  <loc>http://lay.design/%E7%AC%94%E8%AE%B0.html</loc>
 </url>
 
 <url>
