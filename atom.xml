@@ -4,7 +4,11 @@
   <title><![CDATA[Lay.Design]]></title>
   <link href="http://lay.design/atom.xml" rel="self"/>
   <link href="http://lay.design/"/>
+<<<<<<< HEAD
   <updated>2018-11-23T23:09:35+08:00</updated>
+=======
+  <updated>2018-07-08T22:48:55+08:00</updated>
+>>>>>>> 0523daf7c1cca7c3a1799459bcb4478323e0d5ee
   <id>http://lay.design/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -13,11 +17,20 @@
   <generator uri="http://www.mweb.im/">MWeb</generator>
   
   <entry>
+<<<<<<< HEAD
     <title type="html"><![CDATA[测试文章标题]]></title>
     <link href="http://lay.design/15429849494179.html"/>
     <updated>2018-11-23T22:55:49+08:00</updated>
     <id>http://lay.design/15429849494179.html</id>
     <content type="html"><![CDATA[
+=======
+    <title type="html"><![CDATA[测试]]></title>
+    <link href="http://lay.design/15310611581064.html"/>
+    <updated>2018-07-08T22:45:58+08:00</updated>
+    <id>http://lay.design/15310611581064.html</id>
+    <content type="html"><![CDATA[
+<p>测试</p>
+>>>>>>> 0523daf7c1cca7c3a1799459bcb4478323e0d5ee
 
 ]]></content>
   </entry>
