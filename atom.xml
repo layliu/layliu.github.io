@@ -4,13 +4,24 @@
   <title><![CDATA[Lay.Design]]></title>
   <link href="http://lay.design/atom.xml" rel="self"/>
   <link href="http://lay.design/"/>
-  <updated>2018-03-20T18:06:41+08:00</updated>
+  <updated>2018-07-08T22:48:55+08:00</updated>
   <id>http://lay.design/</id>
   <author>
     <name><![CDATA[]]></name>
     
   </author>
   <generator uri="http://www.mweb.im/">MWeb</generator>
+  
+  <entry>
+    <title type="html"><![CDATA[测试]]></title>
+    <link href="http://lay.design/15310611581064.html"/>
+    <updated>2018-07-08T22:45:58+08:00</updated>
+    <id>http://lay.design/15310611581064.html</id>
+    <content type="html"><![CDATA[
+<p>测试</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[通过 AI 动作快速的绘制立体场景插画]]></title>
