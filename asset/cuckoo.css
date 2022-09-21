@@ -1,7 +1,13 @@
 /* 我自己的调整 */
 
+html{
+  overflow-y: overlay;
+
+}
+
 body{
   -webkit-font-smoothing: antialiased;
+  margin: 12px 16px;
 }
 
 a.site-title:hover{
@@ -75,7 +81,7 @@ ul.entry-list{
 }
 
 .cuckoo h1 {
-  font-size: 1.8em;
+  font-size: 1.5em;
   margin: 0.67em 0;
 }
 
@@ -135,6 +141,7 @@ ul.entry-list{
 .cuckoo b {
   font-weight: 700;
   color: #222223;
+  background-color: #ffeeb5;
 }
 
 .cuckoo em,
@@ -198,14 +205,30 @@ ul.entry-list{
 
 .cuckoo blockquote {
   margin: 0 0 1.64em 0;
-  border-left: 3px solid #dadada;
-  padding-left: 12px;
-  color: #666664;
+  /* border-left: 3px solid #dadada; */
+  /* padding-left: 12px; */
+  color: #444;
+  padding: 0 20px;
+  padding-left:40px;
 }
 
 .cuckoo blockquote a {
-  color: #666664;
+  color: #444;
 }
+
+blockquote :before { 
+	content: "\201C";
+    display: block;
+    font-family: times;
+    font-style: normal;
+    font-size: 32px;
+    color: #444;
+    font-weight: 700;
+    line-height: 30px;
+    margin-left: -30px;
+    position: absolute;
+} 
+
 
 .cuckoo ul,
 .cuckoo ol {
@@ -324,9 +347,10 @@ ul.entry-list{
 
 @media (min-width: 1100px) {
   .cuckoo blockquote {
-    margin-left: -24px;
-    padding-left: 20px;
+    /* margin-left: -24px; */
+    padding-left: 40px;
     border-width: 4px;
+
   }
 
   .cuckoo blockquote blockquote {
