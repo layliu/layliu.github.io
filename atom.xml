@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-
   <title><![CDATA[SOME NOTES]]></title>
   <link href="somenotes.cc/atom.xml" rel="self"/>
   <link href="somenotes.cc/"/>
-  <updated>2022-09-22T13:19:11+08:00</updated>
+  <updated>2022-09-22T14:40:02+08:00</updated>
   <id>somenotes.cc/</id>
   <author>
     <name><![CDATA[]]></name>
-    
   </author>
-  <generator uri="http://www.mweb.im/">MWeb</generator>
+  <generator uri="http://www.coderforart.com/">CoderForArt</generator>
   
   <entry>
     <title type="html"><![CDATA[80年代的-美国反对美国]]></title>
     <link href="somenotes.cc/16637501658209.html"/>
     <updated>2022-09-21T16:49:25+08:00</updated>
     <id>somenotes.cc/16637501658209.html</id>
-    <content type="html"><![CDATA[
-<p>看完了《美国反对美国》，是一个政治老师在80年代末的美国游记，从政治体制，文化，教育等多个方面来讲述美国。8090年代正是美国的经济文化和科学技术蓬勃发展的年代，但作者却可以以非常平静的心态去记录和分析美国，在不同体制中做比较，这种心态和拥有的思考框架是非常另人羡慕的。</p>
+    <content type="html">
+<![CDATA[<p>看完了《美国反对美国》，是一个政治老师在80年代末的美国游记，从政治体制，文化，教育等多个方面来讲述美国。8090年代正是美国的经济文化和科学技术蓬勃发展的年代，但作者却可以以非常平静的心态去记录和分析美国，在不同体制中做比较，这种心态和拥有的思考框架是非常另人羡慕的。</p>
 <blockquote>
 <p>我要感谢我在美国的中国朋友，他们往美国生活多年，许多见解令我茅塞顿开，他们是郑世平、沈嵌、陈峰、公婷、周雪光、余旭、王人力、吴丹丽、林至敏、徐骅华、靳平、盖哲娅、赫雨凡、杨日均、黄庚、朱晟</p>
 </blockquote>
@@ -387,8 +385,8 @@
 <blockquote>
 <p>美国的体制，总体来说建筑在个人主义、享乐主义和民主主义的基础上，但它正明显地输给一个集体主义、忘我主义和权威主义的体制。也许美国人宁可在经济上输给别人，也不愿放弃自己的体制。这套体制保证信仰的实现，同时也保证了社会的一定繁荣。今天的世界格局，似乎表明这套体制难以保证美国的最发达地位。</p>
 </blockquote>
-
-]]></content>
+]]>
+    </content>
   </entry>
   
 </feed>
