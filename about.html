@@ -3,7 +3,7 @@
 
 <head>
     <title>
-         Archives - SOME NOTES 
+         About - SOME NOTES 
     </title>
 
     <meta charset="UTF-8">
@@ -46,51 +46,31 @@
 </body>
 
 </html>
- <div id="loading"></div>
+ <div class="page-content cuckoo">
+    <div class="wrapper">
+        <article class="post">
+            <header class="post-header">
+                <h1 class="post-title">About</h1>
+            </header>
+            <div class="post-content">
+                <p>Just writing something random.</p>
+<p>这是我的日常笔记本，会记录一些平时真诚的想法，想法到不在于多有道理，而是为了能提高自己通过文字和自己交流的能力。</p>
+<p>至于如何提高文字能力，我觉得<a href="https://www.douban.com/note/817943037/?_i=3837612ZQhhpfv">豆瓣网友</a>的说法我感觉很有道理，不要苛求一次能写的多好，先真诚表达，表达的多了，写作的能力和风格自然而然就提升上来了。</p>
+<p>目前的计划是每天都写一点，工作，生活，书评，影评等等。</p>
 
-<div class="page-content cuckoo" style="display: none" id="body">
-  <div class="wrapper">
-    <div class="home">
-      <ul class="post-list">
-        
-        <div class="post-items">
-          <li>
-            <p>
-              <span class="post-time">2022-09-23T11:05:15+08:00</span> -
-              <a href="16639023155376.html" class="post-link">世界的另一面</a>
-            </p>
-          </li>
-        </div>
-        
-        <div class="post-items">
-          <li>
-            <p>
-              <span class="post-time">2022-09-22T17:43:06+08:00</span> -
-              <a href="16638397863027.html" class="post-link">都别太把自己当回事儿</a>
-            </p>
-          </li>
-        </div>
-        
-      </ul>
+            </div>
+        </article>
     </div>
-  </div>
 </div>
 
 <script src="asset/jquery-3.3.1.min.js"></script>
-<script src="asset/utils.js"></script>
 
 <script>
-  $(document).ready(function() {
-    $('.post-time').each(function() {
-      let parsedTime = parseTime($(this).text()).slice(0, 10)
-      $(this).text(parsedTime)
+    $(document).ready(function() {
+        $('#footer').show()
     })
-    $('#loading').hide()
-    $('#body').show()
-    $('#footer').show()
-  })
 </script>
-  <!-- <footer id="footer" class="cuckoo page-footer" style="display: none">
+ <!-- <footer id="footer" class="cuckoo page-footer" style="display: none">
     <div class="wrapper">
         <p>Designed and Written by <a href="mailto:ilayliu@gmail.com">liulei</a></p>
     </div>
