@@ -3,7 +3,7 @@
 
 <head>
     <title>
-         Archives - SOME NOTES 
+         BookNotes - SOME NOTES 
     </title>
 
     <meta charset="UTF-8">
@@ -47,57 +47,63 @@
 
 </html>
  <div id="loading"></div>
+<div class="page-content cuckoo" id="body" style="display: none">
+    <div class="wrapper">
+        <div class="home">
+            <div class="divider">
+                <p></p>
+            </div>
 
-<div class="page-content cuckoo" style="display: none" id="body">
-  <div class="wrapper">
-    <div class="home">
-      <ul class="post-list">
-        
-        <div class="post-items">
-          <li>
-            <p>
-              <span class="post-time">2022-09-24T17:55:44+08:00</span> -
-              <a href="16639269445218.html" class="post-link">读《政治的人生》</a>
+            
+            <ul class="entry-list">
+                
+                <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
+                    <div class="entry-detail">
+
+                        <!-- new -->
+
+                       
+                        <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/09/24">2022-09-24T17:55:44+08:00</time></div>
+                        
+                        <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16639269445218.html">读《政治的人生》</a></h2>
+                        
+                        
+                        <span class="posted-cats"><a href='BookNotes.html'>BookNotes</a></span>
+                        
+                        
+                        
+                        
+                        <div itemprop="description" class="entry-description">
+                            
+                        </div>
+
+
+                    </div>
+                </li>
+                
+            </ul>
+
+
+            <p class="paging">
+                 
             </p>
-          </li>
         </div>
-        
-        <div class="post-items">
-          <li>
-            <p>
-              <span class="post-time">2022-09-23T11:05:15+08:00</span> -
-              <a href="16639023155376.html" class="post-link">世界的另一面</a>
-            </p>
-          </li>
-        </div>
-        
-        <div class="post-items">
-          <li>
-            <p>
-              <span class="post-time">2022-09-22T17:43:06+08:00</span> -
-              <a href="16638397863027.html" class="post-link">都别太把自己当回事儿</a>
-            </p>
-          </li>
-        </div>
-        
-      </ul>
     </div>
-  </div>
 </div>
 
 <script src="asset/jquery-3.3.1.min.js"></script>
 <script src="asset/utils.js"></script>
 
 <script>
-  $(document).ready(function() {
-    $('.post-time').each(function() {
-      let parsedTime = parseTime($(this).text()).slice(0, 10)
-      $(this).text(parsedTime)
+    $(document).ready(function () {
+        $('.entry-updated-time').each(function () {
+            let parsedTime = parseTime($(this).text()).slice(0, 10)
+            $(this).text(parsedTime)
+        })
+        $('#loading').hide()
+        $('#body').show()
+        $('#footer').show()
     })
-    $('#loading').hide()
-    $('#body').show()
-    $('#footer').show()
-  })
 </script>
   <!-- <footer id="footer" class="cuckoo page-footer" style="display: none">
     <div class="wrapper">

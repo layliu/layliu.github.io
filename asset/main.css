@@ -223,6 +223,7 @@ h1.post-title {
 .post-content ul,
 .post-content li {
   line-height: 1.7;
+  margin-bottom: 10px;
 }
 
 .footnotes {
