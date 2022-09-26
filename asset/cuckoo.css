@@ -10,6 +10,10 @@ body{
   margin: 12px 16px;
 }
 
+table{
+  font-size: 14px !important;
+}
+
 a.site-title:hover{
   font-weight: inherit !important;
   text-decoration: none !important;
@@ -153,10 +157,27 @@ ul.entry-list{
 .cuckoo img {
   display: block;
   max-width: 100%;
-  max-height: 600px;
+  max-height: auto;
   margin-left: auto;
   margin-right: auto;
+  /* display: block;
+  width: 100px;
+  height: auto;
+  margin-right: 10px;
+  margin-bottom: 28px;
+  padding: 2px;
+  border-radius: 4px;
+  border: 1px solid #000;
+  float: left; */
 }
+
+
+/* .cuckoo img:hover {
+
+  opacity: 0.7;
+  cursor: pointer;
+
+} */
 
 .cuckoo a img {
   /* Remove border on IE */
