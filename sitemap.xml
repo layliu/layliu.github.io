@@ -2,7 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
   <loc>somenotes.cc/</loc>
-  <lastmod>2022-09-26T15:51:49+08:00</lastmod>
+  <lastmod>2022-09-26T17:44:08+08:00</lastmod>
+</url>
+
+<url>
+  <loc>somenotes.cc/16641836998351.html</loc>
+  <lastmod>2022-09-26T17:14:59+08:00</lastmod>
 </url>
 
 <url>
@@ -30,6 +35,51 @@
   <lastmod>2022-09-22T17:43:06+08:00</lastmod>
 </url>
 
+<url>
+  <loc>somenotes.cc/16612228757176.html</loc>
+  <lastmod>2022-08-23T10:47:55+08:00</lastmod>
+</url>
+
+<url>
+  <loc>somenotes.cc/16641824579821.html</loc>
+  <lastmod>2022-02-22T16:54:17+08:00</lastmod>
+</url>
+
+<url>
+  <loc>somenotes.cc/16527676850179.html</loc>
+  <lastmod>2022-02-17T14:08:05+08:00</lastmod>
+</url>
+
+<url>
+  <loc>somenotes.cc/16405736506702.html</loc>
+  <lastmod>2021-12-27T10:54:10+08:00</lastmod>
+</url>
+
+<url>
+  <loc>somenotes.cc/16396425376434.html</loc>
+  <lastmod>2021-12-16T16:15:37+08:00</lastmod>
+</url>
+
+<url>
+  <loc>somenotes.cc/16641848273013.html</loc>
+  <lastmod>2021-12-01T17:33:47+08:00</lastmod>
+</url>
+
+<url>
+  <loc>somenotes.cc/16327110409932.html</loc>
+  <lastmod>2021-09-27T10:50:40+08:00</lastmod>
+</url>
+
+<url>
+  <loc>somenotes.cc/16323880940046.html</loc>
+  <lastmod>2021-09-23T17:08:14+08:00</lastmod>
+</url>
+
+<url>
+  <loc>somenotes.cc/16637501658209.html</loc>
+  <lastmod>2021-04-04T16:49:25+08:00</lastmod>
+</url>
+
 
 <url>
   <loc>somenotes.cc/about.html</loc>
@@ -38,7 +88,7 @@
 
 <url>
   <loc>somenotes.cc/read.html</loc>
-  <lastmod>2022-09-26T15:51:46+08:00</lastmod>
+  <lastmod>2022-09-26T17:37:58+08:00</lastmod>
 </url>
 
 
@@ -48,6 +98,10 @@
 
 <url>
   <loc>somenotes.cc/Daily.html</loc>
+</url>
+
+<url>
+  <loc>somenotes.cc/Studay.html</loc>
 </url>
 
 </urlset>
