@@ -10,6 +10,11 @@ body{
   margin: 12px 16px;
 }
 
+ul.entry-list {
+  padding-left: 0px !important;
+}
+
+
 table{
   font-size: 14px !important;
 }
