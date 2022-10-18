@@ -3,11 +3,25 @@
   <title><![CDATA[SOME NOTES]]></title>
   <link href="somenotes.cc/atom.xml" rel="self"/>
   <link href="somenotes.cc/"/>
-  <updated>2022-10-17T12:59:53+08:00</updated>
+  <updated>2022-10-18T14:01:07+08:00</updated>
   <id>somenotes.cc/</id>
   <author>
     <name><![CDATA[]]></name>
   </author>
+  
+  <entry>
+    <title type="html"><![CDATA[回顾书本的一种方法——听书]]></title>
+    <link href="somenotes.cc/16660634790266.html"/>
+    <updated>2022-10-18T11:24:39+08:00</updated>
+    <id>somenotes.cc/16660634790266.html</id>
+    <content type="html">
+<![CDATA[<p>经网友介绍，试了下微软出的 <a href="https://azure.microsoft.com/zh-cn/services/cognitive-services/text-to-speech/">azure文本转语音</a> 技术，效果很自然，抖音上常见的影视解说也是用的这个。感觉完全可以做普通有声书的配音了，于是我迫不及待的把一本电子书导进去想生成一本有声书，可惜发现免费版一次只能生成3000字的文本，遂作罢。</p>
+<p>弄到这里，才突然想到，微信读书也是可以听书的，于是也试了下。</p>
+<p>微信这个效果和微软是没法比的，要生硬很多，但习惯了到也还好。听书最大的好处大概就是行动自由了，在做家务或开车的途中可以很好的帮助“消磨时间”。</p>
+<p>我现在主要是听之前看过的书，因为听书现在不方便的地方是不好做笔记和划重点，但听看过的书的话就没这个问题了，而且听的时候就是一种回顾review，总会体会到一些不一样的内容，同时压力也不大。</p>
+]]>
+    </content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[二十大报告]]></title>
@@ -357,27 +371,6 @@
 <![CDATA[<p>无聊听新闻酸菜馆讲羊了个羊游戏，男主播表示没关注过。有时候其实挺羡慕这种人的（虽然有时候他很偏激），这种人大概就是现实生活比较充实，有自己的安排，很少关注大众媒体，不被其影响，专注做自己的事。</p>
 <p>其实我去年也有段时间是这样的，不怎么看新闻，专注看书，背背单词，想来重要的一个原因是当时留给自己的闲暇的固定时间段比较多。</p>
 <p>而现在虽然也经常有闲暇时间，但时间总是不固定，经常会被其他事打断，似乎精力就在这种这种不断切换中消耗掉了。后来一直想通过早起争取出一段固定的自由支配时间，但却几乎没成功过。唉，后面再想想其他办法吧，不能早起，那就试试晚睡？</p>
-]]>
-    </content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[小区电梯维权]]></title>
-    <link href="somenotes.cc/16642432987036.html"/>
-    <updated>2022-09-27T09:48:18+08:00</updated>
-    <id>somenotes.cc/16642432987036.html</id>
-    <content type="html">
-<![CDATA[<p>最近小区电梯总坏，楼栋的业主们也终于团结了一次，一大早大概凑够了一二十人去物业维权，甚至是把警察也叫来了。<br />
-一开始，大家还都挺不好意思的，虽然各位都义愤填膺，但和物业讲起话还是客客气气，但大概谁都不想当第一枪。但在双方拉扯过很久后，有两位女士终于按耐不住了，打开了嗓门开始全力输出。似乎应证了委内瑞拉总统查韦斯说的：只有妇女才具备革命所需要的热情和爱。<sup class="footnote-ref"><a href="#fn-1" id="fnref-1_ref" data-footnote-ref>1</a></sup></p>
-<p>最后，一直闹到了中午，有人唱红脸，有人唱白脸，也总算和物业达成了一个口头协定。正好大家肚子也饿了，便四散而去。</p>
-<p>有感，一个团体，甚至社会大概总会需要一些轰轰烈烈，因为事物的发展总是在矛盾中进行的，每次轰轰烈烈都会带来更多的团结，更高的共识。在这次电梯维权以及最近的小区因为新冠封禁后，邻里关系明显比以前更好了，微信业主群也比以前热闹多了。</p>
-<section class="footnotes" data-footnotes>
-<ol>
-<li id="fn-1">
-<p>《土摩托看世界》-委内瑞拉篇 <a href="#fnref-1_ref" class="footnote-backref" data-footnote-backref aria-label="Back to content">&#8617;<a></p>
-</li>
-</ol>
-</section>
 ]]>
     </content>
   </entry>
