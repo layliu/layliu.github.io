@@ -241,7 +241,7 @@ ul.entry-list{
   color: #444;
 }
 
-blockquote :before { 
+.cuckoo blockquote p:before { 
 	content: "\201C";
     display: block;
     font-family: times;
