@@ -3,7 +3,7 @@
   <title><![CDATA[SOME NOTES]]></title>
   <link href="somenotes.cc/atom.xml" rel="self"/>
   <link href="somenotes.cc/"/>
-  <updated>2022-11-08T16:51:23+08:00</updated>
+  <updated>2022-11-09T12:03:31+08:00</updated>
   <id>somenotes.cc/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -26,7 +26,7 @@
 <p>还好，我终究在05年逃了出来，但因工作关系久违的我来到这里，看着眼前的景物，说不清是什么心情，感觉到处都有我的影子，心里的酸楚.悲哀.愤怨和无奈交织在一起......</p>
 <p>我在办事前，慢慢的环视我熟悉的柳园，随之也闪念出不想回忆的故事......</p>
 <h3><a id="%E6%9F%B3%E5%9B%AD%E7%81%AB%E8%BD%A6%E7%AB%99" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>柳园火车站</h3>
-<p><img src="media/16678883852493/16678886845129.jpg" alt="" /><br />
+<p><img src="media/16678883852493/16678886845129.jpg" alt="柳园火车站" /><br />
 这是柳园的标志性建筑，看见的是兰新复线的新站。建于1998年，我有幸参加了新站壁画的联络制作和施工，车站里外两幅巨型壁画（分别是丝绸之路和敦煌艺术）由敦煌莫高窟美术组长著名壁画家李振莆绘制，由中国知名壁画陶瓷艺术家朱一圭先生烧制，我和主管李新江多次往返淄博处理相关事宜。不能忘记的是，朱一圭先生在我们谈判中说:世界知道敦煌，到敦煌的外宾就会看到壁画，就会知道我，我想通过这两幅壁画打开国际的门。这么多年过去了，我和朱先生也没有再联系，不知这两幅壁画对他的“国际门”有没有效应。</p>
 <h3><a id="%E6%9F%B3%E5%9B%AD%E4%B8%9C%E8%A1%97" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>柳园东街</h3>
 <p><img src="media/16678883852493/16678887149603.jpg" alt="" /><br />
@@ -74,6 +74,38 @@
 <p><img src="media/16678883852493/16678890098519.jpg" alt="" /><br />
 我爬上了柳园制高点--岗楼山，对这个我不留恋但不能忘却的地方，环拍了五张照片，接在了一起是柳园的全景照，以作纪念。</p>
 <p>这就是我现在看见的柳园，事过境迁，外面的世界有巨变，而这里不仅没变，而且更破旧，像是旧衣服又被撕烂了一样。我不留恋这里，因为这里不适合人居住，环境的恶劣，社会设施的简陋，经济发展的滞留，教育文化之落后实在令人胆颤，特别对儿童成长的影响那是很可怕的....曾经我不止一次在接待活动中听“客人”叹息的说，你们能呆在这里就是大贡献啊。确切的说，没有人想生活在这里，当然被迫除外。但我在这里成长生活了四十多年，那些心灵伤疤迄今还隐隐作痛，无论经历怎样平淡或奇葩，柳园不能在我的记忆里消失!</p>
+]]>
+    </content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[给网站加了图片灯箱和代码高亮]]></title>
+    <link href="somenotes.cc/16679654860195.html"/>
+    <updated>2022-11-09T11:44:46+08:00</updated>
+    <id>somenotes.cc/16679654860195.html</id>
+    <content type="html">
+<![CDATA[<h3><a id="%E5%9B%BE%E7%89%87%E7%81%AF%E7%AE%B1" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>图片灯箱</h3>
+<p>灯箱用的是 <a href="https://github.com/fat/zoom.js/">zoom.js</a></p>
+<p>引入：</p>
+<pre><code class="language-html">&lt;link href=&quot;css/zoom.css&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;script src=&quot;js/zoom.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>调用js，在需要的图片上增加的<code>data-action=&quot;zoom&quot;</code> 属性</p>
+<pre><code class="language-javascript">&lt;script&gt;
+    $(function () {
+        $('img').each(function () {
+            $(this).attr(&quot;data-action&quot;, 'zoom');
+        });
+    });
+&lt;/script&gt;
+</code></pre>
+<h3><a id="%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>代码高亮</h3>
+<p>代码高亮用的是 <a href="https://github.com/jlhg/highlight-pack">highlight-pack</a></p>
+<p>直接引入就可以了：</p>
+<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;/path/to/styles/default.css&quot;&gt;
+&lt;script src=&quot;/path/to/highlight.pack.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;hljs.initHighlightingOnLoad();&lt;/script&gt;
+</code></pre>
 ]]>
     </content>
   </entry>
@@ -467,20 +499,6 @@
 </ul>
 </li>
 </ul>
-]]>
-    </content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[居家的心态]]></title>
-    <link href="somenotes.cc/16659720751617.html"/>
-    <updated>2022-10-17T10:01:15+08:00</updated>
-    <id>somenotes.cc/16659720751617.html</id>
-    <content type="html">
-<![CDATA[<p>朋友来家里玩，最近开大会，讨论大会后疫情政策会不会放松一些，也聊了一些居家隔离的话题。朋友说：他还是挺喜欢被居家的，毕竟在家里要自由一些，也没人盯着了。</p>
-<p>但这种心态对于不同的人，感受肯定不一样，钱多活少的打工人肯定喜欢居家了（时间别太长），但对失业的，企业家，跑商务的，病人，老人，独居者等等，都会收到很大的影响，而且基层自组织没起来的话，甚至会出现很多人道主义灾难。</p>
-<p>不过，短期来看，疫情大概不会松动，人日最近连续两天发表了仲音署名文章表示坚持“动态清零”，梁万年的最近的<a href="https://www.caixin.com/2022-10-13/101951453.html">访谈</a>也具体说了不放松的原因。总结下来也就是两个不确定，一个是国内的卫生健康系统的抵抗能力（防控和救治能力）不足；一个是病毒的变异方向，长期影响不确定。所以要继续加强公共卫生干预。</p>
-<p>而放松的条件，在于病毒不那么毒，疫苗的保护更充分（但为什么迟迟不放开RNA疫苗呢），有效药物供应充足，感染源发现更精准迅速等等。不知道多久是个头，希望疫情早日结束吧。</p>
 ]]>
     </content>
   </entry>

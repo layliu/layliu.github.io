@@ -3,7 +3,7 @@
 
 <head>
     <title>
-         最近看到的关于防疫政策的判断 - SOME NOTES 
+         给网站加了图片灯箱和代码高亮 - SOME NOTES 
     </title>
 
     <meta charset="UTF-8">
@@ -64,39 +64,39 @@
     <div class="wrapper">
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
             <header class="post-header">
-                <h1 class="post-title" itemprop="name headline">最近看到的关于防疫政策的判断</h1>
+                <h1 class="post-title" itemprop="name headline">给网站加了图片灯箱和代码高亮</h1>
                 <div class="post-description">
                     
 
-                    <time datetime="2022/11/05">2022/11/05</time>
+                    <time datetime="2022/11/07">2022/11/07</time>
                     <div class="author">@Lay</div>
 
 
                 </div>
             </header>
             <div class="post-content" itemprop="articleBody">
-                <h3><a id="%E6%9B%BE%E5%85%8911%E6%9C%884%E6%97%A5%E5%9C%A8%E8%8A%B1%E6%97%97%E7%9A%84%E8%AE%B2%E8%AF%9D%EF%BC%8C%E6%80%BB%E7%BB%93%E4%BA%86%E4%B8%80%E4%B8%8B%EF%BC%8C%E4%BB%A5%E5%90%8E%E9%AA%8C%E8%AF%81%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>曾光11月4日在花旗的讲话，总结了一下，以后验证：</h3>
-<ul>
-<li>为什么还在坚持清零：有一些政治因素，船大难掉头，但现在准备掉头。以前是经济发展服务于疫情防控，现在需要反过来了。</li>
-<li>开放条件正在积累：1.接种新疫苗，新疫苗出来后将会推动一个接种高峰；2.正在准备抗病毒药物；3.核酸检测高峰已过，检测从免费过度到收费，交通部门会走在前面；4.根据香港经验要尤其提高老年人接种率；5.准备思想解放，新冠教育工作，比如最近说新冠是自限性疾病</li>
-<li>香港内地通关预计明年上半年早于国外优先开放</li>
-<li>有哪些抗病毒药可以应对开放后的新冠治疗：阿兹夫定的，君实药业的VV116</li>
-</ul>
-<hr />
-<h3><a id="%E5%8F%A6%E5%A4%96%E9%AB%98%E7%9B%9B%E6%9C%80%E8%BF%91%E6%80%BB%E7%BB%93%E7%9A%84%E4%B8%AD%E5%9B%BD%E9%87%8D%E6%96%B0%E5%BC%80%E6%94%BE%E7%9A%84%E6%BD%9C%E5%9C%A8%E5%82%AC%E5%8C%96%E5%9B%A0%E7%B4%A0%E5%8F%8A%E5%85%B3%E9%94%AE%E8%8A%82%E7%82%B9%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>另外高盛最近总结的中国重新开放的潜在催化因素及关键节点：</h3>
-<ul>
-<li>进一步放宽香港旅游入境限制；</li>
-<li>WHO宣布新冠病毒大流行结束；</li>
-<li>国产mRNA疫苗上市；</li>
-<li>卫健委新冠诊疗方案（第十版）；</li>
-<li>2023年3月两会；</li>
-<li>新一轮疫苗/加强针接种；</li>
-<li>医疗设施扩充完成；</li>
-<li>成都大运会；</li>
-<li>2023年F1中国大奖；</li>
-<li>国产辉瑞口服药；</li>
-<li>杭州亚运会。</li>
-</ul>
+                <h3><a id="%E5%9B%BE%E7%89%87%E7%81%AF%E7%AE%B1" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>图片灯箱</h3>
+<p>灯箱用的是 <a href="https://github.com/fat/zoom.js/">zoom.js</a></p>
+<p>引入：</p>
+<pre><code class="language-html">&lt;link href=&quot;css/zoom.css&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;script src=&quot;js/zoom.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>调用js，在需要的图片上增加的<code>data-action=&quot;zoom&quot;</code> 属性</p>
+<pre><code class="language-javascript">&lt;script&gt;
+    $(function () {
+        $('img').each(function () {
+            $(this).attr(&quot;data-action&quot;, 'zoom');
+        });
+    });
+&lt;/script&gt;
+</code></pre>
+<h3><a id="%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>代码高亮</h3>
+<p>代码高亮用的是 <a href="https://github.com/jlhg/highlight-pack">highlight-pack</a></p>
+<p>直接引入就可以了：</p>
+<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;/path/to/styles/default.css&quot;&gt;
+&lt;script src=&quot;/path/to/highlight.pack.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;hljs.initHighlightingOnLoad();&lt;/script&gt;
+</code></pre>
 
             </div>
             <div>

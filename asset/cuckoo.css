@@ -160,28 +160,19 @@ ul.entry-list{
 
 .cuckoo img {
   display: block;
-  max-width: 100%;
+  max-width: 50%;
+  filter: grayscale(1);
   max-height: auto;
   margin-left: auto;
   margin-right: auto;
-  /* display: block;
-  width: 100px;
-  height: auto;
-  margin-right: 10px;
-  margin-bottom: 28px;
-  padding: 2px;
-  border-radius: 4px;
-  border: 1px solid #000;
-  float: left; */
+  
 }
 
 
-/* .cuckoo img:hover {
+.cuckoo img:hover {
+  filter: none;
 
-  opacity: 0.7;
-  cursor: pointer;
-
-} */
+}
 
 .cuckoo a img {
   /* Remove border on IE */
@@ -300,7 +291,7 @@ ul.entry-list{
 
 .cuckoo code,
 .cuckoo tt {
-  color: #808080;
+  /* color: #808080; */
   font-size: 0.96em;
   padding: 1px 2px;
   border: 2px dashed #eee;
@@ -311,18 +302,20 @@ ul.entry-list{
 
 .cuckoo pre {
   margin: 1.64em 0;
-  border: 2px dashed #dadada;
+  background-color: #000;
+  border-radius: 4px;
+  /* border: 2px dashed #dadada; */
   padding: 7px 7px 7px 10px;
   overflow: auto;
   line-height: 1.5;
   font-size: 0.96em;
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-  color: #4c4c4c;
+  /* color: #4c4c4c; */
 }
 
 .cuckoo pre code,
 .cuckoo pre tt {
-  color: #4c4c4c;
+  /* color: #4c4c4c; */
   border: none;
   background: none;
   padding: 0;

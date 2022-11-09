@@ -12,13 +12,17 @@
 
     <link rel="stylesheet" type="text/css" href="asset/cuckoo.css">
     <link rel="stylesheet" type="text/css" href="asset/main.css">
-    <link rel="stylesheet" type="text/css" href="asset/atom-one-light.css">
+    <link rel="stylesheet" type="text/css" href="asset/tomorrow.css">
     <link rel="shortcut icon" href="asset/favicon.ico" type="image/x-icon" />
     <link rel="alternate" type="application/atom+xml" href="atom.xml" title="SOME NOTES">
 
- 
+    <link rel="stylesheet" href="asset/zoom.css">
+
     <script src="asset/highlight.pack.js"></script>
-<!--    <script>hljs.initHighlightingOnLoad();</script>-->
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
 </head>
 
 <body>
@@ -28,20 +32,26 @@
             <nav class="site-nav">
                 <a href="#" class="menu-icon">
                     <svg viewBox="0 0 18 15">
-                        <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"></path>
-                        <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"></path>
-                        <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"></path>
+                        <path fill="#424242"
+                            d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z">
+                        </path>
+                        <path fill="#424242"
+                            d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z">
+                        </path>
+                        <path fill="#424242"
+                            d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z">
+                        </path>
                     </svg>
                 </a>
                 <div class="trigger">
                     
-                        <a class="page-link" href="index.html">Home</a>
+                    <a class="page-link" href="index.html">Home</a>
                     
-                        <a class="page-link" href="read.html">Books</a>
+                    <a class="page-link" href="read.html">Books</a>
                     
-                        <a class="page-link" href="about.html">About</a>
+                    <a class="page-link" href="about.html">About</a>
                     
-                        <a class="page-link" href="now.html">🎯</a>
+                    <a class="page-link" href="now.html">🎯</a>
                     
                 </div>
             </nav>
@@ -50,10 +60,7 @@
 </body>
 
 </html>
- 
-
-
-<div class="page-content cuckoo">
+ <div class="page-content cuckoo">
     <div class="wrapper">
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
             <header class="post-header">
@@ -76,23 +83,10 @@
             </div>
             <div>
 
-                <!-- 
-                
-                <div id="disqus_thread"></div>
-                
-                 -->
-                
+
                 <div id="disqus_thread"></div>
                 <script>
-                    /**
-                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-                    
-                    // var disqus_config = function () {
-                    // this.page.url = "somenotes.cc/16661745275803.html";  // Replace PAGE_URL with your page's canonical URL variable
-                    // this.page.identifier = "16661745275803.html"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                    // };
-                    
+                  
                     (function () { // DON'T EDIT BELOW THIS LINE
                         var d = document, s = d.createElement('script');
                         s.src = 'https://somenotes-1.disqus.com/embed.js';
@@ -111,11 +105,25 @@
 
 <script src="asset/jquery-3.3.1.min.js"></script>
 
+<!-- 增加zoom效果 -->
+<script src="asset/zoom.js"></script>
+<!-- <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script> -->
+<script>
+    $(function () {
+        $('img').each(function () {
+            $(this).attr("data-action", 'zoom');
+        });
+    });
+</script>
+
+
+
+
+
 <script>
     $(document).ready(function () {
         $('#footer').show()
     })
-
 
 
 </script>
