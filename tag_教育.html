@@ -3,7 +3,7 @@
 
 <head>
     <title>
-         Adobe AI - SOME NOTES 
+         教育 - SOME NOTES 
     </title>
 
     <meta charset="UTF-8">
@@ -60,77 +60,73 @@
 </body>
 
 </html>
- <div class="page-content cuckoo">
+ 
+
+<div id="loading"></div>
+<div class="page-content cuckoo" id="body" style="display: none">
     <div class="wrapper">
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-            <header class="post-header">
-                <h1 class="post-title" itemprop="name headline">Adobe AI</h1>
-                <div class="post-description">
-                    
-
-                    <time datetime="2022/10/21">2022/10/21</time>
-                    <div class="author">@Lay</div>
-
-
-                </div>
-            </header>
-            <div class="post-content" itemprop="articleBody">
-                <p>在 Adobe 的 <a href="https://www.adobe.com/max/2022/sessions/max-sneaks-mb6.html">MAX Sneaks</a> 活动上，Adobe 演示了很多非常实用的 AI 工具，包括识别图片中人和背景的关系，进行背景联想，更换背景；也可以按关键词自动生成在剧照中生成和剧照匹配物体；也可以在视频会议的时候自动识别记录不同人的声音文字动作等。</p>
-<p>感慨，商业上“经济的鞭子”总会让媒介工具的演变朝着在往更能被普通人生产和消费的方向去走的，恰如印刷术，互联网等。而每一次工具变革也都会带来一场新的认知革命，重新塑造人们的理智，心灵。让优秀的内容越来越普世，越来越民主。而社会也是在这种不断创新中，逐渐进步的。</p>
-<p>不过 Adobe 展示的这些功能大概是需要挺多显卡算力的，不知道多久后能在普通电脑上实现。</p>
-
+        <div class="home">
+            <div class="divider">
+                <p></p>
             </div>
-
+           
+            <h2 >
+                <span style="color: #b2b2b2;">#教育</span>
+            </h2>
             
-            <span style="font-size: 12px;"></span>&nbsp;
-              
+            
+            <ul class="entry-list">
+                
+                <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
+                    <div class="entry-detail">
+
+                        <!-- new -->
+
+                       
+                        <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/10/19">2022-10-19T11:50:45+08:00</time></div>
+                        
+                        <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16662378455193.html">李永乐谈教育</a></h2>
+                        
+                        
+                        <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
+                        
+
+                        
+                        
+                        
+                        <div itemprop="description" class="entry-description">
+                            
+                        </div>
 
 
-            <div>
+                        
+
+                    </div>
+                </li>
+                
+            </ul>
 
 
-                <div id="disqus_thread"></div>
-                <script>
-                  
-                    (function () { // DON'T EDIT BELOW THIS LINE
-                        var d = document, s = d.createElement('script');
-                        s.src = 'https://somenotes-1.disqus.com/embed.js';
-                        s.setAttribute('data-timestamp', +new Date());
-                        (d.head || d.body).appendChild(s);
-                    })();
-                </script>
-                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments
-                        powered by Disqus.</a></noscript>
-
-
-
-        </article>
+            <p class="paging">
+                 
+            </p>
+        </div>
     </div>
 </div>
 
 <script src="asset/jquery-3.3.1.min.js"></script>
-
-<!-- 增加zoom效果 -->
-<script src="asset/zoom.js"></script>
-<!-- <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script> -->
-<script>
-    $(function () {
-        $('img').each(function () {
-            $(this).attr("data-action", 'zoom');
-        });
-    });
-</script>
-
-
-
-
+<script src="asset/utils.js"></script>
 
 <script>
     $(document).ready(function () {
+        $('.entry-updated-time').each(function () {
+            let parsedTime = parseTime($(this).text()).slice(0, 10)
+            $(this).text(parsedTime)
+        })
+        $('#loading').hide()
+        $('#body').show()
         $('#footer').show()
     })
-
-
 </script>
   <!-- <footer id="footer" class="cuckoo page-footer" style="display: none">
     <div class="wrapper">
