@@ -3,11 +3,194 @@
   <title><![CDATA[SOME NOTES]]></title>
   <link href="somenotes.cc/atom.xml" rel="self"/>
   <link href="somenotes.cc/"/>
-  <updated>2022-12-12T16:21:04+08:00</updated>
+  <updated>2022-12-26T17:21:36+08:00</updated>
   <id>somenotes.cc/</id>
   <author>
     <name><![CDATA[]]></name>
   </author>
+  
+  <entry>
+    <title type="html"><![CDATA[新闻订阅白嫖插件]]></title>
+    <link href="somenotes.cc/16720450115147.html"/>
+    <updated>2022-12-26T16:56:51+08:00</updated>
+    <id>somenotes.cc/16720450115147.html</id>
+    <content type="html">
+<![CDATA[<p>推荐一个可以白嫖新闻订阅的浏览器插件 <a href="https://github.com/iamadamdev/bypass-paywalls-chrome">bypass-paywalls-chrome</a></p>
+<h3><a id="%E6%94%AF%E6%8C%81%E7%BD%91%E7%AB%99%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>支持网站：</h3>
+<ul>
+<li>Adweek</li>
+<li>Algemeen Dagblad</li>
+<li>American Banker</li>
+<li>Ámbito</li>
+<li>Baltimore Sun</li>
+<li>Barron's</li>
+<li>Bloomberg Quint</li>
+<li><strong>Bloomberg</strong></li>
+<li>BN De Stem</li>
+<li>Boston Globe</li>
+<li>Brabants Dagblad</li>
+<li>Brisbane Times</li>
+<li>Business Insider</li>
+<li>**Caixin **</li>
+<li>Central Western Daily</li>
+<li>Chemical &amp; Engineering News</li>
+<li>Chicago Tribune</li>
+<li>Corriere Della Sera</li>
+<li>Crain's Chicago Business</li>
+<li>Daily Press</li>
+<li>De Gelderlander</li>
+<li>De Groene Amsterdammer</li>
+<li>De Stentor</li>
+<li>De Speld</li>
+<li>De Tijd</li>
+<li>De Volkskrant</li>
+<li>DeMorgen</li>
+<li>Denver Post</li>
+<li>Diario Financiero</li>
+<li>Domani</li>
+<li>Dynamed Plus</li>
+<li>Eindhovens Dagblad</li>
+<li>El Mercurio</li>
+<li>El Pais</li>
+<li>El Periodico</li>
+<li>Elu24</li>
+<li>Encyclopedia Britannica</li>
+<li>Estadão</li>
+<li>Examiner</li>
+<li>Expansión</li>
+<li>Financial News</li>
+<li>Financial Post</li>
+<li><strong>Financial Times</strong></li>
+<li>First Things</li>
+<li>Foreign Policy</li>
+<li>Fortune</li>
+<li>Genomeweb</li>
+<li>Glassdoor</li>
+<li>Globes</li>
+<li>Grubstreet</li>
+<li>Haaretz.co.il</li>
+<li>Haaretz.com</li>
+<li>Harper's Magazine</li>
+<li>Hartford Courant</li>
+<li>Harvard Business Review</li>
+<li>Harvard Business Review China</li>
+<li>Herald Sun</li>
+<li>Het Financieel Dagblad</li>
+<li>History Extra</li>
+<li>Humo</li>
+<li>Il Manifesto</li>
+<li>Il Messaggero</li>
+<li>Inc.com</li>
+<li>Interest.co.nz</li>
+<li>Investors Chronicle L'Écho</li>
+<li>L.A. Business Journal</li>
+<li>La Nación</li>
+<li>La Repubblica</li>
+<li>La Stampa</li>
+<li>La Tercera</li>
+<li>La Voix du Nord</li>
+<li>Le Devoir</li>
+<li>Le Parisien</li>
+<li>Les Échos</li>
+<li>Loeb Classical Library</li>
+<li>London Review of Books</li>
+<li>Los Angeles Times</li>
+<li>MIT Sloan Management Review</li>
+<li>MIT Technology Review</li>
+<li>Medium</li>
+<li>Medscape</li>
+<li>Mexicon News Daily</li>
+<li>Mountain View Voice</li>
+<li>National Geographic</li>
+<li>New York Daily News</li>
+<li>NRC Handelsblad</li>
+<li>NT News</li>
+<li>National Post</li>
+<li>Neue Zürcher Zeitung</li>
+<li>New York Magazine</li>
+<li>New Zealand Herald</li>
+<li>Orange County Register</li>
+<li>Orlando Sentinel</li>
+<li>PZC</li>
+<li>Palo Alto Online</li>
+<li>Parool</li>
+<li>Postimees</li>
+<li>Quartz</li>
+<li>Quora</li>
+<li>Quotidiani Gelocal</li>
+<li>Republic.ru</li>
+<li>Reuters</li>
+<li>San Diego Union Tribune</li>
+<li>San Francisco Chronicle</li>
+<li>Scientific American</li>
+<li>Seeking Alpha</li>
+<li>Slate</li>
+<li>SOFREP</li>
+<li>Statista</li>
+<li>Star Tribune</li>
+<li>Stuff</li>
+<li>SunSentinel</li>
+<li>Tech in Asia</li>
+<li>Telegraaf</li>
+<li>The Advertiser</li>
+<li>The Advocate</li>
+<li>The Age</li>
+<li>The American Interest</li>
+<li>The Athletic</li>
+<li>The Athletic (UK)</li>
+<li>The Atlantic</li>
+<li>The Australian Financial Review</li>
+<li>The Australian</li>
+<li>The Business Journals</li>
+<li>The Canberra Times</li>
+<li>The Courier</li>
+<li>The Courier Mail</li>
+<li>The Cut</li>
+<li>The Daily Telegraph</li>
+<li>The Diplomat</li>
+<li><strong>The Economist</strong></li>
+<li>The Globe and Mail</li>
+<li>The Herald</li>
+<li>The Hindu</li>
+<li>The Irish Times</li>
+<li>The Japan Times</li>
+<li>The Kansas City Star</li>
+<li>The Mercury News</li>
+<li>The Mercury Tasmania</li>
+<li>The Morning Call</li>
+<li>The Nation</li>
+<li>The National</li>
+<li>The New Statesman</li>
+<li>The New York Times</li>
+<li>The New Yorker</li>
+<li>The News-Gazette</li>
+<li>The Olive Press</li>
+<li>The Philadelphia Inquirer</li>
+<li>The Saturday Paper</li>
+<li>The Seattle Times</li>
+<li>The Spectator Australia</li>
+<li>The Spectator</li>
+<li>The Sydney Morning Herald</li>
+<li>The Telegraph</li>
+<li>The Toronto Star</li>
+<li><strong>The Wall Street Journal</strong></li>
+<li>The Washington Post</li>
+<li>The Wrap</li>
+<li>TheMarker</li>
+<li>Times Literary Supplement</li>
+<li>Towards Data Science</li>
+<li>Trouw</li>
+<li>Tubantia</li>
+<li>Vanity Fair</li>
+<li>Vrij Nederland</li>
+<li>Vulture</li>
+<li>Winston-Salem Journal</li>
+<li>Wired</li>
+<li>Zeit Online</li>
+</ul>
+]]>
+    </content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[新冠感染记录]]></title>
@@ -20,11 +203,12 @@
 <li>12月12日：邻座同事感染</li>
 <li>12月14日（第一天）：开始中招。有点咳嗽，痰多，身上发冷，晚上回家的时候测了体温，38.5度。因为怕冷，所以开了电热毯睡觉（后面才知道发烧不应该开），不知道是不是这个原因发烧变的更严重了。当晚高热全身酸痛难以入眠，吃了布洛芬不管用，心率一直很高，最后冷敷了毛巾逐渐入睡。</li>
 <li>12月15日（第二天）：继续高烧，在床上冷敷毛巾敷了一天，头痛欲裂，眼睛干涩。后面才知道<strong>退烧药最好不要买布洛芬缓释的，缓释的主要是止痛</strong>，对乙可能更好一些。</li>
-<li>12月16日（第三天）：没有发烧了，但依然有点头痛，开始咳嗽加剧。</li>
+<li>12月16日（第三天）：没有发烧了，精神开始恢复，但依然有点头痛，开始咳嗽加剧。</li>
 <li>12月17日（第四天）：偶尔咳嗽+止不住的流鼻子</li>
 <li>12月18日（第五天）：偶尔咳嗽+止不住的流鼻子</li>
 <li>12月19日（第六天）：咳嗽变的很少了，也不怎么流鼻涕了</li>
 <li>12月20日（第七天）：咳嗽流鼻涕基本缓解了。</li>
+<li>12月21-12月24：中间会偶尔咳嗽留鼻涕，直到24号终于结束了。</li>
 </ul>
 ]]>
     </content>
@@ -347,28 +531,6 @@
 <p>其实表情也一样，以前我们发微笑表情就可以表达开心，而发展到后面，则开始变为的越来越夸装，先是表情夸张，笑哭，捂脸哭，到现在则是很激烈高频的动图来表示激动开心，不知道发展到后面还会怎么升级呢？🤔</p>
 <p>文中分析了这些现象可能产生的原因并表达了一些可能的担心，比如思考的惯性和懒惰，语言的粗糙和浅薄等等</p>
 <p>不过我个人感觉只其实算是年轻人的一种活力体现吧，年轻人为了表达自己的「存在」，总会选择和上一代人不一样的生活方式，表达方式，语言自然也是一样的。没有必要太过严肃，把通俗表达拔高到文学层次上。另外针对现在年轻人交流中总上出现的字母表达，我其实也比较乐观。按照世界一体化人的趋势，日常语言中中英文早晚会越来越混合使用，就像现在的日语一样。</p>
-]]>
-    </content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[放开的风开始吹了]]></title>
-    <link href="somenotes.cc/16681524262981.html"/>
-    <updated>2022-11-11T15:40:26+08:00</updated>
-    <id>somenotes.cc/16681524262981.html</id>
-    <content type="html">
-<![CDATA[<p>最近关于疫情管控，终于有点放开的消息了。</p>
-<p>国家卫健委发布《关于进一步优化新冠肺炎疫情防控措施 科学精准做好防控工作的通知》。其中提出：<br />
-1、取消入境航班熔断机制<br />
-2、对入境人员 将“7天集中隔离+3天居家健康监测”调整为“5天集中隔离+3天居家隔离”<br />
-3、加大“一刀切”、层层加码问题整治力度<br />
-4、加快新冠肺炎治疗相关药物储备<br />
-5、将风险区由“高、中、低”三类调整为“高、低”两类 最大限度减少管控人员<br />
-6、及时准确判定密切接触者 不再判定密接的密接<br />
-7、对密切接触者 将“7天集中隔离+3天居家健康监测”管理措施调整为“5天集中隔离+3天居家隔离”<br />
-8、做好住院床位和重症床位准备 增加救治资源<br />
-…</p>
-<p>之前看到了太多因为封控导致的人道主义灾难，负面情绪比较多，现在事情终于开始朝着另一个方向发展了，不过未来估计会有一轮集中爆发，希望能平稳过度，拉平曲线吧。从股市市场上看，目前利好偏多一些。</p>
 ]]>
     </content>
   </entry>
