@@ -65,6 +65,10 @@ a.site-title:hover {
     display: none;
   }
 
+  .entry-updated-time{
+    display: none !important;
+  }
+
   .site-nav {
     position: absolute;
     top: 9px;
