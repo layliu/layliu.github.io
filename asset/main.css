@@ -65,6 +65,13 @@ a.site-title:hover {
     display: none;
   }
 
+  ul#search-wrap{
+    display: none;
+  }
+  .site-header{
+    border-bottom: 3px solid #000;
+  }
+
   h2.pitem{
     display: flex;
   }

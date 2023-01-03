@@ -21,6 +21,7 @@
     <script src="asset/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 
+    
 
 
 </head>
@@ -56,15 +57,39 @@
                 </div>
             </nav>
         </div>
+
+        
+
     </header>
 </body>
 
 </html>
- 
+ <script type="text/javascript">
+    function before_search() {
+        var searchVal = 'site:somenotes.cc ' + document.getElementById('search_input').value;
+        document.getElementById('search_q').value = searchVal;
+        return true;
+    }
+</script>
+
 
 <div id="loading"></div>
+
+
 <div class="page-content cuckoo" id="body" style="display: none">
     <div class="wrapper">
+
+        <ul class="right" id="search-wrap">
+            <li>
+                <form target="_blank" onsubmit="return before_search();" action="https://google.com/search"
+                    method="get">
+                    <input type="hidden" id="search_q" name="q" value="" />
+                    <input tabindex="1" type="search" id="search_input" placeholder="搜索内容" />
+                </form>
+            </li>
+        </ul>
+
+
         <div class="home">
             <div class="divider">
                 <p></p>
@@ -72,6 +97,30 @@
 
             
             <ul class="entry-list">
+                
+                <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
+                    <div class="entry-detail">
+
+                        <!-- new -->
+
+                       
+                        <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2023/01/03">2023-01-03T12:00:53+08:00</time></div>
+                        
+                        <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16727184535645.html">读《下沉年代》</a></h2>
+                        
+                        
+                        <span class="posted-cats"><a href='BookNotes.html'>BookNotes</a></span>
+                        
+                        
+                        
+                        
+                        <div itemprop="description" class="entry-description">
+                            
+                        </div>
+
+
+                    </div>
+                </li>
                 
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
