@@ -65,8 +65,8 @@ a.site-title:hover {
     display: none;
   }
 
-  .entry-updated-time{
-    display: none !important;
+  h2.pitem{
+    display: flex;
   }
 
   .site-nav {
