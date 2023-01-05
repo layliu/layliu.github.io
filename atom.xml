@@ -3,11 +3,24 @@
   <title><![CDATA[SOME NOTES]]></title>
   <link href="somenotes.cc/atom.xml" rel="self"/>
   <link href="somenotes.cc/"/>
-  <updated>2023-01-05T11:18:21+08:00</updated>
+  <updated>2023-01-05T14:41:04+08:00</updated>
   <id>somenotes.cc/</id>
   <author>
     <name><![CDATA[]]></name>
   </author>
+  
+  <entry>
+    <title type="html"><![CDATA[极端暖冬]]></title>
+    <link href="somenotes.cc/16728992023904.html"/>
+    <updated>2023-01-05T14:13:22+08:00</updated>
+    <id>somenotes.cc/16728992023904.html</id>
+    <content type="html">
+<![CDATA[<p>看新闻说今年是个<a href="https://mini.caixin.com/2023-01-05/101985478.html?originReferrer=weibo#r2">极端暖冬</a>。 对比年中的时候的极热，那时大家纷纷猜测今年冬天肯定很冷，但结果却是暖冬。今年成都最冷的天气也在678度左右，并不刺骨，今天气温已经回升到十多度了，中午太阳晒下来，还有点微微发热。2022全年下来，估计全国平均温度都会升高不少吧。</p>
+<p><img src="media/16728992023904/16729007217814.jpg" alt="" /></p>
+<p>进几年的气候变化似乎越来越明显了，现代化工业化的生产活动低效的消耗了大量的能量，产生的二氧化碳像个锅盖一样罩住地球，南极融化海平面上升，极热洪水暴雪暖冬相继而至。人与自然的关系似乎越来越不和谐了，在这种预期越来越不确定的情况下，人的生产生活估计都会收到很大的影响，🤔比如今年的羽绒服估计就会少卖不少。</p>
+]]>
+    </content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[通江见闻]]></title>
@@ -544,21 +557,6 @@
     <content type="html">
 <![CDATA[<p>Z-library 被封了，为了再次正常使用，所以下载了Tor浏览器鼓捣了一番，成功登录了 Z-library 账号。顺便浏览了下暗网的东西，感觉上面的东西很像 web1.0 时候的内容，大量跳跃的贴片广告，色情，枪支，赌博等等，估计不少是搞诈骗的，没啥兴趣。</p>
 <p>不过也许真正有价值的并没有浮现出来，只在小部分人群中流动。</p>
-]]>
-    </content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[个人养老金]]></title>
-    <link href="somenotes.cc/16691712164517.html"/>
-    <updated>2022-11-23T10:40:16+08:00</updated>
-    <id>somenotes.cc/16691712164517.html</id>
-    <content type="html">
-<![CDATA[<p>最近个人养老金政策挺火的，是政府牵头的一个补充养老保险制度，很多支持买的平台都在打广告拉人头。</p>
-<p>目前来看养老账户的优点在于：<br />
-1、对于有自己长期投资渠道的公民来说，提供了递延节税的价值；<br />
-2、对于暂时没有长期投资渠道甚至理念的人而言，提供了强制储蓄手段和长期投资的产品；<br />
-3、还有一点有利于股市：这个账户给市场带来了新的、大体量的长期资金，应该会更多熨平市场的极端波动，提供更好的长期持有体验。</p>
 ]]>
     </content>
   </entry>
