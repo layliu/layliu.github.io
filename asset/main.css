@@ -65,6 +65,10 @@ a.site-title:hover {
     display: none;
   }
 
+  .container{
+    display: none;
+  }
+
   ul#search-wrap{
     display: none;
   }

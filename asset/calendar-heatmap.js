@@ -21,7 +21,7 @@ function calendarHeatmap() {
   var onClick = null;
   var weekStart = 1; //0 for Sunday, 1 for Monday
   var locale = {
-    months: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+    months: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
     days: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
     No: 'No',
     on: 'on',
@@ -142,6 +142,8 @@ function calendarHeatmap() {
         .attr('class', 'day-cell')
         .attr('width', SQUARE_LENGTH)
         .attr('height', SQUARE_LENGTH)
+        .attr('rx', 2)
+        .attr('ry', 2)
         .attr('fill', function(d) { return color(countForDate(d)); })
         .attr('x', function (d, i) {
           var cellDate = moment(d);

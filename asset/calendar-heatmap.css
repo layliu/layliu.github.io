@@ -3,7 +3,6 @@ text.calendar-heatmap-legend-text,
 text.day-initial {
   font-size: 10px;
   fill: inherit;
-  font-weight: 600;
   /* font-family: Helvetica, arial, 'Open Sans', sans-serif; */
 }
 rect.day-cell:hover {
@@ -21,12 +20,12 @@ rect.day-cell:hover {
   text-align: center;
 }
 .day-cell-tooltip > span {
-  font-family: Helvetica, arial, 'Open Sans', sans-serif
+  /* font-family: Helvetica, arial, 'Open Sans', sans-serif */
 }
 .calendar-heatmap {
   box-sizing: initial;
   height: 170px;
-  width: 870px;
+  width: 873px;
 }
 
 g {
