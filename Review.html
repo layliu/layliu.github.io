@@ -72,14 +72,20 @@
     }
 </script>
 
+<!-- 引入 D3.js 和热力图库 -->
+<link rel="stylesheet" type="text/css" href="asset/calendar-heatmap.css">
+<script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js" charset="utf-8"></script>
+<script type='text/javascript' src='asset/calendar-heatmap.js'></script>
+
+
 
 <div id="loading"></div>
-
 
 <div class="page-content cuckoo" id="body" style="display: none">
     <div class="wrapper">
 
-        <ul class="right" id="search-wrap">
+        <!-- <ul class="right" id="search-wrap">
             <li>
                 <form target="_blank" onsubmit="return before_search();" action="https://google.com/search"
                     method="get">
@@ -87,23 +93,22 @@
                     <input tabindex="1" type="search" id="search_input" placeholder="搜索内容" />
                 </form>
             </li>
-        </ul>
+        </ul> -->
 
+        <div class="container"></div>
+        
+        
 
         <div class="home">
             <div class="divider">
                 <p></p>
             </div>
 
-            
             <ul class="entry-list">
                 
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2023/05/06">2023-05-06T18:13:50+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16939952306382.html">一些值得关注时事学者</a></h2>
@@ -112,12 +117,9 @@
                         <span class="posted-cats"><a href='Review.html'>Review</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -125,9 +127,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/12/29">2022-12-29T11:10:03+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16722834033179.html">2022 年终总结</a></h2>
@@ -136,18 +135,14 @@
                         <span class="posted-cats"><a href='Review.html'>Review</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
                 
             </ul>
-
 
             <p class="paging">
                  
@@ -156,8 +151,10 @@
     </div>
 </div>
 
-<script src="asset/jquery-3.3.1.min.js"></script>
-<script src="asset/utils.js"></script>
+<script src="asset/jquery-3.3.1.min.js"></script> 
+ <script src="asset/utils.js"></script>
+
+
 
 <script>
     $(document).ready(function () {
@@ -169,11 +166,61 @@
         $('#body').show()
         $('#footer').show()
     })
+
+</script>
+
+    <!-- 生成数据数组并渲染热力图 -->
+    <script>
+    // 初始化一个空对象，用于存储每天的更新次数
+    const updateCounts = [];
+
+    // 遍历所有文章
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2023/05/06"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2022/12/29"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+
+    //将统计结果转换为数组
+    const blogUpdates = Object.keys(updateCounts).map(pd => ({
+            date: new Date(pd),
+            count: updateCounts[pd]
+        }));
+    console.log(blogUpdates);
+
+
+    // 渲染热力图
+    var heatmap = calendarHeatmap()
+        .data(blogUpdates)
+        .selector('.container')
+        .tooltipEnabled(true)
+        .colorRange(['#F2F2F4', '#000000'])
+
+    heatmap();  // 渲染图表
+
 </script>
   <!-- <footer id="footer" class="cuckoo page-footer" style="display: none">
     <div class="wrapper">
         <p>Designed and Written by <a href="mailto:justbb@gmail.com">liulei</a></p>
     </div>
 </footer> -->
-
-
+<!-- 
+ -->

@@ -132,7 +132,7 @@ a.site-title:hover {
 
 .home {
   max-width: 800px;
-  margin-top: 2em;
+  /* margin-top: 2em; */
 }
 
 li.entry-item {
@@ -255,4 +255,23 @@ a.page-link {
 
 ul.post-list {
   margin-top: 2em;
+}
+
+/* 热力图样式 */
+.heatmap-container {
+  margin: 20px 0;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#calendar-heatmap {
+  margin-top: 10px;
+}
+
+.heatmap-container h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #333;
 }

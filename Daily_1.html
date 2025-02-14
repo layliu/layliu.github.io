@@ -72,14 +72,20 @@
     }
 </script>
 
+<!-- 引入 D3.js 和热力图库 -->
+<link rel="stylesheet" type="text/css" href="asset/calendar-heatmap.css">
+<script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js" charset="utf-8"></script>
+<script type='text/javascript' src='asset/calendar-heatmap.js'></script>
+
+
 
 <div id="loading"></div>
-
 
 <div class="page-content cuckoo" id="body" style="display: none">
     <div class="wrapper">
 
-        <ul class="right" id="search-wrap">
+        <!-- <ul class="right" id="search-wrap">
             <li>
                 <form target="_blank" onsubmit="return before_search();" action="https://google.com/search"
                     method="get">
@@ -87,23 +93,40 @@
                     <input tabindex="1" type="search" id="search_input" placeholder="搜索内容" />
                 </form>
             </li>
-        </ul>
+        </ul> -->
 
+        <div class="container"></div>
+        
+        
 
         <div class="home">
             <div class="divider">
                 <p></p>
             </div>
 
-            
             <ul class="entry-list">
                 
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
+                        <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/09/27">2022-09-27T09:48:18+08:00</time></div>
+                        
+                        <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16642432987036.html">小区电梯维权</a></h2>
+                        
+                        
+                        <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
+                        
+                        
+                        <div itemprop="description" class="entry-description">
+                            
+                        </div>
 
-                       
+                    </div>
+                </li>
+                
+                <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
+                    <div class="entry-detail">
+
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/09/26">2022-09-26T17:14:59+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16641836998351.html">整理生活</a></h2>
@@ -112,12 +135,9 @@
                         <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -125,9 +145,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/09/25">2022-09-25T10:22:53+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16641589735171.html">凌晨5点的车站</a></h2>
@@ -136,12 +153,9 @@
                         <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -149,9 +163,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/09/24">2022-09-24T22:23:54+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16639430343796.html">邓紫棋的新专辑</a></h2>
@@ -160,12 +171,9 @@
                         <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -173,9 +181,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/09/23">2022-09-23T11:05:15+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16639023155376.html">世界的另一面</a></h2>
@@ -184,12 +189,9 @@
                         <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -197,9 +199,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/09/22">2022-09-22T17:43:06+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16638397863027.html">都别太把自己当回事儿</a></h2>
@@ -208,12 +207,9 @@
                         <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -221,9 +217,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/02/22">2022-02-22T16:54:17+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16641824579821.html">把英语用起来</a></h2>
@@ -232,12 +225,9 @@
                         <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -245,9 +235,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2021/10/28">2021-10-28T15:23:07+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16354057874387.html">好物推荐：海信 A5Pro</a></h2>
@@ -256,18 +243,14 @@
                         <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
                 
             </ul>
-
 
             <p class="paging">
                 
@@ -278,8 +261,10 @@
     </div>
 </div>
 
-<script src="asset/jquery-3.3.1.min.js"></script>
-<script src="asset/utils.js"></script>
+<script src="asset/jquery-3.3.1.min.js"></script> 
+ <script src="asset/utils.js"></script>
+
+
 
 <script>
     $(document).ready(function () {
@@ -291,11 +276,127 @@
         $('#body').show()
         $('#footer').show()
     })
+
+</script>
+
+    <!-- 生成数据数组并渲染热力图 -->
+    <script>
+    // 初始化一个空对象，用于存储每天的更新次数
+    const updateCounts = [];
+
+    // 遍历所有文章
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2022/09/27"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2022/09/26"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2022/09/25"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2022/09/24"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2022/09/23"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2022/09/22"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2022/02/22"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2021/10/28"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+
+    //将统计结果转换为数组
+    const blogUpdates = Object.keys(updateCounts).map(pd => ({
+            date: new Date(pd),
+            count: updateCounts[pd]
+        }));
+    console.log(blogUpdates);
+
+
+    // 渲染热力图
+    var heatmap = calendarHeatmap()
+        .data(blogUpdates)
+        .selector('.container')
+        .tooltipEnabled(true)
+        .colorRange(['#F2F2F4', '#000000'])
+
+    heatmap();  // 渲染图表
+
 </script>
   <!-- <footer id="footer" class="cuckoo page-footer" style="display: none">
     <div class="wrapper">
         <p>Designed and Written by <a href="mailto:justbb@gmail.com">liulei</a></p>
     </div>
 </footer> -->
-
-
+<!-- 
+ -->

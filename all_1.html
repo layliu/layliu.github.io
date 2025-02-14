@@ -72,14 +72,20 @@
     }
 </script>
 
+<!-- 引入 D3.js 和热力图库 -->
+<link rel="stylesheet" type="text/css" href="asset/calendar-heatmap.css">
+<script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js" charset="utf-8"></script>
+<script type='text/javascript' src='asset/calendar-heatmap.js'></script>
+
+
 
 <div id="loading"></div>
-
 
 <div class="page-content cuckoo" id="body" style="display: none">
     <div class="wrapper">
 
-        <ul class="right" id="search-wrap">
+        <!-- <ul class="right" id="search-wrap">
             <li>
                 <form target="_blank" onsubmit="return before_search();" action="https://google.com/search"
                     method="get">
@@ -87,23 +93,40 @@
                     <input tabindex="1" type="search" id="search_input" placeholder="搜索内容" />
                 </form>
             </li>
-        </ul>
+        </ul> -->
 
+        <div class="container"></div>
+        
+        
 
         <div class="home">
             <div class="divider">
                 <p></p>
             </div>
 
-            
             <ul class="entry-list">
                 
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
+                        <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/10/17">2022-10-17T11:24:39+08:00</time></div>
+                        
+                        <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16660634790266.html">回顾书本的一种方法：听书</a></h2>
+                        
+                        
+                        <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
+                        
+                        
+                        <div itemprop="description" class="entry-description">
+                            
+                        </div>
 
-                       
+                    </div>
+                </li>
+                
+                <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
+                    <div class="entry-detail">
+
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/10/16">2022-10-16T12:51:51+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16659823115291.html">二十大报告</a></h2>
@@ -112,12 +135,9 @@
                         <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -125,9 +145,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/10/15">2022-10-15T10:01:15+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16659720751617.html">居家的心态</a></h2>
@@ -136,12 +153,9 @@
                         <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -149,9 +163,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/10/14">2022-10-14T10:40:28+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16657152285214.html">去中心化的价值</a></h2>
@@ -160,12 +171,9 @@
                         <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -173,9 +181,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/10/13">2022-10-13T15:31:32+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16656462920520.html">黄奇帆怎么记笔记</a></h2>
@@ -184,12 +189,9 @@
                         <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -197,9 +199,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/10/12">2022-10-12T10:44:25+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16655426656895.html">多做确定性的事情</a></h2>
@@ -208,12 +207,9 @@
                         <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -221,9 +217,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/10/11">2022-10-11T16:50:29+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16653918295696.html">柳园镇往事 01</a></h2>
@@ -232,12 +225,9 @@
                         <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -245,9 +235,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/10/11">2022-10-11T11:37:57+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16654594773948.html">一些可能的趋势</a></h2>
@@ -256,12 +243,9 @@
                         <span class="posted-cats"><a href='Others.html'>Others</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -269,9 +253,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/10/10">2022-10-10T11:24:59+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16653722991071.html">喜迎20大</a></h2>
@@ -280,12 +261,9 @@
                         <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -293,9 +271,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/10/09">2022-10-09T16:56:35+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16653057950805.html">读《土摩托看世界 2020》</a></h2>
@@ -304,12 +279,9 @@
                         <span class="posted-cats"><a href='BookNotes.html'>BookNotes</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -317,9 +289,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/10/09">2022-10-09T15:54:46+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16653020865258.html">日本的性别矛盾问题</a></h2>
@@ -328,12 +297,9 @@
                         <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -341,9 +307,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/10/08">2022-10-08T09:43:46+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16651934263586.html">媒体的「自律」</a></h2>
@@ -352,12 +315,9 @@
                         <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -365,9 +325,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/10/07">2022-10-07T13:42:47+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16652077671035.html">令人羡慕的小区</a></h2>
@@ -376,12 +333,9 @@
                         <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -389,9 +343,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/10/06">2022-10-06T17:05:18+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16655655188100.html">4.6元的高粱</a></h2>
@@ -400,12 +351,9 @@
                         <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -413,9 +361,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/10/04">2022-10-04T16:52:26+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16652191461562.html">吐槽「智能」电视</a></h2>
@@ -424,12 +369,9 @@
                         <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -437,9 +379,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/10/03">2022-10-03T23:26:08+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16648971685677.html">和妈妈聊天</a></h2>
@@ -448,12 +387,9 @@
                         <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -461,9 +397,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/10/02">2022-10-02T23:07:47+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16648960672663.html">刻板印象</a></h2>
@@ -472,12 +405,9 @@
                         <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -485,9 +415,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/10/01">2022-10-01T22:28:55+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16648073350710.html">开车回家</a></h2>
@@ -496,12 +423,9 @@
                         <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -509,9 +433,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/09/29">2022-09-29T17:23:00+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16644433809655.html">人民新华跌停</a></h2>
@@ -520,12 +441,9 @@
                         <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -533,9 +451,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/09/28">2022-09-28T14:50:24+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16643478244477.html">多给自己留些固定时间</a></h2>
@@ -544,12 +459,9 @@
                         <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -557,9 +469,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/09/27">2022-09-27T09:48:18+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16642432987036.html">小区电梯维权</a></h2>
@@ -568,12 +477,9 @@
                         <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -581,9 +487,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/09/26">2022-09-26T17:14:59+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16641836998351.html">整理生活</a></h2>
@@ -592,12 +495,9 @@
                         <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -605,9 +505,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/09/25">2022-09-25T10:22:53+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16641589735171.html">凌晨5点的车站</a></h2>
@@ -616,12 +513,9 @@
                         <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -629,9 +523,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/09/24">2022-09-24T22:23:54+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16639430343796.html">邓紫棋的新专辑</a></h2>
@@ -640,12 +531,9 @@
                         <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -653,9 +541,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/09/24">2022-09-24T17:55:44+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16639269445218.html">读《政治的人生》</a></h2>
@@ -664,12 +549,9 @@
                         <span class="posted-cats"><a href='BookNotes.html'>BookNotes</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -677,9 +559,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/09/23">2022-09-23T11:05:15+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16639023155376.html">世界的另一面</a></h2>
@@ -688,12 +567,9 @@
                         <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -701,9 +577,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/09/22">2022-09-22T17:43:06+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16638397863027.html">都别太把自己当回事儿</a></h2>
@@ -712,12 +585,9 @@
                         <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -725,9 +595,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/08/23">2022-08-23T10:47:55+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16612228757176.html">读《Delivering Happiness》</a></h2>
@@ -736,12 +603,9 @@
                         <span class="posted-cats"><a href='BookNotes.html'>BookNotes</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -749,9 +613,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/02/22">2022-02-22T16:54:17+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16641824579821.html">把英语用起来</a></h2>
@@ -760,12 +621,9 @@
                         <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -773,9 +631,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/02/17">2022-02-17T14:08:05+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16527676850179.html">读《治国理政（第三卷）》</a></h2>
@@ -784,12 +639,9 @@
                         <span class="posted-cats"><a href='BookNotes.html'>BookNotes</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -797,9 +649,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2021/12/27">2021-12-27T10:54:10+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16405736506702.html">读《冲浪板上的公司》</a></h2>
@@ -808,12 +657,9 @@
                         <span class="posted-cats"><a href='BookNotes.html'>BookNotes</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -821,9 +667,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2021/12/16">2021-12-16T16:15:37+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16396425376434.html">读《新教伦理与资本主义精神》</a></h2>
@@ -832,12 +675,9 @@
                         <span class="posted-cats"><a href='BookNotes.html'>BookNotes</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -845,9 +685,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2021/12/01">2021-12-01T17:33:47+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16641848273013.html">读《fact fulness》</a></h2>
@@ -856,12 +693,9 @@
                         <span class="posted-cats"><a href='BookNotes.html'>BookNotes</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -869,9 +703,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2021/10/28">2021-10-28T15:23:07+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16354057874387.html">好物推荐：海信 A5Pro</a></h2>
@@ -880,12 +711,9 @@
                         <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -893,9 +721,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2021/10/08">2021-10-08T14:33:11+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16336747916850.html">读《像哲学家一样生活》</a></h2>
@@ -904,12 +729,9 @@
                         <span class="posted-cats"><a href='BookNotes.html'>BookNotes</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -917,9 +739,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2021/09/27">2021-09-27T10:50:40+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16327110409932.html">读《原则》</a></h2>
@@ -928,12 +747,9 @@
                         <span class="posted-cats"><a href='BookNotes.html'>BookNotes</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -941,9 +757,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2021/09/23">2021-09-23T17:08:14+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16323880940046.html">读《21世纪资本论》</a></h2>
@@ -952,12 +765,9 @@
                         <span class="posted-cats"><a href='BookNotes.html'>BookNotes</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -965,9 +775,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2021/08/03">2021-08-03T12:08:14+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16642516949501.html">读《卡片笔记写作法》</a></h2>
@@ -976,12 +783,9 @@
                         <span class="posted-cats"><a href='BookNotes.html'>BookNotes</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -989,9 +793,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2021/07/31">2021-07-31T11:58:45+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16642511252896.html">读《分析与思考》</a></h2>
@@ -1000,12 +801,9 @@
                         <span class="posted-cats"><a href='BookNotes.html'>BookNotes</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -1013,9 +811,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2021/07/11">2021-07-11T11:40:57+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16644228575225.html">读《文化现代性的视觉表达》</a></h2>
@@ -1024,12 +819,9 @@
                         <span class="posted-cats"><a href='BookNotes.html'>BookNotes</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -1037,9 +829,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2021/06/09">2021-06-09T11:43:13+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16644229934861.html">读《理想国》</a></h2>
@@ -1048,12 +837,9 @@
                         <span class="posted-cats"><a href='BookNotes.html'>BookNotes</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -1061,9 +847,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2021/06/09">2021-06-09T11:42:14+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16644229343518.html">读《政治学通识》</a></h2>
@@ -1072,12 +855,9 @@
                         <span class="posted-cats"><a href='BookNotes.html'>BookNotes</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -1085,9 +865,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2021/04/04">2021-04-04T16:49:25+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16637501658209.html">读《美国反对美国》</a></h2>
@@ -1096,12 +873,9 @@
                         <span class="posted-cats"><a href='BookNotes.html'>BookNotes</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -1109,9 +883,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2021/04/02">2021-04-02T09:37:12+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16785850326181.html">读《段永平问答录》</a></h2>
@@ -1120,12 +891,9 @@
                         <span class="posted-cats"><a href='BookNotes.html'>BookNotes</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
@@ -1133,9 +901,6 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <!-- new -->
-
-                       
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2019/11/28">2019-11-28T19:07:03+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="15749392236574.html">界面设计的一种趋势</a></h2>
@@ -1144,18 +909,14 @@
                         <span class="posted-cats"><a href='Design.html'>Design</a></span>
                         
                         
-                        
-                        
                         <div itemprop="description" class="entry-description">
                             
                         </div>
-
 
                     </div>
                 </li>
                 
             </ul>
-
 
             <p class="paging">
                 
@@ -1166,8 +927,10 @@
     </div>
 </div>
 
-<script src="asset/jquery-3.3.1.min.js"></script>
-<script src="asset/utils.js"></script>
+<script src="asset/jquery-3.3.1.min.js"></script> 
+ <script src="asset/utils.js"></script>
+
+
 
 <script>
     $(document).ready(function () {
@@ -1179,11 +942,534 @@
         $('#body').show()
         $('#footer').show()
     })
+
+</script>
+
+    <!-- 生成数据数组并渲染热力图 -->
+    <script>
+    // 初始化一个空对象，用于存储每天的更新次数
+    const updateCounts = [];
+
+    // 遍历所有文章
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2022/10/17"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2022/10/16"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2022/10/15"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2022/10/14"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2022/10/13"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2022/10/12"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2022/10/11"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2022/10/11"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2022/10/10"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2022/10/09"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2022/10/09"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2022/10/08"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2022/10/07"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2022/10/06"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2022/10/04"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2022/10/03"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2022/10/02"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2022/10/01"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2022/09/29"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2022/09/28"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2022/09/27"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2022/09/26"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2022/09/25"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2022/09/24"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2022/09/24"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2022/09/23"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2022/09/22"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2022/08/23"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2022/02/22"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2022/02/17"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2021/12/27"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2021/12/16"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2021/12/01"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2021/10/28"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2021/10/08"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2021/09/27"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2021/09/23"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2021/08/03"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2021/07/31"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2021/07/11"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2021/06/09"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2021/06/09"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2021/04/04"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2021/04/02"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2019/11/28"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+
+    //将统计结果转换为数组
+    const blogUpdates = Object.keys(updateCounts).map(pd => ({
+            date: new Date(pd),
+            count: updateCounts[pd]
+        }));
+    console.log(blogUpdates);
+
+
+    // 渲染热力图
+    var heatmap = calendarHeatmap()
+        .data(blogUpdates)
+        .selector('.container')
+        .tooltipEnabled(true)
+        .colorRange(['#F2F2F4', '#000000'])
+
+    heatmap();  // 渲染图表
+
 </script>
   <!-- <footer id="footer" class="cuckoo page-footer" style="display: none">
     <div class="wrapper">
         <p>Designed and Written by <a href="mailto:justbb@gmail.com">liulei</a></p>
     </div>
 </footer> -->
-
-
+<!-- 
+ -->
