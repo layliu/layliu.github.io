@@ -3,7 +3,7 @@
 
 <head>
     <title>
-         推荐职场好书《Shape Up》 - JustBB 
+         职场 - JustBB 
     </title>
 
     <meta charset="UTF-8">
@@ -64,80 +64,73 @@
 </body>
 
 </html>
- <div class="page-content cuckoo">
+ 
+
+<div id="loading"></div>
+<div class="page-content cuckoo" id="body" style="display: none">
     <div class="wrapper">
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-            <header class="post-header">
-                <h1 class="post-title" itemprop="name headline">推荐职场好书《Shape Up》</h1>
-                <div class="post-description">
-                    
-
-                    <time datetime="2024/12/17">2024/12/17</time>
-                    
-                    <a class="tags" href='tag_%E8%81%8C%E5%9C%BA.html'>职场</a>
-                    
-                    <div class="author">@BB</div>
-
-
-                </div>
-            </header>
-            <div class="post-content" itemprop="articleBody">
-                <p><a href="https://basecamp.com/shapeup">https://basecamp.com/shapeup</a></p>
-<p>中文版入口：<a href="https://p-c8wi.tower.im/p/54rp">https://p-c8wi.tower.im/p/54rp</a></p>
-
+        <div class="home">
+            <div class="divider">
+                <p></p>
             </div>
+           
+            <h2 >
+                <span style="color: #b2b2b2;">#职场</span>
+            </h2>
+            
+            
+            <ul class="entry-list">
+                
+                <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
+                    <div class="entry-detail">
+
+                       
+
+                       
+                        <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2024/12/17">2024-12-17T12:11:00+08:00</time></div>
+                        
+                        <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="17344086600898.html">推荐职场好书《Shape Up》</a></h2>
+                        
+                        
+                        <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
+                        
+
+                        
+                        
+                        
+                        <div itemprop="description" class="entry-description">
+                            
+                        </div>
 
 
-            <div style="margin-top: 50px;">
+                        
 
-                <!-- giscus 评论 -->
-                <script src="https://giscus.app/client.js"
-                        data-repo="layliu/giscus-comment"
-                        data-repo-id="R_kgDOJtN4ng"
-                        data-category="Announcements"
-                        data-category-id="DIC_kwDOJtN4ns4CXE-q"
-                        data-mapping="pathname"
-                        data-strict="0"
-                        data-reactions-enabled="1"
-                        data-emit-metadata="0"
-                        data-input-position="top"
-                        data-theme="light"
-                        data-lang="zh-CN"
-                        crossorigin="anonymous"
-                        async>
-                </script>
+                    </div>
+                </li>
+                
+            </ul>
 
 
-            </div>
-
-
-        </article>
+            <p class="paging">
+                 
+            </p>
+        </div>
     </div>
 </div>
 
 <script src="asset/jquery-3.3.1.min.js"></script>
-
-<!-- 增加zoom效果 -->
-<script src="asset/zoom.js"></script>
-<!-- <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script> -->
-<script>
-    $(function () {
-        $('img').each(function () {
-            $(this).attr("data-action", 'zoom');
-        });
-    });
-</script>
-
-
-
-
+<script src="asset/utils.js"></script>
 
 <script>
     $(document).ready(function () {
+        $('.entry-updated-time').each(function () {
+            let parsedTime = parseTime($(this).text()).slice(0, 10)
+            $(this).text(parsedTime)
+        })
+        $('#loading').hide()
+        $('#body').show()
         $('#footer').show()
     })
-
-
 </script>
   <!-- <footer id="footer" class="cuckoo page-footer" style="display: none">
     <div class="wrapper">
