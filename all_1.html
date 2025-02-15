@@ -109,6 +109,24 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
+                        <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/10/18">2022-10-18T18:15:27+08:00</time></div>
+                        
+                        <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16661745275803.html">人教人教不会，事教人一教就会</a></h2>
+                        
+                        
+                        <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
+                        
+                        
+                        <div itemprop="description" class="entry-description">
+                            
+                        </div>
+
+                    </div>
+                </li>
+                
+                <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
+                    <div class="entry-detail">
+
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/10/17">2022-10-17T11:24:39+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16660634790266.html">回顾书本的一种方法：听书</a></h2>
@@ -951,6 +969,17 @@
     const updateCounts = [];
 
     // 遍历所有文章
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2022/10/18"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
     
         // 提取发布日期并转换为日期对象
         var pd = new Date("2022/10/17"); // 直接使用 Date 构造函数
