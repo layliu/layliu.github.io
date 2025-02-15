@@ -19,7 +19,7 @@ function calendarHeatmap() {
   var tooltipUnit = 'contribution';
   var legendEnabled = true;
   var onClick = null;
-  var weekStart = 1; //0 for Sunday, 1 for Monday
+  var weekStart = 0; //0 for Sunday, 1 for Monday
   var locale = {
     months: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
     days: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
@@ -142,8 +142,6 @@ function calendarHeatmap() {
         .attr('class', 'day-cell')
         .attr('width', SQUARE_LENGTH)
         .attr('height', SQUARE_LENGTH)
-        .attr('rx', 2)
-        .attr('ry', 2)
         .attr('fill', function(d) { return color(countForDate(d)); })
         .attr('x', function (d, i) {
           var cellDate = moment(d);
@@ -172,11 +170,14 @@ function calendarHeatmap() {
               return formatWeekday(d.getDay()) * (SQUARE_LENGTH + SQUARE_PADDING) + MONTH_LABEL_PADDING * 2 + 'px';
             });
             
+            
         })
         .on('mouseout', function (d, i) {
           tooltip.remove();
         });
       }
+      
+      
 
       if (chart.legendEnabled()) {
         var colorRange = [color(0)];
@@ -255,7 +256,7 @@ function calendarHeatmap() {
         }
       }
     }
-   
+
     function tooltipHTMLForDate(d) {
       var dateStr = moment(d).format('ddd, MMM Do YYYY');
       var count = countForDate(d);
@@ -266,7 +267,6 @@ function calendarHeatmap() {
         var key= moment(d).format( 'YYYY-MM-DD' );
         return counterMap[key] || 0;
     }
-
 
     function formatWeekday(weekDay) {
       if (weekStart === 1) {
