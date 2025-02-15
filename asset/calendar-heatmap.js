@@ -1,3 +1,4 @@
+moment.locale('zh-cn');
 
 function calendarHeatmap() {
   // defaults
@@ -16,15 +17,15 @@ function calendarHeatmap() {
   var max = null;
   var colorRange = ['#D8E6E7', '#218380'];
   var tooltipEnabled = true;
-  var tooltipUnit = 'contribution';
+  var tooltipUnit = '条笔记 ';
   var legendEnabled = true;
   var onClick = null;
   var weekStart = 0; //0 for Sunday, 1 for Monday
   var locale = {
     months: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
     days: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
-    No: 'No',
-    on: 'on',
+    No: '0',
+    on: ' ',
     Less: 'Less',
     More: 'More'
   };
@@ -142,6 +143,9 @@ function calendarHeatmap() {
         .attr('class', 'day-cell')
         .attr('width', SQUARE_LENGTH)
         .attr('height', SQUARE_LENGTH)
+        .attr('rx', 2)
+        .attr('ry', 2)
+        // .attr('stroke', '#87ab90')
         .attr('fill', function(d) { return color(countForDate(d)); })
         .attr('x', function (d, i) {
           var cellDate = moment(d);
@@ -244,7 +248,7 @@ function calendarHeatmap() {
 
     function pluralizedTooltipUnit (count) {
       if ('string' === typeof tooltipUnit) {
-        return (tooltipUnit + (count === 1 ? '' : 's'));
+        return (tooltipUnit + (count === 1 ? '' : ''));
       }
       for (var i in tooltipUnit) {
         var _rule = tooltipUnit[i];
@@ -258,7 +262,7 @@ function calendarHeatmap() {
     }
 
     function tooltipHTMLForDate(d) {
-      var dateStr = moment(d).format('ddd, MMM Do YYYY');
+      var dateStr = moment(d).format('YYYY年MMMD日,ddd');
       var count = countForDate(d);
       return '<span><strong>' + (count ? count : locale.No) + ' ' + pluralizedTooltipUnit(count) + '</strong> ' + locale.on + ' ' + dateStr + '</span>';
     }

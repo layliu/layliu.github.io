@@ -6,14 +6,14 @@ text.day-initial {
   /* font-family: Helvetica, arial, 'Open Sans', sans-serif; */
 }
 rect.day-cell:hover {
-  stroke: #555555;
+  stroke: #87ab90;
   stroke-width: 1px;
 }
 .day-cell-tooltip {
   position: absolute;
   z-index: 9999;
   padding: 5px 9px;
-  color: #bbbbbb;
+  color: #e4e4e4;
   font-size: 12px;
   background: rgba(0, 0, 0, 0.85);
   border-radius: 3px;
