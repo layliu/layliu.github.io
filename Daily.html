@@ -109,6 +109,24 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
+                        <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2025/02/15">2025-02-15T11:21:43+08:00</time></div>
+                        
+                        <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="17395897032292.html">小朋友看动画片是一个很有用的学习渠道</a></h2>
+                        
+                        
+                        <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
+                        
+                        
+                        <div itemprop="description" class="entry-description">
+                            
+                        </div>
+
+                    </div>
+                </li>
+                
+                <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
+                    <div class="entry-detail">
+
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2024/12/17">2024-12-17T12:11:00+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="17344086600898.html">推荐职场好书《Shape Up》</a></h2>
@@ -1870,24 +1888,6 @@
                     </div>
                 </li>
                 
-                <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
-                    <div class="entry-detail">
-
-                        <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2022/09/28">2022-09-28T14:50:24+08:00</time></div>
-                        
-                        <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="16643478244477.html">多给自己留些固定时间</a></h2>
-                        
-                        
-                        <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
-                        
-                        
-                        <div itemprop="description" class="entry-description">
-                            
-                        </div>
-
-                    </div>
-                </li>
-                
             </ul>
 
             <p class="paging">
@@ -1922,6 +1922,17 @@
     const updateCounts = [];
 
     // 遍历所有文章
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2025/02/15"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
     
         // 提取发布日期并转换为日期对象
         var pd = new Date("2024/12/17"); // 直接使用 Date 构造函数
@@ -2992,17 +3003,6 @@
     
         // 提取发布日期并转换为日期对象
         var pd = new Date("2022/09/29"); // 直接使用 Date 构造函数
-        var pdateKey = pd
-
-        // 统计每天的更新次数
-        if (updateCounts[pdateKey]) {
-            updateCounts[pdateKey]++;
-        } else {
-            updateCounts[pdateKey] = 1;
-        }
-    
-        // 提取发布日期并转换为日期对象
-        var pd = new Date("2022/09/28"); // 直接使用 Date 构造函数
         var pdateKey = pd
 
         // 统计每天的更新次数
