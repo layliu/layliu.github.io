@@ -20,13 +20,14 @@ rect.day-cell:hover {
   text-align: center;
 }
 .day-cell-tooltip > span {
-  /* font-family: Helvetica, arial, 'Open Sans', sans-serif */
+  font-family: Helvetica, arial, 'Open Sans', sans-serif
 }
-.calendar-heatmap {
-  box-sizing: initial;
-  height: 170px;
-  width: 873px;
+
+.container{
+  height: auto;
+    width: 100%;
 }
+
 
 g {
   display: none;

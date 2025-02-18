@@ -2,8 +2,8 @@ moment.locale('zh-cn');
 
 function calendarHeatmap() {
   // defaults
-  var width = 750;
-  var height = 110;
+  var width = 'auto';
+  var height = 'auto';
   var legendWidth = 150;
   var selector = 'body';
   var SQUARE_LENGTH = 11;
@@ -20,7 +20,7 @@ function calendarHeatmap() {
   var tooltipUnit = '条笔记 ';
   var legendEnabled = true;
   var onClick = null;
-  var weekStart = 0; //0 for Sunday, 1 for Monday
+  var weekStart = 1; //0 for Sunday, 1 for Monday
   var locale = {
     months: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
     days: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
@@ -133,8 +133,8 @@ function calendarHeatmap() {
         .attr('class', 'calendar-heatmap')
         .attr('height', height)
         .style('padding-top', '5px')
-        .style('margin-bottom', '-40px')
-        .attr('viewBox',"0 0 750 110");
+        // .style('margin-bottom', '-30px')
+        .attr('viewBox',"0 -10 700 110");
 
       dayRects = svg.selectAll('.day-cell')
         .data(dateRange);  //  array of days for the last yr
