@@ -2,8 +2,8 @@ moment.locale('zh-cn');
 
 function calendarHeatmap() {
   // defaults
-  var width = 'auto';
-  var height = 'auto';
+  var width = '100%';
+  var height = '100%';
   var legendWidth = 150;
   var selector = 'body';
   var SQUARE_LENGTH = 11;

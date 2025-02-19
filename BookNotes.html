@@ -50,6 +50,8 @@
                     
                     <a class="page-link" href="Daily.html">Daily</a>
                     
+                    <a class="page-link" href="file:///Users/lay/Library/Containers/com.coderforart.MWeb3/Data/Documents/themes/Site/SOME%20NOTES/Review.html">Review</a>
+                    
                     <a class="page-link" href="read.html">Books</a>
                     
                     <a class="page-link" href="about.html">About</a>
@@ -78,8 +80,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js" charset="utf-8"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/locale/zh-cn.js"></script>
 <script type='text/javascript' src='asset/calendar-heatmap.js'></script>
-
-
 
 <div id="loading"></div>
 
@@ -729,7 +729,7 @@
 </script>
 
     <!-- 生成数据数组并渲染热力图 -->
-    <script>
+<script>
     // 初始化一个空对象，用于存储每天的更新次数
     const updateCounts = [];
 
@@ -1106,16 +1106,22 @@
         }));
     console.log(blogUpdates);
 
-
-
-    // 渲染热力图
     var heatmap = calendarHeatmap()
         .data(blogUpdates)
         .selector('.container')
         .tooltipEnabled(true)
         .colorRange(['#fbfbfb', '#9ac1a4'])
+        .onClick(function (event, data) {
+            // 获取点击的日期
+            const clickedDate = data.date;
+            // 生成日期对应的文章列表链接
+            const archiveUrl = `/archive/${clickedDate}/`;
+            // 跳转到文章列表页面
+            window.location.href = archiveUrl;
+        });
+    
 
-    heatmap();  // 渲染图表
+    heatmap();  
 
 </script>
   <!-- <footer id="footer" class="cuckoo page-footer" style="display: none">
