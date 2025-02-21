@@ -50,7 +50,7 @@
                     
                     <a class="page-link" href="Daily.html">Daily</a>
                     
-                    <a class="page-link" href="file:///Users/lay/Library/Containers/com.coderforart.MWeb3/Data/Documents/themes/Site/SOME%20NOTES/Review.html">Review</a>
+                    <a class="page-link" href="Review.html">Review</a>
                     
                     <a class="page-link" href="read.html">Books</a>
                     
@@ -106,6 +106,42 @@
             </div>
 
             <ul class="entry-list">
+                
+                <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
+                    <div class="entry-detail">
+
+                        <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2025/02/21">2025-02-21T18:15:28+08:00</time></div>
+                        
+                        <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="17401329282405.html">书虫（book worm）清单</a></h2>
+                        
+                        
+                        <span class="posted-cats"><a href='Review.html'>Review</a></span>
+                        
+                        
+                        <div itemprop="description" class="entry-description">
+                            
+                        </div>
+
+                    </div>
+                </li>
+                
+                <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
+                    <div class="entry-detail">
+
+                        <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2025/02/20">2025-02-20T15:46:05+08:00</time></div>
+                        
+                        <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="17401239658302.html">可以提高审美的一些网站</a></h2>
+                        
+                        
+                        <span class="posted-cats"><a href='Design.html'>Design</a></span>
+                        
+                        
+                        <div itemprop="description" class="entry-description">
+                            
+                        </div>
+
+                    </div>
+                </li>
                 
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
@@ -184,7 +220,7 @@
 
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2025/02/16">2025-02-16T09:44:15+08:00</time></div>
                         
-                        <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="17398430553738.html">推荐一个学英语的材料</a></h2>
+                        <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="17398430553738.html">继续学英语</a></h2>
                         
                         
                         <span class="posted-cats"><a href='Daily.html'>Daily</a></span>
@@ -2948,6 +2984,28 @@
     const updateCounts = [];
 
     // 遍历所有文章
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2025/02/21"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2025/02/20"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
     
         // 提取发布日期并转换为日期对象
         var pd = new Date("2025/02/19"); // 直接使用 Date 构造函数
