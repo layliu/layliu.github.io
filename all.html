@@ -110,9 +110,27 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
+                        <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2025/02/21">2025-02-21T19:59:37+08:00</time></div>
+                        
+                        <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="17401391772818.html">Javascript+Nodejs全栈前端全能课ToDo清单</a></h2>
+                        
+                        
+                        <span class="posted-cats"><a href='Review.html'>Review</a></span>
+                        
+                        
+                        <div itemprop="description" class="entry-description">
+                            
+                        </div>
+
+                    </div>
+                </li>
+                
+                <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
+                    <div class="entry-detail">
+
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2025/02/21">2025-02-21T18:15:28+08:00</time></div>
                         
-                        <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="17401329282405.html">书虫（book worm）清单</a></h2>
+                        <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="17401329282405.html">书虫（book worm）ToDo清单</a></h2>
                         
                         
                         <span class="posted-cats"><a href='Review.html'>Review</a></span>
@@ -2984,6 +3002,17 @@
     const updateCounts = [];
 
     // 遍历所有文章
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2025/02/21"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
     
         // 提取发布日期并转换为日期对象
         var pd = new Date("2025/02/21"); // 直接使用 Date 构造函数
