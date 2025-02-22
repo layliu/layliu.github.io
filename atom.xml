@@ -3,7 +3,7 @@
   <title><![CDATA[JustBB]]></title>
   <link href="justbb.fun/atom.xml" rel="self"/>
   <link href="justbb.fun/"/>
-  <updated>2025-02-21T20:39:22+08:00</updated>
+  <updated>2025-02-22T16:01:16+08:00</updated>
   <id>justbb.fun/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -55,8 +55,8 @@
 <li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 37. 第五章综合练习一</li>
 <li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 38. 第五章综合练习二</li>
 <li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 39. 初识函数</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 40. 练习讲解 - 初识函数</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 41. 函数的参数</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 40. 练习讲解 - 初识函数</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 41. 函数的参数</li>
 <li class="task-list-item"><input type="checkbox" disabled="" /> 42. 练习讲解 - 函数的参数</li>
 <li class="task-list-item"><input type="checkbox" disabled="" /> 43. 函数的返回值</li>
 <li class="task-list-item"><input type="checkbox" disabled="" /> 44. 练习讲解 - 函数的返回值</li>
