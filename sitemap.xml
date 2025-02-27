@@ -2,7 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
   <loc>justbb.fun/</loc>
-  <lastmod>2025-02-22T16:01:36+08:00</lastmod>
+  <lastmod>2025-02-27T16:09:32+08:00</lastmod>
+</url>
+
+<url>
+  <loc>justbb.fun/17406340897483.html</loc>
+  <lastmod>2025-02-27T13:28:09+08:00</lastmod>
+</url>
+
+<url>
+  <loc>justbb.fun/17406420399500.html</loc>
+  <lastmod>2025-02-26T15:40:39+08:00</lastmod>
+</url>
+
+<url>
+  <loc>justbb.fun/17406437029217.html</loc>
+  <lastmod>2025-02-25T16:08:22+08:00</lastmod>
+</url>
+
+<url>
+  <loc>justbb.fun/17403877754049.html</loc>
+  <lastmod>2025-02-24T17:02:55+08:00</lastmod>
+</url>
+
+<url>
+  <loc>justbb.fun/17404732653043.html</loc>
+  <lastmod>2025-02-23T16:47:45+08:00</lastmod>
+</url>
+
+<url>
+  <loc>justbb.fun/17403989692151.html</loc>
+  <lastmod>2025-02-22T20:09:29+08:00</lastmod>
 </url>
 
 <url>
@@ -813,7 +843,7 @@
 
 
 <url>
-  <loc>justbb.fun/BookNotes.html</loc>
+  <loc>justbb.fun/Invest.html</loc>
 </url>
 
 <url>
@@ -830,6 +860,10 @@
 
 <url>
   <loc>justbb.fun/Review.html</loc>
+</url>
+
+<url>
+  <loc>justbb.fun/BookNotes.html</loc>
 </url>
 
 </urlset>
