@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+         练习：数组综合 - JustBB 
+    </title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+
+    <link rel="stylesheet" type="text/css" href="asset/cuckoo.css">
+    <link rel="stylesheet" type="text/css" href="asset/main.css">
+    <link rel="shortcut icon" href="asset/favicon.ico" type="image/x-icon" />
+    <link rel="alternate" type="application/atom+xml" href="atom.xml" title="JustBB">
+
+    <link rel="stylesheet" href="asset/zoom.css">
+
+    <!-- 引入 Prism.js 核心 CSS -->
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="asset/prism-nord.css">
+    <!-- 引入 Prism.js 核心 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+     <!-- 引入 JavaScript 语言支持 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+</head>
+
+<body>
+    <header class="site-header cuckoo">
+        <div class="wrapper">
+            <a class="site-title" href="index.html">JustBB</a>
+            <nav class="site-nav">
+                <a href="#" class="menu-icon">
+                    <svg viewBox="0 0 18 15">
+                        <path fill="#424242"
+                            d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z">
+                        </path>
+                        <path fill="#424242"
+                            d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z">
+                        </path>
+                        <path fill="#424242"
+                            d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z">
+                        </path>
+                    </svg>
+                </a>
+                <div class="trigger">
+                    
+                    <a class="page-link" href="index.html">Home</a>
+                    
+                    <a class="page-link" href="Daily.html">Daily</a>
+                    
+                    <a class="page-link" href="invest.html">Invest</a>
+                    
+                    <a class="page-link" href="Review.html">Review</a>
+                    
+                    <a class="page-link" href="read.html">Books</a>
+                    
+                    <a class="page-link" href="about.html">About</a>
+                    
+                </div>
+            </nav>
+        </div>
+
+        
+
+    </header>
+</body>
+
+</html>
+ <div class="page-content cuckoo">
+    <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+            <header class="post-header">
+                <h1 class="post-title" itemprop="name headline">练习：数组综合</h1>
+                <div class="post-description">
+                    
+
+                    <time datetime="2025/03/14">2025/03/14</time>
+                    
+                    <div class="author">@BB</div>
+
+
+                </div>
+            </header>
+            <div class="post-content" itemprop="articleBody">
+                <pre><code class="language-javascript">/* 
+练习1:
+定义一个构造函数 一个参数
+使用该构造函数 配合new 会产生有一个属性age的实例对象
+let arr = [12,41,20,66,35,70]
+利用上面数组中的数据，产出一个新组
+数组中都是该构造函数的实例，实例的age值依次分别数arr这个数组中的数据
+同时 最终的数组中的对象顺序 要按照age属性的值从小到大排列 */
+
+let arr1 = [12,41,20,66,35,70]
+
+function PersonAge(age) {
+    this.age = age
+}
+/*
+//方法一
+let newArr = []
+ 
+arr1.forEach((ele)=&gt;{
+    newArr.push(new PersonAge(ele))
+})
+
+newArr.sort((a,b)=&gt;a.age-b.age) */
+
+//方法二
+const newArr = arr1.map((ele)=&gt; new PersonAge(ele)).sort((a,b)=&gt;a.age-b.age)
+
+console.log(newArr);
+
+</code></pre>
+<pre><code class="language-javascript">/* 
+练习2:
+定义一个函数，函数有两个参数，参数传入有数据的数组
+会比较这传入的两个数组中是否有相同（严格相等）的数据有 函数返回true
+没有 返回false
+
+*/
+const arra = ['tom'];
+const arrb = ['a', 'b', 'c', 1, 2, 3, 4];
+
+function testArr(arr1, arr2) {
+  const result = arr1.findIndex((ele1) =&gt; {
+    // 检查 ele1 是否在 arr2 中
+    return arr2.includes(ele1);
+  });
+
+  console.log(result); // 输出找到的索引，未找到则为 -1
+
+  if (result !== -1) {
+    console.log(true);
+  } else {
+    console.log(false);
+  }
+}
+
+testArr(arra, arrb); // 输出: -1, false
+
+-------
+
+arra = [1,'tom']
+arrb = ['a','b','c',1,2,3,4]
+
+function testArr(arr1,arr2) {
+    const result = arr1.findIndex((ele1,index1,array1) =&gt; {
+        const result2 = arr2.findIndex((ele2,index2,array2) =&gt; {
+        return ele2 === ele1
+    })
+
+        if (result2 !== -1) {
+            return true
+        }else{
+            return false
+        }
+
+    })
+    
+    if (result !== -1) {
+        return true
+    }else{
+        return false
+    }
+ 
+}
+
+console.log(testArr(arra,arrb));
+
+---------
+
+arra = [0,'tom',2]
+arrb = ['a','b','c',1,2,3,4]
+
+function testArr(arr1,arr2) {
+    const result = arr1.findIndex(
+        (ele)=&gt;{
+            return arr2.includes(ele)
+        }
+    )
+    console.log(result);
+    
+    if (result !== -1) {
+        console.log(true);
+    }else{
+        console.log(false);
+    }
+    
+ 
+}
+
+console.log(testArr(arra,arrb));
+
+---------
+// 最合理的方案
+const arra = [0, 'tom', 2];
+const arrb = ['a', 'b', 'c', 1, 2, 3, 4];
+
+function testArr(arr1, arr2) {
+  const result = arr1.some((ele) =&gt; arr2.includes(ele)); // 检查是否存在匹配元素
+  console.log(result); // 直接输出 true 或 false
+}
+
+testArr(arra, arrb); // 输出: true
+
+</code></pre>
+<pre><code class="language-javascript">let arr = [
+    {name:'小明',score:60},
+    {name:'小花',score:81},
+    {name:'小亮',score:62},
+    {name:'小章',score:73},
+    {name:'小李',score:66},
+    {name:'小胖',score:92},
+]
+// 练习3:
+// 定义一个函数 可以传入一个数组 和 一个字符串这个函数执行时 可以筛选出数组中分数低于80分的对象 然后给该对象 设置一个属性 叫做 label 这个属性的值就是传入的第二个参数 字符串
+// 同时 要创建一个新的数组 用深克隆的方式 按原数组相反的顺序 复制这些对象数据到新的的数组中
+// 最后 还要在这个新数组的最后加上一个 所有对象的score总分的数据 数字类型的数据
+// 函数执行完之后把这个新数组返回
+
+function testArr(arr,str) {
+    const newArr = arr.filter((ele)=&gt;ele.score&lt;80
+    )
+    
+    newArr.forEach(element =&gt; {
+        element.lable = str
+    });
+
+    arr.reverse()
+    
+
+    const result = arr.map(ele=&gt;{
+        return{
+            ...ele
+        }//创建了新对象，也就开辟了新的内存空间，与原对象不影响，创建的新对象会被添加到map方法执行后要返回的新对象中
+    })
+
+    return result
+
+    arr[1].lable = '测试' //测试是否arr和resutl引用的是不是同一数据
+
+    console.log(result);
+    console.log(arr);
+    
+}
+testArr(arr,'不太好')
+// console.log(newArr);
+
+</code></pre>
+<pre><code class="language-javascript">// 练习 4
+// 定义一个函数 传入两个参数，第一个是数组 第二个传某个数据
+// 执行时传入上述这样结构的数组 和 一个你筛选的数据
+// 筛选出数组中 和 传入进行筛选数据严格相等的数据
+// 统计一共有多少个 返回 数量
+
+let arr1 = [[1,2,3,'s','m','6',true],[1,1,32,'s2','木','6',false]]
+
+
+function countArr(arr,data) {
+    const  newArr = []
+    arr.forEach(element =&gt; {
+        element.forEach(ele=&gt;
+            newArr.push(ele)
+        );
+        
+    });
+    console.log(newArr);
+    let count = 0
+    let idx = newArr.indexOf(data)
+    while(idx!==-1) {
+        idx = newArr.indexOf(data,idx+1)
+        count++
+
+    }
+    console.log(count);
+
+}
+
+countArr(arr1,'6')
+
+-------------
+
+let arr1 = [
+  [1, 2, 3, 's', 'm', '6', true],
+  [1, 1, 32, 's2', '木', '6', false]
+];
+
+function countArr(arr, data) {
+  // 使用 flat() 方法将二维数组扁平化
+  const newArr = arr.flat();
+  
+  // 使用 filter() 方法统计 data 出现的次数
+  const count = newArr.filter(item =&gt; item === data).length;
+  
+  console.log(`元素 &quot;``{data}&quot; 出现的次数为: ``{count}`);
+}
+
+countArr(arr1, '6'); // 输出: 元素 &quot;6&quot; 出现的次数为: 2
+
+-------
+
+let arr1 = [[1,2,3,'s','m','6',true],[1,1,32,'s2','木','6',false]]
+
+
+function countArr(arr,data) {
+    let  newArr = []
+    arr.forEach(ele =&gt; {
+        const tempArr = ele.filter(
+            (item)=&gt;item === data
+        )
+        newArr = newArr.concat(tempArr)
+    });
+    
+    console.log(newArr.length);
+    
+    
+    
+}
+
+countArr(arr1,'6')
+
+</code></pre>
+<pre><code class="language-javascript">
+// 练习5
+// 根据这个数组 创建一个新数组
+// 这个新数组 的每一位数据 都是这个原数组相应索引位的值 与下一位索引位的值的和
+// 如果是最后一位 那就是和第一位的和
+
+let arr1 = [1,2,3,4,5,6,7,8,9]
+
+let arr2 = arr1.map((ele,index)=&gt;{
+    if (index === arr1.length-1) {
+        return arr1[index]+arr1[0]
+    }else{
+        return arr1[index+1]+ele
+    }
+    
+})
+
+console.log(arr2);
+
+</code></pre>
+<pre><code class="language-javascript">// 练习6
+// 定义一个函数 一个参数
+// 可以把传入的数组
+// 按照不同的数据类型进行不同的处理
+// 如果是数字类型 把所有数字类型相加
+// 如果是字符串 所有字符串拼接到一起
+// 其他类型都忽略
+// 然后 加总的数字 和 拼接的字符串 添加到原数组的后面
+// 返回原数组
+
+let arr1 = [[1,2],1,2,3,'你好','笨蛋',{a:12},true]
+
+function testArr(arr) {
+    let temp1 =  arr1.filter((ele)=&gt;typeof ele === 'number')
+    let temp2 =  arr1.filter((ele)=&gt;typeof ele === 'string')
+    let result1 = temp1.reduce((a,b)=&gt;a+b)
+    let result2 = temp2.join('')
+    arr1.push(result1,result2)
+    console.log(arr1);
+    
+}
+
+testArr(arr1)
+---------------
+let arr1 = [[1,2],1,2,3,'你好','笨蛋',{a:12},true]
+
+function testArr(arr) {
+    let strTotal = ''
+    let numTotal = 0
+    arr.forEach((ele)=&gt;{
+        if (typeof ele === 'string') {
+            strTotal += ele
+        }else if(typeof ele === 'number'){
+            numTotal += ele
+        }
+    })
+
+    arr.push(strTotal,numTotal)
+    return arr
+}
+
+
+console.log(testArr(arr1));
+
+
+</code></pre>
+<pre><code class="language-javascript">// 练习7
+// 定义一个函数 可以传入一个字符串
+// 然后把字符串拆成一个个的字符
+// 倒序放到一个数组中
+
+let str = 'helloworld'
+
+function strArr(str) {
+    const arr = [...str]
+    arr.reverse()
+    console.log(arr);
+    
+}
+
+strArr(str)
+
+
+</code></pre>
+<pre><code class="language-javascript">// 练习8
+// 定义一个函数 两个参数 可以传入一个数组，和 一个数据类型的字符串 string number
+// 函数执行时 如果 数组中有传入的数据类型
+// 那么要把数组中所有数据全变成该类型的字符串名称
+// 没有该类型数据的话
+// 要把数组清空
+// 最后返回这个原数组数组
+
+let arr1 = [1,2,3,4,'3','23',true]
+
+function testArr(arr,type) {
+    const hasType = arr.some((ele)=&gt;typeof ele === type)
+    if (hasType) {
+        arr.fill(type)
+    }else{
+        arr.length = 0
+    }
+}
+
+testArr(arr1,'object')
+console.log(arr1);
+
+</code></pre>
+<pre><code class="language-javascript">
+// 练习9
+// 定义一个函数 传入两个参数 第一个数组 第二个是类型字符串
+// 函数执行时 会把原数组中的所有非第二个参数类型名称的数据都删掉
+// 这些删掉的数据会组成一个新数组
+// 返回 新数组的长度
+
+let arr = [1,'1',2,3,'s','m','6',true]
+
+function handleArr(arr,typeStr) {
+    
+    let newArr = arr.map((ele,index)=&gt; {
+        if (typeof ele === typeStr) {
+            return index
+        }
+    }).filter(ele=&gt;ele !== undefined)
+    
+    arr = arr.filter(ele=&gt;typeof ele !== typeStr)
+
+    console.log(newArr.length);
+    console.log(arr);
+    
+    
+
+}
+
+handleArr(arr,'string')
+
+-----------
+
+// 练习9
+// 定义一个函数 传入两个参数 第一个数组 第二个是类型字符串
+// 函数执行时 会把原数组中的所有非第二个参数类型名称的数据都删掉
+// 这些删掉的数据会组成一个新数组
+// 返回 新数组的长度
+
+let arr = [1,'1',2,3,'s','m','6',true]
+
+function handleArr(arr,typeStr) {
+    
+    let newArr = arr.map((ele,index)=&gt; {
+        if (typeof ele === typeStr) {
+            return index
+        }
+    }).filter(ele=&gt;ele !== undefined)
+    let spliceCount = 0
+    // arr = arr.filter(ele=&gt;typeof ele !== typeStr)
+    newArr.forEach(ele =&gt; {
+        arr.splice(ele-spliceCount,1)
+        spliceCount++;
+    });
+
+    console.log(newArr.length);
+    console.log(arr); 
+
+}
+
+handleArr(arr,'string')
+</code></pre>
+<pre><code class="language-javascript">// 练习10
+// 定义一个函数 可以传入这样一个数组
+// 计算出这个数组中所有数字类型数据的总和的值
+// 并把所有非数字类型的数据组成一个新数组
+// 返回新数组
+
+let arr = [1,[2,4],5,[6,'true',1],[6,10],true]
+
+/* function numTotal(arr) {
+    const newArr = arr.flat()
+    console.log(newArr);
+
+    const newArr2 = newArr.filter((ele)=&gt;typeof ele === 'number')
+    const result = newArr2.reduce((a,b)=&gt;a+b)
+    console.log(result);
+}
+ */
+
+function numTotal(arr) {
+    let total = 0
+    let result =[]
+    arr.forEach(ele =&gt; {
+        if (typeof ele === 'number') {
+            total += ele            
+        }else if(ele instanceof Array){
+            ele.forEach(ele1=&gt;{
+                if (typeof ele1 === 'number') {
+                    total += ele1
+                }else{
+                    result.push(ele1)
+                }
+            })
+        }else{
+            result.push(ele)
+        }
+    });
+
+    console.log(total);
+    console.log(result);
+    
+}
+
+numTotal(arr)
+
+</code></pre>
+
+            </div>
+
+
+            <div style="margin-top: 50px;">
+
+                <!-- giscus 评论 -->
+                <script src="https://giscus.app/client.js"
+                        data-repo="layliu/giscus-comment"
+                        data-repo-id="R_kgDOJtN4ng"
+                        data-category="Announcements"
+                        data-category-id="DIC_kwDOJtN4ns4CXE-q"
+                        data-mapping="pathname"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="top"
+                        data-theme="light"
+                        data-lang="zh-CN"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+
+
+            </div>
+
+
+        </article>
+    </div>
+</div>
+
+<script src="asset/jquery-3.3.1.min.js"></script>
+
+<!-- 增加zoom效果 -->
+<script src="asset/zoom.js"></script>
+<!-- <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script> -->
+<script>
+    $(function () {
+        $('img').each(function () {
+            $(this).attr("data-action", 'zoom');
+        });
+    });
+</script>
+
+
+
+
+
+<script>
+    $(document).ready(function () {
+        $('#footer').show()
+    })
+
+
+</script>
+  <!-- <footer id="footer" class="cuckoo page-footer" style="display: none">
+    <div class="wrapper">
+        <p>Designed and Written by <a href="mailto:justbb@gmail.com">liulei</a></p>
+    </div>
+</footer> -->
+<!-- 
+ -->

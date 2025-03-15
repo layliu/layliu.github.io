@@ -12,17 +12,19 @@
 
     <link rel="stylesheet" type="text/css" href="asset/cuckoo.css">
     <link rel="stylesheet" type="text/css" href="asset/main.css">
-    <link rel="stylesheet" type="text/css" href="asset/tomorrow.css">
     <link rel="shortcut icon" href="asset/favicon.ico" type="image/x-icon" />
     <link rel="alternate" type="application/atom+xml" href="atom.xml" title="JustBB">
 
     <link rel="stylesheet" href="asset/zoom.css">
 
-    <script src="asset/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-
-    
-    <meta name="google-site-verification" content="v_k4W8sWPzS3caLtUAbGoCgiDOyLn7KLzbEb4he7xFg" />
+    <!-- 引入 Prism.js 核心 CSS -->
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="asset/prism-nord.css">
+    <!-- 引入 Prism.js 核心 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+     <!-- 引入 JavaScript 语言支持 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
 
 </head>
 
@@ -131,40 +133,40 @@
 <li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 44. 练习讲解 - 函数的返回值</li>
 <li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 45. 定义函数的几种方式</li>
 <li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 46. 练习讲解 - 定义函数的几种方式</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 47. 初识作用域与作用域链</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 48. 练习讲解 - 初识作用域与作用域链</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 49. 几种作用域与声明提升</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 50. 认识let和const</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 51. 练习讲解 - 认识let和const</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 52. 全局对象与this</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 53. 练习讲解 - 全局对象与this</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 54. 神奇的构造函数</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 55. 练习讲解 - 神奇的构造函数</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 56. 函数也是对象</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 57. 构造函数与类型</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 58. 匿名函数与立即执行函数</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 59. 补充作用域与作用域链</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 60. 第六章综合练习一</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 61. 第六章综合练习二</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 62. 什么是数组</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 63. 练习讲解 - 什么是数组</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 64. 修改数组的方法们一</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 65. 练习讲解 - 修改数组的方法们一</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 66. 修改数组的方法们二</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 67. 练习讲解 - 修改数组的方法们二</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 68. 迭代数组的方法们一</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 69. 练习讲解 - 迭代数组的方法们一</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 70. 迭代数组的方法们二</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 71. 练习讲解 - 迭代数组的方法们二</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 72. 数组排序的方法们</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 73. 练习讲解 - 数组排序的方法们</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 74. 索引相关的方法们</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 75. 练习讲解 - 索引相关的方法们</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 76. 其他的方法们</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 77. for of与可迭代对象</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 78. 数组方法们的总结</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 79. 第七章综合练习一</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 80. 第七章综合练习二</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 47. 初识作用域与作用域链</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 48. 练习讲解 - 初识作用域与作用域链</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 49. 几种作用域与声明提升</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 50. 认识let和const</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 51. 练习讲解 - 认识let和const</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 52. 全局对象与this</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 53. 练习讲解 - 全局对象与this</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 54. 神奇的构造函数</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 55. 练习讲解 - 神奇的构造函数</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 56. 函数也是对象</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 57. 构造函数与类型</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 58. 匿名函数与立即执行函数</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 59. 补充作用域与作用域链</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 60. 第六章综合练习一</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 61. 第六章综合练习二</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 62. 什么是数组</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 63. 练习讲解 - 什么是数组</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 64. 修改数组的方法们一</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 65. 练习讲解 - 修改数组的方法们一</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 66. 修改数组的方法们二</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 67. 练习讲解 - 修改数组的方法们二</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 68. 迭代数组的方法们一</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 69. 练习讲解 - 迭代数组的方法们一</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 70. 迭代数组的方法们二</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 71. 练习讲解 - 迭代数组的方法们二</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 72. 数组排序的方法们</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 73. 练习讲解 - 数组排序的方法们</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 74. 索引相关的方法们</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 75. 练习讲解 - 索引相关的方法们</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 76. 其他的方法们</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 77. for of与可迭代对象</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 78. 数组方法们的总结</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 79. 第七章综合练习一</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 80. 第七章综合练习二</li>
 <li class="task-list-item"><input type="checkbox" disabled="" /> 81. 构造函数与原型</li>
 <li class="task-list-item"><input type="checkbox" disabled="" /> 82. 练习讲解 - 构造函数与原型</li>
 <li class="task-list-item"><input type="checkbox" disabled="" /> 83. 定义类型的新方式 class</li>

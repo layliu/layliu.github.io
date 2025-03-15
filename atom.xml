@@ -3,11 +3,1002 @@
   <title><![CDATA[JustBB]]></title>
   <link href="justbb.fun/atom.xml" rel="self"/>
   <link href="justbb.fun/"/>
-  <updated>2025-02-27T16:09:14+08:00</updated>
+  <updated>2025-03-15T12:17:00+08:00</updated>
   <id>justbb.fun/</id>
   <author>
     <name><![CDATA[]]></name>
   </author>
+  
+  <entry>
+    <title type="html"><![CDATA[练习：数组综合]]></title>
+    <link href="justbb.fun/17419571663740.html"/>
+    <updated>2025-03-14T20:59:26+08:00</updated>
+    <id>justbb.fun/17419571663740.html</id>
+    <content type="html">
+<![CDATA[<pre><code class="language-javascript">/* 
+练习1:
+定义一个构造函数 一个参数
+使用该构造函数 配合new 会产生有一个属性age的实例对象
+let arr = [12,41,20,66,35,70]
+利用上面数组中的数据，产出一个新组
+数组中都是该构造函数的实例，实例的age值依次分别数arr这个数组中的数据
+同时 最终的数组中的对象顺序 要按照age属性的值从小到大排列 */
+
+let arr1 = [12,41,20,66,35,70]
+
+function PersonAge(age) {
+    this.age = age
+}
+/*
+//方法一
+let newArr = []
+ 
+arr1.forEach((ele)=&gt;{
+    newArr.push(new PersonAge(ele))
+})
+
+newArr.sort((a,b)=&gt;a.age-b.age) */
+
+//方法二
+const newArr = arr1.map((ele)=&gt; new PersonAge(ele)).sort((a,b)=&gt;a.age-b.age)
+
+console.log(newArr);
+
+</code></pre>
+<pre><code class="language-javascript">/* 
+练习2:
+定义一个函数，函数有两个参数，参数传入有数据的数组
+会比较这传入的两个数组中是否有相同（严格相等）的数据有 函数返回true
+没有 返回false
+
+*/
+const arra = ['tom'];
+const arrb = ['a', 'b', 'c', 1, 2, 3, 4];
+
+function testArr(arr1, arr2) {
+  const result = arr1.findIndex((ele1) =&gt; {
+    // 检查 ele1 是否在 arr2 中
+    return arr2.includes(ele1);
+  });
+
+  console.log(result); // 输出找到的索引，未找到则为 -1
+
+  if (result !== -1) {
+    console.log(true);
+  } else {
+    console.log(false);
+  }
+}
+
+testArr(arra, arrb); // 输出: -1, false
+
+-------
+
+arra = [1,'tom']
+arrb = ['a','b','c',1,2,3,4]
+
+function testArr(arr1,arr2) {
+    const result = arr1.findIndex((ele1,index1,array1) =&gt; {
+        const result2 = arr2.findIndex((ele2,index2,array2) =&gt; {
+        return ele2 === ele1
+    })
+
+        if (result2 !== -1) {
+            return true
+        }else{
+            return false
+        }
+
+    })
+    
+    if (result !== -1) {
+        return true
+    }else{
+        return false
+    }
+ 
+}
+
+console.log(testArr(arra,arrb));
+
+---------
+
+arra = [0,'tom',2]
+arrb = ['a','b','c',1,2,3,4]
+
+function testArr(arr1,arr2) {
+    const result = arr1.findIndex(
+        (ele)=&gt;{
+            return arr2.includes(ele)
+        }
+    )
+    console.log(result);
+    
+    if (result !== -1) {
+        console.log(true);
+    }else{
+        console.log(false);
+    }
+    
+ 
+}
+
+console.log(testArr(arra,arrb));
+
+---------
+// 最合理的方案
+const arra = [0, 'tom', 2];
+const arrb = ['a', 'b', 'c', 1, 2, 3, 4];
+
+function testArr(arr1, arr2) {
+  const result = arr1.some((ele) =&gt; arr2.includes(ele)); // 检查是否存在匹配元素
+  console.log(result); // 直接输出 true 或 false
+}
+
+testArr(arra, arrb); // 输出: true
+
+</code></pre>
+<pre><code class="language-javascript">let arr = [
+    {name:'小明',score:60},
+    {name:'小花',score:81},
+    {name:'小亮',score:62},
+    {name:'小章',score:73},
+    {name:'小李',score:66},
+    {name:'小胖',score:92},
+]
+// 练习3:
+// 定义一个函数 可以传入一个数组 和 一个字符串这个函数执行时 可以筛选出数组中分数低于80分的对象 然后给该对象 设置一个属性 叫做 label 这个属性的值就是传入的第二个参数 字符串
+// 同时 要创建一个新的数组 用深克隆的方式 按原数组相反的顺序 复制这些对象数据到新的的数组中
+// 最后 还要在这个新数组的最后加上一个 所有对象的score总分的数据 数字类型的数据
+// 函数执行完之后把这个新数组返回
+
+function testArr(arr,str) {
+    const newArr = arr.filter((ele)=&gt;ele.score&lt;80
+    )
+    
+    newArr.forEach(element =&gt; {
+        element.lable = str
+    });
+
+    arr.reverse()
+    
+
+    const result = arr.map(ele=&gt;{
+        return{
+            ...ele
+        }//创建了新对象，也就开辟了新的内存空间，与原对象不影响，创建的新对象会被添加到map方法执行后要返回的新对象中
+    })
+
+    return result
+
+    arr[1].lable = '测试' //测试是否arr和resutl引用的是不是同一数据
+
+    console.log(result);
+    console.log(arr);
+    
+}
+testArr(arr,'不太好')
+// console.log(newArr);
+
+</code></pre>
+<pre><code class="language-javascript">// 练习 4
+// 定义一个函数 传入两个参数，第一个是数组 第二个传某个数据
+// 执行时传入上述这样结构的数组 和 一个你筛选的数据
+// 筛选出数组中 和 传入进行筛选数据严格相等的数据
+// 统计一共有多少个 返回 数量
+
+let arr1 = [[1,2,3,'s','m','6',true],[1,1,32,'s2','木','6',false]]
+
+
+function countArr(arr,data) {
+    const  newArr = []
+    arr.forEach(element =&gt; {
+        element.forEach(ele=&gt;
+            newArr.push(ele)
+        );
+        
+    });
+    console.log(newArr);
+    let count = 0
+    let idx = newArr.indexOf(data)
+    while(idx!==-1) {
+        idx = newArr.indexOf(data,idx+1)
+        count++
+
+    }
+    console.log(count);
+
+}
+
+countArr(arr1,'6')
+
+-------------
+
+let arr1 = [
+  [1, 2, 3, 's', 'm', '6', true],
+  [1, 1, 32, 's2', '木', '6', false]
+];
+
+function countArr(arr, data) {
+  // 使用 flat() 方法将二维数组扁平化
+  const newArr = arr.flat();
+  
+  // 使用 filter() 方法统计 data 出现的次数
+  const count = newArr.filter(item =&gt; item === data).length;
+  
+  console.log(`元素 &quot;``{data}&quot; 出现的次数为: ``{count}`);
+}
+
+countArr(arr1, '6'); // 输出: 元素 &quot;6&quot; 出现的次数为: 2
+
+-------
+
+let arr1 = [[1,2,3,'s','m','6',true],[1,1,32,'s2','木','6',false]]
+
+
+function countArr(arr,data) {
+    let  newArr = []
+    arr.forEach(ele =&gt; {
+        const tempArr = ele.filter(
+            (item)=&gt;item === data
+        )
+        newArr = newArr.concat(tempArr)
+    });
+    
+    console.log(newArr.length);
+    
+    
+    
+}
+
+countArr(arr1,'6')
+
+</code></pre>
+<pre><code class="language-javascript">
+// 练习5
+// 根据这个数组 创建一个新数组
+// 这个新数组 的每一位数据 都是这个原数组相应索引位的值 与下一位索引位的值的和
+// 如果是最后一位 那就是和第一位的和
+
+let arr1 = [1,2,3,4,5,6,7,8,9]
+
+let arr2 = arr1.map((ele,index)=&gt;{
+    if (index === arr1.length-1) {
+        return arr1[index]+arr1[0]
+    }else{
+        return arr1[index+1]+ele
+    }
+    
+})
+
+console.log(arr2);
+
+</code></pre>
+<pre><code class="language-javascript">// 练习6
+// 定义一个函数 一个参数
+// 可以把传入的数组
+// 按照不同的数据类型进行不同的处理
+// 如果是数字类型 把所有数字类型相加
+// 如果是字符串 所有字符串拼接到一起
+// 其他类型都忽略
+// 然后 加总的数字 和 拼接的字符串 添加到原数组的后面
+// 返回原数组
+
+let arr1 = [[1,2],1,2,3,'你好','笨蛋',{a:12},true]
+
+function testArr(arr) {
+    let temp1 =  arr1.filter((ele)=&gt;typeof ele === 'number')
+    let temp2 =  arr1.filter((ele)=&gt;typeof ele === 'string')
+    let result1 = temp1.reduce((a,b)=&gt;a+b)
+    let result2 = temp2.join('')
+    arr1.push(result1,result2)
+    console.log(arr1);
+    
+}
+
+testArr(arr1)
+---------------
+let arr1 = [[1,2],1,2,3,'你好','笨蛋',{a:12},true]
+
+function testArr(arr) {
+    let strTotal = ''
+    let numTotal = 0
+    arr.forEach((ele)=&gt;{
+        if (typeof ele === 'string') {
+            strTotal += ele
+        }else if(typeof ele === 'number'){
+            numTotal += ele
+        }
+    })
+
+    arr.push(strTotal,numTotal)
+    return arr
+}
+
+
+console.log(testArr(arr1));
+
+
+</code></pre>
+<pre><code class="language-javascript">// 练习7
+// 定义一个函数 可以传入一个字符串
+// 然后把字符串拆成一个个的字符
+// 倒序放到一个数组中
+
+let str = 'helloworld'
+
+function strArr(str) {
+    const arr = [...str]
+    arr.reverse()
+    console.log(arr);
+    
+}
+
+strArr(str)
+
+
+</code></pre>
+<pre><code class="language-javascript">// 练习8
+// 定义一个函数 两个参数 可以传入一个数组，和 一个数据类型的字符串 string number
+// 函数执行时 如果 数组中有传入的数据类型
+// 那么要把数组中所有数据全变成该类型的字符串名称
+// 没有该类型数据的话
+// 要把数组清空
+// 最后返回这个原数组数组
+
+let arr1 = [1,2,3,4,'3','23',true]
+
+function testArr(arr,type) {
+    const hasType = arr.some((ele)=&gt;typeof ele === type)
+    if (hasType) {
+        arr.fill(type)
+    }else{
+        arr.length = 0
+    }
+}
+
+testArr(arr1,'object')
+console.log(arr1);
+
+</code></pre>
+<pre><code class="language-javascript">
+// 练习9
+// 定义一个函数 传入两个参数 第一个数组 第二个是类型字符串
+// 函数执行时 会把原数组中的所有非第二个参数类型名称的数据都删掉
+// 这些删掉的数据会组成一个新数组
+// 返回 新数组的长度
+
+let arr = [1,'1',2,3,'s','m','6',true]
+
+function handleArr(arr,typeStr) {
+    
+    let newArr = arr.map((ele,index)=&gt; {
+        if (typeof ele === typeStr) {
+            return index
+        }
+    }).filter(ele=&gt;ele !== undefined)
+    
+    arr = arr.filter(ele=&gt;typeof ele !== typeStr)
+
+    console.log(newArr.length);
+    console.log(arr);
+    
+    
+
+}
+
+handleArr(arr,'string')
+
+-----------
+
+// 练习9
+// 定义一个函数 传入两个参数 第一个数组 第二个是类型字符串
+// 函数执行时 会把原数组中的所有非第二个参数类型名称的数据都删掉
+// 这些删掉的数据会组成一个新数组
+// 返回 新数组的长度
+
+let arr = [1,'1',2,3,'s','m','6',true]
+
+function handleArr(arr,typeStr) {
+    
+    let newArr = arr.map((ele,index)=&gt; {
+        if (typeof ele === typeStr) {
+            return index
+        }
+    }).filter(ele=&gt;ele !== undefined)
+    let spliceCount = 0
+    // arr = arr.filter(ele=&gt;typeof ele !== typeStr)
+    newArr.forEach(ele =&gt; {
+        arr.splice(ele-spliceCount,1)
+        spliceCount++;
+    });
+
+    console.log(newArr.length);
+    console.log(arr); 
+
+}
+
+handleArr(arr,'string')
+</code></pre>
+<pre><code class="language-javascript">// 练习10
+// 定义一个函数 可以传入这样一个数组
+// 计算出这个数组中所有数字类型数据的总和的值
+// 并把所有非数字类型的数据组成一个新数组
+// 返回新数组
+
+let arr = [1,[2,4],5,[6,'true',1],[6,10],true]
+
+/* function numTotal(arr) {
+    const newArr = arr.flat()
+    console.log(newArr);
+
+    const newArr2 = newArr.filter((ele)=&gt;typeof ele === 'number')
+    const result = newArr2.reduce((a,b)=&gt;a+b)
+    console.log(result);
+}
+ */
+
+function numTotal(arr) {
+    let total = 0
+    let result =[]
+    arr.forEach(ele =&gt; {
+        if (typeof ele === 'number') {
+            total += ele            
+        }else if(ele instanceof Array){
+            ele.forEach(ele1=&gt;{
+                if (typeof ele1 === 'number') {
+                    total += ele1
+                }else{
+                    result.push(ele1)
+                }
+            })
+        }else{
+            result.push(ele)
+        }
+    });
+
+    console.log(total);
+    console.log(result);
+    
+}
+
+numTotal(arr)
+
+</code></pre>
+]]>
+    </content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[成长股的卖出逻辑]]></title>
+    <link href="justbb.fun/17419272058320.html"/>
+    <updated>2025-03-14T12:40:05+08:00</updated>
+    <id>justbb.fun/17419272058320.html</id>
+    <content type="html">
+<![CDATA[<p>成长股一般看动态市盈率。</p>
+<h3><a id="1%E5%8A%A8%E6%80%81%E5%B8%82%E7%9B%88%E7%8E%87%E7%9A%84%E6%84%8F%E4%B9%89" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. 动态市盈率的意义</h3>
+<p>动态市盈率是基于公司未来盈利预测计算的市盈率，反映了市场对公司未来增长的预期。对于成长股来说，动态市盈率是一个重要的估值指标，因为成长股的当前盈利可能较低，但未来盈利增长潜力较大。</p>
+<p><strong>20-30倍动态市盈率：</strong> 这是一个常见的合理区间，尤其适用于高增长行业（如科技、医药等）。如果公司未来盈利增长能够支撑这一估值，那么股价仍有上涨空间。<br />
+小于20倍：如果动态市盈率低于20倍，可能意味着市场低估了公司的成长潜力，或者公司增长放缓。你选择不卖出，是基于对公司未来增长的信心。</p>
+<h3><a id="2%E5%8D%96%E5%87%BA%E6%97%B6%E6%9C%BA%E7%9A%84%E8%80%83%E9%87%8F" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. 卖出时机的考量</h3>
+<p>你提到“除非有时候涨得太厉害”，这意味着你也会考虑股价的短期涨幅。以下是一些可能影响卖出决策的因素：</p>
+<p>（1）估值过高</p>
+<p>如果动态市盈率远高于30倍（例如超过50倍），可能意味着股价已经透支了未来几年的增长预期，存在回调风险。<br />
+可以参考行业平均市盈率，如果远高于行业平均水平，可能需要谨慎。</p>
+<p>（2）技术面超买<br />
+如果股价短期内涨幅过大（例如超过50%或100%），可能会出现技术性回调。<br />
+可以结合技术指标（如RSI、MACD）来判断是否超买。</p>
+<p>（3）基本面变化<br />
+如果公司的基本面发生变化（如业绩增速放缓、行业竞争加剧、管理层变动等），即使动态市盈率仍在合理区间，也可能需要考虑卖出。</p>
+<p>目前持有快手-W，药明康德</p>
+]]>
+    </content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[小米电视设置ADB常用命令]]></title>
+    <link href="justbb.fun/17420096800849.html"/>
+    <updated>2025-03-15T11:34:40+08:00</updated>
+    <id>justbb.fun/17420096800849.html</id>
+    <content type="html">
+<![CDATA[<p>通过 ADB 操作电视</p>
+<pre><code class="language-python">adb connect 192.168.1.2
+#查看自己电视IP并连接，注意在电视上点击确实
+
+adb install D:\ATV.apk
+#自行下载ATV Launcher Pro后，执行以上命令安装D:\ATV.apk到电视，并手动设置为系统桌面
+
+adb shell pm uninstall -k --user 0 com.mitv.tvhome
+#卸载小米桌面，如果想备份小米桌面App要自行下载安装Apk Extractor导出保存
+</code></pre>
+<p>一些或许会用到的ADB命令</p>
+<pre><code class="language-python">adb shell pm list packages
+#列出所有应用
+ 
+adb shell pm list packages -s
+#列出系统应用
+ 
+adb shell pm list packages -3
+#列出第三方应用
+ 
+adb shell pm list packages -d
+#列出已禁用应用
+ 
+adb shell pm list packages -e
+#列出已启用应用
+
+adb shell dumpsys package com.mitv.tvhome
+#查询应用详细信息
+
+adb shell pm path com.mitv.tvhome
+#查看应用安装路径
+
+adb install D:\bilibili.apk
+#安装D:\bilibili.apk到电视
+
+adb install -s D:\bilibili.apk
+#将应用安装到 SD 存储卡 
+
+adb install -r D:\bilibili.apk
+#允许覆盖安装
+ 
+adb install -d D:\bilibili.apk
+#允许降级覆盖安装
+ 
+adb install -g D:\bilibili.apk
+#允许应用所需全部权限
+
+adb shell pm disable-user com.mitv.tvhome
+#禁用某应用
+
+adb shell pm enable com.mitv.tvhome
+#恢复某应用
+
+adb shell pm uninstall -k --user 0 com.mitv.tvhome
+#卸载某应用
+
+adb shell am force-stop com.mitv.tvhome
+#强制停止某应用
+
+adb push D:\bilibili.apk /sdcard/
+#将D盘bilibili.apk文件传输到电视sdcard目录
+
+adb pull /sdcard/bilibili.apk D:\Download
+#将电视sdcard目录的bilibili.apk文件传输到电脑D:\Download
+
+adb reboot
+#重启系统
+
+adb reboot recovery
+#重启到 Recovery 模式
+
+adb reboot bootloader
+#重启到 Fastboot 模式 
+
+</code></pre>
+]]>
+    </content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[数组方法列表]]></title>
+    <link href="justbb.fun/17416119491548.html"/>
+    <updated>2025-03-10T21:05:49+08:00</updated>
+    <id>justbb.fun/17416119491548.html</id>
+    <content type="html">
+<![CDATA[<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>修改原数组</th>
+<th>方法执行后返回值</th>
+<th>函数功能</th>
+<th>备注</th>
+<th>文档链接</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>push</td>
+<td>是</td>
+<td>原数组length值</td>
+<td>修改数组</td>
+<td>添加数据到数组末尾</td>
+<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/push">链接</a></td>
+</tr>
+<tr>
+<td>pop</td>
+<td>是</td>
+<td>被删除的元素</td>
+<td>修改数组</td>
+<td>删除数组末尾最后一个数据</td>
+<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/pop">链接</a></td>
+</tr>
+<tr>
+<td>shift</td>
+<td>是</td>
+<td>被删除的元素</td>
+<td>修改数组</td>
+<td>删除数组开头第一个元素</td>
+<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/shift">链接</a></td>
+</tr>
+<tr>
+<td>unshift</td>
+<td>是</td>
+<td>原数组的length值</td>
+<td>修改数组</td>
+<td>给数组开头添加数据</td>
+<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift">链接</a></td>
+</tr>
+<tr>
+<td>splice</td>
+<td>是</td>
+<td>被删除的数据组成的一个新数组</td>
+<td>修改数组</td>
+<td>删除或添加数据到数组中</td>
+<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/splice">链接</a></td>
+</tr>
+<tr>
+<td>slice</td>
+<td>否</td>
+<td>新数组</td>
+<td>获取数组中部分数据</td>
+<td>赋值数组中的数据</td>
+<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/slice">链接</a></td>
+</tr>
+<tr>
+<td>*forEach</td>
+<td>否</td>
+<td>无</td>
+<td>处理数据</td>
+<td>遍历，无返回值（undefined）</td>
+<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach">链接</a></td>
+</tr>
+<tr>
+<td>*map</td>
+<td>否</td>
+<td>新数组</td>
+<td>处理数据</td>
+<td>遍历，返回新数组</td>
+<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/map">链接</a></td>
+</tr>
+<tr>
+<td>*some</td>
+<td>否</td>
+<td>布尔值</td>
+<td>判断</td>
+<td>只要有检测函数返回真值，返回true</td>
+<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/some">链接</a></td>
+</tr>
+<tr>
+<td>*filter</td>
+<td>否</td>
+<td>新数组</td>
+<td>获取数组中部分数据</td>
+<td>返回符合检测函数的数据组成的新数组</td>
+<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">链接</a></td>
+</tr>
+<tr>
+<td>*every</td>
+<td>否</td>
+<td>布尔值</td>
+<td>判断</td>
+<td>所有数据的检测函数都返回真值，返回true</td>
+<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/every">链接</a></td>
+</tr>
+<tr>
+<td>*reduce</td>
+<td>否</td>
+<td>累加器中的数据</td>
+<td>数据处理并加总</td>
+<td>返回累加器中的数据</td>
+<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce">链接</a></td>
+</tr>
+<tr>
+<td>*reduceRight</td>
+<td>否</td>
+<td>累加器中的数据</td>
+<td>数据处理并加总</td>
+<td>返回累加器中的数据</td>
+<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/reduceRight">链接</a></td>
+</tr>
+<tr>
+<td>*sort</td>
+<td>是</td>
+<td>原数组</td>
+<td>排序</td>
+<td>排序专用</td>
+<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/sort">链接</a></td>
+</tr>
+<tr>
+<td>reverse</td>
+<td>是</td>
+<td>原数组</td>
+<td>排序</td>
+<td>反向排序</td>
+<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse">链接</a></td>
+</tr>
+<tr>
+<td>*findIndex</td>
+<td>否</td>
+<td>索引值</td>
+<td>找索引</td>
+<td>检测函数返回true，那么返回该数据的索引值</td>
+<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex">链接</a></td>
+</tr>
+<tr>
+<td>indexOf</td>
+<td>否</td>
+<td>索引值</td>
+<td>找索引</td>
+<td>返回第一个匹配数据的索引值（从左向右查）</td>
+<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf">链接</a></td>
+</tr>
+<tr>
+<td>lastIndexOf</td>
+<td>否</td>
+<td>索引值</td>
+<td>找索引</td>
+<td>返回最后一个匹配数据的索引值（从右往左查）</td>
+<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/lastIndexOf">链接</a></td>
+</tr>
+<tr>
+<td>*find</td>
+<td>否</td>
+<td>元素</td>
+<td>找元素</td>
+<td>返回检测函数返回真值的数据</td>
+<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/find">链接</a></td>
+</tr>
+<tr>
+<td>includes</td>
+<td>否</td>
+<td>布尔值</td>
+<td>判断</td>
+<td>如果传入的数据在数组中有，就返回true</td>
+<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/includes">链接</a></td>
+</tr>
+<tr>
+<td>concat</td>
+<td>否</td>
+<td>新数组</td>
+<td>合并数组</td>
+<td>原数组合并传入的数据（任何数据）到一个新数组</td>
+<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/concat">链接</a></td>
+</tr>
+<tr>
+<td>fill</td>
+<td>是</td>
+<td>原数组</td>
+<td>修改数组</td>
+<td>用某个数据覆盖填充数组中的数据</td>
+<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/fill">链接</a></td>
+</tr>
+<tr>
+<td>copyWithin</td>
+<td>是</td>
+<td>原数组</td>
+<td>修改数组</td>
+<td>用数组中的部分数据覆盖原数组中的指定索引位数据</td>
+<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/copuWithin">链接</a></td>
+</tr>
+<tr>
+<td>join</td>
+<td>否</td>
+<td>字符串</td>
+<td>转字符串</td>
+<td>链接所有数据为字符串</td>
+<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/join">链接</a></td>
+</tr>
+<tr>
+<td>keys</td>
+<td>否</td>
+<td>可迭代对象</td>
+<td>产生可迭代对象</td>
+<td>键值，就是属性名（都是数字）</td>
+<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/keys">链接</a></td>
+</tr>
+<tr>
+<td>values</td>
+<td>否</td>
+<td>可迭代对象</td>
+<td>产生可迭代对象</td>
+<td>值，数组中的数据</td>
+<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/values">链接</a></td>
+</tr>
+<tr>
+<td>entries</td>
+<td>否</td>
+<td>可迭代对象</td>
+<td>产生可迭代对象</td>
+<td>键值对，数组的形式，前面是属性名，后面是值</td>
+<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/entries">链接</a></td>
+</tr>
+</tbody>
+</table>
+]]>
+    </content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[小孩为啥很可爱]]></title>
+    <link href="justbb.fun/17414463963213.html"/>
+    <updated>2025-03-08T23:06:36+08:00</updated>
+    <id>justbb.fun/17414463963213.html</id>
+    <content type="html">
+<![CDATA[<p>当了爸爸后，总感觉自己的娃挺可爱。</p>
+<p>这种感觉可爱似乎是刻在家长基因里的。</p>
+<p>孩子头大，肩膀小，手臂向上伸，可能超不过脑袋。</p>
+<p>皮肤光滑，面色红润，胖乎乎的脸蛋，看到就想摸。</p>
+<p>今天查了一下为什么感觉小孩可爱，居然还有专业术语的，这种情况叫<a href="https://pansci.asia/archives/184914">「丘比特娃娃效应」</a>，是一种广泛存在在哺乳动物幼崽的状态，比如小猫，小狗，小狮子等。</p>
+<p>似乎是一种天然的建立依附关系的方法。</p>
+<blockquote>
+<p>丘比娃娃最早是由美國羅絲‧歐尼爾 （Rose O’Neill）在 1909 年所創造出的角色，擁有圓潤的雙眸，對稱且圓滾的身體，並依據愛神邱比特的諧音取名，在推出的短時間內就造成極大的轟動。</p>
+</blockquote>
+]]>
+    </content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[孩子叛逆怎么办]]></title>
+    <link href="justbb.fun/17414456449769.html"/>
+    <updated>2025-03-08T22:54:04+08:00</updated>
+    <id>justbb.fun/17414456449769.html</id>
+    <content type="html">
+<![CDATA[<p>听曹操来了讲<a href="https://www.douyin.com/video/6953830580454853895">带娃</a>，他是一个在中国生活了二十多年的老外，对中美文化都很了解，看他视频也感觉他活得很通透，对很多现象都有自己的理解。</p>
+<p>他女儿最近想穿舌钉，作为爸爸肯定觉得这种有点危险，觉得女儿考虑的不全面，真穿了多半会后悔。<br />
+但14岁的叛逆期的孩子，直接说肯定不会听你的，作为家长有什么办法吗？</p>
+<p>曹操给的建议就是拖一下，她让孩子认真考虑一个月，一个月后如果还想打，就带她打。</p>
+<p>这段时间，可以让她好好冷静一下，她可能会去找一些打舌钉的好与坏，然后就渐渐对它失去兴趣了。</p>
+<p>但最大概率其实是，她可能忘了。</p>
+<p>所以这个问题就解决了。</p>
+]]>
+    </content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[试着用 AI 写 word 脚本]]></title>
+    <link href="justbb.fun/17412722521826.html"/>
+    <updated>2025-03-06T22:44:12+08:00</updated>
+    <id>justbb.fun/17412722521826.html</id>
+    <content type="html">
+<![CDATA[<p>最近总是有很多合同要处理，但其实合同模板都是一样的，只是里面的甲方对象不同，所以突然想到word其实有vba宏可以使用。<br />
+所以让AI帮我写了个脚本，自己稍加改动就可以运行。<br />
+目前就是界面还不太友好，全是弹窗，下一步试试改下界面。</p>
+<pre><code class="language-plain_text">Sub GenerateContract()
+    ' 声明变量
+    Dim doc As Document
+    Dim partyA As String    ' 甲方名称
+    Dim partyAAddress As String    ' 甲方地址
+    Dim partyAContact As String    ' 甲方联系人
+    Dim contractDate As String     ' 合同日期
+    Dim contractNo As String       ' 合同编号
+    
+    ' 获取用户信息（这里可以通过输入框或指定单元格获取）
+    partyA = InputBox(&quot;请输入甲方名称：&quot;)
+    partyAAddress = InputBox(&quot;请输入甲方地址：&quot;)
+    partyAContact = InputBox(&quot;请输入甲方联系人：&quot;)
+    contractDate = Format(Date, &quot;yyyy年mm月dd日&quot;)
+    contractNo = &quot;FG&quot; &amp; Format(Date, &quot;yyyymmdd&quot;) &amp; &quot;-&quot; &amp; Format(Time, &quot;hhmm&quot;)
+    
+    ' 打开模板文档
+    Set doc = Documents.Open(&quot;/Users/lay/Dropbox/客户QA/合同模板/ContractTemplate.doc&quot;) ' 修改为你的模板路径
+    
+    ' 替换模板中的占位符
+    With doc
+        ' 假设模板中使用 {PartyA} 这样的占位符
+        .Application.Selection.Find.Execute FindText:=&quot;{PartyA}&quot;, _
+            replaceWith:=partyA, Replace:=wdReplaceAll
+        .Application.Selection.Find.Execute FindText:=&quot;{PartyAAddress}&quot;, _
+            replaceWith:=partyAAddress, Replace:=wdReplaceAll
+        .Application.Selection.Find.Execute FindText:=&quot;{PartyAContact}&quot;, _
+            replaceWith:=partyAContact, Replace:=wdReplaceAll
+        .Application.Selection.Find.Execute FindText:=&quot;{ContractDate}&quot;, _
+            replaceWith:=contractDate, Replace:=wdReplaceAll
+        .Application.Selection.Find.Execute FindText:=&quot;{ContractNo}&quot;, _
+            replaceWith:=contractNo, Replace:=wdReplaceAll
+    End With
+    
+    ' 另存为新文档
+    doc.SaveAs2 FileName:=&quot;/Users/lay/Dropbox/客户QA/合同模板/&quot; &amp; PartyA &amp; &quot;飞鸽劳务通SaaS软件系统及抖音招聘账号报白使用权益服务合同_&quot; &amp; contractNo &amp; &quot;.doc&quot;
+    
+    ' 可选择是否关闭文档
+    ' doc.Close
+    
+    MsgBox &quot;合同已生成！保存路径：/Users/lay/Dropbox/客户QA/合同模板/合同_&quot; &amp; contractNo &amp; &quot;.doc&quot;
+    
+    ' 清理
+    Set doc = Nothing
+End Sub
+
+</code></pre>
+]]>
+    </content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[从两岸报告看中国的经济股市与美元的汇率转折]]></title>
+    <link href="justbb.fun/17419289426793.html"/>
+    <updated>2025-03-14T13:09:02+08:00</updated>
+    <id>justbb.fun/17419289426793.html</id>
+    <content type="html">
+<![CDATA[<p>WB会员文章：</p>
+<p>近期太平洋两岸分别作了一年一度的政府报告，当然在美国那边叫作国情咨文。美国的国情咨文和中国的政府工作报告分属逻辑完全不同的政治传统，对于美国政治来说，国情咨文更重要的是动员、煽动、团结的作用，更像一场show，是在直接选举体制下的一种更具仪式性的行为。中国的政府工作报告则更像是理性计划时代的延续，没有那么多表演成分，重点都是实实在在的数字KPI。但由于现代经济的复杂性和多变性，政府工作报告对于政策取向的表述更多只是反应当下时点的。现代社会治理经济最长也要按月思考决策，用飞行员开飞机来比喻再合适不过，尤其是遇到关键的节点，几个月没开好就有撞机和偏航的风险。</p>
+<p>今年中国政府工作报告整体上中规中矩，既没有超预期也没有不及预期，延续了去年9月份以来的基调。同时由于去年9月份开始经济整体向好的势头愈发明显，本次报告也没有再给更进一步超预期的信号。最能说明的就是赤字率安排在4%，其实这个赤字率没什么用，因为政府债务的真实赤字远大于每年公告的这个数，报告中提到的这个数一般被称为“狭义赤字”。狭义赤字的信号意义大于实际意义，今年的4%是自08年以来最高的一次赤字率，但同时也并没有达到去年一些学者公开建议的5%水平，体现了一种保持积极基调下的折中态度，也为后续需要更大刺激留了后手。</p>
+<p>如果我们将更接近真实赤字水平的超长期特别国债、专项债、特别国债这三个也考虑进赤字后，那么赤字率的可比水平将从2024年的6.6%增加到2025年的8.4%，这个增加力度也是不小的。针对市场上近期流传的一些由于经济回暖政府刺激政策有阶段性收缩的观点，我觉得可能有一些体现这个思路的货币政策操作，但这并不改变目前整体上仍然以超常规逆周期调节为方向的总基调。</p>
+<p>关于股市层面，本次报告有提到“加强战略性力量储备和稳市机制建设”，这个被市场理解为有可能进一步加强中长期资金入市和平准基金类资金入市的政策。但这方面我们之前的文章分析的一个基本思路是，除非平准基金和可动用的中长期资金体量足够大，否则很难对股市产生根本性影响，而目前的国内可动用资金体量相较于A股庞大的流通市值可以说是杯水车薪，所以救市资金更重要的是发挥股灾兜底，而非牛市催生的作用。</p>
+<p>但从2月份以来，股市的变化，尤其是港股的变化出现了一些积极的信号。这轮的港股上涨带有“讲故事氛围”的巨大变化。除了和AI概念沾边的科技股行情，还有一些其他的现象——如B站在发布了一份和上季度基本面差不多的财报后股价波动出现了巨大差别，特朗普加征关税的心理影响也没有阻挡港股上涨的大趋势等等。本轮上涨能否真正带动一次港股牛市越来越值得期待。当然，跟我们分析时间比较长的听友应该知道我核心的观点仍然，港股的上涨最根本的原因是估值足够低，跌的足够久。在这种情况下，任何概念和叙事氛围的变化最后都可能催生一波真正的牛市，即使现在没有DeepSeek大家最终也会找到其他的理由。同理，美股的下跌也是早晚会出现的事，巴菲特并不知道中国今年会有DeepSeek，但他仍然在1年前就开始大幅减持美股。</p>
+<p>除了宏观政策与股市以外，我在去年9月新政之后持续关注了北京二手房成交情况，到目前为止数据一直保持在比较好的状态。同时我们看到以10年期国债为代表的长期市场利率自2月份以来也出现了明显的触底反弹。这些信号都在预示，中国本轮自2023年下半年开始的流动性陷阱有可能逐步的出现转折。当然，预测宏观经济本身就是很困难的事，未来是否还会遇到其他不确定性的事件我们无法预测。唯一能让我们保持长期盈利的方式只有在低估值阶段建仓。</p>
+<p>另一方面，美国目前的经济形势普遍被市场认为可能面临从增长到滞胀的转折。从正常的短经济周期来说，美国这一轮的上行周期已经持续了很久，即使没有其他干扰因素，阶段性衰退的可能性也已经越来越大。同时由于美股出现了极端高估的情况，如果后续的阶段性衰退跌加了美国崩盘，那么财富缩水的效应会进一步给美国经济带来打击。而通胀的延续主要是由于特朗普关税政策的影响。</p>
+<p>关于美股的高估问题我们已经在12月份的时候写过文章《美股的高估与范式转移风险》。而关税问题我们一直以来都持有一个判断，即特朗普并非单纯的以提高关税为目标，其最终目标应是减少美国的货物贸易逆差以及增加美国本土FDI投资。达成这个目标既可以靠关税，也可以靠美元汇率贬值，故其最终有可能以关税作为谈判筹码，最终通过汇率与关税的组合方式实现其目标，关于这方面的原理，我们在会员文章《关于特朗普“对华50%关税”政策的理解》（2024-7-18）也有过详细的阐述，感兴趣的朋友可以参考。</p>
+<p>当下的形势来看，汇率变化更有可能是达成各方平衡的首选。首先，中国国内的宏观经济回暖和市场利率的上行本身就会改变外汇投机市场的预期，造成人民币升值。同时二级市场资产重估的股市也会带动国际热钱兑换人民币，进一步加强人民币的升值趋势（同时也对应美元被卖出的趋势）。而在美国方面，利用美元贬值实现贸易目标，可以减少最终的实际关税加征，也可以减少国内通胀的预期，所以当下的逻辑有可能是国内通胀数据越高，特朗普加征关税政策的阻力就会越大，从而导致特朗普更倾向于使用汇率工具实现目标，这也可能是近期美元汇率波动一反之前的通胀上行——加息预期——美元升值的传导逻辑，而出现了通胀上行——美元贬值的市场现象。特朗普从关税到汇率的政策工具变化，本质上就是将美国的国内通胀转嫁为国际市场上的美元贬值。</p>
+<p>总结来说，如果目前中国经济回暖和二级市场上涨的趋势得到确立，且美国的通胀趋势不减的话，那么人民币和美元的汇率转折风险将会越来越大。当中国走出流动性陷阱的时候，美国要么选择滞胀，要么选择美元贬值。而这个选择题对于任何一位脑子不傻的美国领导人来说都是极为简单的，更何况是特朗普。</p>
+]]>
+    </content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[为什么中国C端大厂，产品名都挺低龄]]></title>
+    <link href="justbb.fun/17412489236160.html"/>
+    <updated>2025-03-06T16:15:23+08:00</updated>
+    <id>justbb.fun/17412489236160.html</id>
+    <content type="html">
+<![CDATA[<blockquote><p lang="zh" dir="ltr">全中国的互联网产品命名法。主要是面对C端的。名字和logo都非常接地气。菜鸟，咸鱼，XX宝，天猫。其实是普通消费者教育程度和想象力还是不高。必须贴地飞行才能深入人心。 就连领导讲话也是一样。 <a href="https://t.co/rF7Sqs6ELr">https://t.co/rF7Sqs6ELr</a></p>&mdash; David Chang (@David_yc607) <a href="https://twitter.com/David_yc607/status/1897509483406147671?ref_src=twsrc%5Etfw">March 6, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>最近看到大卫分享了一个国内产品起名的背景，挺有意思的。其实不光是产品名称，很多时候国内的产品形象，也有大量低幼设计元素，比如派出所的一些宣传海报，人物均是卡通式的警察。</p>
+<p>但也要知道事物都是在发展的，这种「低幼化」的设计，总好过直接的白底黑字那种，一点都不「亲民」的设计。未来这些设计肯定会随着人群认知，逐渐发生变化的。</p>
+]]>
+    </content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[老家好热闹]]></title>
+    <link href="justbb.fun/17410999349418.html"/>
+    <updated>2025-03-04T22:52:14+08:00</updated>
+    <id>justbb.fun/17410999349418.html</id>
+    <content type="html">
+<![CDATA[<p>这几年年轻人都往城里跑，乡里人越来越少，当年的小学中学啥的都拆了。本以为老家会因为人越来越少变得越来越归于平淡。<br />
+但偶尔看到了老家的亲戚发了一个老家在举行篝火晚会的视频。视频里大家围着篝火又唱又跳，远处还搭有舞台，灯光闪烁，宛若一个小音乐节。<br />
+这是在我以前不太能想象的，因为我的老家其实离镇上挺远的，总觉得不会有这些“现代”的东西。<br />
+后来仔细了解到，原来是政府打算在此搞的景观农业观赏地，花了不少钱平整了土地，种了油菜花，修了步行道，偶尔会做一些活动招商。也让这比较平淡的乡里多了不少人气。<br />
+<img src="media/17410999349418/17411005612564.jpg" alt="" /></p>
+]]>
+    </content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[如何在网页中嵌入推文]]></title>
+    <link href="justbb.fun/17412568701695.html"/>
+    <updated>2025-03-06T18:27:50+08:00</updated>
+    <id>justbb.fun/17412568701695.html</id>
+    <content type="html">
+<![CDATA[<p>最近刷推刷的比较多，偶尔看到一些有意思的推文，就想记录下来。然后就想到了其实可以在博文中插入推文，检索了一下，其实方法很简单。</p>
+<ol>
+<li>复制推文 URL 链接</li>
+<li>在 <a href="https://publish.twitter.com/#">publish.twitter.com</a> 粘贴 URL 链接</li>
+<li>选择合适的样式</li>
+<li>在博文中直接粘贴代码片段，done</li>
+</ol>
+]]>
+    </content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[朋友分享了他带娃的一些经验]]></title>
+    <link href="justbb.fun/17409265995349.html"/>
+    <updated>2025-03-02T22:43:19+08:00</updated>
+    <id>justbb.fun/17409265995349.html</id>
+    <content type="html">
+<![CDATA[<p>朋友今天来吃饭，和他交流了一些育儿经验：</p>
+<ul>
+<li>我问你担心孩子拆家吗，他说他不太担心，主要想还是要对孩子有耐心，多讲道理，不要对孩子发脾气，因为孩子其实是回学你的，一旦孩子叛逆了，那孩子也会学你发脾气来对付你。</li>
+<li>他家里有很多零食，小朋友没有经允许的情况偶尔也会偷偷去拿，但他不会特别生气，也不会对但零食上锁，他说，堵不如疏，还是要多给他沟通，能让他学会控制自己是最好的。</li>
+<li>关于兴趣班，他会经常带孩子去，但不是为了真的学东西，主要是兴趣，可以换着来，主要还是交朋友长见识。</li>
+<li>关于近视，控制手机是一方面，但一定要带孩子多去户外，虽然他孩子玩手机玩的也挺勤，但现在5岁了，眼睛依然没啥毛病。</li>
+<li>弹钢琴：他表示会带孩子弹钢琴，一方面钢琴是声部很全很适合独奏的乐器，另外钢琴需要左右手协调，是很锻炼大脑的，所以学钢琴也不是为了成才，但可以锻炼大脑还是不错。</li>
+</ul>
+]]>
+    </content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[双减政策后，教育更公平了吗]]></title>
@@ -224,40 +1215,40 @@
 <li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 44. 练习讲解 - 函数的返回值</li>
 <li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 45. 定义函数的几种方式</li>
 <li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 46. 练习讲解 - 定义函数的几种方式</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 47. 初识作用域与作用域链</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 48. 练习讲解 - 初识作用域与作用域链</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 49. 几种作用域与声明提升</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 50. 认识let和const</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 51. 练习讲解 - 认识let和const</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 52. 全局对象与this</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 53. 练习讲解 - 全局对象与this</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 54. 神奇的构造函数</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 55. 练习讲解 - 神奇的构造函数</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 56. 函数也是对象</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 57. 构造函数与类型</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 58. 匿名函数与立即执行函数</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 59. 补充作用域与作用域链</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 60. 第六章综合练习一</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 61. 第六章综合练习二</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 62. 什么是数组</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 63. 练习讲解 - 什么是数组</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 64. 修改数组的方法们一</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 65. 练习讲解 - 修改数组的方法们一</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 66. 修改数组的方法们二</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 67. 练习讲解 - 修改数组的方法们二</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 68. 迭代数组的方法们一</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 69. 练习讲解 - 迭代数组的方法们一</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 70. 迭代数组的方法们二</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 71. 练习讲解 - 迭代数组的方法们二</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 72. 数组排序的方法们</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 73. 练习讲解 - 数组排序的方法们</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 74. 索引相关的方法们</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 75. 练习讲解 - 索引相关的方法们</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 76. 其他的方法们</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 77. for of与可迭代对象</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 78. 数组方法们的总结</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 79. 第七章综合练习一</li>
-<li class="task-list-item"><input type="checkbox" disabled="" /> 80. 第七章综合练习二</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 47. 初识作用域与作用域链</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 48. 练习讲解 - 初识作用域与作用域链</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 49. 几种作用域与声明提升</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 50. 认识let和const</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 51. 练习讲解 - 认识let和const</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 52. 全局对象与this</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 53. 练习讲解 - 全局对象与this</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 54. 神奇的构造函数</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 55. 练习讲解 - 神奇的构造函数</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 56. 函数也是对象</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 57. 构造函数与类型</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 58. 匿名函数与立即执行函数</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 59. 补充作用域与作用域链</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 60. 第六章综合练习一</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 61. 第六章综合练习二</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 62. 什么是数组</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 63. 练习讲解 - 什么是数组</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 64. 修改数组的方法们一</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 65. 练习讲解 - 修改数组的方法们一</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 66. 修改数组的方法们二</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 67. 练习讲解 - 修改数组的方法们二</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 68. 迭代数组的方法们一</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 69. 练习讲解 - 迭代数组的方法们一</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 70. 迭代数组的方法们二</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 71. 练习讲解 - 迭代数组的方法们二</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 72. 数组排序的方法们</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 73. 练习讲解 - 数组排序的方法们</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 74. 索引相关的方法们</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 75. 练习讲解 - 索引相关的方法们</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 76. 其他的方法们</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 77. for of与可迭代对象</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 78. 数组方法们的总结</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 79. 第七章综合练习一</li>
+<li class="task-list-item"><input type="checkbox" checked="" disabled="" /> 80. 第七章综合练习二</li>
 <li class="task-list-item"><input type="checkbox" disabled="" /> 81. 构造函数与原型</li>
 <li class="task-list-item"><input type="checkbox" disabled="" /> 82. 练习讲解 - 构造函数与原型</li>
 <li class="task-list-item"><input type="checkbox" disabled="" /> 83. 定义类型的新方式 class</li>
@@ -789,187 +1780,6 @@
 <li class="task-list-item"><input type="checkbox" disabled="" /> 7、《名利场》</li>
 <li class="task-list-item"><input type="checkbox" disabled="" /> 8、《印度之行》</li>
 </ul>
-]]>
-    </content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[可以提高审美的一些网站]]></title>
-    <link href="justbb.fun/17401239658302.html"/>
-    <updated>2025-02-21T15:46:05+08:00</updated>
-    <id>justbb.fun/17401239658302.html</id>
-    <content type="html">
-<![CDATA[<ul>
-<li><a href="https://www.dark.design/">https://www.dark.design/</a></li>
-<li><a href="https://www.footer.design/">https://www.footer.design/</a></li>
-<li><a href="https://www.landingly.co/">https://www.landingly.co/</a></li>
-<li><a href="https://godly.website/">https://godly.website/</a></li>
-</ul>
-]]>
-    </content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[娃进入了二月闹]]></title>
-    <link href="justbb.fun/17399479761584.html"/>
-    <updated>2025-02-19T14:52:56+08:00</updated>
-    <id>justbb.fun/17399479761584.html</id>
-    <content type="html">
-<![CDATA[<p>最近娃开始不怎么睡安稳觉了，睡半个多小时就醒。</p>
-<p>很是折腾人，这大概就是传说中的二月闹吧，这段时间，由于食量增加，但肠胃功能还没发育好，所以肠气比较多，有时候会肠绞痛，无法入睡。</p>
-<p>试了网上说的西甲硅油，好像屁变多了，但效果不理想。</p>
-<p>也试了游泳排气，和做排气操，但效果还是不好。</p>
-<p>只能期待这段时间赶快过去了。</p>
-]]>
-    </content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Javascript 学习笔记]]></title>
-    <link href="justbb.fun/17399539708071.html"/>
-    <updated>2025-02-19T16:32:50+08:00</updated>
-    <id>justbb.fun/17399539708071.html</id>
-    <content type="html">
-<![CDATA[<ul>
-<li>前端学习路径：<a href="https://github.com/chuyueZhang/frontEndLearning">GitHub - chuyueZhang/frontEndLearning: some notes and practices about front-end learning</a></li>
-</ul>
-]]>
-    </content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[学习JS]]></title>
-    <link href="justbb.fun/17399520802315.html"/>
-    <updated>2025-02-19T16:01:20+08:00</updated>
-    <id>justbb.fun/17399520802315.html</id>
-    <content type="html">
-<![CDATA[<p>最近准备开始学习 JS，其实感觉现在有了大模型后，编程调试和学习应该比以前容易不少，最近计划找点教程把 JS 先入门</p>
-<p>目前看的是：<a href="https://www.bilibili.com/cheese/play/ss1226">B站-好奇代码的三木的Javascript+Nodejs全栈前端全能课</a></p>
-<p>课程笔记记录在：<a href="17399539708071.html">Javascript 学习笔记</a></p>
-]]>
-    </content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[研究公众号运营]]></title>
-    <link href="justbb.fun/17398427199717.html"/>
-    <updated>2025-02-18T09:38:39+08:00</updated>
-    <id>justbb.fun/17398427199717.html</id>
-    <content type="html">
-<![CDATA[<p>最近把老婆和我的号，注册了公众号，开始运营，老婆的号主打的是家庭教育，我的号是数码。</p>
-<p>两个号搞了快一个月了，最近还是挺有收获的，我的号的ecpm挺高，但流量不行，但比较好持续</p>
-<p>我老婆的号出了有两篇10万+了，累计有三千多的收入，但感觉不好持续。</p>
-]]>
-    </content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[继续学英语]]></title>
-    <link href="justbb.fun/17398430553738.html"/>
-    <updated>2025-02-18T09:44:15+08:00</updated>
-    <id>justbb.fun/17398430553738.html</id>
-    <content type="html">
-<![CDATA[<p>最近看到小红书推荐的一个学英语的材料，感觉还不错</p>
-<p><a href="%5B%E4%B9%A6%E8%99%AB%E6%B8%85%E5%8D%95%5D(17401329282405.html)">书虫系列</a>，从一级到六级，一边听一边看。六级学完看哈利波特。</p>
-<p>这些材料在每日英语听力app上都能找到，电子书其实也在z-lib上能下载。练习听力逐渐由浅入深，而且这些名著故事，内容质量很高，不容易枯燥。</p>
-<p>其实学英语要先多听，是因为听力是语言学习的基础，就像我们小时候学母语一样，都是从“听”开始的。多听才能让我们培养直觉，语感。</p>
-<p>慢慢来吧，看2025年能看多少。</p>
-]]>
-    </content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[今天通过 deepseek 给网站加了更新热力图]]></title>
-    <link href="justbb.fun/17395925676878.html"/>
-    <updated>2025-02-15T12:09:27+08:00</updated>
-    <id>justbb.fun/17395925676878.html</id>
-    <content type="html">
-<![CDATA[<p>很早就想参考 flomo 给网站加热力图了，总是说 AI 厉害，今天也终于尝试了一下。虽然中间经历了很多麻烦，但通过一问一答的方式，最终还是解决了。</p>
-<p>虽然没啥编程基础，但也从中了解到了JS的一些语法，模板语言，调试方法等等，很有意思。</p>
-]]>
-    </content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[小朋友看动画片是一个很有用的学习渠道]]></title>
-    <link href="justbb.fun/17395897032292.html"/>
-    <updated>2025-02-15T11:21:43+08:00</updated>
-    <id>justbb.fun/17395897032292.html</id>
-    <content type="html">
-<![CDATA[<p>推友推荐的方法，记录一下：</p>
-<p>小朋友幼儿园后通过看动画片是一个很有用的学习渠道</p>
-<p>我家小朋友的英语启蒙靠 My Little Pony</p>
-<p>数学启蒙靠 Numberblocks</p>
-<p>都没怎么教他，自己看动画片就学会了……</p>
-<hr />
-<p>评论还说：</p>
-<p>我把家里电视调成了开机只能看 YouTube，然后娃就自动找到了这些。现在我见到家里有学龄前娃的程序员，都推荐这套解决方案。</p>
-<p>太小的时候可以看少儿版，不过内容有限。据我观察YouTube对于有害内容过滤比国内平台好很多。小时候看YouTube也就学会了wh……k，YouTube自带消音。小学后看B站，国骂学会了不少</p>
-<p>担心忘可以平时生活中你日常天天问他，比如买菜啊、逛超市啊，让他算一算，加减乘除这种是肌肉记忆，还是不太容易忘记的</p>
-<p>来源：<a href="https://x.com/passluo/status/1887807213873594660?s=61">https://x.com/passluo/status/1887807213873594660?s=61</a></p>
-]]>
-    </content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[当爸爸了]]></title>
-    <link href="justbb.fun/17395913044179.html"/>
-    <updated>2025-02-15T11:48:24+08:00</updated>
-    <id>justbb.fun/17395913044179.html</id>
-    <content type="html">
-<![CDATA[<p>今天开始，就要当爸爸了。</p>
-<p>考验正式开始，首先是要照顾好老婆，难点在于情感关怀，产褥期这段时间，激素波动比较大，千万不要和老婆针锋相对，出了事肯定是我的错。</p>
-<p>小生命现在视力神经等都还在发育，还不会互动，他现在只知道吃睡拉，还是比较好相处。关于和小生命一起成长，还有很多要学的地方。目前和他还不够熟，双方还有很多要磨合的。</p>
-<p>慢慢来吧。</p>
-]]>
-    </content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[推荐职场好书《Shape Up》]]></title>
-    <link href="justbb.fun/17344086600898.html"/>
-    <updated>2024-12-17T12:11:00+08:00</updated>
-    <id>justbb.fun/17344086600898.html</id>
-    <content type="html">
-<![CDATA[<p><a href="https://basecamp.com/shapeup">https://basecamp.com/shapeup</a></p>
-<p>中文版入口：<a href="https://p-c8wi.tower.im/p/54rp">https://p-c8wi.tower.im/p/54rp</a></p>
-]]>
-    </content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[读《文明的冲突与世界秩序的重建》]]></title>
-    <link href="justbb.fun/17265533079380.html"/>
-    <updated>2024-09-17T14:08:27+08:00</updated>
-    <id>justbb.fun/17265533079380.html</id>
-    <content type="html">
-<![CDATA[<p>这是一本1996年的书，主要观点是冷战结束后，世界将迎来以文明为冲突的新范式。作者结合一些案例认为，虽然现在西方文化在世界很流行，但这些区域一旦文明崛起后，本土文化就会更流行，而且越是民主的地区，在文明崛起后可能就越会反对西方文化。美国应该放弃推行普世主义，而应该基于美国建立一个西方文明的统一战线，加强西方认同，来抵预其他文明崛起后带来的冲击。</p>
-<p>基于文明的视角，作者很早就预见了俄乌冲突：</p>
-<blockquote>
-<p>他评论到“在某种程度上也许更为可能的是，乌克兰沿着文明断层线分裂成两个相互独立的实体，其东部可能与俄罗斯融合。分离问题可能首先始于克里米亚。”</p>
-</blockquote>
-<p>也表达了对中国和伊斯兰文明的担忧</p>
-<blockquote>
-<p>现代化并不等于西化。中华文明和伊斯兰文明拥有与西方极为不同的伟大的文化传统，并自认为其传统较西方的优越。在与西方的关系中，随着其实力和自我伸张性的增强，它们与西方在价值观念和利益方面的冲突日益增多和加剧”</p>
-</blockquote>
-<p>在书的结尾，作者对美国目前在实行的多元主义外交政策持批评态度，他认为美国对外可以实行文化多元论，但对内应该对内实行文化一元论，加强美国和西方认同，作者担心美国内部瓦解少数族裔可能会瓦解美国的国家认同，从而带来危机。</p>
-<p>这些观点现在看的话，其实是和川普很像的，西方中心主义，本土优先。但书中的这些想法都是作者在90年代末的想法，放在当时也不太和群的，作者本人在2008年就去世了，没有赶上美国现在的右翼文化流行，他在2006年最后一本书《谁是美国人？》中也更强烈的表达了对美国多元文化的担忧。</p>
-<blockquote>
-<p>人种和民族单一的美国不复存在。美国的文化受到围攻。苏联的遭遇表明，在缺乏人种、民族和文化共性的情况下，意识形态的黏合力是弱的。像罗伯特·卡普兰所注意到的那样，可能有理由怀疑为什么“美国会比别的国家更可能走完由生到死的历程”。然而有的社会当生存受到严重挑战时，也能够推迟其衰亡，遏制其解体，办法就是重新振作国民特性意识，振奋国家的目标感以及国民共有的文化价值观。</p>
-</blockquote>
-<p>目前的美国的确是如亨老所观察的一样，没有因为多元自由主义而变的更团结更进步DEI，反而变的越来越撕裂了，但代表本土优先的川普的上台似乎也加剧了这种撕裂，并不能实现亨老期待的西方文明统一战线。</p>
-<p><a href="https://www.aisixiang.com/data/121725.html">https://www.aisixiang.com/data/121725.html</a> 张飞岸：特朗普时代的镜像：亨廷顿与美国政治</p>
-]]>
-    </content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[读《China's Economy: What Everyone Needs to Know?》]]></title>
-    <link href="justbb.fun/17216379923580.html"/>
-    <updated>2024-07-22T16:46:32+08:00</updated>
-    <id>justbb.fun/17216379923580.html</id>
-    <content type="html">
-<![CDATA[<p>这是一本牛津通识读本，读书记录待完善</p>
 ]]>
     </content>
   </entry>

@@ -12,17 +12,19 @@
 
     <link rel="stylesheet" type="text/css" href="asset/cuckoo.css">
     <link rel="stylesheet" type="text/css" href="asset/main.css">
-    <link rel="stylesheet" type="text/css" href="asset/tomorrow.css">
     <link rel="shortcut icon" href="asset/favicon.ico" type="image/x-icon" />
     <link rel="alternate" type="application/atom+xml" href="atom.xml" title="JustBB">
 
     <link rel="stylesheet" href="asset/zoom.css">
 
-    <script src="asset/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-
-    
-    <meta name="google-site-verification" content="v_k4W8sWPzS3caLtUAbGoCgiDOyLn7KLzbEb4he7xFg" />
+    <!-- 引入 Prism.js 核心 CSS -->
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="asset/prism-nord.css">
+    <!-- 引入 Prism.js 核心 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+     <!-- 引入 JavaScript 语言支持 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
 
 </head>
 
@@ -70,11 +72,20 @@
 </html>
  <div class="page-content cuckoo">
     <div class="wrapper">
-        <article class="post">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
             <header class="post-header">
-                <h1 class="post-title">读书清单</h1>
+                <h1 class="post-title" itemprop="name headline">读书清单</h1>
+                <div class="post-description">
+                    
+
+                    <time datetime="2022/09/26">2022/09/26</time>
+                    
+                    <div class="author">@BB</div>
+
+
+                </div>
             </header>
-            <div class="post-content">
+            <div class="post-content" itemprop="articleBody">
                 <h3><a id="2024%E5%B9%B4" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2024年</h3>
 <table>
 <thead>
@@ -935,38 +946,59 @@
 
             </div>
 
+
             <div style="margin-top: 50px;">
+
                 <!-- giscus 评论 -->
                 <script src="https://giscus.app/client.js"
-                data-repo="layliu/giscus-comment"
-                data-repo-id="R_kgDOJtN4ng"
-                data-category="Announcements"
-                data-category-id="DIC_kwDOJtN4ns4CXE-q"
-                data-mapping="pathname"
-                data-strict="0"
-                data-reactions-enabled="1"
-                data-emit-metadata="0"
-                data-input-position="top"
-                data-theme="light"
-                data-lang="zh-CN"
-                crossorigin="anonymous"
-                async>
+                        data-repo="layliu/giscus-comment"
+                        data-repo-id="R_kgDOJtN4ng"
+                        data-category="Announcements"
+                        data-category-id="DIC_kwDOJtN4ns4CXE-q"
+                        data-mapping="pathname"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="top"
+                        data-theme="light"
+                        data-lang="zh-CN"
+                        crossorigin="anonymous"
+                        async>
                 </script>
-           </div>
+
+
+            </div>
+
 
         </article>
     </div>
-    
 </div>
 
 <script src="asset/jquery-3.3.1.min.js"></script>
 
+<!-- 增加zoom效果 -->
+<script src="asset/zoom.js"></script>
+<!-- <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script> -->
 <script>
-    $(document).ready(function() {
+    $(function () {
+        $('img').each(function () {
+            $(this).attr("data-action", 'zoom');
+        });
+    });
+</script>
+
+
+
+
+
+<script>
+    $(document).ready(function () {
         $('#footer').show()
     })
+
+
 </script>
- <!-- <footer id="footer" class="cuckoo page-footer" style="display: none">
+  <!-- <footer id="footer" class="cuckoo page-footer" style="display: none">
     <div class="wrapper">
         <p>Designed and Written by <a href="mailto:justbb@gmail.com">liulei</a></p>
     </div>

@@ -164,7 +164,10 @@ ul.entry-list {
 
 .cuckoo img {
   display: block;
+  padding-top: 20px;
+  padding-bottom: 20px;
   max-width: 100%;
+  max-height: 500px;
   filter: grayscale(1);
   max-height: auto;
   margin-left: auto;
@@ -295,10 +298,10 @@ ul.entry-list {
 
 .cuckoo code,
 .cuckoo tt {
-  /* color: #808080; */
+  color: #680000;
   font-size: 0.96em;
   padding: 2px 4px;
-  background-color: #f0f0f0;
+  background-color: #fff3e5;
   /* border: 2px dashed #eee; */
   border-radius: 3px;
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+         试着用 AI 写 word 脚本 - JustBB 
+    </title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+
+    <link rel="stylesheet" type="text/css" href="asset/cuckoo.css">
+    <link rel="stylesheet" type="text/css" href="asset/main.css">
+    <link rel="shortcut icon" href="asset/favicon.ico" type="image/x-icon" />
+    <link rel="alternate" type="application/atom+xml" href="atom.xml" title="JustBB">
+
+    <link rel="stylesheet" href="asset/zoom.css">
+
+    <!-- 引入 Prism.js 核心 CSS -->
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="asset/prism-nord.css">
+    <!-- 引入 Prism.js 核心 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+     <!-- 引入 JavaScript 语言支持 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+</head>
+
+<body>
+    <header class="site-header cuckoo">
+        <div class="wrapper">
+            <a class="site-title" href="index.html">JustBB</a>
+            <nav class="site-nav">
+                <a href="#" class="menu-icon">
+                    <svg viewBox="0 0 18 15">
+                        <path fill="#424242"
+                            d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z">
+                        </path>
+                        <path fill="#424242"
+                            d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z">
+                        </path>
+                        <path fill="#424242"
+                            d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z">
+                        </path>
+                    </svg>
+                </a>
+                <div class="trigger">
+                    
+                    <a class="page-link" href="index.html">Home</a>
+                    
+                    <a class="page-link" href="Daily.html">Daily</a>
+                    
+                    <a class="page-link" href="invest.html">Invest</a>
+                    
+                    <a class="page-link" href="Review.html">Review</a>
+                    
+                    <a class="page-link" href="read.html">Books</a>
+                    
+                    <a class="page-link" href="about.html">About</a>
+                    
+                </div>
+            </nav>
+        </div>
+
+        
+
+    </header>
+</body>
+
+</html>
+ <div class="page-content cuckoo">
+    <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+            <header class="post-header">
+                <h1 class="post-title" itemprop="name headline">试着用 AI 写 word 脚本</h1>
+                <div class="post-description">
+                    
+
+                    <time datetime="2025/03/06">2025/03/06</time>
+                    
+                    <a class="tags" href='tag_%E6%97%A5%E5%B8%B8.html'>日常</a>
+                    
+                    <div class="author">@BB</div>
+
+
+                </div>
+            </header>
+            <div class="post-content" itemprop="articleBody">
+                <p>最近总是有很多合同要处理，但其实合同模板都是一样的，只是里面的甲方对象不同，所以突然想到word其实有vba宏可以使用。<br />
+所以让AI帮我写了个脚本，自己稍加改动就可以运行。<br />
+目前就是界面还不太友好，全是弹窗，下一步试试改下界面。</p>
+<pre><code class="language-plain_text">Sub GenerateContract()
+    ' 声明变量
+    Dim doc As Document
+    Dim partyA As String    ' 甲方名称
+    Dim partyAAddress As String    ' 甲方地址
+    Dim partyAContact As String    ' 甲方联系人
+    Dim contractDate As String     ' 合同日期
+    Dim contractNo As String       ' 合同编号
+    
+    ' 获取用户信息（这里可以通过输入框或指定单元格获取）
+    partyA = InputBox(&quot;请输入甲方名称：&quot;)
+    partyAAddress = InputBox(&quot;请输入甲方地址：&quot;)
+    partyAContact = InputBox(&quot;请输入甲方联系人：&quot;)
+    contractDate = Format(Date, &quot;yyyy年mm月dd日&quot;)
+    contractNo = &quot;FG&quot; &amp; Format(Date, &quot;yyyymmdd&quot;) &amp; &quot;-&quot; &amp; Format(Time, &quot;hhmm&quot;)
+    
+    ' 打开模板文档
+    Set doc = Documents.Open(&quot;/Users/lay/Dropbox/客户QA/合同模板/ContractTemplate.doc&quot;) ' 修改为你的模板路径
+    
+    ' 替换模板中的占位符
+    With doc
+        ' 假设模板中使用 {PartyA} 这样的占位符
+        .Application.Selection.Find.Execute FindText:=&quot;{PartyA}&quot;, _
+            replaceWith:=partyA, Replace:=wdReplaceAll
+        .Application.Selection.Find.Execute FindText:=&quot;{PartyAAddress}&quot;, _
+            replaceWith:=partyAAddress, Replace:=wdReplaceAll
+        .Application.Selection.Find.Execute FindText:=&quot;{PartyAContact}&quot;, _
+            replaceWith:=partyAContact, Replace:=wdReplaceAll
+        .Application.Selection.Find.Execute FindText:=&quot;{ContractDate}&quot;, _
+            replaceWith:=contractDate, Replace:=wdReplaceAll
+        .Application.Selection.Find.Execute FindText:=&quot;{ContractNo}&quot;, _
+            replaceWith:=contractNo, Replace:=wdReplaceAll
+    End With
+    
+    ' 另存为新文档
+    doc.SaveAs2 FileName:=&quot;/Users/lay/Dropbox/客户QA/合同模板/&quot; &amp; PartyA &amp; &quot;飞鸽劳务通SaaS软件系统及抖音招聘账号报白使用权益服务合同_&quot; &amp; contractNo &amp; &quot;.doc&quot;
+    
+    ' 可选择是否关闭文档
+    ' doc.Close
+    
+    MsgBox &quot;合同已生成！保存路径：/Users/lay/Dropbox/客户QA/合同模板/合同_&quot; &amp; contractNo &amp; &quot;.doc&quot;
+    
+    ' 清理
+    Set doc = Nothing
+End Sub
+
+</code></pre>
+
+            </div>
+
+
+            <div style="margin-top: 50px;">
+
+                <!-- giscus 评论 -->
+                <script src="https://giscus.app/client.js"
+                        data-repo="layliu/giscus-comment"
+                        data-repo-id="R_kgDOJtN4ng"
+                        data-category="Announcements"
+                        data-category-id="DIC_kwDOJtN4ns4CXE-q"
+                        data-mapping="pathname"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="top"
+                        data-theme="light"
+                        data-lang="zh-CN"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+
+
+            </div>
+
+
+        </article>
+    </div>
+</div>
+
+<script src="asset/jquery-3.3.1.min.js"></script>
+
+<!-- 增加zoom效果 -->
+<script src="asset/zoom.js"></script>
+<!-- <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script> -->
+<script>
+    $(function () {
+        $('img').each(function () {
+            $(this).attr("data-action", 'zoom');
+        });
+    });
+</script>
+
+
+
+
+
+<script>
+    $(document).ready(function () {
+        $('#footer').show()
+    })
+
+
+</script>
+  <!-- <footer id="footer" class="cuckoo page-footer" style="display: none">
+    <div class="wrapper">
+        <p>Designed and Written by <a href="mailto:justbb@gmail.com">liulei</a></p>
+    </div>
+</footer> -->
+<!-- 
+ -->
