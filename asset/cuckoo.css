@@ -219,10 +219,9 @@ ul.entry-list {
 
 .cuckoo hr {
   display: block;
-  width: 14%;
   margin: 40px auto 34px;
   border: 0 none;
-  border-top: 3px solid #dededc;
+  border-top: 2px solid #eeeeee;
 }
 
 .cuckoo blockquote {
