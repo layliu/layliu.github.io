@@ -153,7 +153,7 @@ ul.entry-list {
 .cuckoo b {
   font-weight: 700;
   color: #222223;
-  background-color: #ffeeb5;
+  /* background-color: #ffeeb5; */
 }
 
 .cuckoo em,
@@ -298,10 +298,11 @@ ul.entry-list {
 
 .cuckoo code,
 .cuckoo tt {
-  color: #680000;
+  color: #1b1b1b;
   font-size: 0.96em;
   padding: 2px 4px;
-  background-color: #fff3e5;
+  margin: 4px;
+  background-color: #efefef;
   /* border: 2px dashed #eee; */
   border-radius: 3px;
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;

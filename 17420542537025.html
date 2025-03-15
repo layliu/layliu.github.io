@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+         原型（Prototype）和原型链（Prototype Chain） - JustBB 
+    </title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+
+    <link rel="stylesheet" type="text/css" href="asset/cuckoo.css">
+    <link rel="stylesheet" type="text/css" href="asset/main.css">
+    <link rel="shortcut icon" href="asset/favicon.ico" type="image/x-icon" />
+    <link rel="alternate" type="application/atom+xml" href="atom.xml" title="JustBB">
+
+    <link rel="stylesheet" href="asset/zoom.css">
+
+    <!-- 引入 Prism.js 核心 CSS -->
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="asset/prism-nord.css">
+    <!-- 引入 Prism.js 核心 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+     <!-- 引入 JavaScript 语言支持 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+</head>
+
+<body>
+    <header class="site-header cuckoo">
+        <div class="wrapper">
+            <a class="site-title" href="index.html">JustBB</a>
+            <nav class="site-nav">
+                <a href="#" class="menu-icon">
+                    <svg viewBox="0 0 18 15">
+                        <path fill="#424242"
+                            d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z">
+                        </path>
+                        <path fill="#424242"
+                            d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z">
+                        </path>
+                        <path fill="#424242"
+                            d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z">
+                        </path>
+                    </svg>
+                </a>
+                <div class="trigger">
+                    
+                    <a class="page-link" href="index.html">Home</a>
+                    
+                    <a class="page-link" href="Daily.html">Daily</a>
+                    
+                    <a class="page-link" href="Invest.html">Invest</a>
+                    
+                    <a class="page-link" href="Review.html">Review</a>
+                    
+                    <a class="page-link" href="read.html">Books</a>
+                    
+                    <a class="page-link" href="about.html">About</a>
+                    
+                </div>
+            </nav>
+        </div>
+
+        
+
+    </header>
+</body>
+
+</html>
+ <div class="page-content cuckoo">
+    <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+            <header class="post-header">
+                <h1 class="post-title" itemprop="name headline">原型（Prototype）和原型链（Prototype Chain）</h1>
+                <div class="post-description">
+                    
+
+                    <time datetime="2025/03/15">2025/03/15</time>
+                    
+                    <div class="author">@BB</div>
+
+
+                </div>
+            </header>
+            <div class="post-content" itemprop="articleBody">
+                <p><strong>原型（Prototype）</strong> 和 <strong>原型链（Prototype Chain）</strong> 是 JavaScript 中实现继承和共享属性的核心机制。<br />
+理解 <code>[[Prototype]]</code>、<code>prototype</code> 和 <code>constructor</code> 的关系，是掌握 JavaScript 面向对象编程的关键。</p>
+<hr />
+<h3><a id="1%C2%A0%E5%AF%B9%E8%B1%A1%E7%9A%84%C2%A0-prototype%C2%A0%E5%B1%9E%E6%80%A7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. <strong>对象的 <code>[[Prototype]]</code> 属性</strong></h3>
+<ul>
+<li>
+<p>每个对象（对象实例）都有一个内部属性 <code>[[Prototype]]</code>，默认指向一个对象。</p>
+</li>
+<li>
+<p>这个 <code>[[Prototype]]</code> 属性可以通过 <code>Object.getPrototypeOf(obj)</code> 或 <code>obj.__proto__</code> 访问。</p>
+</li>
+<li>
+<p>如果对象是通过字面量创建的，<code>[[Prototype]]</code> 默认指向 <code>Object.prototype</code>。</p>
+</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">const obj = {};
+console.log(Object.getPrototypeOf(obj) === Object.prototype); // 输出: true
+console.log(obj.__proto__ === Object.prototype); // 输出: true
+</code></pre>
+<hr />
+<h3><a id="2%C2%A0-new%C2%A0%E5%85%B3%E9%94%AE%E5%AD%97%E5%92%8C%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. <strong><code>new</code> 关键字和构造函数</strong></h3>
+<ul>
+<li>
+<p>当使用 <code>new</code> 关键字调用构造函数时，会创建一个新的对象。</p>
+</li>
+<li>
+<p>这个新对象的 <code>[[Prototype]]</code> 属性会被设置为构造函数的 <code>prototype</code> 属性指向的对象。</p>
+</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">function Person(name) {
+  this.name = name;
+}
+
+const alice = new Person('Alice');
+console.log(Object.getPrototypeOf(alice) === Person.prototype); // 输出: true
+console.log(alice.__proto__ === Person.prototype); // 输出: true
+</code></pre>
+<ul>
+<li>
+<p><strong>解释</strong>：</p>
+<ul>
+<li>
+<p><code>alice</code> 是通过 <code>new Person()</code> 创建的对象。</p>
+</li>
+<li>
+<p><code>alice</code> 的 <code>[[Prototype]]</code> 属性指向 <code>Person.prototype</code>。</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3><a id="3%C2%A0%E5%87%BD%E6%95%B0%E7%9A%84%C2%A0-prototype%C2%A0%E5%B1%9E%E6%80%A7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. <strong>函数的 <code>prototype</code> 属性</strong></h3>
+<ul>
+<li>
+<p>每个函数都有一个 <code>prototype</code> 属性，这个属性是一个对象。</p>
+</li>
+<li>
+<p>这个 <code>prototype</code> 对象有一个 <code>constructor</code> 属性，指向函数本身。</p>
+</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">function Person(name) {
+  this.name = name;
+}
+
+console.log(Person.prototype.constructor === Person); // 输出: true
+</code></pre>
+<ul>
+<li>
+<p><strong>解释</strong>：</p>
+<ul>
+<li><code>Person.prototype</code> 是一个对象，它的 <code>constructor</code> 属性指向 <code>Person</code> 函数本身。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3><a id="4%C2%A0%E5%8E%9F%E5%9E%8B%E9%93%BE" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. <strong>原型链</strong></h3>
+<ul>
+<li>当访问对象的属性或方法时，如果对象本身没有该属性或方法，JavaScript 会沿着 <code>[[Prototype]]</code> 链向上查找，直到找到该属性或方法，或者到达原型链的尽头（<code>null</code>）。</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">function Person(name) {
+  this.name = name;
+}
+
+// 在 Person.prototype 上添加方法
+Person.prototype.sayHello = function() {
+  console.log(`Hello, my name is ${this.name}`);
+};
+
+const alice = new Person('Alice');
+alice.sayHello(); // 输出: Hello, my name is Alice
+</code></pre>
+<ul>
+<li>
+<p><strong>解释</strong>：</p>
+<ul>
+<li>
+<p><code>alice</code> 本身没有 <code>sayHello</code> 方法，但它的 <code>[[Prototype]]</code> 指向 <code>Person.prototype</code>，而 <code>Person.prototype</code> 上有 <code>sayHello</code> 方法。</p>
+</li>
+<li>
+<p>因此，<code>alice</code> 可以调用 <code>sayHello</code> 方法。</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3><a id="5%C2%A0%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%9A%84%E5%B0%BD%E5%A4%B4" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. <strong>原型链的尽头</strong></h3>
+<ul>
+<li>
+<p>原型链的尽头是 <code>null</code>。</p>
+</li>
+<li>
+<p><code>Object.prototype</code> 是大多数对象的原型链的终点，它的 <code>[[Prototype]]</code> 是 <code>null</code>。</p>
+</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">console.log(Object.getPrototypeOf(Object.prototype)); // 输出: null
+</code></pre>
+<hr />
+<h3><a id="%E6%80%BB%E7%BB%93" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>总结</h3>
+<ol>
+<li>
+<p><strong><code>[[Prototype]]</code></strong>：</p>
+<ul>
+<li>
+<p>每个对象都有一个 <code>[[Prototype]]</code> 属性，指向它的原型对象。</p>
+</li>
+<li>
+<p>默认情况下，对象的 <code>[[Prototype]]</code> 指向 <code>Object.prototype</code>。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>new</code> 关键字</strong>：</p>
+<ul>
+<li>使用 <code>new</code> 关键字调用构造函数时，新对象的 <code>[[Prototype]]</code> 会被设置为构造函数的 <code>prototype</code> 属性指向的对象。</li>
+</ul>
+</li>
+<li>
+<p><strong>函数的 <code>prototype</code> 属性</strong>：</p>
+<ul>
+<li>
+<p>每个函数都有一个 <code>prototype</code> 属性，指向一个对象。</p>
+</li>
+<li>
+<p>这个对象的 <code>constructor</code> 属性指向函数本身。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>原型链</strong>：</p>
+<ul>
+<li>当访问对象的属性或方法时，JavaScript 会沿着 <code>[[Prototype]]</code> 链向上查找，直到找到该属性或方法，或者到达 <code>null</code>。</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h3><a id="%E5%9B%BE%E7%A4%BA%E5%8E%9F%E5%9E%8B%E9%93%BE" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>图示原型链</h3>
+<p>以下是一个简单的原型链图示：</p>
+<pre><code class="language-plain_text">alice (实例对象)
+  |
+  | [[Prototype]]
+  v
+Person.prototype
+  |
+  | [[Prototype]]
+  v
+Object.prototype
+  |
+  | [[Prototype]]
+  v
+null
+</code></pre>
+<ul>
+<li>
+<p><code>alice</code> 是 <code>Person</code> 的实例，它的 <code>[[Prototype]]</code> 指向 <code>Person.prototype</code>。</p>
+</li>
+<li>
+<p><code>Person.prototype</code> 的 <code>[[Prototype]]</code> 指向 <code>Object.prototype</code>。</p>
+</li>
+<li>
+<p><code>Object.prototype</code> 的 <code>[[Prototype]]</code> 指向 <code>null</code>。</p>
+</li>
+</ul>
+<hr />
+<h3><a id="%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例代码</h3>
+<p>以下是一个完整的示例，展示原型链的工作原理：</p>
+<pre><code class="language-javascript">function Person(name) {
+  this.name = name;
+}
+
+// 在 Person.prototype 上添加方法
+Person.prototype.sayHello = function() {
+  console.log(`Hello, my name is ${this.name}`);
+};
+
+const alice = new Person('Alice');
+
+// 访问属性和方法
+console.log(alice.name); // 输出: Alice
+alice.sayHello(); // 输出: Hello, my name is Alice
+
+// 检查原型链
+console.log(Object.getPrototypeOf(alice) === Person.prototype); // 输出: true
+console.log(Object.getPrototypeOf(Person.prototype) === Object.prototype); // 输出: true
+console.log(Object.getPrototypeOf(Object.prototype) === null); // 输出: true
+
+</code></pre>
+
+            </div>
+
+
+            <div style="margin-top: 50px;">
+
+                <!-- giscus 评论 -->
+                <script src="https://giscus.app/client.js"
+                        data-repo="layliu/giscus-comment"
+                        data-repo-id="R_kgDOJtN4ng"
+                        data-category="Announcements"
+                        data-category-id="DIC_kwDOJtN4ns4CXE-q"
+                        data-mapping="pathname"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="top"
+                        data-theme="light"
+                        data-lang="zh-CN"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+
+
+            </div>
+
+
+        </article>
+    </div>
+</div>
+
+<script src="asset/jquery-3.3.1.min.js"></script>
+
+<!-- 增加zoom效果 -->
+<script src="asset/zoom.js"></script>
+<!-- <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script> -->
+<script>
+    $(function () {
+        $('img').each(function () {
+            $(this).attr("data-action", 'zoom');
+        });
+    });
+</script>
+
+
+
+
+
+<script>
+    $(document).ready(function () {
+        $('#footer').show()
+    })
+
+
+</script>
+  <!-- <footer id="footer" class="cuckoo page-footer" style="display: none">
+    <div class="wrapper">
+        <p>Designed and Written by <a href="mailto:justbb@gmail.com">liulei</a></p>
+    </div>
+</footer> -->
+<!-- 
+ -->

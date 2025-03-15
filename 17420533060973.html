@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+         函数是 JavaScript 中的一种特殊对象 - JustBB 
+    </title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+
+    <link rel="stylesheet" type="text/css" href="asset/cuckoo.css">
+    <link rel="stylesheet" type="text/css" href="asset/main.css">
+    <link rel="shortcut icon" href="asset/favicon.ico" type="image/x-icon" />
+    <link rel="alternate" type="application/atom+xml" href="atom.xml" title="JustBB">
+
+    <link rel="stylesheet" href="asset/zoom.css">
+
+    <!-- 引入 Prism.js 核心 CSS -->
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="asset/prism-nord.css">
+    <!-- 引入 Prism.js 核心 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+     <!-- 引入 JavaScript 语言支持 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+</head>
+
+<body>
+    <header class="site-header cuckoo">
+        <div class="wrapper">
+            <a class="site-title" href="index.html">JustBB</a>
+            <nav class="site-nav">
+                <a href="#" class="menu-icon">
+                    <svg viewBox="0 0 18 15">
+                        <path fill="#424242"
+                            d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z">
+                        </path>
+                        <path fill="#424242"
+                            d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z">
+                        </path>
+                        <path fill="#424242"
+                            d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z">
+                        </path>
+                    </svg>
+                </a>
+                <div class="trigger">
+                    
+                    <a class="page-link" href="index.html">Home</a>
+                    
+                    <a class="page-link" href="Daily.html">Daily</a>
+                    
+                    <a class="page-link" href="Invest.html">Invest</a>
+                    
+                    <a class="page-link" href="Review.html">Review</a>
+                    
+                    <a class="page-link" href="read.html">Books</a>
+                    
+                    <a class="page-link" href="about.html">About</a>
+                    
+                </div>
+            </nav>
+        </div>
+
+        
+
+    </header>
+</body>
+
+</html>
+ <div class="page-content cuckoo">
+    <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+            <header class="post-header">
+                <h1 class="post-title" itemprop="name headline">函数是 JavaScript 中的一种特殊对象</h1>
+                <div class="post-description">
+                    
+
+                    <time datetime="2025/03/12">2025/03/12</time>
+                    
+                    <div class="author">@BB</div>
+
+
+                </div>
+            </header>
+            <div class="post-content" itemprop="articleBody">
+                <h4><a id="1%C2%A0%E5%87%BD%E6%95%B0%E6%98%AF%C2%A0-function%C2%A0%E7%9A%84%E5%AE%9E%E4%BE%8B" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. <strong>函数是 <code>Function</code> 的实例</strong></h4>
+<ul>
+<li>
+<p>在 JavaScript 中，函数是通过 <code>Function</code> 构造函数创建的。</p>
+</li>
+<li>
+<p>每个函数都是 <code>Function</code> 类型的实例，而 <code>Function</code> 是 <code>Object</code> 的子类型。</p>
+</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">function foo() {
+  console.log('Hello, world!');
+}
+
+console.log(foo instanceof Function); // 输出: true
+console.log(foo instanceof Object);   // 输出: true
+</code></pre>
+<ul>
+<li>
+<p><strong>解释</strong>：</p>
+<ul>
+<li><code>foo</code> 是 <code>Function</code> 的实例，同时也是 <code>Object</code> 的实例。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h4><a id="2%C2%A0%E5%87%BD%E6%95%B0%E5%85%B7%E6%9C%89%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%89%B9%E6%80%A7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. <strong>函数具有对象的特性</strong></h4>
+<ul>
+<li>
+<p>函数可以像普通对象一样拥有属性和方法。</p>
+</li>
+<li>
+<p>函数可以作为参数传递，也可以作为返回值。</p>
+</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">function foo() {
+  console.log('Hello, world!');
+}
+
+// 为函数添加属性
+foo.name = 'myFunction';
+foo.description = 'This is a function';
+
+console.log(foo.name); // 输出: myFunction
+console.log(foo.description); // 输出: This is a function
+
+// 将函数作为参数传递
+function bar(func) {
+  func();
+}
+
+bar(foo); // 输出: Hello, world!
+</code></pre>
+<ul>
+<li>
+<p><strong>解释</strong>：</p>
+<ul>
+<li>
+<p>函数 <code>foo</code> 可以像普通对象一样添加属性。</p>
+</li>
+<li>
+<p>函数 <code>foo</code> 可以作为参数传递给另一个函数 <code>bar</code>。</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h4><a id="3%C2%A0%E5%87%BD%E6%95%B0%E6%98%AF%E2%80%9C%E4%B8%80%E7%AD%89%E5%85%AC%E6%B0%91%E2%80%9D" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. <strong>函数是“一等公民”</strong></h4>
+<ul>
+<li>
+<p>在 JavaScript 中，函数是“一等公民”（First-class Citizen），这意味着函数可以：</p>
+<ul>
+<li>
+<p>赋值给变量。</p>
+</li>
+<li>
+<p>作为参数传递给其他函数。</p>
+</li>
+<li>
+<p>作为返回值从其他函数中返回。</p>
+</li>
+<li>
+<p>存储在数据结构中（如数组、对象）。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">// 赋值给变量
+const myFunc = function() {
+  console.log('Hello, world!');
+};
+
+// 作为参数传递
+function callFunction(func) {
+  func();
+}
+
+callFunction(myFunc); // 输出: Hello, world!
+
+// 作为返回值
+function createFunction() {
+  return function() {
+    console.log('This is a new function!');
+  };
+}
+
+const newFunc = createFunction();
+newFunc(); // 输出: This is a new function!
+</code></pre>
+<h4><a id="4%C2%A0%E5%87%BD%E6%95%B0%E6%98%AF%E2%80%9C%E5%8F%AF%E8%B0%83%E7%94%A8%E5%AF%B9%E8%B1%A1%E2%80%9D" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. <strong>函数是“可调用对象”</strong></h4>
+<ul>
+<li>函数是一种特殊的对象，它不仅可以拥有属性和方法，还可以被调用（通过 <code>()</code> 调用）。</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">function foo() {
+  console.log('Hello, world!');
+}
+
+// 调用函数
+foo(); // 输出: Hello, world!
+
+// 为函数添加属性
+foo.description = 'This is a function';
+console.log(foo.description); // 输出: This is a function
+</code></pre>
+<hr />
+<h3><a id="%E5%87%BD%E6%95%B0%E7%9A%84%E7%89%B9%E6%AE%8A%E5%B1%9E%E6%80%A7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>函数的特殊属性</h3>
+<p>函数作为对象，具有一些特殊的属性：</p>
+<ol>
+<li>
+<p><strong><code>name</code></strong>：</p>
+<ul>
+<li>
+<p>函数的名称。</p>
+</li>
+<li>
+<p>例如：</p>
+</li>
+</ul>
+<pre><code class="language-javascript"> function foo() {}
+ console.log(foo.name); // 输出: foo
+</code></pre>
+</li>
+<li>
+<p><strong><code>length</code></strong>：</p>
+<ul>
+<li>
+<p>函数期望的参数个数。</p>
+</li>
+<li>
+<p>例如：</p>
+</li>
+</ul>
+<pre><code class="language-javascript"> function bar(a, b, c) {}
+ console.log(bar.length); // 输出: 3
+</code></pre>
+</li>
+<li>
+<p><strong><code>prototype</code></strong>：</p>
+<ul>
+<li>
+<p>函数的 <code>prototype</code> 属性指向一个对象，这个对象是构造函数创建的实例的原型。</p>
+</li>
+<li>
+<p>例如：</p>
+</li>
+</ul>
+<pre><code class="language-javascript"> function Person(name) {
+     this.name = name;
+ }
+ console.log(Person.prototype); // 输出: { constructor: Person }
+</code></pre>
+</li>
+</ol>
+<hr />
+<h3><a id="%E6%80%BB%E7%BB%93" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>总结</h3>
+<ul>
+<li>
+<p>函数是 JavaScript 中的一种对象，是 <code>Function</code> 类型的实例。</p>
+</li>
+<li>
+<p>函数具有对象的所有特性，可以拥有属性和方法，可以作为参数传递，也可以作为返回值。</p>
+</li>
+<li>
+<p>函数是“一等公民”，是“可调用对象”。</p>
+</li>
+<li>
+<p>理解函数是对象这一特性，是掌握 JavaScript 函数式编程和面向对象编程的关键。</p>
+</li>
+</ul>
+
+            </div>
+
+
+            <div style="margin-top: 50px;">
+
+                <!-- giscus 评论 -->
+                <script src="https://giscus.app/client.js"
+                        data-repo="layliu/giscus-comment"
+                        data-repo-id="R_kgDOJtN4ng"
+                        data-category="Announcements"
+                        data-category-id="DIC_kwDOJtN4ns4CXE-q"
+                        data-mapping="pathname"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="top"
+                        data-theme="light"
+                        data-lang="zh-CN"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+
+
+            </div>
+
+
+        </article>
+    </div>
+</div>
+
+<script src="asset/jquery-3.3.1.min.js"></script>
+
+<!-- 增加zoom效果 -->
+<script src="asset/zoom.js"></script>
+<!-- <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script> -->
+<script>
+    $(function () {
+        $('img').each(function () {
+            $(this).attr("data-action", 'zoom');
+        });
+    });
+</script>
+
+
+
+
+
+<script>
+    $(document).ready(function () {
+        $('#footer').show()
+    })
+
+
+</script>
+  <!-- <footer id="footer" class="cuckoo page-footer" style="display: none">
+    <div class="wrapper">
+        <p>Designed and Written by <a href="mailto:justbb@gmail.com">liulei</a></p>
+    </div>
+</footer> -->
+<!-- 
+ -->
