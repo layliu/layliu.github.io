@@ -41,7 +41,9 @@ ul.entry-list {
   float: right;
 }
 
-
+.posted-cats a{
+  text-decoration: none !important;
+}
 
 .posted-cats {
   float: right;
@@ -68,7 +70,7 @@ ul.entry-list {
 .cuckoo {
   /* font: 400 18px/1.62; */
   font-size: 16px;
-  font-family: bree serif, Arial, -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif;
+  font-family:  bree serif, Arial, -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif;
   color: #000;
 }
 
@@ -294,6 +296,8 @@ ul.entry-list {
   padding: 0;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
 .cuckoo code,
 .cuckoo tt {
   color: #1b1b1b;
@@ -303,7 +307,7 @@ ul.entry-list {
   background-color: #efefef;
   /* border: 2px dashed #eee; */
   border-radius: 3px;
-  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family: "JetBrains Mono",Menlo, Monaco, Consolas, "Courier New", monospace;
   word-wrap: break-word;
 }
 
@@ -316,7 +320,7 @@ ul.entry-list {
   overflow: auto;
   line-height: 1.5;
   font-size: 0.96em;
-  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family: "JetBrains Mono",Menlo, Monaco, Consolas, "Courier New", monospace;
   /* color: #4c4c4c; */
 }
 

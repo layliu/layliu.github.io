@@ -9,12 +9,12 @@ code[class*="language-"],
 pre[class*="language-"] {
 	color: #fff;
 	background: none;
-	font-family: Menlo,"Roboto Mono","Courier New",Courier,monospace,"Inter",sans-serif;
+	font-family: "JetBrains Mono",Menlo,"Roboto Mono","Courier New",Courier,monospace,"Inter",sans-serif;
 	text-align: left;
 	white-space: pre;
-	word-spacing: normal;
+	/* word-spacing: normal; */
 	word-break: normal;
-	word-wrap: normal;
+	/* word-wrap: normal; */
 	font-size: 14px;
 	line-height: 2;
 	-moz-tab-size: 4;
@@ -52,6 +52,8 @@ pre[class*="language-"] {
 .token.doctype,
 .token.cdata {
 	color: #7e8aa3;
+	white-space: pre-wrap; /* 保留空格，但允许换行 */
+    word-wrap: break-word; /* 长单词或字符串换行 */
 }
 
 .token.punctuation {
