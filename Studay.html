@@ -114,6 +114,24 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
+                        <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2025/03/16">2025-03-16T21:47:59+08:00</time></div>
+                        
+                        <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="17421328791971.html">JS：类 class</a></h2>
+                        
+                        
+                        <span class="posted-cats"><a href='Studay.html'>Studay</a></span>
+                        
+                        
+                        <div itemprop="description" class="entry-description">
+                            
+                        </div>
+
+                    </div>
+                </li>
+                
+                <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
+                    <div class="entry-detail">
+
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2025/03/15">2025-03-15T23:57:33+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="17420542537025.html">JS：原型和原型链</a></h2>
@@ -168,9 +186,27 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
+                        <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2025/03/11">2025-03-11T21:40:02+08:00</time></div>
+                        
+                        <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="17421324023459.html">JS：对象与属性</a></h2>
+                        
+                        
+                        <span class="posted-cats"><a href='Studay.html'>Studay</a></span>
+                        
+                        
+                        <div itemprop="description" class="entry-description">
+                            
+                        </div>
+
+                    </div>
+                </li>
+                
+                <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
+                    <div class="entry-detail">
+
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2025/03/10">2025-03-10T21:05:49+08:00</time></div>
                         
-                        <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="17416119491548.html">数组方法列表</a></h2>
+                        <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="17416119491548.html">JS：数组方法列表</a></h2>
                         
                         
                         <span class="posted-cats"><a href='Studay.html'>Studay</a></span>
@@ -218,6 +254,17 @@
     // 遍历所有文章
     
         // 提取发布日期并转换为日期对象
+        var pd = new Date("2025/03/16"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
         var pd = new Date("2025/03/15"); // 直接使用 Date 构造函数
         var pdateKey = pd
 
@@ -241,6 +288,17 @@
     
         // 提取发布日期并转换为日期对象
         var pd = new Date("2025/03/12"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2025/03/11"); // 直接使用 Date 构造函数
         var pdateKey = pd
 
         // 统计每天的更新次数

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+         JS：对象与属性 - JustBB 
+    </title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="欢迎来到JUST.bb这里是我的一个自留地，主要用来记录和分享一些工作、生活中的随笔、思考和总结。我希望通过文字，梳理自己的思路，沉淀经验，也希望能与志同道合的朋友们交流碰撞，共同成长。">
+
+    <link rel="stylesheet" type="text/css" href="asset/cuckoo.css">
+    <link rel="stylesheet" type="text/css" href="asset/main.css">
+    <link rel="shortcut icon" href="asset/favicon.ico" type="image/x-icon" />
+    <link rel="alternate" type="application/atom+xml" href="atom.xml" title="JustBB">
+
+    <link rel="stylesheet" href="asset/zoom.css">
+
+    <!-- 引入 Prism.js 核心 CSS -->
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="asset/prism-nord.css">
+    <!-- 引入 Prism.js 核心 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+     <!-- 引入 JavaScript 语言支持 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+</head>
+
+<body>
+    <header class="site-header cuckoo">
+        <div class="wrapper">
+            <a class="site-title" href="index.html">JustBB</a>
+            <nav class="site-nav">
+                <a href="#" class="menu-icon">
+                    <svg viewBox="0 0 18 15">
+                        <path fill="#424242"
+                            d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z">
+                        </path>
+                        <path fill="#424242"
+                            d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z">
+                        </path>
+                        <path fill="#424242"
+                            d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z">
+                        </path>
+                    </svg>
+                </a>
+                <div class="trigger">
+                    
+                    <a class="page-link" href="index.html">Home</a>
+                    
+                    <a class="page-link" href="Daily.html">Daily</a>
+                    
+                    <a class="page-link" href="Invest.html">Invest</a>
+                    
+                    <a class="page-link" href="Review.html">Review</a>
+                    
+                    <a class="page-link" href="read.html">Books</a>
+                    
+                    <a class="page-link" href="about.html">About</a>
+                    
+                </div>
+            </nav>
+        </div>
+
+        
+
+    </header>
+</body>
+
+</html>
+ <div class="page-content cuckoo">
+    <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+            <header class="post-header">
+                <h1 class="post-title" itemprop="name headline">JS：对象与属性</h1>
+                <div class="post-description">
+                    
+
+                    <time datetime="2025/03/11">2025/03/11</time>
+                    
+                    <div class="author">@BB</div>
+
+
+                </div>
+            </header>
+            <div class="post-content" itemprop="articleBody">
+                <p>在 JavaScript 中，<strong>对象</strong>和<strong>属性</strong>是紧密相关的概念。对象是属性的容器，而属性是对象的组成部分。以下是关于对象与属性关系的详细解释：</p>
+<hr />
+<h3><a id="1%E5%AF%B9%E8%B1%A1%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>1. 对象是什么？</strong></h3>
+<ul>
+<li>
+<p><strong>对象</strong>是 JavaScript 中的一种复合数据类型，用于存储多个键值对（Key-Value Pair）。</p>
+</li>
+<li>
+<p>对象可以包含任意数量的属性，每个属性都有一个名称（键）和一个值。</p>
+</li>
+<li>
+<p>对象是动态的，可以随时添加、修改或删除属性。</p>
+</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">const person = {
+  name: &quot;Alice&quot;,
+  age: 25,
+  greet() {
+    console.log(`Hello, my name is ${this.name}`);
+  }
+};
+</code></pre>
+<hr />
+<h3><a id="2%E5%B1%9E%E6%80%A7%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>2. 属性是什么？</strong></h3>
+<ul>
+<li>
+<p><strong>属性</strong>是对象的组成部分，用于描述对象的状态或行为。</p>
+</li>
+<li>
+<p>属性由键值对组成：</p>
+<ul>
+<li>
+<p><strong>键</strong>（Key）：属性的名称，通常是字符串或符号。</p>
+</li>
+<li>
+<p><strong>值</strong>（Value）：属性的具体数据，可以是任何类型（如字符串、数字、布尔值、函数、对象等）。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">const person = {
+  name: &quot;Alice&quot;, // 属性 name，值为 &quot;Alice&quot;
+  age: 25,       // 属性 age，值为 25
+  greet() {      // 属性 greet，值为一个函数
+    console.log(`Hello, my name is ${this.name}`);
+  }
+};
+</code></pre>
+<hr />
+<h3><a id="3%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%B1%9E%E6%80%A7%E7%9A%84%E5%85%B3%E7%B3%BB" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>3. 对象与属性的关系</strong></h3>
+<ul>
+<li>
+<p><strong>对象是属性的容器</strong>：对象通过属性来存储数据和定义行为。</p>
+</li>
+<li>
+<p><strong>属性是对象的组成部分</strong>：属性描述了对象的状态（数据）和行为（方法）。</p>
+</li>
+</ul>
+<h4><a id="%E5%85%B3%E7%B3%BB%E6%80%BB%E7%BB%93%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>关系总结：</h4>
+<ol>
+<li>
+<p><strong>对象包含属性</strong>：</p>
+<ul>
+<li>
+<p>对象可以包含多个属性。</p>
+</li>
+<li>
+<p>属性可以是数据属性（存储数据）或方法属性（定义行为）。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>属性属于对象</strong>：</p>
+<ul>
+<li>
+<p>属性是对象的组成部分，不能脱离对象单独存在。</p>
+</li>
+<li>
+<p>属性通过对象访问和操作。</p>
+</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h3><a id="4%E5%B1%9E%E6%80%A7%E7%9A%84%E5%88%86%E7%B1%BB" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>4. 属性的分类</strong></h3>
+<p>属性可以分为以下几类：</p>
+<h4><a id="1%E6%95%B0%E6%8D%AE%E5%B1%9E%E6%80%A7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(1) 数据属性</strong></h4>
+<ul>
+<li>
+<p>直接存储数据的属性。</p>
+</li>
+<li>
+<p>包含一个值（Value）和一组描述其行为的特性（Attributes），如：</p>
+<ul>
+<li>
+<p><code>value</code>：属性的值。</p>
+</li>
+<li>
+<p><code>writable</code>：是否可修改。</p>
+</li>
+<li>
+<p><code>enumerable</code>：是否可枚举（例如，是否会在 <code>for...in</code> 循环中出现）。</p>
+</li>
+<li>
+<p><code>configurable</code>：是否可删除或修改特性。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">const obj = {
+  name: &quot;Alice&quot; // 数据属性
+};
+</code></pre>
+<hr />
+<h4><a id="2%E8%AE%BF%E9%97%AE%E5%99%A8%E5%B1%9E%E6%80%A7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(2) 访问器属性</strong></h4>
+<ul>
+<li>
+<p>不直接存储值，而是通过 <code>getter</code> 和 <code>setter</code> 方法访问和设置值。</p>
+</li>
+<li>
+<p>包含 <code>get</code> 和 <code>set</code> 方法。</p>
+</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">const obj = {
+  _age: 25, // 内部属性
+  get age() {
+    return this._age;
+  },
+  set age(value) {
+    if (value &gt; 0) {
+      this._age = value;
+    }
+  }
+};
+
+console.log(obj.age); // 输出: 25
+obj.age = 30;
+console.log(obj.age); // 输出: 30
+
+</code></pre>
+<hr />
+<h4><a id="3%E5%86%85%E7%BD%AE%E5%B1%9E%E6%80%A7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(3) 内置属性</strong></h4>
+<ul>
+<li>
+<p>JavaScript 对象本身具有的一些特殊属性，例如：</p>
+<ul>
+<li>
+<p><code>__proto__</code>：指向对象的原型。</p>
+</li>
+<li>
+<p><code>constructor</code>：指向创建对象的构造函数。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">const obj = {};
+console.log(obj.__proto__); // 输出: Object.prototype
+console.log(obj.constructor); // 输出: ƒ Object()
+
+</code></pre>
+<hr />
+<h3><a id="5%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%9E%E6%80%A7%E6%93%8D%E4%BD%9C" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>5. 对象的属性操作</strong></h3>
+<p>可以通过以下方式操作对象的属性：</p>
+<h4><a id="1%E8%AE%BF%E9%97%AE%E5%B1%9E%E6%80%A7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(1) 访问属性</strong></h4>
+<ul>
+<li>使用点符号（<code>.</code>）或方括号（<code>[]</code>）访问属性。</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">const person = {
+  name: &quot;Alice&quot;
+};
+
+console.log(person.name); // 输出: Alice
+console.log(person[&quot;name&quot;]); // 输出: Alice
+</code></pre>
+<hr />
+<h4><a id="2%E6%B7%BB%E5%8A%A0%E5%B1%9E%E6%80%A7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(2) 添加属性</strong></h4>
+<ul>
+<li>直接为对象赋值一个新属性。</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">const person = {};
+person.name = &quot;Alice&quot;;
+console.log(person.name); // 输出: Alice
+
+</code></pre>
+<hr />
+<h4><a id="3%E4%BF%AE%E6%94%B9%E5%B1%9E%E6%80%A7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(3) 修改属性</strong></h4>
+<ul>
+<li>直接为已有属性赋值。</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">const person = {
+  name: &quot;Alice&quot;
+};
+
+person.name = &quot;Bob&quot;;
+console.log(person.name); // 输出: Bob
+</code></pre>
+<hr />
+<h4><a id="4%E5%88%A0%E9%99%A4%E5%B1%9E%E6%80%A7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(4) 删除属性</strong></h4>
+<ul>
+<li>使用 <code>delete</code> 操作符删除属性。</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">const person = {
+  name: &quot;Alice&quot;
+};
+
+delete person.name;
+console.log(person.name); // 输出: undefined
+
+</code></pre>
+<hr />
+<h4><a id="5%E6%A3%80%E6%9F%A5%E5%B1%9E%E6%80%A7%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(5) 检查属性是否存在</strong></h4>
+<ul>
+<li>使用 <code>in</code> 操作符或 <code>hasOwnProperty</code> 方法。</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">const person = {
+  name: &quot;Alice&quot;
+};
+
+console.log(&quot;name&quot; in person); // 输出: true
+console.log(person.hasOwnProperty(&quot;name&quot;)); // 输出: true
+
+</code></pre>
+<hr />
+<h3><a id="6%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%B1%9E%E6%80%A7%E7%9A%84%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>6. 对象与属性的实际应用</strong></h3>
+<ul>
+<li>
+<p><strong>数据存储</strong>：对象用于存储结构化数据，属性用于描述数据的各个部分。</p>
+</li>
+<li>
+<p><strong>行为定义</strong>：对象的方法属性用于定义对象的行为。</p>
+</li>
+<li>
+<p><strong>动态扩展</strong>：对象可以动态添加、修改或删除属性，使其非常灵活。</p>
+</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">const car = {
+  brand: &quot;Toyota&quot;,
+  model: &quot;Corolla&quot;,
+  drive() {
+    console.log(`Driving ``{this.brand} ``{this.model}`);
+  }
+};
+
+car.drive(); // 输出: Driving Toyota Corolla
+</code></pre>
+<hr />
+<h3><a id="7%E6%80%BB%E7%BB%93" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>7. 总结</strong></h3>
+<ul>
+<li>
+<p><strong>对象</strong>是属性的容器，用于存储数据和定义行为。</p>
+</li>
+<li>
+<p><strong>属性</strong>是对象的组成部分，用于描述对象的状态和行为。</p>
+</li>
+<li>
+<p>对象与属性的关系是紧密的，属性属于对象，对象通过属性来存储和操作数据。</p>
+</li>
+</ul>
+
+            </div>
+
+
+            <div style="margin-top: 50px;">
+
+                <!-- giscus 评论 -->
+                <script src="https://giscus.app/client.js"
+                        data-repo="layliu/giscus-comment"
+                        data-repo-id="R_kgDOJtN4ng"
+                        data-category="Announcements"
+                        data-category-id="DIC_kwDOJtN4ns4CXE-q"
+                        data-mapping="pathname"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="top"
+                        data-theme="light"
+                        data-lang="zh-CN"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+
+
+            </div>
+
+
+        </article>
+    </div>
+</div>
+
+<script src="asset/jquery-3.3.1.min.js"></script>
+
+<!-- 增加zoom效果 -->
+<script src="asset/zoom.js"></script>
+<!-- <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script> -->
+<script>
+    $(function () {
+        $('img').each(function () {
+            $(this).attr("data-action", 'zoom');
+        });
+    });
+</script>
+
+
+
+
+
+<script>
+    $(document).ready(function () {
+        $('#footer').show()
+    })
+
+
+</script>
+  <!-- <footer id="footer" class="cuckoo page-footer" style="display: none">
+    <div class="wrapper">
+        <p>Designed and Written by <a href="mailto:justbb@gmail.com">liulei</a></p>
+    </div>
+</footer> -->
+<!-- 
+ -->

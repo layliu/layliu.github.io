@@ -3,11 +3,301 @@
   <title><![CDATA[JustBB]]></title>
   <link href="justbb.fun/atom.xml" rel="self"/>
   <link href="justbb.fun/"/>
-  <updated>2025-03-16T17:42:54+08:00</updated>
+  <updated>2025-03-16T21:50:46+08:00</updated>
   <id>justbb.fun/</id>
   <author>
     <name><![CDATA[]]></name>
   </author>
+  
+  <entry>
+    <title type="html"><![CDATA[JS：类 class]]></title>
+    <link href="justbb.fun/17421328791971.html"/>
+    <updated>2025-03-16T21:47:59+08:00</updated>
+    <id>justbb.fun/17421328791971.html</id>
+    <content type="html">
+<![CDATA[<p>在 JavaScript 中，<code>class</code> 是用于定义类（Class）的关键字。类是面向对象编程（OOP）的核心概念，它提供了一种更清晰、更结构化的方式来创建对象和管理继承关系。以下是关于 <code>class</code> 的详细说明：</p>
+<hr />
+<h3><a id="1%E7%B1%BB%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>1. 类的基本语法</strong></h3>
+<p>使用 <code>class</code> 关键字可以定义一个类。类通常包含构造函数、实例方法、静态方法和静态属性。</p>
+<h4><a id="%E8%AF%AD%E6%B3%95%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>语法：</h4>
+<pre><code class="language-javascript">class ClassName {
+  constructor(/* 参数 */) {
+    // 初始化属性
+  }
+
+  // 实例方法
+  methodName() {
+    // 方法逻辑
+  }
+
+  // 静态方法
+  static staticMethodName() {
+    // 静态方法逻辑
+  }
+
+  // 静态属性
+  static staticPropertyName = value;
+}
+
+</code></pre>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  // 实例方法
+  greet() {
+    console.log(`Hello, my name is ${this.name}`);
+  }
+
+  // 静态方法
+  static info() {
+    console.log(&quot;This is a Person class.&quot;);
+  }
+
+  // 静态属性
+  static species = &quot;Human&quot;;
+}
+
+const person = new Person(&quot;Alice&quot;, 25);
+person.greet(); // 输出: Hello, my name is Alice
+Person.info();  // 输出: This is a Person class.
+console.log(Person.species); // 输出: Human
+</code></pre>
+<hr />
+<h3><a id="2%E7%B1%BB%E7%9A%84%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>2. 类的组成部分</strong></h3>
+<h4><a id="1%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0-constructor%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(1) 构造函数 (<code>constructor</code>)</strong>：</h4>
+<ul>
+<li>
+<p>构造函数用于初始化对象的属性。</p>
+</li>
+<li>
+<p>当使用 <code>new</code> 关键字创建类的实例时，构造函数会被自动调用。</p>
+</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-class" data-meta="Person {">  constructor(name) {
+    this.name = name;
+  }
+}
+
+const person = new Person(&quot;Alice&quot;);
+console.log(person.name); // 输出: Alice
+</code></pre>
+<hr />
+<h4><a id="2%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(2) 实例方法</strong>：</h4>
+<ul>
+<li>
+<p>实例方法是类的原型方法，可以被类的实例调用。</p>
+</li>
+<li>
+<p>实例方法可以访问实例的属性（通过 <code>this</code>）。</p>
+</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">class Person {
+  constructor(name) {
+    this.name = name;
+  }
+
+  greet() {
+    console.log(`Hello, my name is ${this.name}`);
+  }
+}
+
+const person = new Person(&quot;Alice&quot;);
+person.greet(); // 输出: Hello, my name is Alice
+</code></pre>
+<hr />
+<h4><a id="3%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95-static%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(3) 静态方法 (<code>static</code>)</strong>：</h4>
+<ul>
+<li>
+<p>静态方法属于类本身，而不是类的实例。</p>
+</li>
+<li>
+<p>静态方法通过类名调用，而不是实例。</p>
+</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">class Person {
+  static info() {
+    console.log(&quot;This is a Person class.&quot;);
+  }
+}
+
+Person.info(); // 输出: This is a Person class.
+
+</code></pre>
+<hr />
+<h4><a id="4%E9%9D%99%E6%80%81%E5%B1%9E%E6%80%A7-static%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(4) 静态属性 (<code>static</code>)</strong>：</h4>
+<ul>
+<li>
+<p>静态属性属于类本身，而不是类的实例。</p>
+</li>
+<li>
+<p>静态属性通过类名访问。</p>
+</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">class Person {
+  static species = &quot;Human&quot;;
+}
+
+console.log(Person.species); // 输出: Human
+
+</code></pre>
+<hr />
+<h3><a id="3%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF-extends%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>3. 类的继承 (<code>extends</code>)</strong>：</h3>
+<ul>
+<li>
+<p>使用 <code>extends</code> 关键字可以实现类的继承。</p>
+</li>
+<li>
+<p>子类会继承父类的属性和方法，同时可以定义自己的属性和方法。</p>
+</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+
+  speak() {
+    console.log(`${this.name} makes a noise.`);
+  }
+}
+
+class Dog extends Animal {
+  constructor(name, breed) {
+    super(name); // 调用父类的构造函数
+    this.breed = breed;
+  }
+
+  bark() {
+    console.log(`${this.name} barks!`);
+  }
+}
+
+const dog = new Dog(&quot;Buddy&quot;, &quot;Golden Retriever&quot;);
+dog.speak(); // 输出: Buddy makes a noise.
+dog.bark();  // 输出: Buddy barks!
+</code></pre>
+<hr />
+<h3><a id="4%E7%B1%BB%E7%9A%84%E7%89%B9%E6%80%A7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>4. 类的特性</strong></h3>
+<h4><a id="1%E6%B2%A1%E6%9C%89%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(1) 没有变量提升</strong>：</h4>
+<ul>
+<li>类声明不会被提升，必须在定义后才能使用。</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">const person = new Person(&quot;Alice&quot;); // 报错: Person is not defined
+
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+
+}
+</code></pre>
+<hr />
+<h4><a id="2%E5%8F%97%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%99%90%E5%88%B6%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(2) 受块级作用域限制</strong>：</h4>
+<ul>
+<li>类声明受块级作用域的限制。</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">{
+  class Person {
+    constructor(name) {
+      this.name = name;
+    }
+  }
+
+  const person = new Person(&quot;Alice&quot;);
+  console.log(person.name); // 输出: Alice
+}
+
+const person = new Person(&quot;Alice&quot;); // 报错: Person is not defined
+</code></pre>
+<hr />
+<h4><a id="3%E6%96%B9%E6%B3%95%E4%B9%8B%E9%97%B4%E4%B8%8D%E9%9C%80%E8%A6%81%E9%80%97%E5%8F%B7%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(3) 方法之间不需要逗号</strong>：</h4>
+<ul>
+<li>类中的方法之间不需要逗号分隔。</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">class Person {
+  constructor(name) {
+    this.name = name;
+  }
+
+  greet() {
+    console.log(`Hello, ${this.name}`);
+  }
+
+  sleep() {
+    console.log(`${this.name} is sleeping.`);
+  }
+}
+
+</code></pre>
+<hr />
+<h3><a id="5%E7%B1%BB%E7%9A%84%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>5. 类的实际应用</strong></h3>
+<ul>
+<li>
+<p><strong>封装</strong>：将数据和操作数据的方法封装在一个类中。</p>
+</li>
+<li>
+<p><strong>继承</strong>：通过继承实现代码复用。</p>
+</li>
+<li>
+<p><strong>多态</strong>：子类可以重写父类的方法，实现不同的行为。</p>
+</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">class Shape {
+  constructor(color) {
+    this.color = color;
+  }
+
+  draw() {
+    console.log(`Drawing a ${this.color} shape.`);
+  }
+}
+
+class Circle extends Shape {
+  constructor(color, radius) {
+    super(color);
+    this.radius = radius;
+  }
+
+  draw() {
+    console.log(`Drawing a ``{this.color} circle with radius ``{this.radius}.`);
+  }
+}
+
+const circle = new Circle(&quot;red&quot;, 10);
+circle.draw(); // 输出: Drawing a red circle with radius 10.
+
+</code></pre>
+<hr />
+<h3><a id="6%E6%80%BB%E7%BB%93" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>6. 总结</strong></h3>
+<ul>
+<li>
+<p><code>class</code> 是 JavaScript 中定义类的关键字。</p>
+</li>
+<li>
+<p>类包含构造函数、实例方法、静态方法和静态属性。</p>
+</li>
+<li>
+<p>通过 <code>extends</code> 实现继承。</p>
+</li>
+<li>
+<p>类提供了更清晰、更结构化的方式来创建对象和管理继承关系。</p>
+</li>
+</ul>
+]]>
+    </content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[JS：原型和原型链]]></title>
@@ -999,7 +1289,286 @@ console.log(foo.description); // 输出: This is a function
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[数组方法列表]]></title>
+    <title type="html"><![CDATA[JS：对象与属性]]></title>
+    <link href="justbb.fun/17421324023459.html"/>
+    <updated>2025-03-16T21:40:02+08:00</updated>
+    <id>justbb.fun/17421324023459.html</id>
+    <content type="html">
+<![CDATA[<p>在 JavaScript 中，<strong>对象</strong>和<strong>属性</strong>是紧密相关的概念。对象是属性的容器，而属性是对象的组成部分。以下是关于对象与属性关系的详细解释：</p>
+<hr />
+<h3><a id="1%E5%AF%B9%E8%B1%A1%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>1. 对象是什么？</strong></h3>
+<ul>
+<li>
+<p><strong>对象</strong>是 JavaScript 中的一种复合数据类型，用于存储多个键值对（Key-Value Pair）。</p>
+</li>
+<li>
+<p>对象可以包含任意数量的属性，每个属性都有一个名称（键）和一个值。</p>
+</li>
+<li>
+<p>对象是动态的，可以随时添加、修改或删除属性。</p>
+</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">const person = {
+  name: &quot;Alice&quot;,
+  age: 25,
+  greet() {
+    console.log(`Hello, my name is ${this.name}`);
+  }
+};
+</code></pre>
+<hr />
+<h3><a id="2%E5%B1%9E%E6%80%A7%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>2. 属性是什么？</strong></h3>
+<ul>
+<li>
+<p><strong>属性</strong>是对象的组成部分，用于描述对象的状态或行为。</p>
+</li>
+<li>
+<p>属性由键值对组成：</p>
+<ul>
+<li>
+<p><strong>键</strong>（Key）：属性的名称，通常是字符串或符号。</p>
+</li>
+<li>
+<p><strong>值</strong>（Value）：属性的具体数据，可以是任何类型（如字符串、数字、布尔值、函数、对象等）。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">const person = {
+  name: &quot;Alice&quot;, // 属性 name，值为 &quot;Alice&quot;
+  age: 25,       // 属性 age，值为 25
+  greet() {      // 属性 greet，值为一个函数
+    console.log(`Hello, my name is ${this.name}`);
+  }
+};
+</code></pre>
+<hr />
+<h3><a id="3%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%B1%9E%E6%80%A7%E7%9A%84%E5%85%B3%E7%B3%BB" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>3. 对象与属性的关系</strong></h3>
+<ul>
+<li>
+<p><strong>对象是属性的容器</strong>：对象通过属性来存储数据和定义行为。</p>
+</li>
+<li>
+<p><strong>属性是对象的组成部分</strong>：属性描述了对象的状态（数据）和行为（方法）。</p>
+</li>
+</ul>
+<h4><a id="%E5%85%B3%E7%B3%BB%E6%80%BB%E7%BB%93%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>关系总结：</h4>
+<ol>
+<li>
+<p><strong>对象包含属性</strong>：</p>
+<ul>
+<li>
+<p>对象可以包含多个属性。</p>
+</li>
+<li>
+<p>属性可以是数据属性（存储数据）或方法属性（定义行为）。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>属性属于对象</strong>：</p>
+<ul>
+<li>
+<p>属性是对象的组成部分，不能脱离对象单独存在。</p>
+</li>
+<li>
+<p>属性通过对象访问和操作。</p>
+</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h3><a id="4%E5%B1%9E%E6%80%A7%E7%9A%84%E5%88%86%E7%B1%BB" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>4. 属性的分类</strong></h3>
+<p>属性可以分为以下几类：</p>
+<h4><a id="1%E6%95%B0%E6%8D%AE%E5%B1%9E%E6%80%A7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(1) 数据属性</strong></h4>
+<ul>
+<li>
+<p>直接存储数据的属性。</p>
+</li>
+<li>
+<p>包含一个值（Value）和一组描述其行为的特性（Attributes），如：</p>
+<ul>
+<li>
+<p><code>value</code>：属性的值。</p>
+</li>
+<li>
+<p><code>writable</code>：是否可修改。</p>
+</li>
+<li>
+<p><code>enumerable</code>：是否可枚举（例如，是否会在 <code>for...in</code> 循环中出现）。</p>
+</li>
+<li>
+<p><code>configurable</code>：是否可删除或修改特性。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">const obj = {
+  name: &quot;Alice&quot; // 数据属性
+};
+</code></pre>
+<hr />
+<h4><a id="2%E8%AE%BF%E9%97%AE%E5%99%A8%E5%B1%9E%E6%80%A7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(2) 访问器属性</strong></h4>
+<ul>
+<li>
+<p>不直接存储值，而是通过 <code>getter</code> 和 <code>setter</code> 方法访问和设置值。</p>
+</li>
+<li>
+<p>包含 <code>get</code> 和 <code>set</code> 方法。</p>
+</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">const obj = {
+  _age: 25, // 内部属性
+  get age() {
+    return this._age;
+  },
+  set age(value) {
+    if (value &gt; 0) {
+      this._age = value;
+    }
+  }
+};
+
+console.log(obj.age); // 输出: 25
+obj.age = 30;
+console.log(obj.age); // 输出: 30
+
+</code></pre>
+<hr />
+<h4><a id="3%E5%86%85%E7%BD%AE%E5%B1%9E%E6%80%A7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(3) 内置属性</strong></h4>
+<ul>
+<li>
+<p>JavaScript 对象本身具有的一些特殊属性，例如：</p>
+<ul>
+<li>
+<p><code>__proto__</code>：指向对象的原型。</p>
+</li>
+<li>
+<p><code>constructor</code>：指向创建对象的构造函数。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">const obj = {};
+console.log(obj.__proto__); // 输出: Object.prototype
+console.log(obj.constructor); // 输出: ƒ Object()
+
+</code></pre>
+<hr />
+<h3><a id="5%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%9E%E6%80%A7%E6%93%8D%E4%BD%9C" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>5. 对象的属性操作</strong></h3>
+<p>可以通过以下方式操作对象的属性：</p>
+<h4><a id="1%E8%AE%BF%E9%97%AE%E5%B1%9E%E6%80%A7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(1) 访问属性</strong></h4>
+<ul>
+<li>使用点符号（<code>.</code>）或方括号（<code>[]</code>）访问属性。</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">const person = {
+  name: &quot;Alice&quot;
+};
+
+console.log(person.name); // 输出: Alice
+console.log(person[&quot;name&quot;]); // 输出: Alice
+</code></pre>
+<hr />
+<h4><a id="2%E6%B7%BB%E5%8A%A0%E5%B1%9E%E6%80%A7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(2) 添加属性</strong></h4>
+<ul>
+<li>直接为对象赋值一个新属性。</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">const person = {};
+person.name = &quot;Alice&quot;;
+console.log(person.name); // 输出: Alice
+
+</code></pre>
+<hr />
+<h4><a id="3%E4%BF%AE%E6%94%B9%E5%B1%9E%E6%80%A7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(3) 修改属性</strong></h4>
+<ul>
+<li>直接为已有属性赋值。</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">const person = {
+  name: &quot;Alice&quot;
+};
+
+person.name = &quot;Bob&quot;;
+console.log(person.name); // 输出: Bob
+</code></pre>
+<hr />
+<h4><a id="4%E5%88%A0%E9%99%A4%E5%B1%9E%E6%80%A7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(4) 删除属性</strong></h4>
+<ul>
+<li>使用 <code>delete</code> 操作符删除属性。</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">const person = {
+  name: &quot;Alice&quot;
+};
+
+delete person.name;
+console.log(person.name); // 输出: undefined
+
+</code></pre>
+<hr />
+<h4><a id="5%E6%A3%80%E6%9F%A5%E5%B1%9E%E6%80%A7%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(5) 检查属性是否存在</strong></h4>
+<ul>
+<li>使用 <code>in</code> 操作符或 <code>hasOwnProperty</code> 方法。</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">const person = {
+  name: &quot;Alice&quot;
+};
+
+console.log(&quot;name&quot; in person); // 输出: true
+console.log(person.hasOwnProperty(&quot;name&quot;)); // 输出: true
+
+</code></pre>
+<hr />
+<h3><a id="6%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%B1%9E%E6%80%A7%E7%9A%84%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>6. 对象与属性的实际应用</strong></h3>
+<ul>
+<li>
+<p><strong>数据存储</strong>：对象用于存储结构化数据，属性用于描述数据的各个部分。</p>
+</li>
+<li>
+<p><strong>行为定义</strong>：对象的方法属性用于定义对象的行为。</p>
+</li>
+<li>
+<p><strong>动态扩展</strong>：对象可以动态添加、修改或删除属性，使其非常灵活。</p>
+</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">const car = {
+  brand: &quot;Toyota&quot;,
+  model: &quot;Corolla&quot;,
+  drive() {
+    console.log(`Driving ``{this.brand} ``{this.model}`);
+  }
+};
+
+car.drive(); // 输出: Driving Toyota Corolla
+</code></pre>
+<hr />
+<h3><a id="7%E6%80%BB%E7%BB%93" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>7. 总结</strong></h3>
+<ul>
+<li>
+<p><strong>对象</strong>是属性的容器，用于存储数据和定义行为。</p>
+</li>
+<li>
+<p><strong>属性</strong>是对象的组成部分，用于描述对象的状态和行为。</p>
+</li>
+<li>
+<p>对象与属性的关系是紧密的，属性属于对象，对象通过属性来存储和操作数据。</p>
+</li>
+</ul>
+]]>
+    </content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[JS：数组方法列表]]></title>
     <link href="justbb.fun/17416119491548.html"/>
     <updated>2025-03-10T21:05:49+08:00</updated>
     <id>justbb.fun/17416119491548.html</id>
@@ -1531,51 +2100,6 @@ End Sub
 <p>2） 又或是最近突然生猪板块出现大涨，可能也是猪肉在长期底部上的静极思动？</p>
 <p>3） 人形机器人可能量产在即，会不会出现类似当年磷酸铁锂电池铺开之后“盐湖提锂”概念的飞上天？要知道无论是机器人的空心杯电机，还是矩形框电机（这个其实两年前我就提到过），永磁材料都是核心原材料，是否会出现类似过去新能源“原材料涨到关键零组件涨到整机”的“长江三叠浪”？</p>
 <p><img src="media/17403877754049/17404015752782.jpg" alt="" /></p>
-]]>
-    </content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[带娃的乐趣]]></title>
-    <link href="justbb.fun/17404732653043.html"/>
-    <updated>2025-02-25T16:47:45+08:00</updated>
-    <id>justbb.fun/17404732653043.html</id>
-    <content type="html">
-<![CDATA[<p>看小红书，说鲁迅带娃也是容易崩溃的，鲁迅在书信中说，</p>
-<blockquote>
-<p>孩子颇胖，而太顽皮，闹得人头昏。<br />
-——1931.06.23 致李秉中</p>
-<p>我们都好，只有那位‘海婴氏’颇为淘气，总是搅扰我的工作，上月起就把他当做敌人看待了。<br />
-——1934.06.07 致增田涉</p>
-<p>至于孩子，偶然看看是有趣的，但养起来，整天在一起，却真是麻烦得很。<br />
-——1934.12.06 致萧军、萧红</p>
-<p>孩子也好了，但他大了起来，越加捣乱，出去，就惹祸，我已经受了三家邻居的警告——但自然，这邻居也是擅长警告的邻居。但在家里，却又闹得我静不了，我希望他快过二十岁，同爱人一起跑掉，那就好了。<br />
-——1935.06.07 致萧军</p>
-<p>我对付自己的孩子，也十分吃力，总算已经送进幼稚园去了，每天清静半天。<br />
-——1935.09.01 致萧军</p>
-<p>海婴亦好，整日在家里闯祸，不是嚷吵，就是敲破东西，幸而再一礼拜，幼稚园也要开学了，要不然，真是不得了。<br />
-——1936.02.01 致母亲</p>
-</blockquote>
-<p>鲁迅自然是大忙人，有他自己需要专注的事情，而我这种闲人是不能不关注孩子的。</p>
-<p>既然带孩子，就必须要想办法带出点持久的乐趣出来，不然容易把自己搞崩溃。</p>
-<p>我感觉带娃其实就和生活是一样的，都是在寻求一种安宁中的幸福，都是在期待一种掌控感中的惊喜感。</p>
-<p>既然如此，带娃也是需要不断学习的，需要不断的从「专家」中汲取技巧，才能让娃不至于脱轨。</p>
-]]>
-    </content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[人生的修行]]></title>
-    <link href="justbb.fun/17403989692151.html"/>
-    <updated>2025-02-24T20:09:29+08:00</updated>
-    <id>justbb.fun/17403989692151.html</id>
-    <content type="html">
-<![CDATA[<p>人生修行中有诸多课题，其中两个普遍且棘手的问题——停止向外求索和解决社交关系问题——实际上比想象中更为简单。</p>
-<p>核心的解决之道在于形成自我，即达到自立1.0阶段。这一阶段要求具备自信、健康的边界感、独立人格和独立思考能力，对世界和他人祛魅，从而使内在核心趋于稳定。如此一来，便能对名利、社会规训、他人影响等产生质的抵抗力，不再轻易被PUA或陷入劣质关系。对于东亚的小镇做题家而言，这一过程通常发生在30岁前后，是一个逐渐“出世”的过程。</p>
-<p>在此之前，青春期快速形成的是小我（ego），而本体自我尚未跟上，因此尚不能称之为真正的自我形成。</p>
-<p>自立1.0阶段其实相当常见，也是许多鸡汤博主和心理学博主所倡导的“基本”要求。</p>
-<p>接下来，继续消除小我（ego），夯实本我（self），提升身心合一的状态，进一步精进自信、行动力、能动性、社交能力和实践能力。其中，经济独立能力尤为关键，即通过赚钱实现经济脱困，无需大富大贵，只需能够维持生活。这是一个重新“入世”的过程，也是通往自立2.0的奋斗历程，正如姜文所言“站着把钱挣了”的课题。当然，更重要的是自我实现的过程。这一过程可以类比为从普通心理学博主成长为武志红、曾奇峰等知名心理学家的进阶之路。</p>
-<p>然而，赚钱并非仅靠个人努力，时运也起着重要作用。过度PUA自己不够努力，反而是修行不足的表现。即便是张颂文也经历了多年的奋斗，梵高最终选择了自我了断，而马克思一生也未能很好地解决经济问题。</p>
 ]]>
     </content>
   </entry>
