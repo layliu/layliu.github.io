@@ -8,7 +8,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="欢迎来到JUST.bb这里是我的一个自留地，主要用来记录和分享一些工作、生活中的随笔、思考和总结。我希望通过文字，梳理自己的思路，沉淀经验，也希望能与志同道合的朋友们交流碰撞，共同成长。">
 
     <link rel="stylesheet" type="text/css" href="asset/cuckoo.css">
     <link rel="stylesheet" type="text/css" href="asset/main.css">
@@ -91,15 +91,10 @@
 <hr />
 <h3><a id="1%C2%A0%E5%AF%B9%E8%B1%A1%E7%9A%84%C2%A0-prototype%C2%A0%E5%B1%9E%E6%80%A7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. <strong>对象的 <code>[[Prototype]]</code> 属性</strong></h3>
 <ul>
-<li>
-<p>每个对象（对象实例）都有一个内部属性 <code>[[Prototype]]</code>，默认指向一个对象。</p>
-</li>
-<li>
-<p>这个 <code>[[Prototype]]</code> 属性可以通过 <code>Object.getPrototypeOf(obj)</code> 或 <code>obj.__proto__</code> 访问。</p>
-</li>
-<li>
-<p>如果对象是通过字面量创建的，<code>[[Prototype]]</code> 默认指向 <code>Object.prototype</code>。</p>
-</li>
+<li>每个对象（对象实例）都有一个内部属性 <code>[[Prototype]]</code>，默认指向一个对象。</li>
+<li>这个对象（称为原型对象），它包含可以由该函数创建的所有实例共享的属性和方法。</li>
+<li>这个 <code>[[Prototype]]</code> 属性可以通过 <code>Object.getPrototypeOf(obj)</code> 或 <code>obj.__proto__</code> 访问。</li>
+<li>如果对象是通过字面量创建的，<code>[[Prototype]]</code> 默认指向 <code>Object.prototype</code>。</li>
 </ul>
 <h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
 <pre><code class="language-javascript">const obj = {};
