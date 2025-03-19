@@ -137,7 +137,7 @@ console.log(alice.__proto__ === Person.prototype); // 输出: true
 <h3><a id="3%C2%A0%E5%87%BD%E6%95%B0%E7%9A%84%C2%A0-prototype%C2%A0%E5%B1%9E%E6%80%A7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. <strong>函数的 <code>prototype</code> 属性</strong></h3>
 <ul>
 <li>
-<p>每个函数都有一个 <code>prototype</code> 属性，这个属性是一个对象。</p>
+<p>每个函数都有一个 <code>prototype</code> 属性，这个属性是一个对象，这个对象是实例的原型</p>
 </li>
 <li>
 <p>这个 <code>prototype</code> 对象有一个 <code>constructor</code> 属性，指向函数本身。</p>
@@ -292,6 +292,21 @@ console.log(Object.getPrototypeOf(Person.prototype) === Object.prototype); // �
 console.log(Object.getPrototypeOf(Object.prototype) === null); // 输出: true
 
 </code></pre>
+<hr />
+<h3><a id="%E7%A4%BA%E4%BE%8B%E5%9B%BE" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例图</h3>
+<pre><code class="language-javascript">// 把这个代码中的原型链绘制出来，绘制到null为止
+
+class Fruit { }
+
+class Apple extends Fruit { }
+
+class Grape extends Fruit { }
+
+class Hongfushi extends Apple { }
+
+const apple = new Apple();
+</code></pre>
+<p><img src="media/17420542537025/%E9%9C%80%E6%B1%82%E8%B0%83%E7%A0%94.jpg" alt="需求调研" /></p>
 
             </div>
 

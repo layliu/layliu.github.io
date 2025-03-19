@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+         JS：包装类 - JustBB 
+    </title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="欢迎来到JUST.bb这里是我的一个自留地，主要用来记录和分享一些工作、生活中的随笔、思考和总结。我希望通过文字，梳理自己的思路，沉淀经验，也希望能与志同道合的朋友们交流碰撞，共同成长。">
+
+    <link rel="stylesheet" type="text/css" href="asset/cuckoo.css">
+    <link rel="stylesheet" type="text/css" href="asset/main.css">
+    <link rel="shortcut icon" href="asset/favicon.ico" type="image/x-icon" />
+    <link rel="alternate" type="application/atom+xml" href="atom.xml" title="JustBB">
+
+    <link rel="stylesheet" href="asset/zoom.css">
+
+    <!-- 引入 Prism.js 核心 CSS -->
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="asset/prism-nord.css">
+    <!-- 引入 Prism.js 核心 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+     <!-- 引入 JavaScript 语言支持 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+</head>
+
+<body>
+    <header class="site-header cuckoo">
+        <div class="wrapper">
+            <a class="site-title" href="index.html">JustBB</a>
+            <nav class="site-nav">
+                <a href="#" class="menu-icon">
+                    <svg viewBox="0 0 18 15">
+                        <path fill="#424242"
+                            d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z">
+                        </path>
+                        <path fill="#424242"
+                            d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z">
+                        </path>
+                        <path fill="#424242"
+                            d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z">
+                        </path>
+                    </svg>
+                </a>
+                <div class="trigger">
+                    
+                    <a class="page-link" href="index.html">Home</a>
+                    
+                    <a class="page-link" href="Daily.html">Daily</a>
+                    
+                    <a class="page-link" href="Invest.html">Invest</a>
+                    
+                    <a class="page-link" href="Review.html">Review</a>
+                    
+                    <a class="page-link" href="read.html">Books</a>
+                    
+                    <a class="page-link" href="about.html">About</a>
+                    
+                </div>
+            </nav>
+        </div>
+
+        
+
+    </header>
+</body>
+
+</html>
+ <div class="page-content cuckoo">
+    <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+            <header class="post-header">
+                <h1 class="post-title" itemprop="name headline">JS：包装类</h1>
+                <div class="post-description">
+                    
+
+                    <time datetime="2025/03/17">2025/03/17</time>
+                    
+                    <div class="author">@BB</div>
+
+
+                </div>
+            </header>
+            <div class="post-content" itemprop="articleBody">
+                <p>在 JavaScript 中，<strong>包装类（Wrapper Objects）</strong> 是一种特殊的对象类型，用于将原始值（如字符串、数字、布尔值）临时转换为对象，以便可以调用对象的方法。JavaScript 提供了三种主要的包装类：</p>
+<ol>
+<li>
+<p><strong><code>String</code></strong>：用于包装字符串原始值。</p>
+</li>
+<li>
+<p><strong><code>Number</code></strong>：用于包装数字原始值。</p>
+</li>
+<li>
+<p><strong><code>Boolean</code></strong>：用于包装布尔原始值。</p>
+</li>
+</ol>
+<hr />
+<h3><a id="1%C2%A0%E5%8C%85%E8%A3%85%E7%B1%BB%E7%9A%84%E4%BD%9C%E7%94%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. <strong>包装类的作用</strong></h3>
+<p>原始值（如 <code>&quot;hello&quot;</code>、<code>42</code>、<code>true</code>）本身不是对象，因此不能直接调用方法。包装类的作用是临时将原始值转换为对象，以便可以调用对象的方法。</p>
+<p>例如：</p>
+<pre><code class="language-javascript">const str = &quot;hello&quot;;
+console.log(str.toUpperCase()); // &quot;HELLO&quot;
+
+</code></pre>
+<p>在上面的代码中：</p>
+<ul>
+<li>
+<p><code>str</code> 是一个字符串原始值。</p>
+</li>
+<li>
+<p>当调用 <code>toUpperCase()</code> 方法时，JavaScript 会临时将 <code>str</code> 转换为一个 <code>String</code> 对象，然后调用方法。</p>
+</li>
+<li>
+<p>方法调用结束后，临时对象会被丢弃。</p>
+</li>
+</ul>
+<hr />
+<h3><a id="2%C2%A0%E5%8C%85%E8%A3%85%E7%B1%BB%E7%9A%84%E5%88%9B%E5%BB%BA" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. <strong>包装类的创建</strong></h3>
+<p>你可以显式地使用包装类来创建对象：</p>
+<pre><code class="language-javascript">const strObj = new String(&quot;hello&quot;); // String 对象
+const numObj = new Number(42);      // Number 对象
+const boolObj = new Boolean(true); // Boolean 对象
+
+</code></pre>
+<p>这些对象的行为与原始值类似，但它们是对象类型（<code>object</code>），而不是原始类型（<code>string</code>、<code>number</code>、<code>boolean</code>）。</p>
+<hr />
+<h3><a id="3%C2%A0%E5%8C%85%E8%A3%85%E7%B1%BB%E4%B8%8E%E5%8E%9F%E5%A7%8B%E5%80%BC%E7%9A%84%E5%8C%BA%E5%88%AB" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. <strong>包装类与原始值的区别</strong></h3>
+<p>包装类是对象，而原始值不是对象。它们的区别主要体现在类型和行为上：</p>
+<h4><a id="%E7%B1%BB%E5%9E%8B" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>类型</h4>
+<pre><code class="language-javascript">const str = &quot;hello&quot;;
+const strObj = new String(&quot;hello&quot;);
+
+console.log(typeof str);    // &quot;string&quot;
+console.log(typeof strObj); // &quot;object&quot;
+
+</code></pre>
+<h4><a id="%E8%A1%8C%E4%B8%BA" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>行为</h4>
+<pre><code class="language-javascript">const str1 = &quot;hello&quot;;
+const str2 = new String(&quot;hello&quot;);
+
+console.log(str1 === &quot;hello&quot;); // true
+console.log(str2 === &quot;hello&quot;); // false
+</code></pre>
+<ul>
+<li>
+<p><code>str1</code> 是原始值，直接与 <code>&quot;hello&quot;</code> 比较时，值相等。</p>
+</li>
+<li>
+<p><code>str2</code> 是对象，与 <code>&quot;hello&quot;</code> 比较时，类型不同，结果为 <code>false</code>。</p>
+</li>
+</ul>
+<hr />
+<h3><a id="4%C2%A0%E5%8C%85%E8%A3%85%E7%B1%BB%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. <strong>包装类的使用场景</strong></h3>
+<p>包装类的主要用途是提供对原始值的方法调用支持。例如：</p>
+<h4><a id="%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%96%B9%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>字符串方法</h4>
+<pre><code class="language-javascript">const str = &quot;hello&quot;;
+console.log(str.length); // 5
+console.log(str.toUpperCase()); // &quot;HELLO&quot;
+
+</code></pre>
+<h4><a id="%E6%95%B0%E5%AD%97%E6%96%B9%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>数字方法</h4>
+<pre><code class="language-javascript">const num = 42.567;
+console.log(num.toFixed(2)); // &quot;42.57&quot;
+</code></pre>
+<h4><a id="%E5%B8%83%E5%B0%94%E5%80%BC%E6%96%B9%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>布尔值方法</h4>
+<pre><code class="language-javascript">const bool = true;
+console.log(bool.toString()); // &quot;true&quot;
+
+</code></pre>
+<p>在这些例子中，JavaScript 会临时将原始值转换为包装类对象，以便调用方法。</p>
+<hr />
+<h3><a id="5%C2%A0%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. <strong>注意事项</strong></h3>
+<h4><a id="1%E4%B8%8D%E8%A6%81%E6%98%BE%E5%BC%8F%E4%BD%BF%E7%94%A8%E5%8C%85%E8%A3%85%E7%B1%BB" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. 不要显式使用包装类</h4>
+<p>通常情况下，不需要显式使用包装类（如 <code>new String(&quot;hello&quot;)</code>），因为 JavaScript 会自动处理原始值的方法调用。</p>
+<h4><a id="2%E5%8C%85%E8%A3%85%E7%B1%BB%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%AF%94%E8%BE%83" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. 包装类对象的比较</h4>
+<p>包装类对象是对象，因此它们的比较是基于引用的，而不是值：</p>
+<pre><code class="language-javascript">const str1 = new String(&quot;hello&quot;);
+const str2 = new String(&quot;hello&quot;);
+
+console.log(str1 === str2); // false
+console.log(str1 == str2);  // false
+
+</code></pre>
+<h4><a id="3%E5%8E%9F%E5%A7%8B%E5%80%BC%E7%9A%84%E6%80%A7%E8%83%BD%E6%9B%B4%E5%A5%BD" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. 原始值的性能更好</h4>
+<p>原始值的性能比包装类对象更好，因为包装类对象需要额外的内存和计算资源。</p>
+<hr />
+<h3><a id="6%C2%A0%E5%8C%85%E8%A3%85%E7%B1%BB%E7%9A%84%E5%8E%9F%E5%9E%8B%E9%93%BE" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>6. <strong>包装类的原型链</strong></h3>
+<p>包装类的实例会继承对应包装类原型上的方法。例如：</p>
+<pre><code class="language-javascript">const str = &quot;hello&quot;;
+console.log(str.__proto__ === String.prototype); // true
+</code></pre>
+<ul>
+<li>
+<p><code>String.prototype</code> 是 <code>String</code> 包装类的原型对象。</p>
+</li>
+<li>
+<p><code>str</code> 是一个字符串原始值，但它可以访问 <code>String.prototype</code> 上的方法（如 <code>toUpperCase</code>、<code>slice</code>等）。</p>
+</li>
+</ul>
+<hr />
+<h3><a id="7%C2%A0%E6%80%BB%E7%BB%93" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>7. <strong>总结</strong></h3>
+<ul>
+<li>
+<p>包装类（<code>String</code>、<code>Number</code>、<code>Boolean</code>）用于将原始值临时转换为对象，以便调用方法。</p>
+</li>
+<li>
+<p>通常情况下，不需要显式使用包装类，JavaScript 会自动处理原始值的方法调用。</p>
+</li>
+<li>
+<p>包装类对象是对象类型，与原始值有本质区别。</p>
+</li>
+<li>
+<p>原始值的性能更好，建议优先使用原始值。</p>
+</li>
+</ul>
+
+            </div>
+
+
+            <div style="margin-top: 50px;">
+
+                <!-- giscus 评论 -->
+                <script src="https://giscus.app/client.js"
+                        data-repo="layliu/giscus-comment"
+                        data-repo-id="R_kgDOJtN4ng"
+                        data-category="Announcements"
+                        data-category-id="DIC_kwDOJtN4ns4CXE-q"
+                        data-mapping="pathname"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="top"
+                        data-theme="light"
+                        data-lang="zh-CN"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+
+
+            </div>
+
+
+        </article>
+    </div>
+</div>
+
+<script src="asset/jquery-3.3.1.min.js"></script>
+
+<!-- 增加zoom效果 -->
+<script src="asset/zoom.js"></script>
+<!-- <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script> -->
+<script>
+    $(function () {
+        $('img').each(function () {
+            $(this).attr("data-action", 'zoom');
+        });
+    });
+</script>
+
+
+
+
+
+<script>
+    $(document).ready(function () {
+        $('#footer').show()
+    })
+
+
+</script>
+  <!-- <footer id="footer" class="cuckoo page-footer" style="display: none">
+    <div class="wrapper">
+        <p>Designed and Written by <a href="mailto:justbb@gmail.com">liulei</a></p>
+    </div>
+</footer> -->
+<!-- 
+ -->

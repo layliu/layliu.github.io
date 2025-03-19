@@ -3,11 +3,356 @@
   <title><![CDATA[JustBB]]></title>
   <link href="justbb.fun/atom.xml" rel="self"/>
   <link href="justbb.fun/"/>
-  <updated>2025-03-16T21:50:46+08:00</updated>
+  <updated>2025-03-18T17:27:50+08:00</updated>
   <id>justbb.fun/</id>
   <author>
     <name><![CDATA[]]></name>
   </author>
+  
+  <entry>
+    <title type="html"><![CDATA[JS：解构赋值]]></title>
+    <link href="justbb.fun/17422636944234.html"/>
+    <updated>2025-03-18T10:08:14+08:00</updated>
+    <id>justbb.fun/17422636944234.html</id>
+    <content type="html">
+<![CDATA[<p><strong>解构赋值</strong>（Destructuring Assignment）是 JavaScript 中的一种语法，用于从数组或对象中提取值，并将其赋值给变量。解构赋值可以使代码更简洁、更易读。以下是关于解构赋值的详细说明和示例：</p>
+<hr />
+<h3><a id="1%E6%95%B0%E7%BB%84%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>1. 数组的解构赋值</strong></h3>
+<h4><a id="1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(1) 基本用法</strong></h4>
+<p>从数组中提取值，并赋值给变量。</p>
+<h5><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h5>
+<pre><code class="language-javascript">const arr = [1, 2, 3];
+
+// 传统写法
+const a = arr[0];
+const b = arr[1];
+const c = arr[2];
+
+// 解构赋值
+const [x, y, z] = arr;
+
+console.log(x, y, z); // 输出: 1 2 3
+</code></pre>
+<hr />
+<h4><a id="2%E5%BF%BD%E7%95%A5%E6%9F%90%E4%BA%9B%E5%80%BC" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(2) 忽略某些值</strong></h4>
+<p>可以使用逗号跳过不需要的值。</p>
+<h5><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h5>
+<pre><code class="language-javascript">const arr = [1, 2, 3];
+
+const [a, , c] = arr;
+
+console.log(a, c); // 输出: 1 3
+
+</code></pre>
+<hr />
+<h4><a id="3%E9%BB%98%E8%AE%A4%E5%80%BC" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(3) 默认值</strong></h4>
+<p>如果解构的值是 <code>undefined</code>，可以使用默认值。示例为变量设定了默认值<code>(10，20)</code>。当数组中的元素数量少于变量数量时，未匹配到元素的变量会使用默认值。</p>
+<h5><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h5>
+<pre><code class="language-javascript">const arr = [1];
+
+const [a = 10, b = 20] = arr;
+
+console.log(a, b); // 输出: 1 20
+
+</code></pre>
+<p><code>a = 10</code>：若 <code>arr</code> 数组里有第一个元素，就将其赋值给 <code>a</code>；要是没有，<code>a</code> 就会使用默认值 <code>10</code>。<br />
+<code>b = 20</code>：若 <code>arr</code> 数组里有第二个元素，就把它赋值给 <code>b</code>；若没有，<code>b</code> 就使用默认值 <code>20</code>。<br />
+由于 <code>arr</code> 数组中仅有一个元素 <code>1</code>，所以 <code>a</code> 被赋值为 <code>1</code>；而数组中不存在第二个元素，因此 <code>b</code> 使用默认值 <code>20</code>。最终输出的结果是 <code>1</code> <code>20</code>。</p>
+<hr />
+<h4><a id="4%E5%89%A9%E4%BD%99%E5%80%BC" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(4) 剩余值</strong></h4>
+<p>使用 <code>...</code> 将剩余的值赋值给一个变量。</p>
+<h5><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h5>
+<pre><code class="language-javascript">const arr = [1, 2, 3, 4];
+
+const [a, b, ...rest] = arr;
+
+console.log(a, b, rest); // 输出: 1 2 [3, 4]
+
+</code></pre>
+<hr />
+<h3><a id="2%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>2. 对象的解构赋值</strong></h3>
+<h4><a id="1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(1) 基本用法</strong></h4>
+<p>从对象中提取值，并赋值给变量。</p>
+<h5><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h5>
+<pre><code class="language-javascript">const person = {
+  name: &quot;Alice&quot;,
+  age: 25
+};
+
+// 传统写法
+const name = person.name;
+const age = person.age;
+
+// 解构赋值
+const { name, age } = person;
+
+console.log(name, age); // 输出: Alice 25
+</code></pre>
+<hr />
+<h4><a id="2%E9%87%8D%E5%91%BD%E5%90%8D%E5%8F%98%E9%87%8F" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(2) 重命名变量</strong></h4>
+<p>可以使用 <code>:</code> 将属性值赋值给不同名称的变量。</p>
+<h5><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h5>
+<pre><code class="language-javascript">const person = {
+  name: &quot;Alice&quot;,
+  age: 25
+};
+
+const { name: fullName, age: years } = person;
+
+console.log(fullName, years); // 输出: Alice 25
+</code></pre>
+<hr />
+<h4><a id="3%E9%BB%98%E8%AE%A4%E5%80%BC" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(3) 默认值</strong></h4>
+<p>如果解构的值是 <code>undefined</code>，可以使用默认值。</p>
+<h5><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h5>
+<pre><code class="language-javascript">const person = {
+  name: &quot;Alice&quot;
+};
+
+const { name, age = 20 } = person;
+
+console.log(name, age); // 输出: Alice 20
+</code></pre>
+<hr />
+<h4><a id="4%E5%B5%8C%E5%A5%97%E8%A7%A3%E6%9E%84" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(4) 嵌套解构</strong></h4>
+<p>可以解构嵌套的对象。</p>
+<h5><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h5>
+<pre><code class="language-javascript">const person = {
+  name: &quot;Alice&quot;,
+  age: 25,
+  address: {
+    city: &quot;Beijing&quot;,
+    country: &quot;China&quot;
+  }
+};
+
+const { name, address: { city } } = person;
+
+console.log(name, city); // 输出: Alice Beijing
+
+</code></pre>
+<hr />
+<h4><a id="5%E5%89%A9%E4%BD%99%E5%80%BC" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(5) 剩余值</strong></h4>
+<p>使用 <code>...</code> 将剩余的属性赋值给一个变量。</p>
+<h5><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h5>
+<pre><code class="language-javascript">const person = {
+  name: &quot;Alice&quot;,
+  age: 25,
+  city: &quot;Beijing&quot;
+};
+
+const { name, ...rest } = person;
+
+console.log(name, rest); // 输出: Alice { age: 25, city: 'Beijing' }
+</code></pre>
+<hr />
+<h3><a id="3%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E4%B8%AD%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>3. 函数参数中的解构赋值</strong></h3>
+<h4><a id="1%E5%AF%B9%E8%B1%A1%E5%8F%82%E6%95%B0" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(1) 对象参数</strong></h4>
+<p>在函数参数中使用解构赋值，可以直接提取对象中的属性。</p>
+<h5><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h5>
+<pre><code class="language-javascript">function greet({ name, age }) {
+  console.log(`Hello, ``{name}. You are ``{age} years old.`);
+}
+
+const person = {
+  name: &quot;Alice&quot;,
+  age: 25
+};
+
+greet(person); // 输出: Hello, Alice. You are 25 years old.
+</code></pre>
+<hr />
+<h4><a id="2%E6%95%B0%E7%BB%84%E5%8F%82%E6%95%B0" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(2) 数组参数</strong></h4>
+<p>在函数参数中使用解构赋值，可以直接提取数组中的值。</p>
+<h5><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h5>
+<pre><code class="language-javascript">function sum([a, b]) {
+  return a + b;
+}
+
+const arr = [1, 2];
+
+console.log(sum(arr)); // 输出: 3
+
+</code></pre>
+<hr />
+<h3><a id="4%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>4. 解构赋值的注意事项</strong></h3>
+<h4><a id="1%E8%A7%A3%E6%9E%84%E5%A4%B1%E8%B4%A5" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(1) 解构失败</strong></h4>
+<p>如果解构的值是 <code>undefined</code> 或 <code>null</code>，解构会失败并抛出错误。</p>
+<h5><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h5>
+<pre><code class="language-javascript">const { a } = undefined; // 报错: Cannot destructure property 'a' of 'undefined'
+</code></pre>
+<hr />
+<h4><a id="2%E9%BB%98%E8%AE%A4%E5%80%BC%E4%B8%8E%E9%87%8D%E5%91%BD%E5%90%8D" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(2) 默认值与重命名</strong></h4>
+<p>可以同时使用默认值和重命名。</p>
+<h5><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h5>
+<pre><code class="language-javascript">const person = {
+  name: &quot;Alice&quot;
+};
+
+const { name: fullName = &quot;Unknown&quot;, age = 20 } = person;
+
+console.log(fullName, age); // 输出: Alice 20
+</code></pre>
+<hr />
+<h3><a id="5%E6%80%BB%E7%BB%93" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>5. 总结</strong></h3>
+<ul>
+<li>
+<p>解构赋值是一种从数组或对象中提取值的语法。</p>
+</li>
+<li>
+<p>数组解构赋值使用 <code>[]</code>，对象解构赋值使用 <code>{}</code>。</p>
+</li>
+<li>
+<p>解构赋值支持默认值、重命名、嵌套解构和剩余值。</p>
+</li>
+<li>
+<p>解构赋值可以使代码更简洁、更易读。</p>
+</li>
+</ul>
+]]>
+    </content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[JS：包装类]]></title>
+    <link href="justbb.fun/17422152083924.html"/>
+    <updated>2025-03-17T20:40:08+08:00</updated>
+    <id>justbb.fun/17422152083924.html</id>
+    <content type="html">
+<![CDATA[<p>在 JavaScript 中，<strong>包装类（Wrapper Objects）</strong> 是一种特殊的对象类型，用于将原始值（如字符串、数字、布尔值）临时转换为对象，以便可以调用对象的方法。JavaScript 提供了三种主要的包装类：</p>
+<ol>
+<li>
+<p><strong><code>String</code></strong>：用于包装字符串原始值。</p>
+</li>
+<li>
+<p><strong><code>Number</code></strong>：用于包装数字原始值。</p>
+</li>
+<li>
+<p><strong><code>Boolean</code></strong>：用于包装布尔原始值。</p>
+</li>
+</ol>
+<hr />
+<h3><a id="1%C2%A0%E5%8C%85%E8%A3%85%E7%B1%BB%E7%9A%84%E4%BD%9C%E7%94%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. <strong>包装类的作用</strong></h3>
+<p>原始值（如 <code>&quot;hello&quot;</code>、<code>42</code>、<code>true</code>）本身不是对象，因此不能直接调用方法。包装类的作用是临时将原始值转换为对象，以便可以调用对象的方法。</p>
+<p>例如：</p>
+<pre><code class="language-javascript">const str = &quot;hello&quot;;
+console.log(str.toUpperCase()); // &quot;HELLO&quot;
+
+</code></pre>
+<p>在上面的代码中：</p>
+<ul>
+<li>
+<p><code>str</code> 是一个字符串原始值。</p>
+</li>
+<li>
+<p>当调用 <code>toUpperCase()</code> 方法时，JavaScript 会临时将 <code>str</code> 转换为一个 <code>String</code> 对象，然后调用方法。</p>
+</li>
+<li>
+<p>方法调用结束后，临时对象会被丢弃。</p>
+</li>
+</ul>
+<hr />
+<h3><a id="2%C2%A0%E5%8C%85%E8%A3%85%E7%B1%BB%E7%9A%84%E5%88%9B%E5%BB%BA" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. <strong>包装类的创建</strong></h3>
+<p>你可以显式地使用包装类来创建对象：</p>
+<pre><code class="language-javascript">const strObj = new String(&quot;hello&quot;); // String 对象
+const numObj = new Number(42);      // Number 对象
+const boolObj = new Boolean(true); // Boolean 对象
+
+</code></pre>
+<p>这些对象的行为与原始值类似，但它们是对象类型（<code>object</code>），而不是原始类型（<code>string</code>、<code>number</code>、<code>boolean</code>）。</p>
+<hr />
+<h3><a id="3%C2%A0%E5%8C%85%E8%A3%85%E7%B1%BB%E4%B8%8E%E5%8E%9F%E5%A7%8B%E5%80%BC%E7%9A%84%E5%8C%BA%E5%88%AB" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. <strong>包装类与原始值的区别</strong></h3>
+<p>包装类是对象，而原始值不是对象。它们的区别主要体现在类型和行为上：</p>
+<h4><a id="%E7%B1%BB%E5%9E%8B" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>类型</h4>
+<pre><code class="language-javascript">const str = &quot;hello&quot;;
+const strObj = new String(&quot;hello&quot;);
+
+console.log(typeof str);    // &quot;string&quot;
+console.log(typeof strObj); // &quot;object&quot;
+
+</code></pre>
+<h4><a id="%E8%A1%8C%E4%B8%BA" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>行为</h4>
+<pre><code class="language-javascript">const str1 = &quot;hello&quot;;
+const str2 = new String(&quot;hello&quot;);
+
+console.log(str1 === &quot;hello&quot;); // true
+console.log(str2 === &quot;hello&quot;); // false
+</code></pre>
+<ul>
+<li>
+<p><code>str1</code> 是原始值，直接与 <code>&quot;hello&quot;</code> 比较时，值相等。</p>
+</li>
+<li>
+<p><code>str2</code> 是对象，与 <code>&quot;hello&quot;</code> 比较时，类型不同，结果为 <code>false</code>。</p>
+</li>
+</ul>
+<hr />
+<h3><a id="4%C2%A0%E5%8C%85%E8%A3%85%E7%B1%BB%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. <strong>包装类的使用场景</strong></h3>
+<p>包装类的主要用途是提供对原始值的方法调用支持。例如：</p>
+<h4><a id="%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%96%B9%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>字符串方法</h4>
+<pre><code class="language-javascript">const str = &quot;hello&quot;;
+console.log(str.length); // 5
+console.log(str.toUpperCase()); // &quot;HELLO&quot;
+
+</code></pre>
+<h4><a id="%E6%95%B0%E5%AD%97%E6%96%B9%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>数字方法</h4>
+<pre><code class="language-javascript">const num = 42.567;
+console.log(num.toFixed(2)); // &quot;42.57&quot;
+</code></pre>
+<h4><a id="%E5%B8%83%E5%B0%94%E5%80%BC%E6%96%B9%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>布尔值方法</h4>
+<pre><code class="language-javascript">const bool = true;
+console.log(bool.toString()); // &quot;true&quot;
+
+</code></pre>
+<p>在这些例子中，JavaScript 会临时将原始值转换为包装类对象，以便调用方法。</p>
+<hr />
+<h3><a id="5%C2%A0%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. <strong>注意事项</strong></h3>
+<h4><a id="1%E4%B8%8D%E8%A6%81%E6%98%BE%E5%BC%8F%E4%BD%BF%E7%94%A8%E5%8C%85%E8%A3%85%E7%B1%BB" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. 不要显式使用包装类</h4>
+<p>通常情况下，不需要显式使用包装类（如 <code>new String(&quot;hello&quot;)</code>），因为 JavaScript 会自动处理原始值的方法调用。</p>
+<h4><a id="2%E5%8C%85%E8%A3%85%E7%B1%BB%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%AF%94%E8%BE%83" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. 包装类对象的比较</h4>
+<p>包装类对象是对象，因此它们的比较是基于引用的，而不是值：</p>
+<pre><code class="language-javascript">const str1 = new String(&quot;hello&quot;);
+const str2 = new String(&quot;hello&quot;);
+
+console.log(str1 === str2); // false
+console.log(str1 == str2);  // false
+
+</code></pre>
+<h4><a id="3%E5%8E%9F%E5%A7%8B%E5%80%BC%E7%9A%84%E6%80%A7%E8%83%BD%E6%9B%B4%E5%A5%BD" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. 原始值的性能更好</h4>
+<p>原始值的性能比包装类对象更好，因为包装类对象需要额外的内存和计算资源。</p>
+<hr />
+<h3><a id="6%C2%A0%E5%8C%85%E8%A3%85%E7%B1%BB%E7%9A%84%E5%8E%9F%E5%9E%8B%E9%93%BE" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>6. <strong>包装类的原型链</strong></h3>
+<p>包装类的实例会继承对应包装类原型上的方法。例如：</p>
+<pre><code class="language-javascript">const str = &quot;hello&quot;;
+console.log(str.__proto__ === String.prototype); // true
+</code></pre>
+<ul>
+<li>
+<p><code>String.prototype</code> 是 <code>String</code> 包装类的原型对象。</p>
+</li>
+<li>
+<p><code>str</code> 是一个字符串原始值，但它可以访问 <code>String.prototype</code> 上的方法（如 <code>toUpperCase</code>、<code>slice</code>等）。</p>
+</li>
+</ul>
+<hr />
+<h3><a id="7%C2%A0%E6%80%BB%E7%BB%93" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>7. <strong>总结</strong></h3>
+<ul>
+<li>
+<p>包装类（<code>String</code>、<code>Number</code>、<code>Boolean</code>）用于将原始值临时转换为对象，以便调用方法。</p>
+</li>
+<li>
+<p>通常情况下，不需要显式使用包装类，JavaScript 会自动处理原始值的方法调用。</p>
+</li>
+<li>
+<p>包装类对象是对象类型，与原始值有本质区别。</p>
+</li>
+<li>
+<p>原始值的性能更好，建议优先使用原始值。</p>
+</li>
+</ul>
+]]>
+    </content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[JS：类 class]]></title>
@@ -78,7 +423,8 @@ console.log(Person.species); // 输出: Human
 </li>
 </ul>
 <h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
-<pre><code class="language-class" data-meta="Person {">  constructor(name) {
+<pre><code class="language-javascript">class Person {
+  constructor(name) {
     this.name = name;
   }
 }
@@ -300,6 +646,335 @@ circle.draw(); // 输出: Drawing a red circle with radius 10.
   </entry>
   
   <entry>
+    <title type="html"><![CDATA[JS：Object上的常用方法]]></title>
+    <link href="justbb.fun/17422155623223.html"/>
+    <updated>2025-03-17T20:46:02+08:00</updated>
+    <id>justbb.fun/17422155623223.html</id>
+    <content type="html">
+<![CDATA[<p>在 JavaScript 中，<code>Object</code> 是一个内置的构造函数，提供了许多实用的静态方法和实例方法，用于操作对象。以下是 <code>Object</code> 上常用方法的详细说明：</p>
+<hr />
+<h3><a id="1%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>1. 静态方法</strong></h3>
+<h4><a id="1%C2%A0-object-assign-target-sources" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(1) <code>Object.assign(target, ...sources)</code></strong></h4>
+<ul>
+<li>
+<p><strong>作用</strong>：将一个或多个源对象的属性 到目标对象。</p>
+</li>
+<li>
+<p><strong>返回值</strong>：目标对象。</p>
+</li>
+<li>
+<p><strong>注意</strong>：浅拷贝，只 可枚举的自有属性。</p>
+</li>
+</ul>
+<h5><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h5>
+<pre><code class="language-javascript">const target = { a: 1 };
+const source = { b: 2, c: 3 };
+
+const result = Object.assign(target, source);
+console.log(result); // 输出: { a: 1, b: 2, c: 3 }
+
+</code></pre>
+<hr />
+<h4><a id="2%C2%A0-object-create-proto-propertiesobject" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(2) <code>Object.create(proto, propertiesObject)</code></strong></h4>
+<ul>
+<li>
+<p><strong>作用</strong>：创建一个新对象，使用现有对象作为新对象的原型。</p>
+</li>
+<li>
+<p><strong>参数</strong>：</p>
+<ul>
+<li>
+<p><code>proto</code>：新对象的原型。</p>
+</li>
+<li>
+<p><code>propertiesObject</code>（可选）：新对象的属性描述符。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h5><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h5>
+<pre><code class="language-javascript">const proto = { greet() { console.log(&quot;Hello!&quot;); } };
+const obj = Object.create(proto);
+
+obj.greet(); // 输出: Hello!
+</code></pre>
+<hr />
+<h4><a id="3%C2%A0-object-defineproperty-obj-prop-descriptor" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(3) <code>Object.defineProperty(obj, prop, descriptor)</code></strong></h4>
+<ul>
+<li>
+<p><strong>作用</strong>：在对象上定义一个新属性，或修改现有属性。</p>
+</li>
+<li>
+<p><strong>参数</strong>：</p>
+<ul>
+<li>
+<p><code>obj</code>：目标对象。</p>
+</li>
+<li>
+<p><code>prop</code>：属性名称。</p>
+</li>
+<li>
+<p><code>descriptor</code>：属性描述符（如 <code>value</code>、<code>writable</code>、<code>enumerable</code>、<code>configurable</code>）。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h5><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h5>
+<pre><code class="language-javascript">const obj = {};
+
+Object.defineProperty(obj, &quot;name&quot;, {
+  value: &quot;Alice&quot;,
+  writable: false, // 不可修改
+  enumerable: true // 可枚举
+});
+
+console.log(obj.name); // 输出: Alice
+obj.name = &quot;Bob&quot;; // 无效，因为 writable 为 false
+console.log(obj.name); // 输出: Alice
+
+</code></pre>
+<hr />
+<h4><a id="4%C2%A0-object-entries-obj" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(4) <code>Object.entries(obj)</code></strong></h4>
+<ul>
+<li>
+<p><strong>作用</strong>：返回一个对象自身可枚举属性的键值对数组。</p>
+</li>
+<li>
+<p><strong>返回值</strong>：二维数组，每个元素是 <code>[key, value]</code>。</p>
+</li>
+</ul>
+<h5><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h5>
+<pre><code class="language-javascript">onst obj = { a: 1, b: 2 };
+console.log(Object.entries(obj)); // 输出: [['a', 1], ['b', 2]]
+
+</code></pre>
+<hr />
+<h4><a id="5%C2%A0-object-keys-obj" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(5) <code>Object.keys(obj)</code></strong></h4>
+<ul>
+<li>
+<p><strong>作用</strong>：返回一个对象自身可枚举属性的键名数组。</p>
+</li>
+<li>
+<p><strong>返回值</strong>：字符串数组。</p>
+</li>
+</ul>
+<h5><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h5>
+<pre><code class="language-javascript">const obj = { a: 1, b: 2 };
+console.log(Object.keys(obj)); // 输出: ['a', 'b']
+
+</code></pre>
+<hr />
+<h4><a id="6%C2%A0-object-values-obj" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(6) <code>Object.values(obj)</code></strong></h4>
+<ul>
+<li>
+<p><strong>作用</strong>：返回一个对象自身可枚举属性的值数组。</p>
+</li>
+<li>
+<p><strong>返回值</strong>：值数组。</p>
+</li>
+</ul>
+<h5><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h5>
+<pre><code class="language-javascript">const obj = { a: 1, b: 2 };
+console.log(Object.values(obj)); // 输出: [1, 2]
+
+</code></pre>
+<hr />
+<h4><a id="7%C2%A0-object-freeze-obj" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(7) <code>Object.freeze(obj)</code></strong></h4>
+<ul>
+<li>
+<p><strong>作用</strong>：冻结一个对象，使其不能被修改（不能添加、删除或修改属性）。</p>
+</li>
+<li>
+<p><strong>返回值</strong>：被冻结的对象。</p>
+</li>
+</ul>
+<h5><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h5>
+<pre><code class="language-javascript">const obj = { a: 1 };
+Object.freeze(obj);
+
+obj.a = 2; // 无效
+console.log(obj.a); // 输出: 1
+
+</code></pre>
+<hr />
+<h4><a id="8%C2%A0-object-seal-obj" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(8) <code>Object.seal(obj)</code></strong></h4>
+<ul>
+<li>
+<p><strong>作用</strong>：密封一个对象，使其不能添加或删除属性，但可以修改现有属性。</p>
+</li>
+<li>
+<p><strong>返回值</strong>：被密封的对象。</p>
+</li>
+</ul>
+<h5><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h5>
+<pre><code class="language-javascript">const obj = { a: 1 };
+Object.seal(obj);
+
+obj.a = 2; // 有效
+obj.b = 3; // 无效
+console.log(obj); // 输出: { a: 2 }
+</code></pre>
+<hr />
+<h4><a id="9%C2%A0-object-is-value1-value2" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(9) <code>Object.is(value1, value2)</code></strong></h4>
+<ul>
+<li>
+<p><strong>作用</strong>：比较两个值是否严格相等（类似于 <code>===</code>，但处理 <code>NaN</code> 和 <code>+0/-0</code> 更准确）。</p>
+</li>
+<li>
+<p><strong>返回值</strong>：布尔值。</p>
+</li>
+</ul>
+<h5><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h5>
+<pre><code class="language-javascript">console.log(Object.is(NaN, NaN)); // 输出: true
+console.log(Object.is(+0, -0));   // 输出: false
+
+</code></pre>
+<hr />
+<h4><a id="10%C2%A0-object-getprototypeof-obj" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(10) <code>Object.getPrototypeOf(obj)</code></strong></h4>
+<ul>
+<li>
+<p><strong>作用</strong>：返回指定对象的原型。</p>
+</li>
+<li>
+<p><strong>返回值</strong>：对象的原型。</p>
+</li>
+</ul>
+<h5><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h5>
+<pre><code class="language-javascript">const proto = {};
+const obj = Object.create(proto);
+
+console.log(Object.getPrototypeOf(obj) === proto); // 输出: true
+</code></pre>
+<hr />
+<h3><a id="2%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>2. 实例方法</strong></h3>
+<h4><a id="1%C2%A0-obj-hasownproperty-prop" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(1) <code>obj.hasOwnProperty(prop)</code></strong></h4>
+<ul>
+<li>
+<p><strong>作用</strong>：检查对象是否具有指定的自有属性（不包括原型链上的属性）。</p>
+</li>
+<li>
+<p><strong>返回值</strong>：布尔值。</p>
+</li>
+</ul>
+<h5><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h5>
+<pre><code class="language-javascript">const obj = { a: 1 };
+console.log(obj.hasOwnProperty(&quot;a&quot;)); // 输出: true
+console.log(obj.hasOwnProperty(&quot;toString&quot;)); // 输出: false
+
+</code></pre>
+<hr />
+<h4><a id="2%C2%A0-obj-tostring" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(2) <code>obj.toString()</code></strong></h4>
+<ul>
+<li>
+<p><strong>作用</strong>：返回对象的字符串表示。</p>
+</li>
+<li>
+<p><strong>返回值</strong>：字符串。</p>
+</li>
+</ul>
+<h5><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h5>
+<pre><code class="language-javascript">const obj = { a: 1 };
+console.log(obj.toString()); // 输出: [object Object]
+
+</code></pre>
+<hr />
+<h4><a id="3%C2%A0-obj-valueof" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(3) <code>obj.valueOf()</code></strong></h4>
+<ul>
+<li>
+<p><strong>作用</strong>：返回对象的原始值。</p>
+</li>
+<li>
+<p><strong>返回值</strong>：对象的原始值。</p>
+</li>
+</ul>
+<h5><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h5>
+<pre><code class="language-javascript">const obj = { a: 1 };
+console.log(obj.valueOf()); // 输出: { a: 1 }
+
+</code></pre>
+<hr />
+<h3><a id="3%E6%80%BB%E7%BB%93" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>3. 总结</strong></h3>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>作用</th>
+<th>返回值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Object.assign()</code></td>
+<td>属性到目标对象</td>
+<td>目标对象</td>
+</tr>
+<tr>
+<td><code>Object.create()</code></td>
+<td>创建新对象，指定原型</td>
+<td>新对象</td>
+</tr>
+<tr>
+<td><code>Object.defineProperty()</code></td>
+<td>定义或修改属性</td>
+<td>目标对象</td>
+</tr>
+<tr>
+<td><code>Object.entries()</code></td>
+<td>返回对象的键值对数组</td>
+<td>二维数组</td>
+</tr>
+<tr>
+<td><code>Object.keys()</code></td>
+<td>返回对象的键名数组</td>
+<td>字符串数组</td>
+</tr>
+<tr>
+<td><code>Object.values()</code></td>
+<td>返回对象的值数组</td>
+<td>值数组</td>
+</tr>
+<tr>
+<td><code>Object.freeze()</code></td>
+<td>冻结对象，使其不可修改</td>
+<td>被冻结的对象</td>
+</tr>
+<tr>
+<td><code>Object.seal()</code></td>
+<td>密封对象，使其不可添加或删除属性</td>
+<td>被密封的对象</td>
+</tr>
+<tr>
+<td><code>Object.is()</code></td>
+<td>比较两个值是否严格相等</td>
+<td>布尔值</td>
+</tr>
+<tr>
+<td><code>Object.getPrototypeOf()</code></td>
+<td>返回对象的原型</td>
+<td>对象的原型</td>
+</tr>
+<tr>
+<td><code>obj.hasOwnProperty()</code></td>
+<td>检查对象是否具有指定的自有属性</td>
+<td>布尔值</td>
+</tr>
+<tr>
+<td><code>obj.toString()</code></td>
+<td>返回对象的字符串表示</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td><code>obj.valueOf()</code></td>
+<td>返回对象的原始值</td>
+<td>原始值</td>
+</tr>
+</tbody>
+</table>
+]]>
+    </content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[JS：原型和原型链]]></title>
     <link href="justbb.fun/17420542537025.html"/>
     <updated>2025-03-15T23:57:33+08:00</updated>
@@ -356,7 +1031,7 @@ console.log(alice.__proto__ === Person.prototype); // 输出: true
 <h3><a id="3%C2%A0%E5%87%BD%E6%95%B0%E7%9A%84%C2%A0-prototype%C2%A0%E5%B1%9E%E6%80%A7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. <strong>函数的 <code>prototype</code> 属性</strong></h3>
 <ul>
 <li>
-<p>每个函数都有一个 <code>prototype</code> 属性，这个属性是一个对象。</p>
+<p>每个函数都有一个 <code>prototype</code> 属性，这个属性是一个对象，这个对象是实例的原型</p>
 </li>
 <li>
 <p>这个 <code>prototype</code> 对象有一个 <code>constructor</code> 属性，指向函数本身。</p>
@@ -511,6 +1186,21 @@ console.log(Object.getPrototypeOf(Person.prototype) === Object.prototype); // �
 console.log(Object.getPrototypeOf(Object.prototype) === null); // 输出: true
 
 </code></pre>
+<hr />
+<h3><a id="%E7%A4%BA%E4%BE%8B%E5%9B%BE" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例图</h3>
+<pre><code class="language-javascript">// 把这个代码中的原型链绘制出来，绘制到null为止
+
+class Fruit { }
+
+class Apple extends Fruit { }
+
+class Grape extends Fruit { }
+
+class Hongfushi extends Apple { }
+
+const apple = new Apple();
+</code></pre>
+<p><img src="media/17420542537025/%E9%9C%80%E6%B1%82%E8%B0%83%E7%A0%94.jpg" alt="需求调研" /></p>
 ]]>
     </content>
   </entry>
@@ -1018,7 +1708,8 @@ adb shell pm uninstall -k --user 0 com.mitv.tvhome
 #卸载小米桌面，如果想备份小米桌面App要自行下载安装Apk Extractor导出保存
 </code></pre>
 <p>一些或许会用到的ADB命令</p>
-<pre><code class="language-python">adb shell pm list packages
+<pre><code class="language-python">
+adb shell pm list packages
 #列出所有应用
  
 adb shell pm list packages -s
@@ -1808,25 +2499,6 @@ car.drive(); // 输出: Driving Toyota Corolla
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[小孩为啥很可爱]]></title>
-    <link href="justbb.fun/17414463963213.html"/>
-    <updated>2025-03-08T23:06:36+08:00</updated>
-    <id>justbb.fun/17414463963213.html</id>
-    <content type="html">
-<![CDATA[<p>当了爸爸后，总感觉自己的娃挺可爱。</p>
-<p>这种感觉可爱似乎是刻在家长基因里的。</p>
-<p>孩子头大，肩膀小，手臂向上伸，可能超不过脑袋。</p>
-<p>皮肤光滑，面色红润，胖乎乎的脸蛋，看到就想摸。</p>
-<p>今天查了一下为什么感觉小孩可爱，居然还有专业术语的，这种情况叫<a href="https://pansci.asia/archives/184914">「丘比特娃娃效应」</a>，是一种广泛存在在哺乳动物幼崽的状态，比如小猫，小狗，小狮子等。</p>
-<p>似乎是一种天然的建立依附关系的方法。</p>
-<blockquote>
-<p>丘比娃娃最早是由美國羅絲‧歐尼爾 （Rose O’Neill）在 1909 年所創造出的角色，擁有圓潤的雙眸，對稱且圓滾的身體，並依據愛神邱比特的諧音取名，在推出的短時間內就造成極大的轟動。</p>
-</blockquote>
-]]>
-    </content>
-  </entry>
-  
-  <entry>
     <title type="html"><![CDATA[孩子叛逆怎么办]]></title>
     <link href="justbb.fun/17414456449769.html"/>
     <updated>2025-03-08T22:54:04+08:00</updated>
@@ -2034,72 +2706,6 @@ End Sub
 <p><img src="media/17406420399500/17406424735718.jpg" alt="" /></p>
 <p>这些内容看起来不太像是摆拍，但看了后就让人感觉他们在另一个世界一样。</p>
 <p>不禁让人想到，抖音或视频号的审核人员，每天大概会看到更多这种负能量的内容吧，而且这些内容还是真实的，有时候还是感叹，算法编织的信息茧房，让我们以为世界很美好，但其实真实的世界已经被折叠了。</p>
-]]>
-    </content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[DeepSeek 工具]]></title>
-    <link href="justbb.fun/17406437029217.html"/>
-    <updated>2025-02-27T16:08:22+08:00</updated>
-    <id>justbb.fun/17406437029217.html</id>
-    <content type="html">
-<![CDATA[<h3><a id="%F0%9F%94%8D%E6%90%9C%E7%B4%A2" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>🔍搜索</h3>
-<ol>
-<li>秘塔搜索👍：<a href="https://metaso.cn">https://metaso.cn</a></li>
-<li>360纳米AI搜索👍：<a href="https://www.n.cn/">https://www.n.cn/</a></li>
-<li>知乎直答：<a href="https://zhida.zhihu.com">https://zhida.zhihu.com</a></li>
-</ol>
-<h3><a id="%F0%9F%92%BB%E4%BA%91%E6%9C%8D%E5%8A%A1" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>💻云服务</h3>
-<ol>
-<li>硅基流动：<a href="https://cloud.siliconflow.cn/i/WQCfCBuF">https://cloud.siliconflow.cn/i/WQCfCBuF</a></li>
-<li>派欧算力云：<a href="https://ppinfra.com/user/register">https://ppinfra.com/user/register</a></li>
-<li>阿里云百炼：<a href="https://api.together.ai/playground/chat/deepseek-ai/DeepSeek-R1">https://api.together.ai/playground/chat/deepseek-ai/DeepSeek-R1</a></li>
-<li>字节跳动火山引擎：<a href="https://console.volcengine.com/ark/region:ark+cn-beijing/experience">https://console.volcengine.com/ark/region:ark+cn-beijing/experience</a></li>
-<li>百度云千帆：<a href="https://console.bce.baidu.com/qianfan/modelcenter/model/buildIn/list">https://console.bce.baidu.com/qianfan/modelcenter/model/buildIn/list</a></li>
-<li>英伟达：<a href="https://build.nvidia.com/deepseek-ai/deepseek-r1">https://build.nvidia.com/deepseek-ai/deepseek-r1</a></li>
-<li>Groq：<a href="https://groq.com/">https://groq.com/</a></li>
-<li>Fireworks：<a href="https://fireworks.ai/models/fireworks/deepseek-r1">https://fireworks.ai/models/fireworks/deepseek-r1</a></li>
-<li>Chutes：<a href="https://chutes.ai/app/chute/">https://chutes.ai/app/chute/</a></li>
-</ol>
-<h3><a id="%E5%BA%94%E7%94%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>应用</h3>
-<ol>
-<li>华为小艺：<a href="https://xiaoyi.huawei.com/chat/">https://xiaoyi.huawei.com/chat/</a></li>
-<li>Wolai：<a href="https://www.wolai.com">https://www.wolai.com</a></li>
-<li>超算互联网：<a href="https://www.scnet.cn/">https://www.scnet.cn/</a></li>
-<li>支付宝百宝箱：<a href="https://tbox.alipay.com/communit">https://tbox.alipay.com/communit</a></li>
-</ol>
-<h3><a id="%F0%9F%93%96%E8%B5%84%E6%96%99" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>📖资料</h3>
-<ol>
-<li>deepseek飞书资料库：<a href="https://acnawnoo7ng6.feishu.cn/wiki/FzozwGlZ2i6RTwkEJNZcYGMOnib">https://acnawnoo7ng6.feishu.cn/wiki/FzozwGlZ2i6RTwkEJNZcYGMOnib</a></li>
-<li>清华大学 DeepSeek 最新合集，链接: <a href="https://pan.quark.cn/s/b76796cc28c1">https://pan.quark.cn/s/b76796cc28c1</a></li>
-<li>厦门大学 140 页 PPT《Deepseek 大模型概念、技术与应用实践》，链接: <a href="https://pan.quark.cn/s/0747f92fba2d">https://pan.quark.cn/s/0747f92fba2d</a></li>
-<li>小白也可以！离线免费用 Deepseek本地傻瓜式安装部署流程：<a href="https://acnawnoo7ng6.feishu.cn/wiki/DpbywtO23i7T7wkdO3dca30Qnrf">https://acnawnoo7ng6.feishu.cn/wiki/DpbywtO23i7T7wkdO3dca30Qnrf</a></li>
-</ol>
-]]>
-    </content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[5月前的投资计划]]></title>
-    <link href="justbb.fun/17403877754049.html"/>
-    <updated>2025-02-24T17:02:55+08:00</updated>
-    <id>justbb.fun/17403877754049.html</id>
-    <content type="html">
-<![CDATA[<p>节前科技股和中小盘股，特别是港股，已经有过一轮暴涨，现在风险已经比较高了。</p>
-<p>比如可以看TMT版块拥挤指数（单日TMT版块成交金额/A股单日总成交金额）已经突破了历史最高值（40%），现在是44%。美国的历史最高值也就是45%-50%左右。历史上看，每当到极值时，回调概率会加大。</p>
-<p>而且柯创板的估值PE-TTM已经来到了88倍，历史百分位达到了98%，也是很接近历史高点了。</p>
-<p>恒生科技的估值水平也来到了21年9月的水平。</p>
-<p>总之<strong>中国科技资产已经不便宜了</strong>。</p>
-<h3><a id="%E5%88%B05%E6%9C%88%E5%89%8D%E7%9A%84%E6%93%8D%E4%BD%9C%E6%80%9D%E8%B7%AF" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>到5月前的操作思路</h3>
-<p>根据历史经验，每年的两会前后，市场交投情绪和市场风险偏好会达到峰值，但这股情绪会推动市场在4月上旬达峰之后快速回落。</p>
-<p>所以建议选择**“避开TMT版块的高位博弈，去布局目前的低位版块，静待4月下旬到5月上旬的风格切换**</p>
-<p>虽然长周期看，隐隐有让传统高股息，传产资金向科技板块流动，实现财富的世代更替的意思，但是以年为尺度来观察，历史的周期性规律仍然没有那么容易打破。</p>
-<p>因此，我们应该布局哪些板块呢，如果是我，我会考虑上游资源股。因为上游很多领域是供给侧改革做的比较好的领域，供给侧做的好意味着价格弹性好，一旦需求侧出现积极变化，上游很有可能出现 “困境反转”。比如：</p>
-<p>1） 已经持续下行三年的钢铁，在新的供给侧改革文件出台之后，是否有困境反转的机会？</p>
-<p>2） 又或是最近突然生猪板块出现大涨，可能也是猪肉在长期底部上的静极思动？</p>
-<p>3） 人形机器人可能量产在即，会不会出现类似当年磷酸铁锂电池铺开之后“盐湖提锂”概念的飞上天？要知道无论是机器人的空心杯电机，还是矩形框电机（这个其实两年前我就提到过），永磁材料都是核心原材料，是否会出现类似过去新能源“原材料涨到关键零组件涨到整机”的“长江三叠浪”？</p>
-<p><img src="media/17403877754049/17404015752782.jpg" alt="" /></p>
 ]]>
     </content>
   </entry>

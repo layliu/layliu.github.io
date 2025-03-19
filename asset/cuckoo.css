@@ -168,7 +168,7 @@ ul.entry-list {
   padding-top: 20px;
   padding-bottom: 20px;
   max-width: 100%;
-  max-height: 500px;
+  max-height: 800px;
   filter: grayscale(1);
   max-height: auto;
   margin-left: auto;
@@ -303,7 +303,7 @@ ul.entry-list {
   color: #1b1b1b;
   font-size: 0.96em;
   padding: 2px 4px;
-  margin: 4px;
+  /* margin: 4px; */
   background-color: #efefef;
   /* border: 2px dashed #eee; */
   border-radius: 3px;
