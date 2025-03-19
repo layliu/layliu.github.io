@@ -114,6 +114,24 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
+                        <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2025/03/19">2025-03-19T21:15:54+08:00</time></div>
+                        
+                        <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="17423901549383.html">JS：闭包</a></h2>
+                        
+                        
+                        <span class="posted-cats"><a href='Studay.html'>Studay</a></span>
+                        
+                        
+                        <div itemprop="description" class="entry-description">
+                            
+                        </div>
+
+                    </div>
+                </li>
+                
+                <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
+                    <div class="entry-detail">
+
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2025/03/18">2025-03-18T10:08:14+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="17422636944234.html">JS：解构赋值</a></h2>
@@ -306,6 +324,17 @@
     const updateCounts = [];
 
     // 遍历所有文章
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2025/03/19"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
     
         // 提取发布日期并转换为日期对象
         var pd = new Date("2025/03/18"); // 直接使用 Date 构造函数
