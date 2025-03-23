@@ -163,14 +163,20 @@ ul.entry-list {
   color: #222223;
 }
 
+video{
+  width: 100%;
+  border-radius: 0.5em;
+  filter: grayscale(1);
+}
+
 .cuckoo img {
   display: block;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   max-width: 100%;
   max-height: 800px;
   filter: grayscale(1);
-  max-height: auto;
+  border-radius: 0.5em;
   margin-left: auto;
   margin-right: auto;
 

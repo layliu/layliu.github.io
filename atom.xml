@@ -3,11 +3,307 @@
   <title><![CDATA[JustBB]]></title>
   <link href="justbb.fun/atom.xml" rel="self"/>
   <link href="justbb.fun/"/>
-  <updated>2025-03-19T22:05:53+08:00</updated>
+  <updated>2025-03-22T19:41:32+08:00</updated>
   <id>justbb.fun/</id>
   <author>
     <name><![CDATA[]]></name>
   </author>
+  
+  <entry>
+    <title type="html"><![CDATA[JS：代码执行环境与执行活动栈]]></title>
+    <link href="justbb.fun/17426296020776.html"/>
+    <updated>2025-03-22T15:46:42+08:00</updated>
+    <id>justbb.fun/17426296020776.html</id>
+    <content type="html">
+<![CDATA[<p>在 JavaScript 中，代码的执行环境和执行活动栈（Execution Context and Call Stack）是理解 JavaScript 运行机制的核心概念。它们决定了代码的执行顺序、作用域、变量访问等行为。</p>
+<h3><a id="%E7%A4%BA%E6%84%8F%E5%9B%BE" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示意图</h3>
+<pre><code class="language-javascript">//试着画出下面代码的执行逻辑
+let a = 123
+function abc() {
+    let a = 100
+    return function (x) {
+        a += x
+        console.log(a);
+    }
+}
+const c = abc()
+c(200) //输出 300
+c(600) //输出 900
+const d = abc()  
+d(666) //输出 766
+</code></pre>
+<ul>
+<li>每次调用 <code>abc()</code> 都会创建一个新的闭包，闭包中的变量 <code>a</code> 是独立的。</li>
+<li><code>c</code> 和 <code>d</code> 是两个不同的闭包，它们内部的变量 <code>a</code> 互不影响。</li>
+<li>输出结果分别为 <code>300</code>、<code>900</code> 和 <code>766</code>。</li>
+</ul>
+<p><img src="media/17426296020776/%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E7%8E%AF%E5%A2%83.jpg" alt="代码执行环境" /></p>
+<h3><a id="1%E6%89%A7%E8%A1%8C%E7%8E%AF%E5%A2%83%EF%BC%88-execution-context%EF%BC%89" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. 执行环境（Execution Context）</h3>
+<p>执行环境是 JavaScript 代码执行时的抽象概念，它包含了当前代码执行所需的所有信息。每当 JavaScript 引擎执行一段代码时，都会创建一个执行环境。</p>
+<h4><a id="%E6%89%A7%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E7%B1%BB%E5%9E%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>执行环境的类型：</h4>
+<ol>
+<li>
+<p><strong>全局执行环境（Global Execution Context）</strong>：</p>
+<ul>
+<li>
+<p>这是最外层的执行环境，对应全局作用域。</p>
+</li>
+<li>
+<p>在浏览器中，全局执行环境的 <code>this</code> 指向 <code>window</code> 对象。</p>
+</li>
+<li>
+<p>全局执行环境在脚本加载时创建，直到页面关闭时销毁。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>函数执行环境（Function Execution Context）</strong>：</p>
+<ul>
+<li>
+<p>每次调用函数时，都会创建一个新的函数执行环境。</p>
+</li>
+<li>
+<p>函数执行环境包含了函数的局部变量、参数、作用域链等信息。</p>
+</li>
+<li>
+<p>函数执行完成后，其执行环境会被销毁。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Eval 执行环境（Eval Execution Context）</strong>：</p>
+<ul>
+<li>使用 <code>eval</code> 函数时创建的执行环境（不推荐使用 <code>eval</code>，因此很少讨论）。</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h3><a id="2%E6%89%A7%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E7%BB%84%E6%88%90" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. 执行环境的组成</h3>
+<p>每个执行环境包含以下三个部分：</p>
+<ol>
+<li>
+<p><strong>变量对象（Variable Object, VO）</strong>：</p>
+<ul>
+<li>
+<p>存储当前环境中定义的变量、函数声明和函数参数。</p>
+</li>
+<li>
+<p>在全局环境中，变量对象是全局对象（如 <code>window</code>）。</p>
+</li>
+<li>
+<p>在函数环境中，变量对象是活动对象（Activation Object, AO）。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>作用域链（Scope Chain）</strong>：</p>
+<ul>
+<li>
+<p>作用域链是一个链表，用于解析变量和函数。</p>
+</li>
+<li>
+<p>当访问一个变量时，JavaScript 引擎会沿着作用域链从当前环境向上查找，直到找到该变量或到达全局环境。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>this</code> 值</strong>：</p>
+<ul>
+<li>
+<p><code>this</code> 指向当前执行环境的上下文对象。</p>
+</li>
+<li>
+<p>在全局环境中，<code>this</code> 指向全局对象（如 <code>window</code>）。</p>
+</li>
+<li>
+<p>在函数环境中，<code>this</code> 的值取决于函数的调用方式。</p>
+</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h3><a id="3%E6%89%A7%E8%A1%8C%E6%B4%BB%E5%8A%A8%E6%A0%88%EF%BC%88-call-stack%EF%BC%89" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. 执行活动栈（Call Stack）</h3>
+<p>执行活动栈（也称为调用栈）是一个后进先出（LIFO）的栈结构，用于管理执行环境的创建和销毁。</p>
+<h4><a id="%E6%89%A7%E8%A1%8C%E6%B4%BB%E5%8A%A8%E6%A0%88%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>执行活动栈的工作流程：</h4>
+<ol>
+<li>
+<p><strong>初始状态</strong>：</p>
+<ul>
+<li>当 JavaScript 脚本开始执行时，全局执行环境被创建并推入调用栈。</li>
+</ul>
+</li>
+<li>
+<p><strong>函数调用</strong>：</p>
+<ul>
+<li>
+<p>当调用一个函数时，会创建一个新的函数执行环境，并将其推入调用栈。</p>
+</li>
+<li>
+<p>函数执行完成后，其执行环境从调用栈中弹出。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>栈溢出</strong>：</p>
+<ul>
+<li>如果递归调用过深或函数调用过多，调用栈可能会超出其最大限制，导致栈溢出错误（Stack Overflow）。</li>
+</ul>
+</li>
+</ol>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">function first() {
+    console.log(&quot;First&quot;);
+    second();
+}
+
+function second() {
+    console.log(&quot;Second&quot;);
+    third();
+}
+
+function third() {
+    console.log(&quot;Third&quot;);
+}
+
+first();
+
+</code></pre>
+<h4><a id="%E8%B0%83%E7%94%A8%E6%A0%88%E7%9A%84%E5%8F%98%E5%8C%96%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>调用栈的变化：</h4>
+<ol>
+<li>
+<p>全局执行环境被推入调用栈。</p>
+</li>
+<li>
+<p>调用 <code>first()</code>，<code>first</code> 的执行环境被推入调用栈。</p>
+</li>
+<li>
+<p>在 <code>first</code> 中调用 <code>second()</code>，<code>second</code> 的执行环境被推入调用栈。</p>
+</li>
+<li>
+<p>在 <code>second</code> 中调用 <code>third()</code>，<code>third</code> 的执行环境被推入调用栈。</p>
+</li>
+<li>
+<p><code>third</code> 执行完成后，其执行环境从调用栈中弹出。</p>
+</li>
+<li>
+<p><code>second</code> 执行完成后，其执行环境从调用栈中弹出。</p>
+</li>
+<li>
+<p><code>first</code> 执行完成后，其执行环境从调用栈中弹出。</p>
+</li>
+<li>
+<p>最后，全局执行环境从调用栈中弹出（脚本执行完毕）。</p>
+</li>
+</ol>
+<hr />
+<h3><a id="4%E6%89%A7%E8%A1%8C%E7%8E%AF%E5%A2%83%E5%92%8C%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE%E7%9A%84%E5%85%B3%E7%B3%BB" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. 执行环境和作用域链的关系</h3>
+<p>作用域链是执行环境的一个重要组成部分，它决定了变量的可访问性。</p>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">const globalVar = &quot;Global&quot;;
+
+function outer() {
+    const outerVar = &quot;Outer&quot;;
+
+    function inner() {
+        const innerVar = &quot;Inner&quot;;
+        console.log(globalVar); // 输出: Global
+        console.log(outerVar); // 输出: Outer
+        console.log(innerVar); // 输出: Inner
+    }
+
+    inner();
+}
+
+outer();
+</code></pre>
+<h4><a id="%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>作用域链：</h4>
+<ul>
+<li>
+<p><code>inner</code> 函数的作用域链：<code>inner</code> → <code>outer</code> → 全局。</p>
+</li>
+<li>
+<p>当 <code>inner</code> 访问 <code>globalVar</code> 时，JavaScript 引擎会沿着作用域链向上查找，直到找到 <code>globalVar</code>。</p>
+</li>
+</ul>
+<hr />
+<h3><a id="5%E9%97%AD%E5%8C%85%E4%B8%8E%E6%89%A7%E8%A1%8C%E7%8E%AF%E5%A2%83" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. 闭包与执行环境</h3>
+<p>闭包是函数与其词法作用域的结合。即使函数在其词法作用域外执行，它仍然可以访问其词法作用域中的变量。</p>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">function outer() {
+    const outerVar = &quot;Outer&quot;;
+
+    function inner() {
+        console.log(outerVar); // 输出: Outer
+    }
+
+    return inner;
+}
+
+const closure = outer();
+closure();
+
+</code></pre>
+<h4><a id="%E8%A7%A3%E9%87%8A%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>解释：</h4>
+<ul>
+<li>
+<p><code>inner</code> 函数形成了一个闭包，它“记住”了 <code>outer</code> 函数的词法作用域。</p>
+</li>
+<li>
+<p>即使 <code>outer</code> 函数已经执行完毕，<code>inner</code> 仍然可以访问 <code>outerVar</code>。</p>
+</li>
+</ul>
+<hr />
+<h3><a id="%E6%80%BB%E7%BB%93%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>总结：</h3>
+<ul>
+<li>
+<p><strong>执行环境</strong>：是 JavaScript 代码执行时的抽象概念，包含变量对象、作用域链和 <code>this</code> 值。</p>
+</li>
+<li>
+<p><strong>执行活动栈</strong>：是一个后进先出的栈结构，用于管理执行环境的创建和销毁。</p>
+</li>
+<li>
+<p><strong>作用域链</strong>：决定了变量的可访问性，沿着作用域链从当前环境向上查找变量。</p>
+</li>
+<li>
+<p><strong>闭包</strong>：是函数与其词法作用域的结合，即使函数在其词法作用域外执行，仍然可以访问其词法作用域中的变量。</p>
+</li>
+</ul>
+]]>
+    </content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[网页内容抓取工具 bowser flow]]></title>
+    <link href="justbb.fun/17425245814203.html"/>
+    <updated>2025-03-21T10:36:21+08:00</updated>
+    <id>justbb.fun/17425245814203.html</id>
+    <content type="html">
+<![CDATA[<p>推荐一个自动化抓取工具的浏览器插件，我最近为了研究公司的客户数据，用这个插件帮了大忙。</p>
+<p>原本可能要一天才能统计完的数据，几分钟就搞定了。</p>
+<p><a href="https://browserflow.app/">Browserflow</a></p>
+<p><video src = 'https://browserflow.app/videos/bf-demo.mp4#t=0.1'></video></p>
+]]>
+    </content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[推荐一个PDF文档翻译工具]]></title>
+    <link href="justbb.fun/17425235826405.html"/>
+    <updated>2025-03-21T10:19:42+08:00</updated>
+    <id>justbb.fun/17425235826405.html</id>
+    <content type="html">
+<![CDATA[<p><a href="https://github.com/Byaidu/PDFMathTranslate?tab=readme-ov-file">https://github.com/Byaidu/PDFMathTranslate?tab=readme-ov-file</a></p>
+<p>PDF科学论文翻译及双语比较。</p>
+<ol>
+<li>📊 保存公式、图表、目录和注释（预览）。</li>
+<li>🌐支持多种语言，多样化的翻译服务。</li>
+<li>🤖 提供命令行工具、交互式用户界面和Docker</li>
+</ol>
+<p>翻译能保留原格式。</p>
+<p><img src="media/17425235826405/123.jpg" alt="img" /></p>
+]]>
+    </content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[JS：闭包]]></title>
@@ -39,30 +335,35 @@
 <h4><a id="3%E9%97%AD%E5%8C%85%E5%BD%A2%E6%88%90%E7%9A%84%E6%9D%A1%E4%BB%B6" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(3) 闭包形成的条件</strong></h4>
 <p>闭包的形成需要满足以下条件：</p>
 <ol>
-<li><strong>函数嵌套：</strong> 一个函数内部定义了另一个函数。</li>
-<li><strong>引用外部变量：</strong> 内部函数引用了外部函数的变量或参数。</li>
-<li><strong>函数返回：</strong> 外部函数将内部函数返回，或者以其他方式暴露到外部。</li>
+<li><strong>函数嵌套：</strong> 闭包通常发生在函数内部定义了另一个函数（即嵌套函数）。外层函数提供了一个作用域环境，内层函数可以访问这个环境。</li>
+<li><strong>内部函数引用外部变量：</strong> 内层函数必须引用外层函数作用域中的变量或参数。如果内层函数没有引用外层作用域的变量，就不会形成闭包。</li>
+<li><strong>外部函数返回内部函数：</strong> 外层函数需要将其内部函数返回，或者以某种方式将内部函数暴露出去（比如赋值给外部变量）。这样，内部函数可以在外部函数执行完毕后仍然被调用。</li>
+<li><strong>外部函数被调用且执行完成：</strong> 闭包的形成是在外层函数执行完毕后，内部函数依然能够“记住”外层函数作用域中的变量。这是由于 JavaScript 的作用域链和垃圾回收机制，外部变量不会被销毁，因为内部函数仍然持有对它们的引用。</li>
 </ol>
 <h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>示例：</strong></h4>
 <pre><code class="language-javascript">function outer() {
-  const outerVar = &quot;I am outer&quot;;
-
-  function inner() {
-    console.log(outerVar); // 访问外部函数的变量
-  }
-
-  return inner; // 返回内部函数
+    let count = 0; // 外层函数的变量
+    function inner() { // 内层函数
+        count++; // 引用外层变量
+        console.log(count);
+    }
+    return inner; // 返回内层函数
 }
 
-const innerFunc = outer(); // 调用 outer 函数，返回 inner 函数
-innerFunc(); // 输出: I am outer
+const fn = outer(); // outer 执行并返回 inner
+fn(); // 输出 1
+fn(); // 输出 2
 </code></pre>
+<p>在这个例子中：</p>
 <ul>
 <li>
-<p>在上面的例子中，<code>inner</code> 函数在 <code>outer</code> 函数内部定义，因此它可以访问 <code>outer</code> 函数的变量 <code>outerVar</code>。</p>
+<p><code>inner</code> 函数引用了 <code>outer</code> 的变量 <code>count</code>。</p>
 </li>
 <li>
-<p>即使 <code>outer</code> 函数已经执行完毕，<code>inner</code> 函数仍然可以访问 <code>outerVar</code>，这就是闭包的作用。</p>
+<p><code>outer</code> 返回了 <code>inner</code>，使得 <code>inner</code> 可以在外部被调用。</p>
+</li>
+<li>
+<p>即使 <code>outer</code> 执行完毕，<code>count</code> 依然被 <code>inner</code> “记住”，形成了闭包。</p>
 </li>
 </ul>
 <hr />
@@ -1182,7 +1483,7 @@ console.log(obj.valueOf()); // 输出: { a: 1 }
     <content type="html">
 <![CDATA[<p><strong>原型</strong> 和 <strong>原型链</strong> 是 JavaScript 中实现继承和共享属性的核心机制。<br />
 理解 <code>[[Prototype]]</code>、<code>prototype</code> 和 <code>constructor</code> 的关系，是掌握 JavaScript 面向对象编程的关键。</p>
-<hr />
+<p><img src="media/17420542537025/%E9%9C%80%E6%B1%82%E8%B0%83%E7%A0%94.jpg" alt="需求调研" /></p>
 <h3><a id="1%C2%A0%E5%AF%B9%E8%B1%A1%E7%9A%84%C2%A0-prototype%C2%A0%E5%B1%9E%E6%80%A7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. <strong>对象的 <code>[[Prototype]]</code> 属性</strong></h3>
 <ul>
 <li>每个对象（对象实例）都有一个内部属性 <code>[[Prototype]]</code>，默认指向一个对象。</li>
@@ -1400,7 +1701,6 @@ class Hongfushi extends Apple { }
 
 const apple = new Apple();
 </code></pre>
-<p><img src="media/17420542537025/%E9%9C%80%E6%B1%82%E8%B0%83%E7%A0%94.jpg" alt="需求调研" /></p>
 ]]>
     </content>
   </entry>
@@ -2716,6 +3016,163 @@ car.drive(); // 输出: Driving Toyota Corolla
   </entry>
   
   <entry>
+    <title type="html"><![CDATA[JS：常见隐式类型转换]]></title>
+    <link href="justbb.fun/17426435059284.html"/>
+    <updated>2025-03-22T19:38:25+08:00</updated>
+    <id>justbb.fun/17426435059284.html</id>
+    <content type="html">
+<![CDATA[<p>在 JavaScript 中，<strong>隐式类型转换</strong>（也称为类型强制转换）是语言的一个重要特性。当操作符两边的数据类型不一致时，JavaScript 会尝试自动将数据转换为合适的类型以完成操作。以下是你提到的常见隐式类型转换规则的详细解释和补充：</p>
+<hr />
+<h3><a id="1%C2%A0%E6%95%B0%E5%AD%97%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. <strong>数字类型转换</strong></h3>
+<p>当任何其他类型的数据与数字类型进行比较或运算时，JavaScript 会尝试将其转换为数字。</p>
+<h4><a id="%E8%A7%84%E5%88%99%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>规则：</h4>
+<ul>
+<li>
+<p><code>null</code> 转换为数字是 <code>0</code>。</p>
+</li>
+<li>
+<p>空字符串 <code>&quot;&quot;</code> 转换为数字是 <code>0</code>。</p>
+</li>
+<li>
+<p><code>false</code> 转换为数字是 <code>0</code>。</p>
+</li>
+<li>
+<p><code>true</code> 转换为数字是 <code>1</code>。</p>
+</li>
+<li>
+<p><code>undefined</code> 转换为数字是 <code>NaN</code>。</p>
+</li>
+<li>
+<p>字符串内容为数字（如 <code>&quot;123&quot;</code>）会转换为对应的数字（如 <code>123</code>）。</p>
+</li>
+<li>
+<p>字符串内容为非数字（如 <code>&quot;abc&quot;</code>）会转换为 <code>NaN</code>。</p>
+</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">console.log(null == 0);       // false（注意：null 只与 undefined 相等）
+console.log(+null);           // 0
+console.log(+&quot;&quot;)              // 0
+console.log(+false);          // 0
+console.log(+true);           // 1
+console.log(+undefined);      // NaN
+console.log(+&quot;123&quot;);          // 123
+console.log(+&quot;abc&quot;);          // NaN
+</code></pre>
+<hr />
+<h3><a id="2%C2%A0%E5%B8%83%E5%B0%94%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. <strong>布尔类型转换</strong></h3>
+<p>当数据需要被转换为布尔值时，JavaScript 会根据以下规则进行转换。</p>
+<h4><a id="%E8%A7%84%E5%88%99%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>规则：</h4>
+<ul>
+<li>
+<p><code>false</code>、<code>0</code>、<code>&quot;&quot;</code>（空字符串）、<code>null</code>、<code>undefined</code>、<code>NaN</code> 转换为布尔值是 <code>false</code>。</p>
+</li>
+<li>
+<p>其他所有值（包括对象、非空字符串、非零数字等）转换为布尔值是 <code>true</code>。</p>
+</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">console.log(Boolean(null));      // false
+console.log(Boolean(&quot;&quot;));        // false
+console.log(Boolean(0));         // false
+console.log(Boolean(undefined)); // false
+console.log(Boolean(NaN));       // false
+console.log(Boolean(&quot; &quot;));       // true（空格是非空字符串）
+console.log(Boolean({}));        // true（对象）
+console.log(Boolean([]));        // true（数组）
+console.log(Boolean(123));       // true
+console.log(Boolean(&quot;abc&quot;));     // true
+</code></pre>
+<hr />
+<h3><a id="3%C2%A0-nan%E7%9A%84%E7%89%B9%E6%AE%8A%E8%A1%8C%E4%B8%BA" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. <strong>NaN 的特殊行为</strong></h3>
+<p><code>NaN</code> 是一个特殊的数值，表示“不是一个数字”。它与任何值（包括它自己）比较都会返回 <code>false</code>。</p>
+<h4><a id="%E8%A7%84%E5%88%99%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>规则：</h4>
+<ul>
+<li>
+<p><code>NaN</code> 与任何数据比较都是 <code>false</code>，包括 <code>NaN == NaN</code>。</p>
+</li>
+<li>
+<p>使用 <code>isNaN()</code> 或 <code>Number.isNaN()</code> 可以检测一个值是否为 <code>NaN</code>。</p>
+</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">console.log(NaN == NaN);      // false
+console.log(NaN === NaN);     // false
+console.log(isNaN(NaN));      // true
+console.log(Number.isNaN(NaN)); // true
+</code></pre>
+<hr />
+<h3><a id="4%C2%A0%E5%AF%B9%E8%B1%A1%E7%B1%BB%E5%9E%8B%E7%9A%84%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. <strong>对象类型的隐式转换</strong></h3>
+<p>当对象参与运算或比较时，JavaScript 会尝试调用对象的 <code>valueOf()</code> 或 <code>toString()</code> 方法将其转换为原始值。</p>
+<h4><a id="%E8%A7%84%E5%88%99%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>规则：</h4>
+<ul>
+<li>
+<p>如果对象有 <code>valueOf()</code> 方法，优先调用 <code>valueOf()</code>。</p>
+</li>
+<li>
+<p>如果没有 <code>valueOf()</code> 或 <code>valueOf()</code> 返回的不是原始值，则调用 <code>toString()</code>。</p>
+</li>
+<li>
+<p>如果 <code>toString()</code> 也不存在或返回的不是原始值，则抛出错误。</p>
+</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">let obj = {
+    valueOf() {
+        return 100;
+    },
+    toString() {
+        return &quot;200&quot;;
+    }
+};
+
+console.log(obj + 1); // 101（调用 valueOf）
+console.log(String(obj)); // &quot;200&quot;（调用 toString）
+
+</code></pre>
+<hr />
+<h3><a id="5%C2%A0%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5%E7%9A%84%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. <strong>字符串拼接的隐式转换</strong></h3>
+<p>当使用 <code>+</code> 操作符时，如果其中一个操作数是字符串，JavaScript 会将另一个操作数隐式转换为字符串。</p>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<p><code>javascript console.log(1 + &quot;2&quot;);       // &quot;12&quot;（数字 1 被转换为字符串） console.log(true + &quot;abc&quot;);  // &quot;trueabc&quot;（布尔值 true 被转换为字符串）</code></p>
+<hr />
+<h3><a id="6%C2%A0%E5%92%8C%E7%9A%84%E5%8C%BA%E5%88%AB" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>6. <strong>== 和 === 的区别</strong></h3>
+<ul>
+<li>
+<p><code>==</code> 会进行隐式类型转换后再比较。</p>
+</li>
+<li>
+<p><code>===</code> 不会进行类型转换，直接比较值和类型。</p>
+</li>
+</ul>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">console.log(1 == &quot;1&quot;);      // true（字符串 &quot;1&quot; 被转换为数字 1）
+console.log(1 === &quot;1&quot;);     // false（类型不同）
+console.log(null == undefined); // true（特殊规则）
+console.log(null === undefined); // false（类型不同）
+</code></pre>
+<hr />
+<h3><a id="%E6%80%BB%E7%BB%93" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>总结</h3>
+<p>隐式类型转换是 JavaScript 中一个强大但容易出错的功能。理解这些规则可以帮助你更好地调试代码和避免潜在的错误。以下是一些关键点：</p>
+<ul>
+<li>
+<p>数字转换：<code>null</code> → <code>0</code>，<code>&quot;&quot;</code> → <code>0</code>，<code>false</code> → <code>0</code>，<code>true</code> → <code>1</code>，<code>undefined</code> → <code>NaN</code>。</p>
+</li>
+<li>
+<p>布尔转换：<code>false</code>、<code>0</code>、<code>&quot;&quot;</code>、<code>null</code>、<code>undefined</code>、<code>NaN</code> → <code>false</code>，其他 → <code>true</code>。</p>
+</li>
+<li>
+<p><code>NaN</code> 与任何值比较都是 <code>false</code>。</p>
+</li>
+<li>
+<p>对象会尝试调用 <code>valueOf()</code> 或 <code>toString()</code> 进行转换。</p>
+</li>
+</ul>
+]]>
+    </content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[试着用 AI 写 word 脚本]]></title>
     <link href="justbb.fun/17412722521826.html"/>
     <updated>2025-03-06T22:44:12+08:00</updated>
@@ -2805,90 +3262,6 @@ End Sub
 <![CDATA[<blockquote><p lang="zh" dir="ltr">全中国的互联网产品命名法。主要是面对C端的。名字和logo都非常接地气。菜鸟，咸鱼，XX宝，天猫。其实是普通消费者教育程度和想象力还是不高。必须贴地飞行才能深入人心。 就连领导讲话也是一样。 <a href="https://t.co/rF7Sqs6ELr">https://t.co/rF7Sqs6ELr</a></p>&mdash; David Chang (@David_yc607) <a href="https://twitter.com/David_yc607/status/1897509483406147671?ref_src=twsrc%5Etfw">March 6, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <p>最近看到大卫分享了一个国内产品起名的背景，挺有意思的。其实不光是产品名称，很多时候国内的产品形象，也有大量低幼设计元素，比如派出所的一些宣传海报，人物均是卡通式的警察。</p>
 <p>但也要知道事物都是在发展的，这种「低幼化」的设计，总好过直接的白底黑字那种，一点都不「亲民」的设计。未来这些设计肯定会随着人群认知，逐渐发生变化的。</p>
-]]>
-    </content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[老家好热闹]]></title>
-    <link href="justbb.fun/17410999349418.html"/>
-    <updated>2025-03-04T22:52:14+08:00</updated>
-    <id>justbb.fun/17410999349418.html</id>
-    <content type="html">
-<![CDATA[<p>这几年年轻人都往城里跑，乡里人越来越少，当年的小学中学啥的都拆了。本以为老家会因为人越来越少变得越来越归于平淡。<br />
-但偶尔看到了老家的亲戚发了一个老家在举行篝火晚会的视频。视频里大家围着篝火又唱又跳，远处还搭有舞台，灯光闪烁，宛若一个小音乐节。<br />
-这是在我以前不太能想象的，因为我的老家其实离镇上挺远的，总觉得不会有这些“现代”的东西。<br />
-后来仔细了解到，原来是政府打算在此搞的景观农业观赏地，花了不少钱平整了土地，种了油菜花，修了步行道，偶尔会做一些活动招商。也让这比较平淡的乡里多了不少人气。<br />
-<img src="media/17410999349418/17411005612564.jpg" alt="" /></p>
-]]>
-    </content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[如何在网页中嵌入推文]]></title>
-    <link href="justbb.fun/17412568701695.html"/>
-    <updated>2025-03-06T18:27:50+08:00</updated>
-    <id>justbb.fun/17412568701695.html</id>
-    <content type="html">
-<![CDATA[<p>最近刷推刷的比较多，偶尔看到一些有意思的推文，就想记录下来。然后就想到了其实可以在博文中插入推文，检索了一下，其实方法很简单。</p>
-<ol>
-<li>复制推文 URL 链接</li>
-<li>在 <a href="https://publish.twitter.com/#">publish.twitter.com</a> 粘贴 URL 链接</li>
-<li>选择合适的样式</li>
-<li>在博文中直接粘贴代码片段，done</li>
-</ol>
-]]>
-    </content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[朋友分享了他带娃的一些经验]]></title>
-    <link href="justbb.fun/17409265995349.html"/>
-    <updated>2025-03-02T22:43:19+08:00</updated>
-    <id>justbb.fun/17409265995349.html</id>
-    <content type="html">
-<![CDATA[<p>朋友今天来吃饭，和他交流了一些育儿经验：</p>
-<ul>
-<li>我问你担心孩子拆家吗，他说他不太担心，主要想还是要对孩子有耐心，多讲道理，不要对孩子发脾气，因为孩子其实是回学你的，一旦孩子叛逆了，那孩子也会学你发脾气来对付你。</li>
-<li>他家里有很多零食，小朋友没有经允许的情况偶尔也会偷偷去拿，但他不会特别生气，也不会对但零食上锁，他说，堵不如疏，还是要多给他沟通，能让他学会控制自己是最好的。</li>
-<li>关于兴趣班，他会经常带孩子去，但不是为了真的学东西，主要是兴趣，可以换着来，主要还是交朋友长见识。</li>
-<li>关于近视，控制手机是一方面，但一定要带孩子多去户外，虽然他孩子玩手机玩的也挺勤，但现在5岁了，眼睛依然没啥毛病。</li>
-<li>弹钢琴：他表示会带孩子弹钢琴，一方面钢琴是声部很全很适合独奏的乐器，另外钢琴需要左右手协调，是很锻炼大脑的，所以学钢琴也不是为了成才，但可以锻炼大脑还是不错。</li>
-</ul>
-]]>
-    </content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[双减政策后，教育更公平了吗]]></title>
-    <link href="justbb.fun/17406340897483.html"/>
-    <updated>2025-02-27T13:28:09+08:00</updated>
-    <id>justbb.fun/17406340897483.html</id>
-    <content type="html">
-<![CDATA[<p>近年来，“双减”政策（减轻学生作业负担和校外培训负担）成为教育领域的热门话题。政策的初衷是为了减轻学生压力、促进教育公平，但最近一项研究却揭示了令人深思的结果：双减政策可能加剧了教育资源的分化，高收入家庭的学生受益更多，而低收入家庭的学生却面临更大的挑战。</p>
-<p>这个研究来源于北京大学周子焜，雷晓燕，沈艳团队做的论文《教育减负、家庭教育支出与教育公平》，主要是评估义务教育阶段，对降低学生课业负担和校外培训负担后，学生学习时间变化，升学率等指标做相关性研究。</p>
-<p>最后根据调研结果进行回归分析，研究人员发现了一个令人担忧的趋势，家庭收入分位数为前46%的，在教育减负后升学变的更加容易，但在后54%的家庭在教育减负后，虽然家庭支出变少了，但升学变的更困难了。</p>
-<p><strong>低收入家庭的学生：</strong></p>
-<ul>
-<li>升入高中的概率平均下降了 9.3%</li>
-<li>教育总开支平均减少了 21%</li>
-<li>每周学习时间平均减少了 9.19 个小时</li>
-</ul>
-<p><strong>高收入家庭的学生：</strong></p>
-<ul>
-<li>升入高中的概率平均上升了 5.3 个百分点</li>
-<li>教育总开支平均增加了 67%</li>
-<li>每周学习时间平均增加了 10.37 个小时</li>
-</ul>
-<p>这不禁开始让人反思政策的实施与现实的复杂性，政策的初衷当然是好的，希望通过减少学生的课业负担和校外培训，让教育回归学校，减轻家庭的经济压力，促进教育公平。然而，现实却远比理想复杂，主要在于：</p>
-<ol>
-<li>教育资源分配不均，优质的教育资源通常还是居中在少数学校及家庭中，这个靠短期政策是无法解决的。</li>
-<li>家庭经济能力的差异，中国地域辽阔，东西城乡，家庭收入差距比较大，高收入家庭能够通过增加个人教育投入抵消政策影响，而低收入家庭则承担了更多政策影响。</li>
-<li>教育竞争依然加剧，目前虽然生育率在降低，但依然有大量学龄人员，通过高考等形式的教育竞争压力依然存在，只要竞争存在，政策减负的效果就容易被家庭的加码所抵消。<br />
-双减政策的实施让我们看到了教育改革的复杂性。虽然政策的初衷是好的，但在执行过程中，如何避免加剧教育资源的分化，如何真正惠及所有家庭，仍然是一个需要深入思考和解决的问题。</li>
-</ol>
-<p>教育公平不仅是政策的责任，更是全社会的共同目标。只有通过多方努力，才能真正实现“让每个孩子都能享有公平而有质量的教育”的愿景。</p>
-<p>论文地址：<a href="https://nsd.pku.edu.cn/docs/20230719145943514162.pdf">https://nsd.pku.edu.cn/docs/20230719145943514162.pdf</a></p>
 ]]>
     </content>
   </entry>

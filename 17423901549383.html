@@ -110,30 +110,35 @@
 <h4><a id="3%E9%97%AD%E5%8C%85%E5%BD%A2%E6%88%90%E7%9A%84%E6%9D%A1%E4%BB%B6" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>(3) 闭包形成的条件</strong></h4>
 <p>闭包的形成需要满足以下条件：</p>
 <ol>
-<li><strong>函数嵌套：</strong> 一个函数内部定义了另一个函数。</li>
-<li><strong>引用外部变量：</strong> 内部函数引用了外部函数的变量或参数。</li>
-<li><strong>函数返回：</strong> 外部函数将内部函数返回，或者以其他方式暴露到外部。</li>
+<li><strong>函数嵌套：</strong> 闭包通常发生在函数内部定义了另一个函数（即嵌套函数）。外层函数提供了一个作用域环境，内层函数可以访问这个环境。</li>
+<li><strong>内部函数引用外部变量：</strong> 内层函数必须引用外层函数作用域中的变量或参数。如果内层函数没有引用外层作用域的变量，就不会形成闭包。</li>
+<li><strong>外部函数返回内部函数：</strong> 外层函数需要将其内部函数返回，或者以某种方式将内部函数暴露出去（比如赋值给外部变量）。这样，内部函数可以在外部函数执行完毕后仍然被调用。</li>
+<li><strong>外部函数被调用且执行完成：</strong> 闭包的形成是在外层函数执行完毕后，内部函数依然能够“记住”外层函数作用域中的变量。这是由于 JavaScript 的作用域链和垃圾回收机制，外部变量不会被销毁，因为内部函数仍然持有对它们的引用。</li>
 </ol>
 <h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>示例：</strong></h4>
 <pre><code class="language-javascript">function outer() {
-  const outerVar = &quot;I am outer&quot;;
-
-  function inner() {
-    console.log(outerVar); // 访问外部函数的变量
-  }
-
-  return inner; // 返回内部函数
+    let count = 0; // 外层函数的变量
+    function inner() { // 内层函数
+        count++; // 引用外层变量
+        console.log(count);
+    }
+    return inner; // 返回内层函数
 }
 
-const innerFunc = outer(); // 调用 outer 函数，返回 inner 函数
-innerFunc(); // 输出: I am outer
+const fn = outer(); // outer 执行并返回 inner
+fn(); // 输出 1
+fn(); // 输出 2
 </code></pre>
+<p>在这个例子中：</p>
 <ul>
 <li>
-<p>在上面的例子中，<code>inner</code> 函数在 <code>outer</code> 函数内部定义，因此它可以访问 <code>outer</code> 函数的变量 <code>outerVar</code>。</p>
+<p><code>inner</code> 函数引用了 <code>outer</code> 的变量 <code>count</code>。</p>
 </li>
 <li>
-<p>即使 <code>outer</code> 函数已经执行完毕，<code>inner</code> 函数仍然可以访问 <code>outerVar</code>，这就是闭包的作用。</p>
+<p><code>outer</code> 返回了 <code>inner</code>，使得 <code>inner</code> 可以在外部被调用。</p>
+</li>
+<li>
+<p>即使 <code>outer</code> 执行完毕，<code>count</code> 依然被 <code>inner</code> “记住”，形成了闭包。</p>
 </li>
 </ul>
 <hr />

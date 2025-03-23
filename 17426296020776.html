@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+         JS：代码执行环境与执行活动栈 - JustBB 
+    </title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="欢迎来到JUST.bb这里是我的一个自留地，主要用来记录和分享一些工作、生活中的随笔、思考和总结。我希望通过文字，梳理自己的思路，沉淀经验，也希望能与志同道合的朋友们交流碰撞，共同成长。">
+
+    <link rel="stylesheet" type="text/css" href="asset/cuckoo.css">
+    <link rel="stylesheet" type="text/css" href="asset/main.css">
+    <link rel="shortcut icon" href="asset/favicon.ico" type="image/x-icon" />
+    <link rel="alternate" type="application/atom+xml" href="atom.xml" title="JustBB">
+
+    <link rel="stylesheet" href="asset/zoom.css">
+
+    <!-- 引入 Prism.js 核心 CSS -->
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="asset/prism-nord.css">
+    <!-- 引入 Prism.js 核心 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+     <!-- 引入 JavaScript 语言支持 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+</head>
+
+<body>
+    <header class="site-header cuckoo">
+        <div class="wrapper">
+            <a class="site-title" href="index.html">JustBB</a>
+            <nav class="site-nav">
+                <a href="#" class="menu-icon">
+                    <svg viewBox="0 0 18 15">
+                        <path fill="#424242"
+                            d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z">
+                        </path>
+                        <path fill="#424242"
+                            d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z">
+                        </path>
+                        <path fill="#424242"
+                            d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z">
+                        </path>
+                    </svg>
+                </a>
+                <div class="trigger">
+                    
+                    <a class="page-link" href="index.html">Home</a>
+                    
+                    <a class="page-link" href="Daily.html">Daily</a>
+                    
+                    <a class="page-link" href="Invest.html">Invest</a>
+                    
+                    <a class="page-link" href="Review.html">Review</a>
+                    
+                    <a class="page-link" href="read.html">Books</a>
+                    
+                    <a class="page-link" href="about.html">About</a>
+                    
+                </div>
+            </nav>
+        </div>
+
+        
+
+    </header>
+</body>
+
+</html>
+ <div class="page-content cuckoo">
+    <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+            <header class="post-header">
+                <h1 class="post-title" itemprop="name headline">JS：代码执行环境与执行活动栈</h1>
+                <div class="post-description">
+                    
+
+                    <time datetime="2025/03/22">2025/03/22</time>
+                    
+                    <div class="author">@BB</div>
+
+
+                </div>
+            </header>
+            <div class="post-content" itemprop="articleBody">
+                <p>在 JavaScript 中，代码的执行环境和执行活动栈（Execution Context and Call Stack）是理解 JavaScript 运行机制的核心概念。它们决定了代码的执行顺序、作用域、变量访问等行为。</p>
+<h3><a id="%E7%A4%BA%E6%84%8F%E5%9B%BE" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示意图</h3>
+<pre><code class="language-javascript">//试着画出下面代码的执行逻辑
+let a = 123
+function abc() {
+    let a = 100
+    return function (x) {
+        a += x
+        console.log(a);
+    }
+}
+const c = abc()
+c(200) //输出 300
+c(600) //输出 900
+const d = abc()  
+d(666) //输出 766
+</code></pre>
+<ul>
+<li>每次调用 <code>abc()</code> 都会创建一个新的闭包，闭包中的变量 <code>a</code> 是独立的。</li>
+<li><code>c</code> 和 <code>d</code> 是两个不同的闭包，它们内部的变量 <code>a</code> 互不影响。</li>
+<li>输出结果分别为 <code>300</code>、<code>900</code> 和 <code>766</code>。</li>
+</ul>
+<p><img src="media/17426296020776/%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E7%8E%AF%E5%A2%83.jpg" alt="代码执行环境" /></p>
+<h3><a id="1%E6%89%A7%E8%A1%8C%E7%8E%AF%E5%A2%83%EF%BC%88-execution-context%EF%BC%89" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. 执行环境（Execution Context）</h3>
+<p>执行环境是 JavaScript 代码执行时的抽象概念，它包含了当前代码执行所需的所有信息。每当 JavaScript 引擎执行一段代码时，都会创建一个执行环境。</p>
+<h4><a id="%E6%89%A7%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E7%B1%BB%E5%9E%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>执行环境的类型：</h4>
+<ol>
+<li>
+<p><strong>全局执行环境（Global Execution Context）</strong>：</p>
+<ul>
+<li>
+<p>这是最外层的执行环境，对应全局作用域。</p>
+</li>
+<li>
+<p>在浏览器中，全局执行环境的 <code>this</code> 指向 <code>window</code> 对象。</p>
+</li>
+<li>
+<p>全局执行环境在脚本加载时创建，直到页面关闭时销毁。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>函数执行环境（Function Execution Context）</strong>：</p>
+<ul>
+<li>
+<p>每次调用函数时，都会创建一个新的函数执行环境。</p>
+</li>
+<li>
+<p>函数执行环境包含了函数的局部变量、参数、作用域链等信息。</p>
+</li>
+<li>
+<p>函数执行完成后，其执行环境会被销毁。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Eval 执行环境（Eval Execution Context）</strong>：</p>
+<ul>
+<li>使用 <code>eval</code> 函数时创建的执行环境（不推荐使用 <code>eval</code>，因此很少讨论）。</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h3><a id="2%E6%89%A7%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E7%BB%84%E6%88%90" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. 执行环境的组成</h3>
+<p>每个执行环境包含以下三个部分：</p>
+<ol>
+<li>
+<p><strong>变量对象（Variable Object, VO）</strong>：</p>
+<ul>
+<li>
+<p>存储当前环境中定义的变量、函数声明和函数参数。</p>
+</li>
+<li>
+<p>在全局环境中，变量对象是全局对象（如 <code>window</code>）。</p>
+</li>
+<li>
+<p>在函数环境中，变量对象是活动对象（Activation Object, AO）。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>作用域链（Scope Chain）</strong>：</p>
+<ul>
+<li>
+<p>作用域链是一个链表，用于解析变量和函数。</p>
+</li>
+<li>
+<p>当访问一个变量时，JavaScript 引擎会沿着作用域链从当前环境向上查找，直到找到该变量或到达全局环境。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>this</code> 值</strong>：</p>
+<ul>
+<li>
+<p><code>this</code> 指向当前执行环境的上下文对象。</p>
+</li>
+<li>
+<p>在全局环境中，<code>this</code> 指向全局对象（如 <code>window</code>）。</p>
+</li>
+<li>
+<p>在函数环境中，<code>this</code> 的值取决于函数的调用方式。</p>
+</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h3><a id="3%E6%89%A7%E8%A1%8C%E6%B4%BB%E5%8A%A8%E6%A0%88%EF%BC%88-call-stack%EF%BC%89" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. 执行活动栈（Call Stack）</h3>
+<p>执行活动栈（也称为调用栈）是一个后进先出（LIFO）的栈结构，用于管理执行环境的创建和销毁。</p>
+<h4><a id="%E6%89%A7%E8%A1%8C%E6%B4%BB%E5%8A%A8%E6%A0%88%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>执行活动栈的工作流程：</h4>
+<ol>
+<li>
+<p><strong>初始状态</strong>：</p>
+<ul>
+<li>当 JavaScript 脚本开始执行时，全局执行环境被创建并推入调用栈。</li>
+</ul>
+</li>
+<li>
+<p><strong>函数调用</strong>：</p>
+<ul>
+<li>
+<p>当调用一个函数时，会创建一个新的函数执行环境，并将其推入调用栈。</p>
+</li>
+<li>
+<p>函数执行完成后，其执行环境从调用栈中弹出。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>栈溢出</strong>：</p>
+<ul>
+<li>如果递归调用过深或函数调用过多，调用栈可能会超出其最大限制，导致栈溢出错误（Stack Overflow）。</li>
+</ul>
+</li>
+</ol>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">function first() {
+    console.log(&quot;First&quot;);
+    second();
+}
+
+function second() {
+    console.log(&quot;Second&quot;);
+    third();
+}
+
+function third() {
+    console.log(&quot;Third&quot;);
+}
+
+first();
+
+</code></pre>
+<h4><a id="%E8%B0%83%E7%94%A8%E6%A0%88%E7%9A%84%E5%8F%98%E5%8C%96%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>调用栈的变化：</h4>
+<ol>
+<li>
+<p>全局执行环境被推入调用栈。</p>
+</li>
+<li>
+<p>调用 <code>first()</code>，<code>first</code> 的执行环境被推入调用栈。</p>
+</li>
+<li>
+<p>在 <code>first</code> 中调用 <code>second()</code>，<code>second</code> 的执行环境被推入调用栈。</p>
+</li>
+<li>
+<p>在 <code>second</code> 中调用 <code>third()</code>，<code>third</code> 的执行环境被推入调用栈。</p>
+</li>
+<li>
+<p><code>third</code> 执行完成后，其执行环境从调用栈中弹出。</p>
+</li>
+<li>
+<p><code>second</code> 执行完成后，其执行环境从调用栈中弹出。</p>
+</li>
+<li>
+<p><code>first</code> 执行完成后，其执行环境从调用栈中弹出。</p>
+</li>
+<li>
+<p>最后，全局执行环境从调用栈中弹出（脚本执行完毕）。</p>
+</li>
+</ol>
+<hr />
+<h3><a id="4%E6%89%A7%E8%A1%8C%E7%8E%AF%E5%A2%83%E5%92%8C%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE%E7%9A%84%E5%85%B3%E7%B3%BB" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. 执行环境和作用域链的关系</h3>
+<p>作用域链是执行环境的一个重要组成部分，它决定了变量的可访问性。</p>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">const globalVar = &quot;Global&quot;;
+
+function outer() {
+    const outerVar = &quot;Outer&quot;;
+
+    function inner() {
+        const innerVar = &quot;Inner&quot;;
+        console.log(globalVar); // 输出: Global
+        console.log(outerVar); // 输出: Outer
+        console.log(innerVar); // 输出: Inner
+    }
+
+    inner();
+}
+
+outer();
+</code></pre>
+<h4><a id="%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>作用域链：</h4>
+<ul>
+<li>
+<p><code>inner</code> 函数的作用域链：<code>inner</code> → <code>outer</code> → 全局。</p>
+</li>
+<li>
+<p>当 <code>inner</code> 访问 <code>globalVar</code> 时，JavaScript 引擎会沿着作用域链向上查找，直到找到 <code>globalVar</code>。</p>
+</li>
+</ul>
+<hr />
+<h3><a id="5%E9%97%AD%E5%8C%85%E4%B8%8E%E6%89%A7%E8%A1%8C%E7%8E%AF%E5%A2%83" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. 闭包与执行环境</h3>
+<p>闭包是函数与其词法作用域的结合。即使函数在其词法作用域外执行，它仍然可以访问其词法作用域中的变量。</p>
+<h4><a id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例：</h4>
+<pre><code class="language-javascript">function outer() {
+    const outerVar = &quot;Outer&quot;;
+
+    function inner() {
+        console.log(outerVar); // 输出: Outer
+    }
+
+    return inner;
+}
+
+const closure = outer();
+closure();
+
+</code></pre>
+<h4><a id="%E8%A7%A3%E9%87%8A%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>解释：</h4>
+<ul>
+<li>
+<p><code>inner</code> 函数形成了一个闭包，它“记住”了 <code>outer</code> 函数的词法作用域。</p>
+</li>
+<li>
+<p>即使 <code>outer</code> 函数已经执行完毕，<code>inner</code> 仍然可以访问 <code>outerVar</code>。</p>
+</li>
+</ul>
+<hr />
+<h3><a id="%E6%80%BB%E7%BB%93%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>总结：</h3>
+<ul>
+<li>
+<p><strong>执行环境</strong>：是 JavaScript 代码执行时的抽象概念，包含变量对象、作用域链和 <code>this</code> 值。</p>
+</li>
+<li>
+<p><strong>执行活动栈</strong>：是一个后进先出的栈结构，用于管理执行环境的创建和销毁。</p>
+</li>
+<li>
+<p><strong>作用域链</strong>：决定了变量的可访问性，沿着作用域链从当前环境向上查找变量。</p>
+</li>
+<li>
+<p><strong>闭包</strong>：是函数与其词法作用域的结合，即使函数在其词法作用域外执行，仍然可以访问其词法作用域中的变量。</p>
+</li>
+</ul>
+
+            </div>
+
+
+            <div style="margin-top: 50px;">
+
+                <!-- giscus 评论 -->
+                <script src="https://giscus.app/client.js"
+                        data-repo="layliu/giscus-comment"
+                        data-repo-id="R_kgDOJtN4ng"
+                        data-category="Announcements"
+                        data-category-id="DIC_kwDOJtN4ns4CXE-q"
+                        data-mapping="pathname"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="top"
+                        data-theme="light"
+                        data-lang="zh-CN"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+
+
+            </div>
+
+
+        </article>
+    </div>
+</div>
+
+<script src="asset/jquery-3.3.1.min.js"></script>
+
+<!-- 增加zoom效果 -->
+<script src="asset/zoom.js"></script>
+<!-- <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script> -->
+<script>
+    $(function () {
+        $('img').each(function () {
+            $(this).attr("data-action", 'zoom');
+        });
+    });
+</script>
+
+
+
+
+
+<script>
+    $(document).ready(function () {
+        $('#footer').show()
+    })
+
+
+</script>
+  <!-- <footer id="footer" class="cuckoo page-footer" style="display: none">
+    <div class="wrapper">
+        <p>Designed and Written by <a href="mailto:justbb@gmail.com">liulei</a></p>
+    </div>
+</footer> -->
+<!-- 
+ -->
