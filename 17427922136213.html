@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+         JS：HTMLDocument 和 Document 及 document 的关系 - JustBB 
+    </title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="欢迎来到JUST.bb这里是我的一个自留地，主要用来记录和分享一些工作、生活中的随笔、思考和总结。我希望通过文字，梳理自己的思路，沉淀经验，也希望能与志同道合的朋友们交流碰撞，共同成长。">
+
+    <link rel="stylesheet" type="text/css" href="asset/cuckoo.css">
+    <link rel="stylesheet" type="text/css" href="asset/main.css">
+    <link rel="shortcut icon" href="asset/favicon.ico" type="image/x-icon" />
+    <link rel="alternate" type="application/atom+xml" href="atom.xml" title="JustBB">
+
+    <link rel="stylesheet" href="asset/zoom.css">
+
+    <!-- 引入 Prism.js 核心 CSS -->
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="asset/prism-nord.css">
+    <!-- 引入 Prism.js 核心 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+     <!-- 引入 JavaScript 语言支持 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+</head>
+
+<body>
+    <header class="site-header cuckoo">
+        <div class="wrapper">
+            <a class="site-title" href="index.html">JustBB</a>
+            <nav class="site-nav">
+                <a href="#" class="menu-icon">
+                    <svg viewBox="0 0 18 15">
+                        <path fill="#424242"
+                            d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z">
+                        </path>
+                        <path fill="#424242"
+                            d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z">
+                        </path>
+                        <path fill="#424242"
+                            d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z">
+                        </path>
+                    </svg>
+                </a>
+                <div class="trigger">
+                    
+                    <a class="page-link" href="index.html">Home</a>
+                    
+                    <a class="page-link" href="Daily.html">Daily</a>
+                    
+                    <a class="page-link" href="Invest.html">Invest</a>
+                    
+                    <a class="page-link" href="Review.html">Review</a>
+                    
+                    <a class="page-link" href="read.html">Books</a>
+                    
+                    <a class="page-link" href="about.html">About</a>
+                    
+                </div>
+            </nav>
+        </div>
+
+        
+
+    </header>
+</body>
+
+</html>
+ <div class="page-content cuckoo">
+    <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+            <header class="post-header">
+                <h1 class="post-title" itemprop="name headline">JS：HTMLDocument 和 Document 及 document 的关系</h1>
+                <div class="post-description">
+                    
+
+                    <time datetime="2025/03/24">2025/03/24</time>
+                    
+                    <div class="author">@BB</div>
+
+
+                </div>
+            </header>
+            <div class="post-content" itemprop="articleBody">
+                <p><code>HTMLDocument</code>、<code>Document</code> 和 <code>document</code> 是 JavaScript DOM（文档对象模型）中三个密切相关的概念。它们之间的关系可以通过 DOM 的层级结构和接口继承来理解。以下是详细的解释：</p>
+<hr />
+<h3><a id="1%C2%A0-document" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. <strong><code>Document</code></strong></h3>
+<ul>
+<li>
+<p><strong>定义</strong>：</p>
+<ul>
+<li>
+<p><code>Document</code> 是 DOM 的核心接口，表示任何类型的文档（如 HTML、XML 等）。</p>
+</li>
+<li>
+<p>它是 DOM 树的根节点，提供了文档级别的操作方法。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>作用</strong>：</p>
+<ul>
+<li>
+<p>提供了通用的文档操作方法，如 <code>getElementById</code>、<code>querySelector</code>、<code>createElement</code> 等。</p>
+</li>
+<li>
+<p>是访问和操作 DOM 的入口。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>继承关系</strong>：</p>
+<ul>
+<li><code>EventTarget</code> → <code>Node</code> → <code>Document</code></li>
+</ul>
+</li>
+<li>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-javascript">const doc = document; // document 是全局对象，表示当前页面的文档
+console.log(doc instanceof Document); // true
+</code></pre>
+</li>
+</ul>
+<hr />
+<h3><a id="2%C2%A0-htmldocument" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. <strong><code>HTMLDocument</code></strong></h3>
+<ul>
+<li>
+<p><strong>定义</strong>：</p>
+<ul>
+<li>
+<p><code>HTMLDocument</code> 是 <code>Document</code> 的子接口，专门用于表示 HTML 文档。</p>
+</li>
+<li>
+<p>它扩展了 <code>Document</code> 接口，提供了 HTML 文档特有的属性和方法。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>作用</strong>：</p>
+<ul>
+<li>提供了 HTML 文档的特定功能，如 <code>body</code>、<code>head</code>、<code>title</code> 等属性。</li>
+</ul>
+</li>
+<li>
+<p><strong>继承关系</strong>：</p>
+<ul>
+<li><code>EventTarget</code> → <code>Node</code> → <code>Document</code> → <code>HTMLDocument</code></li>
+</ul>
+</li>
+<li>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-javascript">const htmlDoc = document; // 在浏览器中，document 通常是 HTMLDocument 的实例
+console.log(htmlDoc instanceof HTMLDocument); // 在现代浏览器中可能为 false
+</code></pre>
+</li>
+</ul>
+<hr />
+<h3><a id="3%C2%A0-document" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. <strong><code>document</code></strong></h3>
+<ul>
+<li>
+<p><strong>定义</strong>：</p>
+<ul>
+<li>
+<p><code>document</code> 是一个全局对象，表示当前页面的文档实例。</p>
+</li>
+<li>
+<p>它是 <code>Document</code> 接口的具体实现，<mark>在浏览器中<code>document</code> 是 <code>HTMLDocument</code> 的实例（在现代浏览器中也直接是 <code>Document</code> 的实例）</mark>。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>作用</strong>：</p>
+<ul>
+<li>
+<p>用于操作当前页面的 DOM。</p>
+</li>
+<li>
+<p>例如，<code>document.getElementById</code>、<code>document.title</code> 等。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-javascript">console.log(document.title); // 输出当前文档的标题
+</code></pre>
+</li>
+</ul>
+<hr />
+<h3><a id="4%C2%A0%E4%B8%89%E8%80%85%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. <strong>三者之间的关系</strong></h3>
+<ul>
+<li>
+<p><strong>层级关系</strong>：</p>
+<ul>
+<li>
+<p><code>HTMLDocument</code> 是 <code>Document</code> 的子接口，专门用于 HTML 文档。</p>
+</li>
+<li>
+<p><code>document</code> 是 <code>Document</code> 接口的具体实例，通常是 <code>HTMLDocument</code> 的实例。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>从属关系</strong>：</p>
+<ul>
+<li>
+<p>在浏览器环境中，<code>document</code> 对象通常是 <code>HTMLDocument</code> 的实例。</p>
+</li>
+<li>
+<p><code>HTMLDocument</code> 继承了 <code>Document</code> 的所有属性和方法，并添加了 HTML 特有的功能。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>现代 DOM 规范中的变化</strong>：</p>
+<ul>
+<li>
+<p>在现代 DOM 规范（如 DOM Living Standard）中，<code>HTMLDocument</code> 接口已被合并到 <code>Document</code> 接口中。</p>
+</li>
+<li>
+<p>因此，<code>document</code> 对象直接是 <code>Document</code> 的实例，但仍然支持 <code>HTMLDocument</code> 的所有功能。</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3><a id="5%C2%A0%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. <strong>代码示例</strong></h3>
+<h4><a id="%E6%A3%80%E6%9F%A5%C2%A0document%C2%A0%E7%9A%84%E7%B1%BB%E5%9E%8B" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>检查 <code>document</code> 的类型</h4>
+<pre><code class="language-javascript">console.log(document instanceof Document); // true
+console.log(document instanceof HTMLDocument); // 在现代浏览器中可能为 false
+</code></pre>
+<h4><a id="%E4%BD%BF%E7%94%A8%C2%A0document%C2%A0%E6%93%8D%E4%BD%9C-dom" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>使用 <code>document</code> 操作 DOM</h4>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;title&gt;Example&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hello, World!&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>运行 HTML</p>
+<pre><code class="language-javascript">// 获取文档标题
+console.log(document.title); // 输出: &quot;Example&quot;
+
+// 修改文档标题
+document.title = 'New Title';
+console.log(document.title); // 输出: &quot;New Title&quot;
+
+// 获取 body 元素
+console.log(document.body.innerHTML); // 输出: &lt;h1&gt;Hello, World!&lt;/h1&gt;
+</code></pre>
+<hr />
+<h3><a id="6%C2%A0%E6%80%BB%E7%BB%93" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>6. <strong>总结</strong></h3>
+<ul>
+<li>
+<p><strong>接口与实例的关系</strong>：</p>
+<ul>
+<li>接口（如 <code>Document</code> 和 <code>HTMLDocument</code>）定义了一组属性和方法，但没有具体的实现。</li>
+<li>实例（如 <code>document</code>）是接口的具体化，提供了接口定义的功能。</li>
+</ul>
+</li>
+<li>
+<p><strong><code>Document</code></strong>：</p>
+<ul>
+<li>是通用文档接口，适用于所有类型的文档（如 HTML、XML 等）。</li>
+</ul>
+</li>
+<li>
+<p><strong><code>HTMLDocument</code></strong>：</p>
+<ul>
+<li>是 <code>Document</code> 的子接口，专门用于 HTML 文档，提供了 HTML 特有的属性和方法。</li>
+</ul>
+</li>
+<li>
+<p><strong><code>document</code></strong>：</p>
+<ul>
+<li>是 <code>Document</code> 接口的具体实例，在 <code>HTML</code> 环境中，<code>document</code> 既是 <code>Document</code> 的实例，也是 <code>HTMLDocument</code> 的实例，但现代规范中更推荐将其视为 <code>Document</code> 的直接实例。</li>
+<li>用于操作当前页面的 DOM。</li>
+</ul>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;My Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hello, World!&lt;/h1&gt;
+    &lt;script&gt;
+        // 验证 document 是 Document 的实例
+        console.log(document instanceof Document); // true
+        // 验证 document 是 HTMLDocument 的实例
+        console.log(document instanceof HTMLDocument); // true
+
+        // 使用 HTMLDocument 特有的 title 属性
+        console.log(document.title); // 输出: My Page
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+</li>
+</ul>
+<p>在现代 DOM 规范中，<code>HTMLDocument</code> 的功能已被合并到 <code>Document</code> 中，因此 <code>document</code> 对象直接是 <code>Document</code> 的实例，但仍然支持 <code>HTMLDocument</code> 的所有功能。</p>
+
+            </div>
+
+
+            <div style="margin-top: 50px;">
+
+                <!-- giscus 评论 -->
+                <script src="https://giscus.app/client.js"
+                        data-repo="layliu/giscus-comment"
+                        data-repo-id="R_kgDOJtN4ng"
+                        data-category="Announcements"
+                        data-category-id="DIC_kwDOJtN4ns4CXE-q"
+                        data-mapping="pathname"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="top"
+                        data-theme="light"
+                        data-lang="zh-CN"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+
+
+            </div>
+
+
+        </article>
+    </div>
+</div>
+
+<script src="asset/jquery-3.3.1.min.js"></script>
+
+<!-- 增加zoom效果 -->
+<script src="asset/zoom.js"></script>
+<!-- <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script> -->
+<script>
+    $(function () {
+        $('img').each(function () {
+            $(this).attr("data-action", 'zoom');
+        });
+    });
+</script>
+
+
+
+
+
+<script>
+    $(document).ready(function () {
+        $('#footer').show()
+    })
+
+
+</script>
+  <!-- <footer id="footer" class="cuckoo page-footer" style="display: none">
+    <div class="wrapper">
+        <p>Designed and Written by <a href="mailto:justbb@gmail.com">liulei</a></p>
+    </div>
+</footer> -->
+<!-- 
+ -->

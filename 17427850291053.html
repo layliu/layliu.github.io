@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+         JS：DOM 的类型层级 - JustBB 
+    </title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="欢迎来到JUST.bb这里是我的一个自留地，主要用来记录和分享一些工作、生活中的随笔、思考和总结。我希望通过文字，梳理自己的思路，沉淀经验，也希望能与志同道合的朋友们交流碰撞，共同成长。">
+
+    <link rel="stylesheet" type="text/css" href="asset/cuckoo.css">
+    <link rel="stylesheet" type="text/css" href="asset/main.css">
+    <link rel="shortcut icon" href="asset/favicon.ico" type="image/x-icon" />
+    <link rel="alternate" type="application/atom+xml" href="atom.xml" title="JustBB">
+
+    <link rel="stylesheet" href="asset/zoom.css">
+
+    <!-- 引入 Prism.js 核心 CSS -->
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="asset/prism-nord.css">
+    <!-- 引入 Prism.js 核心 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+     <!-- 引入 JavaScript 语言支持 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+</head>
+
+<body>
+    <header class="site-header cuckoo">
+        <div class="wrapper">
+            <a class="site-title" href="index.html">JustBB</a>
+            <nav class="site-nav">
+                <a href="#" class="menu-icon">
+                    <svg viewBox="0 0 18 15">
+                        <path fill="#424242"
+                            d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z">
+                        </path>
+                        <path fill="#424242"
+                            d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z">
+                        </path>
+                        <path fill="#424242"
+                            d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z">
+                        </path>
+                    </svg>
+                </a>
+                <div class="trigger">
+                    
+                    <a class="page-link" href="index.html">Home</a>
+                    
+                    <a class="page-link" href="Daily.html">Daily</a>
+                    
+                    <a class="page-link" href="Invest.html">Invest</a>
+                    
+                    <a class="page-link" href="Review.html">Review</a>
+                    
+                    <a class="page-link" href="read.html">Books</a>
+                    
+                    <a class="page-link" href="about.html">About</a>
+                    
+                </div>
+            </nav>
+        </div>
+
+        
+
+    </header>
+</body>
+
+</html>
+ <div class="page-content cuckoo">
+    <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+            <header class="post-header">
+                <h1 class="post-title" itemprop="name headline">JS：DOM 的类型层级</h1>
+                <div class="post-description">
+                    
+
+                    <time datetime="2025/03/23">2025/03/23</time>
+                    
+                    <div class="author">@BB</div>
+
+
+                </div>
+            </header>
+            <div class="post-content" itemprop="articleBody">
+                <p>DOM（Document Object Model，文档对象模型）是浏览器将 HTML 文档解析为树状结构的对象模型。DOM 类型层级是指 DOM 中各个对象之间的继承关系和层级结构。了解 DOM 类型层级有助于更好地理解 DOM 的操作和扩展。</p>
+<h3><a id="dom%E7%B1%BB%E5%9E%8B%E5%B1%82%E7%BA%A7%E5%9B%BE" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>DOM 类型层级图</h3>
+<p>以下是 DOM 类型层级的简化图示：</p>
+<p><img src="media/17427850291053/DOM%20%E8%8A%82%E7%82%B9.jpg" alt="DOM 节点" /></p>
+<hr />
+<h3><a id="dom%E6%9E%84%E5%BB%BA%E6%96%87%E6%A1%A3%E5%AF%B9%E8%B1%A1%E6%A0%91" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>DOM 构建文档对象树</h3>
+<p>浏览器渲染引擎构建 DOM 对象的树型结构简化图示：</p>
+<p><img src="media/17427850291053/%E5%AF%B9%E8%B1%A1%E7%BB%93%E6%9E%84.jpg" alt="对象结构" /></p>
+<p>DOM 类型层级是 JavaScript 操作 DOM 的基础，DOM 一方面规定了方法属性接口的继承关系，一方面规定了构建文档时的树形结构，理解这两方面是理解 DOM 的关键</p>
+<p><strong>第一方面：规范定义的接口体系：</strong></p>
+<ol>
+<li>各个节点类型的接口定义（如 Node、Element、HTMLElement 等）</li>
+<li>每个接口的具体属性和方法</li>
+<li>接口之间的<strong>继承关系</strong>（如 HTMLDivElement → HTMLElement → Element → Node → EventTarget）</li>
+</ol>
+<p><strong>第二方面：运行时构建文档对象树：</strong></p>
+<ol>
+<li>由这些接口的具体实例组成的树形结构</li>
+<li>其组织结构与文档的实际标记结构相对应</li>
+<li>每个节点都是某个接口的具体实现</li>
+</ol>
+<hr />
+<h2><a id="%E4%BB%A5%E4%B8%8B%E6%98%AFdom%E7%B1%BB%E5%9E%8B%E7%9A%84%E4%B8%BB%E8%A6%81%E5%B1%82%E7%BA%A7%E7%BB%93%E6%9E%84%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>以下是 DOM 类型的主要层级结构：</h2>
+<h3><a id="1%C2%A0%E9%A1%B6%E5%B1%82%EF%BC%9A-eventtarget" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. <strong>顶层：<code>EventTarget</code></strong></h3>
+<ul>
+<li>
+<p><code>EventTarget</code> 是所有 DOM 节点的基类。</p>
+</li>
+<li>
+<p>提供了事件监听和派发的能力（如 <code>addEventListener</code>、<code>removeEventListener</code>、<code>dispatchEvent</code>）。</p>
+</li>
+<li>
+<p><strong>继承关系</strong>：</p>
+<ul>
+<li>所有 DOM 节点都继承自 <code>EventTarget</code>。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3><a id="2%C2%A0-node" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. <strong><code>Node</code></strong></h3>
+<ul>
+<li>
+<p><code>Node</code> 是 DOM 中所有节点的基类。</p>
+</li>
+<li>
+<p>提供了节点操作的基本属性和方法（如 <code>parentNode</code>、<code>childNodes</code>、<code>appendChild</code>、<code>removeChild</code> 等）。</p>
+</li>
+<li>
+<p><strong>继承关系</strong>：</p>
+<ul>
+<li><code>EventTarget</code> → <code>Node</code></li>
+</ul>
+</li>
+<li>
+<p><strong>常见子类</strong>：</p>
+<ul>
+<li>
+<p><code>Element</code>（元素节点）</p>
+</li>
+<li>
+<p><code>CharaterData</code>（抽象类，提供Text和Comment节点‌）</p>
+<ul>
+<li>
+<p><code>Text</code>（文本节点）</p>
+</li>
+<li>
+<p><code>Comment</code>（注释节点）</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>Document</code>（文档节点）</p>
+</li>
+<li>
+<p><code>DocumentFragment</code>（文档片段节点）</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3><a id="3%C2%A0-element" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. <strong><code>Element</code></strong></h3>
+<ul>
+<li>
+<p><code>Element</code> 是所有 HTML 元素节点的基类。</p>
+</li>
+<li>
+<p>提供了元素操作的方法和属性（如 <code>getAttribute</code>、<code>setAttribute</code>、<code>classList</code>、<code>children</code> 等）。</p>
+</li>
+<li>
+<p><strong>继承关系</strong>：</p>
+<ul>
+<li><code>EventTarget</code> → <code>Node</code> → <code>Element</code></li>
+</ul>
+</li>
+<li>
+<p><strong>常见子类</strong>：</p>
+<ul>
+<li>
+<p><code>HTMLElement</code>（HTML 元素）</p>
+</li>
+<li>
+<p><code>SVGElement</code>（SVG 元素）</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3><a id="4%C2%A0-htmlelement" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. <strong><code>HTMLElement</code></strong></h3>
+<ul>
+<li>
+<p><code>HTMLElement</code> 是所有 HTML 元素的基类。</p>
+</li>
+<li>
+<p>提供了 HTML 元素的通用属性和方法（如 <code>innerHTML</code>、<code>style</code>、<code>click()</code> 等）。</p>
+</li>
+<li>
+<p><strong>继承关系</strong>：</p>
+<ul>
+<li><code>EventTarget</code> → <code>Node</code> → <code>Element</code> → <code>HTMLElement</code></li>
+</ul>
+</li>
+<li>
+<p><strong>常见子类</strong>：</p>
+<ul>
+<li>
+<p><code>HTMLDivElement</code>（<code>&lt;div&gt;</code> 元素）</p>
+</li>
+<li>
+<p><code>HTMLSpanElement</code>（<code>&lt;span&gt;</code> 元素）</p>
+</li>
+<li>
+<p><code>HTMLInputElement</code>（<code>&lt;input&gt;</code> 元素）</p>
+</li>
+<li>
+<p><code>HTMLButtonElement</code>（<code>&lt;button&gt;</code> 元素）</p>
+</li>
+<li>
+<p>其他所有 HTML 元素类型。</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3><a id="5%C2%A0-document" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. <strong><code>Document</code></strong></h3>
+<ul>
+<li>
+<p><code>Document</code> 表示整个 HTML 文档。</p>
+</li>
+<li>
+<p>提供了文档级别的操作方法和属性（如 <code>getElementById</code>、<code>querySelector</code>、<code>createElement</code> 等）。</p>
+</li>
+<li>
+<p><strong>继承关系</strong>：</p>
+<ul>
+<li><code>EventTarget</code> → <code>Node</code> → <code>Document</code></li>
+</ul>
+</li>
+<li>
+<p><strong>常见子类</strong>：</p>
+<ul>
+<li><code>HTMLDocument</code>（HTML 文档）</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3><a id="6%C2%A0-documentfragment" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>6. <strong><code>DocumentFragment</code></strong></h3>
+<ul>
+<li>
+<p><code>DocumentFragment</code> 是一个轻量级的文档片段，用于高效地操作和插入多个节点。</p>
+</li>
+<li>
+<p><strong>继承关系</strong>：</p>
+<ul>
+<li><code>EventTarget</code> → <code>Node</code> → <code>DocumentFragment</code></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3><a id="7%C2%A0%E5%85%B6%E4%BB%96%E9%87%8D%E8%A6%81%E7%B1%BB%E5%9E%8B" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>7. <strong>其他重要类型</strong></h3>
+<ul>
+<li>
+<p><strong><code>Text</code></strong>：表示文本节点。</p>
+<ul>
+<li>继承关系：<code>EventTarget</code> → <code>Node</code> → <code>Text</code></li>
+</ul>
+</li>
+<li>
+<p><strong><code>Comment</code></strong>：表示注释节点。</p>
+<ul>
+<li>继承关系：<code>EventTarget</code> → <code>Node</code> → <code>Comment</code></li>
+</ul>
+</li>
+<li>
+<p><strong><code>Attr</code></strong>：表示元素的属性节点。</p>
+<ul>
+<li>继承关系：<code>EventTarget</code> → <code>Node</code> → <code>Attr</code></li>
+</ul>
+</li>
+</ul>
+<hr />
+<p>总结：</p>
+<ol>
+<li>
+<p><strong><code>EventTarget</code></strong> 是所有 DOM 节点的基类，提供事件处理能力。</p>
+</li>
+<li>
+<p><strong><code>Node</code></strong> 是所有节点的基类，提供节点操作的基本方法。</p>
+</li>
+<li>
+<p><strong><code>Element</code></strong> 是所有元素节点的基类。</p>
+</li>
+<li>
+<p><strong><code>HTMLElement</code></strong> 是所有 HTML 元素的基类。</p>
+</li>
+<li>
+<p><strong><code>Document</code></strong> 表示整个文档。</p>
+</li>
+<li>
+<p>其他类型（如 <code>Text</code>、<code>Comment</code>、<code>DocumentFragment</code> 等）用于处理特定类型的节点。</p>
+</li>
+</ol>
+
+            </div>
+
+
+            <div style="margin-top: 50px;">
+
+                <!-- giscus 评论 -->
+                <script src="https://giscus.app/client.js"
+                        data-repo="layliu/giscus-comment"
+                        data-repo-id="R_kgDOJtN4ng"
+                        data-category="Announcements"
+                        data-category-id="DIC_kwDOJtN4ns4CXE-q"
+                        data-mapping="pathname"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="top"
+                        data-theme="light"
+                        data-lang="zh-CN"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+
+
+            </div>
+
+
+        </article>
+    </div>
+</div>
+
+<script src="asset/jquery-3.3.1.min.js"></script>
+
+<!-- 增加zoom效果 -->
+<script src="asset/zoom.js"></script>
+<!-- <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script> -->
+<script>
+    $(function () {
+        $('img').each(function () {
+            $(this).attr("data-action", 'zoom');
+        });
+    });
+</script>
+
+
+
+
+
+<script>
+    $(document).ready(function () {
+        $('#footer').show()
+    })
+
+
+</script>
+  <!-- <footer id="footer" class="cuckoo page-footer" style="display: none">
+    <div class="wrapper">
+        <p>Designed and Written by <a href="mailto:justbb@gmail.com">liulei</a></p>
+    </div>
+</footer> -->
+<!-- 
+ -->

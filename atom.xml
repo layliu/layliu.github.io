@@ -3,11 +3,484 @@
   <title><![CDATA[JustBB]]></title>
   <link href="justbb.fun/atom.xml" rel="self"/>
   <link href="justbb.fun/"/>
-  <updated>2025-03-22T19:42:18+08:00</updated>
+  <updated>2025-03-24T20:10:10+08:00</updated>
   <id>justbb.fun/</id>
   <author>
     <name><![CDATA[]]></name>
   </author>
+  
+  <entry>
+    <title type="html"><![CDATA[JS：DOM基础操作相关属性和方法]]></title>
+    <link href="justbb.fun/17428160726712.html"/>
+    <updated>2025-03-24T19:34:32+08:00</updated>
+    <id>justbb.fun/17428160726712.html</id>
+    <content type="html">
+<![CDATA[<p><img src="media/17428160726712/DOM%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3%E5%B1%9E%E6%80%A7%E5%92%8C%E6%96%B9%E6%B3%95-1.png" alt="DOM基础操作相关属性和方法" /></p>
+<p>来源：<a href="https://mumumus.notion.site/b41e36f3f7264e32b94a539a9d692ae2?v=6b66a039fad74d8db1f1e9ff090cae47">https://mumumus.notion.site/b41e36f3f7264e32b94a539a9d692ae2?v=6b66a039fad74d8db1f1e9ff090cae47</a></p>
+]]>
+    </content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[JS：HTMLDocument 和 Document 及 document 的关系]]></title>
+    <link href="justbb.fun/17427922136213.html"/>
+    <updated>2025-03-24T12:56:53+08:00</updated>
+    <id>justbb.fun/17427922136213.html</id>
+    <content type="html">
+<![CDATA[<p><code>HTMLDocument</code>、<code>Document</code> 和 <code>document</code> 是 JavaScript DOM（文档对象模型）中三个密切相关的概念。它们之间的关系可以通过 DOM 的层级结构和接口继承来理解。以下是详细的解释：</p>
+<hr />
+<h3><a id="1%C2%A0-document" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. <strong><code>Document</code></strong></h3>
+<ul>
+<li>
+<p><strong>定义</strong>：</p>
+<ul>
+<li>
+<p><code>Document</code> 是 DOM 的核心接口，表示任何类型的文档（如 HTML、XML 等）。</p>
+</li>
+<li>
+<p>它是 DOM 树的根节点，提供了文档级别的操作方法。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>作用</strong>：</p>
+<ul>
+<li>
+<p>提供了通用的文档操作方法，如 <code>getElementById</code>、<code>querySelector</code>、<code>createElement</code> 等。</p>
+</li>
+<li>
+<p>是访问和操作 DOM 的入口。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>继承关系</strong>：</p>
+<ul>
+<li><code>EventTarget</code> → <code>Node</code> → <code>Document</code></li>
+</ul>
+</li>
+<li>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-javascript">const doc = document; // document 是全局对象，表示当前页面的文档
+console.log(doc instanceof Document); // true
+</code></pre>
+</li>
+</ul>
+<hr />
+<h3><a id="2%C2%A0-htmldocument" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. <strong><code>HTMLDocument</code></strong></h3>
+<ul>
+<li>
+<p><strong>定义</strong>：</p>
+<ul>
+<li>
+<p><code>HTMLDocument</code> 是 <code>Document</code> 的子接口，专门用于表示 HTML 文档。</p>
+</li>
+<li>
+<p>它扩展了 <code>Document</code> 接口，提供了 HTML 文档特有的属性和方法。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>作用</strong>：</p>
+<ul>
+<li>提供了 HTML 文档的特定功能，如 <code>body</code>、<code>head</code>、<code>title</code> 等属性。</li>
+</ul>
+</li>
+<li>
+<p><strong>继承关系</strong>：</p>
+<ul>
+<li><code>EventTarget</code> → <code>Node</code> → <code>Document</code> → <code>HTMLDocument</code></li>
+</ul>
+</li>
+<li>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-javascript">const htmlDoc = document; // 在浏览器中，document 通常是 HTMLDocument 的实例
+console.log(htmlDoc instanceof HTMLDocument); // 在现代浏览器中可能为 false
+</code></pre>
+</li>
+</ul>
+<hr />
+<h3><a id="3%C2%A0-document" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. <strong><code>document</code></strong></h3>
+<ul>
+<li>
+<p><strong>定义</strong>：</p>
+<ul>
+<li>
+<p><code>document</code> 是一个全局对象，表示当前页面的文档实例。</p>
+</li>
+<li>
+<p>它是 <code>Document</code> 接口的具体实现，<mark>在浏览器中<code>document</code> 是 <code>HTMLDocument</code> 的实例（在现代浏览器中也直接是 <code>Document</code> 的实例）</mark>。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>作用</strong>：</p>
+<ul>
+<li>
+<p>用于操作当前页面的 DOM。</p>
+</li>
+<li>
+<p>例如，<code>document.getElementById</code>、<code>document.title</code> 等。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-javascript">console.log(document.title); // 输出当前文档的标题
+</code></pre>
+</li>
+</ul>
+<hr />
+<h3><a id="4%C2%A0%E4%B8%89%E8%80%85%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. <strong>三者之间的关系</strong></h3>
+<ul>
+<li>
+<p><strong>层级关系</strong>：</p>
+<ul>
+<li>
+<p><code>HTMLDocument</code> 是 <code>Document</code> 的子接口，专门用于 HTML 文档。</p>
+</li>
+<li>
+<p><code>document</code> 是 <code>Document</code> 接口的具体实例，通常是 <code>HTMLDocument</code> 的实例。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>从属关系</strong>：</p>
+<ul>
+<li>
+<p>在浏览器环境中，<code>document</code> 对象通常是 <code>HTMLDocument</code> 的实例。</p>
+</li>
+<li>
+<p><code>HTMLDocument</code> 继承了 <code>Document</code> 的所有属性和方法，并添加了 HTML 特有的功能。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>现代 DOM 规范中的变化</strong>：</p>
+<ul>
+<li>
+<p>在现代 DOM 规范（如 DOM Living Standard）中，<code>HTMLDocument</code> 接口已被合并到 <code>Document</code> 接口中。</p>
+</li>
+<li>
+<p>因此，<code>document</code> 对象直接是 <code>Document</code> 的实例，但仍然支持 <code>HTMLDocument</code> 的所有功能。</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3><a id="5%C2%A0%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. <strong>代码示例</strong></h3>
+<h4><a id="%E6%A3%80%E6%9F%A5%C2%A0document%C2%A0%E7%9A%84%E7%B1%BB%E5%9E%8B" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>检查 <code>document</code> 的类型</h4>
+<pre><code class="language-javascript">console.log(document instanceof Document); // true
+console.log(document instanceof HTMLDocument); // 在现代浏览器中可能为 false
+</code></pre>
+<h4><a id="%E4%BD%BF%E7%94%A8%C2%A0document%C2%A0%E6%93%8D%E4%BD%9C-dom" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>使用 <code>document</code> 操作 DOM</h4>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;title&gt;Example&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hello, World!&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>运行 HTML</p>
+<pre><code class="language-javascript">// 获取文档标题
+console.log(document.title); // 输出: &quot;Example&quot;
+
+// 修改文档标题
+document.title = 'New Title';
+console.log(document.title); // 输出: &quot;New Title&quot;
+
+// 获取 body 元素
+console.log(document.body.innerHTML); // 输出: &lt;h1&gt;Hello, World!&lt;/h1&gt;
+</code></pre>
+<hr />
+<h3><a id="6%C2%A0%E6%80%BB%E7%BB%93" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>6. <strong>总结</strong></h3>
+<ul>
+<li>
+<p><strong>接口与实例的关系</strong>：</p>
+<ul>
+<li>接口（如 <code>Document</code> 和 <code>HTMLDocument</code>）定义了一组属性和方法，但没有具体的实现。</li>
+<li>实例（如 <code>document</code>）是接口的具体化，提供了接口定义的功能。</li>
+</ul>
+</li>
+<li>
+<p><strong><code>Document</code></strong>：</p>
+<ul>
+<li>是通用文档接口，适用于所有类型的文档（如 HTML、XML 等）。</li>
+</ul>
+</li>
+<li>
+<p><strong><code>HTMLDocument</code></strong>：</p>
+<ul>
+<li>是 <code>Document</code> 的子接口，专门用于 HTML 文档，提供了 HTML 特有的属性和方法。</li>
+</ul>
+</li>
+<li>
+<p><strong><code>document</code></strong>：</p>
+<ul>
+<li>是 <code>Document</code> 接口的具体实例，在 <code>HTML</code> 环境中，<code>document</code> 既是 <code>Document</code> 的实例，也是 <code>HTMLDocument</code> 的实例，但现代规范中更推荐将其视为 <code>Document</code> 的直接实例。</li>
+<li>用于操作当前页面的 DOM。</li>
+</ul>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;My Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hello, World!&lt;/h1&gt;
+    &lt;script&gt;
+        // 验证 document 是 Document 的实例
+        console.log(document instanceof Document); // true
+        // 验证 document 是 HTMLDocument 的实例
+        console.log(document instanceof HTMLDocument); // true
+
+        // 使用 HTMLDocument 特有的 title 属性
+        console.log(document.title); // 输出: My Page
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+</li>
+</ul>
+<p>在现代 DOM 规范中，<code>HTMLDocument</code> 的功能已被合并到 <code>Document</code> 中，因此 <code>document</code> 对象直接是 <code>Document</code> 的实例，但仍然支持 <code>HTMLDocument</code> 的所有功能。</p>
+]]>
+    </content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[JS：DOM 的类型层级]]></title>
+    <link href="justbb.fun/17427850291053.html"/>
+    <updated>2025-03-24T10:57:09+08:00</updated>
+    <id>justbb.fun/17427850291053.html</id>
+    <content type="html">
+<![CDATA[<p>DOM（Document Object Model，文档对象模型）是浏览器将 HTML 文档解析为树状结构的对象模型。DOM 类型层级是指 DOM 中各个对象之间的继承关系和层级结构。了解 DOM 类型层级有助于更好地理解 DOM 的操作和扩展。</p>
+<h3><a id="dom%E7%B1%BB%E5%9E%8B%E5%B1%82%E7%BA%A7%E5%9B%BE" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>DOM 类型层级图</h3>
+<p>以下是 DOM 类型层级的简化图示：</p>
+<p><img src="media/17427850291053/DOM%20%E8%8A%82%E7%82%B9.jpg" alt="DOM 节点" /></p>
+<hr />
+<h3><a id="dom%E6%9E%84%E5%BB%BA%E6%96%87%E6%A1%A3%E5%AF%B9%E8%B1%A1%E6%A0%91" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>DOM 构建文档对象树</h3>
+<p>浏览器渲染引擎构建 DOM 对象的树型结构简化图示：</p>
+<p><img src="media/17427850291053/%E5%AF%B9%E8%B1%A1%E7%BB%93%E6%9E%84.jpg" alt="对象结构" /></p>
+<p>DOM 类型层级是 JavaScript 操作 DOM 的基础，DOM 一方面规定了方法属性接口的继承关系，一方面规定了构建文档时的树形结构，理解这两方面是理解 DOM 的关键</p>
+<p><strong>第一方面：规范定义的接口体系：</strong></p>
+<ol>
+<li>各个节点类型的接口定义（如 Node、Element、HTMLElement 等）</li>
+<li>每个接口的具体属性和方法</li>
+<li>接口之间的<strong>继承关系</strong>（如 HTMLDivElement → HTMLElement → Element → Node → EventTarget）</li>
+</ol>
+<p><strong>第二方面：运行时构建文档对象树：</strong></p>
+<ol>
+<li>由这些接口的具体实例组成的树形结构</li>
+<li>其组织结构与文档的实际标记结构相对应</li>
+<li>每个节点都是某个接口的具体实现</li>
+</ol>
+<hr />
+<h2><a id="%E4%BB%A5%E4%B8%8B%E6%98%AFdom%E7%B1%BB%E5%9E%8B%E7%9A%84%E4%B8%BB%E8%A6%81%E5%B1%82%E7%BA%A7%E7%BB%93%E6%9E%84%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>以下是 DOM 类型的主要层级结构：</h2>
+<h3><a id="1%C2%A0%E9%A1%B6%E5%B1%82%EF%BC%9A-eventtarget" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. <strong>顶层：<code>EventTarget</code></strong></h3>
+<ul>
+<li>
+<p><code>EventTarget</code> 是所有 DOM 节点的基类。</p>
+</li>
+<li>
+<p>提供了事件监听和派发的能力（如 <code>addEventListener</code>、<code>removeEventListener</code>、<code>dispatchEvent</code>）。</p>
+</li>
+<li>
+<p><strong>继承关系</strong>：</p>
+<ul>
+<li>所有 DOM 节点都继承自 <code>EventTarget</code>。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3><a id="2%C2%A0-node" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. <strong><code>Node</code></strong></h3>
+<ul>
+<li>
+<p><code>Node</code> 是 DOM 中所有节点的基类。</p>
+</li>
+<li>
+<p>提供了节点操作的基本属性和方法（如 <code>parentNode</code>、<code>childNodes</code>、<code>appendChild</code>、<code>removeChild</code> 等）。</p>
+</li>
+<li>
+<p><strong>继承关系</strong>：</p>
+<ul>
+<li><code>EventTarget</code> → <code>Node</code></li>
+</ul>
+</li>
+<li>
+<p><strong>常见子类</strong>：</p>
+<ul>
+<li>
+<p><code>Element</code>（元素节点）</p>
+</li>
+<li>
+<p><code>CharaterData</code>（抽象类，提供Text和Comment节点‌）</p>
+<ul>
+<li>
+<p><code>Text</code>（文本节点）</p>
+</li>
+<li>
+<p><code>Comment</code>（注释节点）</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>Document</code>（文档节点）</p>
+</li>
+<li>
+<p><code>DocumentFragment</code>（文档片段节点）</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3><a id="3%C2%A0-element" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. <strong><code>Element</code></strong></h3>
+<ul>
+<li>
+<p><code>Element</code> 是所有 HTML 元素节点的基类。</p>
+</li>
+<li>
+<p>提供了元素操作的方法和属性（如 <code>getAttribute</code>、<code>setAttribute</code>、<code>classList</code>、<code>children</code> 等）。</p>
+</li>
+<li>
+<p><strong>继承关系</strong>：</p>
+<ul>
+<li><code>EventTarget</code> → <code>Node</code> → <code>Element</code></li>
+</ul>
+</li>
+<li>
+<p><strong>常见子类</strong>：</p>
+<ul>
+<li>
+<p><code>HTMLElement</code>（HTML 元素）</p>
+</li>
+<li>
+<p><code>SVGElement</code>（SVG 元素）</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3><a id="4%C2%A0-htmlelement" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. <strong><code>HTMLElement</code></strong></h3>
+<ul>
+<li>
+<p><code>HTMLElement</code> 是所有 HTML 元素的基类。</p>
+</li>
+<li>
+<p>提供了 HTML 元素的通用属性和方法（如 <code>innerHTML</code>、<code>style</code>、<code>click()</code> 等）。</p>
+</li>
+<li>
+<p><strong>继承关系</strong>：</p>
+<ul>
+<li><code>EventTarget</code> → <code>Node</code> → <code>Element</code> → <code>HTMLElement</code></li>
+</ul>
+</li>
+<li>
+<p><strong>常见子类</strong>：</p>
+<ul>
+<li>
+<p><code>HTMLDivElement</code>（<code>&lt;div&gt;</code> 元素）</p>
+</li>
+<li>
+<p><code>HTMLSpanElement</code>（<code>&lt;span&gt;</code> 元素）</p>
+</li>
+<li>
+<p><code>HTMLInputElement</code>（<code>&lt;input&gt;</code> 元素）</p>
+</li>
+<li>
+<p><code>HTMLButtonElement</code>（<code>&lt;button&gt;</code> 元素）</p>
+</li>
+<li>
+<p>其他所有 HTML 元素类型。</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3><a id="5%C2%A0-document" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. <strong><code>Document</code></strong></h3>
+<ul>
+<li>
+<p><code>Document</code> 表示整个 HTML 文档。</p>
+</li>
+<li>
+<p>提供了文档级别的操作方法和属性（如 <code>getElementById</code>、<code>querySelector</code>、<code>createElement</code> 等）。</p>
+</li>
+<li>
+<p><strong>继承关系</strong>：</p>
+<ul>
+<li><code>EventTarget</code> → <code>Node</code> → <code>Document</code></li>
+</ul>
+</li>
+<li>
+<p><strong>常见子类</strong>：</p>
+<ul>
+<li><code>HTMLDocument</code>（HTML 文档）</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3><a id="6%C2%A0-documentfragment" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>6. <strong><code>DocumentFragment</code></strong></h3>
+<ul>
+<li>
+<p><code>DocumentFragment</code> 是一个轻量级的文档片段，用于高效地操作和插入多个节点。</p>
+</li>
+<li>
+<p><strong>继承关系</strong>：</p>
+<ul>
+<li><code>EventTarget</code> → <code>Node</code> → <code>DocumentFragment</code></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3><a id="7%C2%A0%E5%85%B6%E4%BB%96%E9%87%8D%E8%A6%81%E7%B1%BB%E5%9E%8B" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>7. <strong>其他重要类型</strong></h3>
+<ul>
+<li>
+<p><strong><code>Text</code></strong>：表示文本节点。</p>
+<ul>
+<li>继承关系：<code>EventTarget</code> → <code>Node</code> → <code>Text</code></li>
+</ul>
+</li>
+<li>
+<p><strong><code>Comment</code></strong>：表示注释节点。</p>
+<ul>
+<li>继承关系：<code>EventTarget</code> → <code>Node</code> → <code>Comment</code></li>
+</ul>
+</li>
+<li>
+<p><strong><code>Attr</code></strong>：表示元素的属性节点。</p>
+<ul>
+<li>继承关系：<code>EventTarget</code> → <code>Node</code> → <code>Attr</code></li>
+</ul>
+</li>
+</ul>
+<hr />
+<p>总结：</p>
+<ol>
+<li>
+<p><strong><code>EventTarget</code></strong> 是所有 DOM 节点的基类，提供事件处理能力。</p>
+</li>
+<li>
+<p><strong><code>Node</code></strong> 是所有节点的基类，提供节点操作的基本方法。</p>
+</li>
+<li>
+<p><strong><code>Element</code></strong> 是所有元素节点的基类。</p>
+</li>
+<li>
+<p><strong><code>HTMLElement</code></strong> 是所有 HTML 元素的基类。</p>
+</li>
+<li>
+<p><strong><code>Document</code></strong> 表示整个文档。</p>
+</li>
+<li>
+<p>其他类型（如 <code>Text</code>、<code>Comment</code>、<code>DocumentFragment</code> 等）用于处理特定类型的节点。</p>
+</li>
+</ol>
+]]>
+    </content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[JS：代码执行环境与执行活动栈]]></title>
@@ -3168,100 +3641,6 @@ console.log(null === undefined); // false（类型不同）
 <p>对象会尝试调用 <code>valueOf()</code> 或 <code>toString()</code> 进行转换。</p>
 </li>
 </ul>
-]]>
-    </content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[试着用 AI 写 word 脚本]]></title>
-    <link href="justbb.fun/17412722521826.html"/>
-    <updated>2025-03-06T22:44:12+08:00</updated>
-    <id>justbb.fun/17412722521826.html</id>
-    <content type="html">
-<![CDATA[<p>最近总是有很多合同要处理，但其实合同模板都是一样的，只是里面的甲方对象不同，所以突然想到word其实有vba宏可以使用。<br />
-所以让AI帮我写了个脚本，自己稍加改动就可以运行。<br />
-目前就是界面还不太友好，全是弹窗，下一步试试改下界面。</p>
-<pre><code class="language-plain_text">Sub GenerateContract()
-    ' 声明变量
-    Dim doc As Document
-    Dim partyA As String    ' 甲方名称
-    Dim partyAAddress As String    ' 甲方地址
-    Dim partyAContact As String    ' 甲方联系人
-    Dim contractDate As String     ' 合同日期
-    Dim contractNo As String       ' 合同编号
-    
-    ' 获取用户信息（这里可以通过输入框或指定单元格获取）
-    partyA = InputBox(&quot;请输入甲方名称：&quot;)
-    partyAAddress = InputBox(&quot;请输入甲方地址：&quot;)
-    partyAContact = InputBox(&quot;请输入甲方联系人：&quot;)
-    contractDate = Format(Date, &quot;yyyy年mm月dd日&quot;)
-    contractNo = &quot;FG&quot; &amp; Format(Date, &quot;yyyymmdd&quot;) &amp; &quot;-&quot; &amp; Format(Time, &quot;hhmm&quot;)
-    
-    ' 打开模板文档
-    Set doc = Documents.Open(&quot;/Users/lay/Dropbox/客户QA/合同模板/ContractTemplate.doc&quot;) ' 修改为你的模板路径
-    
-    ' 替换模板中的占位符
-    With doc
-        ' 假设模板中使用 {PartyA} 这样的占位符
-        .Application.Selection.Find.Execute FindText:=&quot;{PartyA}&quot;, _
-            replaceWith:=partyA, Replace:=wdReplaceAll
-        .Application.Selection.Find.Execute FindText:=&quot;{PartyAAddress}&quot;, _
-            replaceWith:=partyAAddress, Replace:=wdReplaceAll
-        .Application.Selection.Find.Execute FindText:=&quot;{PartyAContact}&quot;, _
-            replaceWith:=partyAContact, Replace:=wdReplaceAll
-        .Application.Selection.Find.Execute FindText:=&quot;{ContractDate}&quot;, _
-            replaceWith:=contractDate, Replace:=wdReplaceAll
-        .Application.Selection.Find.Execute FindText:=&quot;{ContractNo}&quot;, _
-            replaceWith:=contractNo, Replace:=wdReplaceAll
-    End With
-    
-    ' 另存为新文档
-    doc.SaveAs2 FileName:=&quot;/Users/lay/Dropbox/客户QA/合同模板/&quot; &amp; PartyA &amp; &quot;飞鸽劳务通SaaS软件系统及抖音招聘账号报白使用权益服务合同_&quot; &amp; contractNo &amp; &quot;.doc&quot;
-    
-    ' 可选择是否关闭文档
-    ' doc.Close
-    
-    MsgBox &quot;合同已生成！保存路径：/Users/lay/Dropbox/客户QA/合同模板/合同_&quot; &amp; contractNo &amp; &quot;.doc&quot;
-    
-    ' 清理
-    Set doc = Nothing
-End Sub
-
-</code></pre>
-]]>
-    </content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[从两岸报告看中国的经济股市与美元的汇率转折]]></title>
-    <link href="justbb.fun/17419289426793.html"/>
-    <updated>2025-03-14T13:09:02+08:00</updated>
-    <id>justbb.fun/17419289426793.html</id>
-    <content type="html">
-<![CDATA[<p>WB会员文章：</p>
-<p>近期太平洋两岸分别作了一年一度的政府报告，当然在美国那边叫作国情咨文。美国的国情咨文和中国的政府工作报告分属逻辑完全不同的政治传统，对于美国政治来说，国情咨文更重要的是动员、煽动、团结的作用，更像一场show，是在直接选举体制下的一种更具仪式性的行为。中国的政府工作报告则更像是理性计划时代的延续，没有那么多表演成分，重点都是实实在在的数字KPI。但由于现代经济的复杂性和多变性，政府工作报告对于政策取向的表述更多只是反应当下时点的。现代社会治理经济最长也要按月思考决策，用飞行员开飞机来比喻再合适不过，尤其是遇到关键的节点，几个月没开好就有撞机和偏航的风险。</p>
-<p>今年中国政府工作报告整体上中规中矩，既没有超预期也没有不及预期，延续了去年9月份以来的基调。同时由于去年9月份开始经济整体向好的势头愈发明显，本次报告也没有再给更进一步超预期的信号。最能说明的就是赤字率安排在4%，其实这个赤字率没什么用，因为政府债务的真实赤字远大于每年公告的这个数，报告中提到的这个数一般被称为“狭义赤字”。狭义赤字的信号意义大于实际意义，今年的4%是自08年以来最高的一次赤字率，但同时也并没有达到去年一些学者公开建议的5%水平，体现了一种保持积极基调下的折中态度，也为后续需要更大刺激留了后手。</p>
-<p>如果我们将更接近真实赤字水平的超长期特别国债、专项债、特别国债这三个也考虑进赤字后，那么赤字率的可比水平将从2024年的6.6%增加到2025年的8.4%，这个增加力度也是不小的。针对市场上近期流传的一些由于经济回暖政府刺激政策有阶段性收缩的观点，我觉得可能有一些体现这个思路的货币政策操作，但这并不改变目前整体上仍然以超常规逆周期调节为方向的总基调。</p>
-<p>关于股市层面，本次报告有提到“加强战略性力量储备和稳市机制建设”，这个被市场理解为有可能进一步加强中长期资金入市和平准基金类资金入市的政策。但这方面我们之前的文章分析的一个基本思路是，除非平准基金和可动用的中长期资金体量足够大，否则很难对股市产生根本性影响，而目前的国内可动用资金体量相较于A股庞大的流通市值可以说是杯水车薪，所以救市资金更重要的是发挥股灾兜底，而非牛市催生的作用。</p>
-<p>但从2月份以来，股市的变化，尤其是港股的变化出现了一些积极的信号。这轮的港股上涨带有“讲故事氛围”的巨大变化。除了和AI概念沾边的科技股行情，还有一些其他的现象——如B站在发布了一份和上季度基本面差不多的财报后股价波动出现了巨大差别，特朗普加征关税的心理影响也没有阻挡港股上涨的大趋势等等。本轮上涨能否真正带动一次港股牛市越来越值得期待。当然，跟我们分析时间比较长的听友应该知道我核心的观点仍然，港股的上涨最根本的原因是估值足够低，跌的足够久。在这种情况下，任何概念和叙事氛围的变化最后都可能催生一波真正的牛市，即使现在没有DeepSeek大家最终也会找到其他的理由。同理，美股的下跌也是早晚会出现的事，巴菲特并不知道中国今年会有DeepSeek，但他仍然在1年前就开始大幅减持美股。</p>
-<p>除了宏观政策与股市以外，我在去年9月新政之后持续关注了北京二手房成交情况，到目前为止数据一直保持在比较好的状态。同时我们看到以10年期国债为代表的长期市场利率自2月份以来也出现了明显的触底反弹。这些信号都在预示，中国本轮自2023年下半年开始的流动性陷阱有可能逐步的出现转折。当然，预测宏观经济本身就是很困难的事，未来是否还会遇到其他不确定性的事件我们无法预测。唯一能让我们保持长期盈利的方式只有在低估值阶段建仓。</p>
-<p>另一方面，美国目前的经济形势普遍被市场认为可能面临从增长到滞胀的转折。从正常的短经济周期来说，美国这一轮的上行周期已经持续了很久，即使没有其他干扰因素，阶段性衰退的可能性也已经越来越大。同时由于美股出现了极端高估的情况，如果后续的阶段性衰退跌加了美国崩盘，那么财富缩水的效应会进一步给美国经济带来打击。而通胀的延续主要是由于特朗普关税政策的影响。</p>
-<p>关于美股的高估问题我们已经在12月份的时候写过文章《美股的高估与范式转移风险》。而关税问题我们一直以来都持有一个判断，即特朗普并非单纯的以提高关税为目标，其最终目标应是减少美国的货物贸易逆差以及增加美国本土FDI投资。达成这个目标既可以靠关税，也可以靠美元汇率贬值，故其最终有可能以关税作为谈判筹码，最终通过汇率与关税的组合方式实现其目标，关于这方面的原理，我们在会员文章《关于特朗普“对华50%关税”政策的理解》（2024-7-18）也有过详细的阐述，感兴趣的朋友可以参考。</p>
-<p>当下的形势来看，汇率变化更有可能是达成各方平衡的首选。首先，中国国内的宏观经济回暖和市场利率的上行本身就会改变外汇投机市场的预期，造成人民币升值。同时二级市场资产重估的股市也会带动国际热钱兑换人民币，进一步加强人民币的升值趋势（同时也对应美元被卖出的趋势）。而在美国方面，利用美元贬值实现贸易目标，可以减少最终的实际关税加征，也可以减少国内通胀的预期，所以当下的逻辑有可能是国内通胀数据越高，特朗普加征关税政策的阻力就会越大，从而导致特朗普更倾向于使用汇率工具实现目标，这也可能是近期美元汇率波动一反之前的通胀上行——加息预期——美元升值的传导逻辑，而出现了通胀上行——美元贬值的市场现象。特朗普从关税到汇率的政策工具变化，本质上就是将美国的国内通胀转嫁为国际市场上的美元贬值。</p>
-<p>总结来说，如果目前中国经济回暖和二级市场上涨的趋势得到确立，且美国的通胀趋势不减的话，那么人民币和美元的汇率转折风险将会越来越大。当中国走出流动性陷阱的时候，美国要么选择滞胀，要么选择美元贬值。而这个选择题对于任何一位脑子不傻的美国领导人来说都是极为简单的，更何况是特朗普。</p>
-]]>
-    </content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[为什么中国C端大厂，产品名都挺低龄]]></title>
-    <link href="justbb.fun/17412489236160.html"/>
-    <updated>2025-03-06T16:15:23+08:00</updated>
-    <id>justbb.fun/17412489236160.html</id>
-    <content type="html">
-<![CDATA[<blockquote><p lang="zh" dir="ltr">全中国的互联网产品命名法。主要是面对C端的。名字和logo都非常接地气。菜鸟，咸鱼，XX宝，天猫。其实是普通消费者教育程度和想象力还是不高。必须贴地飞行才能深入人心。 就连领导讲话也是一样。 <a href="https://t.co/rF7Sqs6ELr">https://t.co/rF7Sqs6ELr</a></p>&mdash; David Chang (@David_yc607) <a href="https://twitter.com/David_yc607/status/1897509483406147671?ref_src=twsrc%5Etfw">March 6, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-<p>最近看到大卫分享了一个国内产品起名的背景，挺有意思的。其实不光是产品名称，很多时候国内的产品形象，也有大量低幼设计元素，比如派出所的一些宣传海报，人物均是卡通式的警察。</p>
-<p>但也要知道事物都是在发展的，这种「低幼化」的设计，总好过直接的白底黑字那种，一点都不「亲民」的设计。未来这些设计肯定会随着人群认知，逐渐发生变化的。</p>
 ]]>
     </content>
   </entry>
