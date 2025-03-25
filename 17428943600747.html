@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+         JS：DOM常用节点方法与属性 - JustBB 
+    </title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="欢迎来到JUST.bb这里是我的一个自留地，主要用来记录和分享一些工作、生活中的随笔、思考和总结。我希望通过文字，梳理自己的思路，沉淀经验，也希望能与志同道合的朋友们交流碰撞，共同成长。">
+
+    <link rel="stylesheet" type="text/css" href="asset/cuckoo.css">
+    <link rel="stylesheet" type="text/css" href="asset/main.css">
+    <link rel="shortcut icon" href="asset/favicon.ico" type="image/x-icon" />
+    <link rel="alternate" type="application/atom+xml" href="atom.xml" title="JustBB">
+
+    <link rel="stylesheet" href="asset/zoom.css">
+
+    <!-- 引入 Prism.js 核心 CSS -->
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="asset/prism-nord.css">
+    <!-- 引入 Prism.js 核心 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+     <!-- 引入 JavaScript 语言支持 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+</head>
+
+<body>
+    <header class="site-header cuckoo">
+        <div class="wrapper">
+            <a class="site-title" href="index.html">JustBB</a>
+            <nav class="site-nav">
+                <a href="#" class="menu-icon">
+                    <svg viewBox="0 0 18 15">
+                        <path fill="#424242"
+                            d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z">
+                        </path>
+                        <path fill="#424242"
+                            d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z">
+                        </path>
+                        <path fill="#424242"
+                            d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z">
+                        </path>
+                    </svg>
+                </a>
+                <div class="trigger">
+                    
+                    <a class="page-link" href="index.html">Home</a>
+                    
+                    <a class="page-link" href="Daily.html">Daily</a>
+                    
+                    <a class="page-link" href="Invest.html">Invest</a>
+                    
+                    <a class="page-link" href="Review.html">Review</a>
+                    
+                    <a class="page-link" href="read.html">Books</a>
+                    
+                    <a class="page-link" href="about.html">About</a>
+                    
+                </div>
+            </nav>
+        </div>
+
+        
+
+    </header>
+</body>
+
+</html>
+ <div class="page-content cuckoo">
+    <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+            <header class="post-header">
+                <h1 class="post-title" itemprop="name headline">JS：DOM常用节点方法与属性</h1>
+                <div class="post-description">
+                    
+
+                    <time datetime="2025/03/25">2025/03/25</time>
+                    
+                    <div class="author">@BB</div>
+
+
+                </div>
+            </header>
+            <div class="post-content" itemprop="articleBody">
+                <h2><a id="%E5%B8%B8%E7%94%A8%E8%8A%82%E7%82%B9%E6%93%8D%E4%BD%9C" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>常用节点操作</h2>
+<h3><a id="%E8%8E%B7%E5%8F%96%E8%8A%82%E7%82%B9" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>获取节点</h3>
+<pre><code class="language-javascript">// 通过ID获取
+document.getElementById('id')
+
+// 通过类名获取（返回HTMLCollection）
+document.getElementsByClassName('class')
+
+// 通过标签名获取（返回HTMLCollection）
+document.getElementsByTagName('div')
+
+// 通过CSS选择器获取（返回第一个匹配元素）
+document.querySelector('.class')
+
+// 通过CSS选择器获取所有匹配元素（返回NodeList）
+document.querySelectorAll('div.class')
+</code></pre>
+<h3><a id="%E5%88%9B%E5%BB%BA%E8%8A%82%E7%82%B9" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>创建节点</h3>
+<pre><code class="language-javascript">// 创建元素节点
+const newDiv = document.createElement('div')
+
+// 创建文本节点
+const newText = document.createTextNode('Hello World')
+
+// 创建属性节点（通常直接设置属性）
+newDiv.setAttribute('id', 'myDiv')
+
+</code></pre>
+<h3><a id="%E4%BF%AE%E6%94%B9%E8%8A%82%E7%82%B9" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>修改节点</h3>
+<pre><code class="language-javascript">// 修改文本内容
+element.textContent = '新内容'
+element.innerHTML = '&lt;strong&gt;HTML内容&lt;/strong&gt;'
+
+// 修改样式
+element.style.color = 'red'
+element.style.backgroundColor = '#fff'
+
+// 修改类
+element.classList.add('new-class')
+element.classList.remove('old-class')
+element.classList.toggle('active')
+</code></pre>
+<h3><a id="%E8%8A%82%E7%82%B9%E5%85%B3%E7%B3%BB" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>节点关系</h3>
+<pre><code class="language-javascript">// 父节点
+element.parentNode
+
+// 子节点
+element.childNodes // 所有类型子节点
+element.children // 仅元素子节点
+
+// 兄弟节点
+element.nextSibling
+element.previousSibling
+element.nextElementSibling // 仅元素节点
+element.previousElementSibling // 仅元素节点
+
+</code></pre>
+<h3><a id="%E6%B7%BB%E5%8A%A0%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>添加/删除节点</h3>
+<pre><code class="language-javascript">// 添加子节点
+parentElement.appendChild(newElement)
+
+// 插入节点
+parentElement.insertBefore(newElement, referenceElement)
+
+// 替换节点
+parentElement.replaceChild(newElement, oldElement)
+
+// 删除节点
+parentElement.removeChild(childElement)
+// 或现代方式
+element.remove()
+
+</code></pre>
+<h2><a id="%E5%B8%B8%E7%94%A8%E5%85%83%E7%B4%A0%E5%B1%9E%E6%80%A7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>常用元素属性</h2>
+<ul>
+<li>
+<p><code>id</code> - 元素唯一标识</p>
+</li>
+<li>
+<p><code>className</code> - 元素的class属性</p>
+</li>
+<li>
+<p><code>classList</code> - 更方便操作class的API</p>
+</li>
+<li>
+<p><code>tagName</code> - 元素的标签名</p>
+</li>
+<li>
+<p><code>innerHTML</code> - 元素内的HTML内容</p>
+</li>
+<li>
+<p><code>textContent</code> - 元素内的文本内容</p>
+</li>
+<li>
+<p><code>value</code> - 表单元素的值</p>
+</li>
+<li>
+<p><code>style</code> - 元素的样式对象</p>
+</li>
+<li>
+<p><code>attributes</code> - 元素的所有属性集合</p>
+</li>
+</ul>
+
+            </div>
+
+
+            <div style="margin-top: 50px;">
+
+                <!-- giscus 评论 -->
+                <script src="https://giscus.app/client.js"
+                        data-repo="layliu/giscus-comment"
+                        data-repo-id="R_kgDOJtN4ng"
+                        data-category="Announcements"
+                        data-category-id="DIC_kwDOJtN4ns4CXE-q"
+                        data-mapping="pathname"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="top"
+                        data-theme="light"
+                        data-lang="zh-CN"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+
+
+            </div>
+
+
+        </article>
+    </div>
+</div>
+
+<script src="asset/jquery-3.3.1.min.js"></script>
+
+<!-- 增加zoom效果 -->
+<script src="asset/zoom.js"></script>
+<!-- <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script> -->
+<script>
+    $(function () {
+        $('img').each(function () {
+            $(this).attr("data-action", 'zoom');
+        });
+    });
+</script>
+
+
+
+
+
+<script>
+    $(document).ready(function () {
+        $('#footer').show()
+    })
+
+
+</script>
+  <!-- <footer id="footer" class="cuckoo page-footer" style="display: none">
+    <div class="wrapper">
+        <p>Designed and Written by <a href="mailto:justbb@gmail.com">liulei</a></p>
+    </div>
+</footer> -->
+<!-- 
+ -->
