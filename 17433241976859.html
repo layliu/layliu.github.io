@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+         JS：DOM中的类数组对比 - JustBB 
+    </title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="欢迎来到JUST.bb这里是我的一个自留地，主要用来记录和分享一些工作、生活中的随笔、思考和总结。我希望通过文字，梳理自己的思路，沉淀经验，也希望能与志同道合的朋友们交流碰撞，共同成长。">
+
+    <link rel="stylesheet" type="text/css" href="asset/cuckoo.css">
+    <link rel="stylesheet" type="text/css" href="asset/main.css">
+    <link rel="shortcut icon" href="asset/favicon.ico" type="image/x-icon" />
+    <link rel="alternate" type="application/atom+xml" href="atom.xml" title="JustBB">
+
+    <link rel="stylesheet" href="asset/zoom.css">
+
+    <!-- 引入 Prism.js 核心 CSS -->
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="asset/prism-nord.css">
+    <!-- 引入 Prism.js 核心 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+     <!-- 引入 JavaScript 语言支持 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+</head>
+
+<body>
+    <header class="site-header cuckoo">
+        <div class="wrapper">
+            <a class="site-title" href="index.html">JustBB</a>
+            <nav class="site-nav">
+                <a href="#" class="menu-icon">
+                    <svg viewBox="0 0 18 15">
+                        <path fill="#424242"
+                            d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z">
+                        </path>
+                        <path fill="#424242"
+                            d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z">
+                        </path>
+                        <path fill="#424242"
+                            d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z">
+                        </path>
+                    </svg>
+                </a>
+                <div class="trigger">
+                    
+                    <a class="page-link" href="index.html">Home</a>
+                    
+                    <a class="page-link" href="Daily.html">Daily</a>
+                    
+                    <a class="page-link" href="Invest.html">Invest</a>
+                    
+                    <a class="page-link" href="Review.html">Review</a>
+                    
+                    <a class="page-link" href="read.html">Books</a>
+                    
+                    <a class="page-link" href="about.html">About</a>
+                    
+                </div>
+            </nav>
+        </div>
+
+        
+
+    </header>
+</body>
+
+</html>
+ <div class="page-content cuckoo">
+    <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+            <header class="post-header">
+                <h1 class="post-title" itemprop="name headline">JS：DOM中的类数组对比</h1>
+                <div class="post-description">
+                    
+
+                    <time datetime="2025/03/30">2025/03/30</time>
+                    
+                    <div class="author">@BB</div>
+
+
+                </div>
+            </header>
+            <div class="post-content" itemprop="articleBody">
+                <p>在 DOM（文档对象模型）中，有许多类数组（Array-like）对象。它们类似于数组，可以使用索引访问元素，也有 <code>length</code> 属性，但不能直接使用数组方法（如 <code>push</code>、<code>pop</code>、<code>map</code> 等）。以下是常见的 DOM 类数组对象：</p>
+<h2><a id="%F0%9F%93%8C%E6%80%BB%E7%BB%93%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>**📌 总结：</h2>
+<table>
+<thead>
+<tr>
+<th>类数组对象</th>
+<th>来源</th>
+<th>动态更新</th>
+<th>支持 <code>forEach</code></th>
+<th>转换数组方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>NodeList</code></strong></td>
+<td><code>querySelectorAll</code>, <code>childNodes</code></td>
+<td>部分动态（<code>childNodes</code>是动态的）</td>
+<td>✅</td>
+<td><code>Array.from()</code>/ <code>[...]</code></td>
+</tr>
+<tr>
+<td><strong><code>HTMLCollection</code></strong></td>
+<td><code>getElementsByTagName</code>, <code>children</code></td>
+<td>✅ 是</td>
+<td>❌</td>
+<td><code>Array.from()</code>/ <code>[...]</code></td>
+</tr>
+<tr>
+<td><strong><code>DOMTokenList</code></strong></td>
+<td><code>classList</code></td>
+<td>✅ 是</td>
+<td>✅</td>
+<td><code>Array.from()</code>/ <code>[...]</code></td>
+</tr>
+<tr>
+<td><strong><code>NamedNodeMap</code></strong></td>
+<td><code>attributes</code></td>
+<td>✅ 是</td>
+<td>❌</td>
+<td><code>Array.from()</code>/ <code>[...]</code></td>
+</tr>
+<tr>
+<td><strong><code>RadioNodeList</code></strong></td>
+<td><code>form.elements</code></td>
+<td>✅ 是</td>
+<td>❌</td>
+<td><code>Array.from()</code>/ <code>[...]</code></td>
+</tr>
+<tr>
+<td><strong><code>FileList</code></strong></td>
+<td><code>&lt;input type=&quot;file&quot;&gt;.files</code></td>
+<td>❌ 否</td>
+<td>❌</td>
+<td><code>Array.from()</code>/ <code>[...]</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2><a id="%F0%9F%93%8C1%C2%A0-nodelist" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>📌 1. <code>NodeList</code></strong></h2>
+<p><strong>来源</strong>：</p>
+<ul>
+<li>
+<p><code>document.querySelectorAll()</code></p>
+</li>
+<li>
+<p><code>element.childNodes</code></p>
+</li>
+</ul>
+<p><strong>特点</strong>：</p>
+<ul>
+<li>
+<p>静态 <code>NodeList</code>（如 <code>querySelectorAll</code> 返回的）不会随 DOM 变化自动更新。</p>
+</li>
+<li>
+<p>动态 <code>NodeList</code>（如 <code>childNodes</code>）会实时反映 DOM 的变化。</p>
+</li>
+</ul>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-javascript">
+const divs = document.querySelectorAll('div'); // 静态 NodeList
+const children = document.body.childNodes;     // 动态 NodeList
+
+console.log(divs.length); // 可以获取长度
+divs.forEach(div =&gt; console.log(div)); // 支持 forEach
+// divs.map(...) // ❌ 报错，不能直接使用数组方法
+</code></pre>
+<p><strong>转换数组</strong>：</p>
+<pre><code class="language-javascript">const divArray = Array.from(divs); // 或 [...divs]
+</code></pre>
+<hr />
+<h2><a id="%F0%9F%93%8C2%C2%A0-htmlcollection" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>📌 2. <code>HTMLCollection</code></strong></h2>
+<p><strong>来源</strong>：</p>
+<ul>
+<li>
+<p><code>document.getElementsByClassName()</code></p>
+</li>
+<li>
+<p><code>document.getElementsByTagName()</code></p>
+</li>
+<li>
+<p><code>element.children</code></p>
+</li>
+</ul>
+<p><strong>特点</strong>：</p>
+<ul>
+<li>
+<p><strong>动态集合</strong>，会实时反映 DOM 的变化。</p>
+</li>
+<li>
+<p><strong>只有 <code>length</code> 和索引访问</strong>，没有 <code>forEach</code> 等数组方法。</p>
+</li>
+</ul>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-javascript">const divs = document.getElementsByTagName('div'); // HTMLCollection
+console.log(divs.length); // 可以获取长度
+// divs.forEach(...) // ❌ 报错，没有 forEach
+for (let i = 0; i &lt; divs.length; i++) {
+    console.log(divs[i]); // 用索引访问
+}
+
+</code></pre>
+<p><strong>转换数组</strong>：</p>
+<pre><code class="language-javascript">const divArray = Array.from(divs); // 或 [...divs]
+</code></pre>
+<hr />
+<h2><a id="%F0%9F%93%8C3%C2%A0-domtokenlist" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>📌 3. <code>DOMTokenList</code></strong></h2>
+<p><strong>来源</strong>：</p>
+<ul>
+<li><code>element.classList</code></li>
+</ul>
+<p><strong>特点</strong>：</p>
+<ul>
+<li>
+<p>表示元素的类名列表（如 <code>class=&quot;btn active&quot;</code>）。</p>
+</li>
+<li>
+<p>有 <code>add()</code>、<code>remove()</code>、<code>toggle()</code>、<code>contains()</code> 方法。</p>
+</li>
+<li>
+<p>支持 <code>forEach</code>，但没有 <code>map</code>、<code>filter</code>。</p>
+</li>
+</ul>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-javascript">const btn = document.querySelector('button');
+const classes = btn.classList; // DOMTokenList
+
+classes.add('new-class'); // 添加类
+classes.remove('old-class'); // 移除类
+classes.forEach(cls =&gt; console.log(cls)); // 支持 forEach
+</code></pre>
+<p><strong>转换数组</strong>：</p>
+<pre><code class="language-javascript">const classArray = Array.from(classes); // 或 [...classes]
+
+</code></pre>
+<hr />
+<h2><a id="%F0%9F%93%8C4%C2%A0-namednodemap" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>📌 4. <code>NamedNodeMap</code></strong></h2>
+<p><strong>来源</strong>：</p>
+<ul>
+<li><code>element.attributes</code></li>
+</ul>
+<p><strong>特点</strong>：</p>
+<ul>
+<li>
+<p>表示元素的所有属性（如 <code>&lt;div id=&quot;box&quot; class=&quot;red&quot;&gt;</code> 的 <code>id</code> 和 <code>class</code>）。</p>
+</li>
+<li>
+<p>可以通过 <code>getNamedItem()</code> 获取属性。</p>
+</li>
+</ul>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-javascript">const div = document.querySelector('div');
+const attrs = div.attributes; // NamedNodeMap
+
+console.log(attrs.length); // 属性数量
+console.log(attrs.getNamedItem('class').value); // &quot;red&quot;
+
+</code></pre>
+<p><strong>转换数组</strong>：</p>
+<pre><code class="language-javascript">const attrArray = Array.from(attrs); // 或 [...attrs]
+
+</code></pre>
+<hr />
+<h2><a id="%F0%9F%93%8C5%C2%A0-radionodelist" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>📌 5. <code>RadioNodeList</code></strong></h2>
+<p><strong>来源</strong>：</p>
+<ul>
+<li><code>formElement.elements</code>（表单控件集合）</li>
+</ul>
+<p><strong>特点</strong>：</p>
+<ul>
+<li>
+<p>针对 <code>&lt;input type=&quot;radio&quot;&gt;</code> 和 <code>&lt;input type=&quot;checkbox&quot;&gt;</code> 的集合。</p>
+</li>
+<li>
+<p>可以直接获取选中的值（<code>value</code>）。</p>
+</li>
+</ul>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-html">&lt;form id=&quot;myForm&quot;&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;gender&quot; value=&quot;male&quot;&gt; Male
+    &lt;input type=&quot;radio&quot; name=&quot;gender&quot; value=&quot;female&quot;&gt; Female
+&lt;/form&gt;
+
+</code></pre>
+<pre><code class="language-javascript">const form = document.getElementById('myForm');
+const genders = form.elements['gender']; // RadioNodeList
+
+console.log(genders.value); // 获取选中的值（如 &quot;male&quot;）
+</code></pre>
+<p><strong>转换数组</strong>：</p>
+<p>javascript</p>
+<p>const genderArray = Array.from(genders); // 或 [...genders]</p>
+<hr />
+<h2><a id="%F0%9F%93%8C6%C2%A0-filelist" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>📌 6. <code>FileList</code></strong></h2>
+<p><strong>来源</strong>：</p>
+<ul>
+<li><code>&lt;input type=&quot;file&quot;&gt;</code> 的 <code>files</code> 属性</li>
+</ul>
+<p><strong>特点</strong>：</p>
+<ul>
+<li>
+<p>表示用户选择的文件列表。</p>
+</li>
+<li>
+<p>可以通过索引访问文件（<code>File</code> 对象）。</p>
+</li>
+</ul>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-html">&lt;input type=&quot;file&quot; id=&quot;fileInput&quot; multiple&gt;
+</code></pre>
+<pre><code class="language-javascript">const fileInput = document.getElementById('fileInput');
+fileInput.addEventListener('change', (e) =&gt; {
+    const files = e.target.files; // FileList
+    console.log(files[0].name); // 第一个文件名
+});
+
+</code></pre>
+<p><strong>转换数组</strong>：</p>
+<p>javascript</p>
+<p>const fileArray = Array.from(files); // 或 [...files]</p>
+<hr />
+<h2><a id="%F0%9F%8E%AF%E5%A6%82%E4%BD%95%E6%93%8D%E4%BD%9C%E7%B1%BB%E6%95%B0%E7%BB%84%EF%BC%9F" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>🎯 如何操作类数组？</strong></h2>
+<ol>
+<li>
+<p><strong>遍历</strong>：</p>
+<ul>
+<li>
+<p><code>for</code> 循环</p>
+</li>
+<li>
+<p><code>for...of</code>（推荐）</p>
+</li>
+<li>
+<p><code>forEach</code>（如果支持，如 <code>NodeList</code>、<code>DOMTokenList</code>）</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>转数组</strong>：</p>
+<ul>
+<li>
+<p><code>Array.from()</code></p>
+</li>
+<li>
+<p><code>[...arrayLike]</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>调用数组方法</strong>：</p>
+<p>javascript</p>
+<p>const divs = document.querySelectorAll('div');<br />
+const divTexts = Array.from(divs).map(div =&gt; div.textContent);</p>
+</li>
+</ol>
+<hr />
+<h3><a id="%F0%9F%92%A1%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>💡 注意事项</strong></h3>
+<ul>
+<li>
+<p><strong><code>HTMLCollection</code> 和动态 <code>NodeList</code> 会实时更新</strong>，如果在循环中修改 DOM 可能会导致问题。</p>
+</li>
+<li>
+<p><strong>尽量使用 <code>querySelectorAll</code></strong>（返回静态 <code>NodeList</code>），避免 <code>getElementsBy*</code>（返回动态 <code>HTMLCollection</code>）。</p>
+</li>
+<li>
+<p><strong>现代浏览器支持 <code>NodeList.forEach</code></strong>，但旧版 IE 不支持。</p>
+</li>
+</ul>
+<p>现在你可以轻松区分和操作这些 DOM 类数组对象了！ 🚀</p>
+
+            </div>
+
+
+            <div style="margin-top: 50px;">
+
+                <!-- giscus 评论 -->
+                <script src="https://giscus.app/client.js"
+                        data-repo="layliu/giscus-comment"
+                        data-repo-id="R_kgDOJtN4ng"
+                        data-category="Announcements"
+                        data-category-id="DIC_kwDOJtN4ns4CXE-q"
+                        data-mapping="pathname"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="top"
+                        data-theme="light"
+                        data-lang="zh-CN"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+
+
+            </div>
+
+
+        </article>
+    </div>
+</div>
+
+<script src="asset/jquery-3.3.1.min.js"></script>
+
+<!-- 增加zoom效果 -->
+<script src="asset/zoom.js"></script>
+<!-- <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script> -->
+<script>
+    $(function () {
+        $('img').each(function () {
+            $(this).attr("data-action", 'zoom');
+        });
+    });
+</script>
+
+
+
+
+
+<script>
+    $(document).ready(function () {
+        $('#footer').show()
+    })
+
+
+</script>
+  <!-- <footer id="footer" class="cuckoo page-footer" style="display: none">
+    <div class="wrapper">
+        <p>Designed and Written by <a href="mailto:justbb@gmail.com">liulei</a></p>
+    </div>
+</footer> -->
+<!-- 
+ -->

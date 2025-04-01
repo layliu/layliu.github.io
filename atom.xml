@@ -3,11 +3,322 @@
   <title><![CDATA[JustBB]]></title>
   <link href="justbb.fun/atom.xml" rel="self"/>
   <link href="justbb.fun/"/>
-  <updated>2025-03-26T07:20:36+08:00</updated>
+  <updated>2025-03-31T20:51:16+08:00</updated>
   <id>justbb.fun/</id>
   <author>
     <name><![CDATA[]]></name>
   </author>
+  
+  <entry>
+    <title type="html"><![CDATA[Mac OS 下好用的开源免费虚拟机]]></title>
+    <link href="justbb.fun/17434201754930.html"/>
+    <updated>2025-03-31T19:22:55+08:00</updated>
+    <id>justbb.fun/17434201754930.html</id>
+    <content type="html">
+<![CDATA[<p>UTM <a href="https://mac.getutm.app/">https://mac.getutm.app/</a></p>
+<p>如果是苹果芯片，镜像请选择 <a href="https://www.microsoft.com/en-us/software-download/windows11arm64">window11 arm64 </a></p>
+<p>如果无法联网，提示必须联网登录micro账户，才能继续安装，但好多电脑卡在安装界面，识别不到网卡驱动。解决方法如下：重启电脑，在链接网络界面，也就是“让我们为你连接到网络”界面，按“Shift + F10”键，系统自动调出 cmd 命令框。（笔记本按fn+shift+F10）在 cmd 命令框，输入“OOBE\BypassNRO”（字母不需要区分大小写），按 Enter 键确认，计算机自动重启。</p>
+]]>
+    </content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[JS：DOM中的类数组对比]]></title>
+    <link href="justbb.fun/17433241976859.html"/>
+    <updated>2025-03-30T16:43:17+08:00</updated>
+    <id>justbb.fun/17433241976859.html</id>
+    <content type="html">
+<![CDATA[<p>在 DOM（文档对象模型）中，有许多类数组（Array-like）对象。它们类似于数组，可以使用索引访问元素，也有 <code>length</code> 属性，但不能直接使用数组方法（如 <code>push</code>、<code>pop</code>、<code>map</code> 等）。以下是常见的 DOM 类数组对象：</p>
+<h2><a id="%F0%9F%93%8C%E6%80%BB%E7%BB%93%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>**📌 总结：</h2>
+<table>
+<thead>
+<tr>
+<th>类数组对象</th>
+<th>来源</th>
+<th>动态更新</th>
+<th>支持 <code>forEach</code></th>
+<th>转换数组方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>NodeList</code></strong></td>
+<td><code>querySelectorAll</code>, <code>childNodes</code></td>
+<td>部分动态（<code>childNodes</code>是动态的）</td>
+<td>✅</td>
+<td><code>Array.from()</code>/ <code>[...]</code></td>
+</tr>
+<tr>
+<td><strong><code>HTMLCollection</code></strong></td>
+<td><code>getElementsByTagName</code>, <code>children</code></td>
+<td>✅ 是</td>
+<td>❌</td>
+<td><code>Array.from()</code>/ <code>[...]</code></td>
+</tr>
+<tr>
+<td><strong><code>DOMTokenList</code></strong></td>
+<td><code>classList</code></td>
+<td>✅ 是</td>
+<td>✅</td>
+<td><code>Array.from()</code>/ <code>[...]</code></td>
+</tr>
+<tr>
+<td><strong><code>NamedNodeMap</code></strong></td>
+<td><code>attributes</code></td>
+<td>✅ 是</td>
+<td>❌</td>
+<td><code>Array.from()</code>/ <code>[...]</code></td>
+</tr>
+<tr>
+<td><strong><code>RadioNodeList</code></strong></td>
+<td><code>form.elements</code></td>
+<td>✅ 是</td>
+<td>❌</td>
+<td><code>Array.from()</code>/ <code>[...]</code></td>
+</tr>
+<tr>
+<td><strong><code>FileList</code></strong></td>
+<td><code>&lt;input type=&quot;file&quot;&gt;.files</code></td>
+<td>❌ 否</td>
+<td>❌</td>
+<td><code>Array.from()</code>/ <code>[...]</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2><a id="%F0%9F%93%8C1%C2%A0-nodelist" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>📌 1. <code>NodeList</code></strong></h2>
+<p><strong>来源</strong>：</p>
+<ul>
+<li>
+<p><code>document.querySelectorAll()</code></p>
+</li>
+<li>
+<p><code>element.childNodes</code></p>
+</li>
+</ul>
+<p><strong>特点</strong>：</p>
+<ul>
+<li>
+<p>静态 <code>NodeList</code>（如 <code>querySelectorAll</code> 返回的）不会随 DOM 变化自动更新。</p>
+</li>
+<li>
+<p>动态 <code>NodeList</code>（如 <code>childNodes</code>）会实时反映 DOM 的变化。</p>
+</li>
+</ul>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-javascript">
+const divs = document.querySelectorAll('div'); // 静态 NodeList
+const children = document.body.childNodes;     // 动态 NodeList
+
+console.log(divs.length); // 可以获取长度
+divs.forEach(div =&gt; console.log(div)); // 支持 forEach
+// divs.map(...) // ❌ 报错，不能直接使用数组方法
+</code></pre>
+<p><strong>转换数组</strong>：</p>
+<pre><code class="language-javascript">const divArray = Array.from(divs); // 或 [...divs]
+</code></pre>
+<hr />
+<h2><a id="%F0%9F%93%8C2%C2%A0-htmlcollection" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>📌 2. <code>HTMLCollection</code></strong></h2>
+<p><strong>来源</strong>：</p>
+<ul>
+<li>
+<p><code>document.getElementsByClassName()</code></p>
+</li>
+<li>
+<p><code>document.getElementsByTagName()</code></p>
+</li>
+<li>
+<p><code>element.children</code></p>
+</li>
+</ul>
+<p><strong>特点</strong>：</p>
+<ul>
+<li>
+<p><strong>动态集合</strong>，会实时反映 DOM 的变化。</p>
+</li>
+<li>
+<p><strong>只有 <code>length</code> 和索引访问</strong>，没有 <code>forEach</code> 等数组方法。</p>
+</li>
+</ul>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-javascript">const divs = document.getElementsByTagName('div'); // HTMLCollection
+console.log(divs.length); // 可以获取长度
+// divs.forEach(...) // ❌ 报错，没有 forEach
+for (let i = 0; i &lt; divs.length; i++) {
+    console.log(divs[i]); // 用索引访问
+}
+
+</code></pre>
+<p><strong>转换数组</strong>：</p>
+<pre><code class="language-javascript">const divArray = Array.from(divs); // 或 [...divs]
+</code></pre>
+<hr />
+<h2><a id="%F0%9F%93%8C3%C2%A0-domtokenlist" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>📌 3. <code>DOMTokenList</code></strong></h2>
+<p><strong>来源</strong>：</p>
+<ul>
+<li><code>element.classList</code></li>
+</ul>
+<p><strong>特点</strong>：</p>
+<ul>
+<li>
+<p>表示元素的类名列表（如 <code>class=&quot;btn active&quot;</code>）。</p>
+</li>
+<li>
+<p>有 <code>add()</code>、<code>remove()</code>、<code>toggle()</code>、<code>contains()</code> 方法。</p>
+</li>
+<li>
+<p>支持 <code>forEach</code>，但没有 <code>map</code>、<code>filter</code>。</p>
+</li>
+</ul>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-javascript">const btn = document.querySelector('button');
+const classes = btn.classList; // DOMTokenList
+
+classes.add('new-class'); // 添加类
+classes.remove('old-class'); // 移除类
+classes.forEach(cls =&gt; console.log(cls)); // 支持 forEach
+</code></pre>
+<p><strong>转换数组</strong>：</p>
+<pre><code class="language-javascript">const classArray = Array.from(classes); // 或 [...classes]
+
+</code></pre>
+<hr />
+<h2><a id="%F0%9F%93%8C4%C2%A0-namednodemap" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>📌 4. <code>NamedNodeMap</code></strong></h2>
+<p><strong>来源</strong>：</p>
+<ul>
+<li><code>element.attributes</code></li>
+</ul>
+<p><strong>特点</strong>：</p>
+<ul>
+<li>
+<p>表示元素的所有属性（如 <code>&lt;div id=&quot;box&quot; class=&quot;red&quot;&gt;</code> 的 <code>id</code> 和 <code>class</code>）。</p>
+</li>
+<li>
+<p>可以通过 <code>getNamedItem()</code> 获取属性。</p>
+</li>
+</ul>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-javascript">const div = document.querySelector('div');
+const attrs = div.attributes; // NamedNodeMap
+
+console.log(attrs.length); // 属性数量
+console.log(attrs.getNamedItem('class').value); // &quot;red&quot;
+
+</code></pre>
+<p><strong>转换数组</strong>：</p>
+<pre><code class="language-javascript">const attrArray = Array.from(attrs); // 或 [...attrs]
+
+</code></pre>
+<hr />
+<h2><a id="%F0%9F%93%8C5%C2%A0-radionodelist" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>📌 5. <code>RadioNodeList</code></strong></h2>
+<p><strong>来源</strong>：</p>
+<ul>
+<li><code>formElement.elements</code>（表单控件集合）</li>
+</ul>
+<p><strong>特点</strong>：</p>
+<ul>
+<li>
+<p>针对 <code>&lt;input type=&quot;radio&quot;&gt;</code> 和 <code>&lt;input type=&quot;checkbox&quot;&gt;</code> 的集合。</p>
+</li>
+<li>
+<p>可以直接获取选中的值（<code>value</code>）。</p>
+</li>
+</ul>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-html">&lt;form id=&quot;myForm&quot;&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;gender&quot; value=&quot;male&quot;&gt; Male
+    &lt;input type=&quot;radio&quot; name=&quot;gender&quot; value=&quot;female&quot;&gt; Female
+&lt;/form&gt;
+
+</code></pre>
+<pre><code class="language-javascript">const form = document.getElementById('myForm');
+const genders = form.elements['gender']; // RadioNodeList
+
+console.log(genders.value); // 获取选中的值（如 &quot;male&quot;）
+</code></pre>
+<p><strong>转换数组</strong>：</p>
+<p>javascript</p>
+<p>const genderArray = Array.from(genders); // 或 [...genders]</p>
+<hr />
+<h2><a id="%F0%9F%93%8C6%C2%A0-filelist" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>📌 6. <code>FileList</code></strong></h2>
+<p><strong>来源</strong>：</p>
+<ul>
+<li><code>&lt;input type=&quot;file&quot;&gt;</code> 的 <code>files</code> 属性</li>
+</ul>
+<p><strong>特点</strong>：</p>
+<ul>
+<li>
+<p>表示用户选择的文件列表。</p>
+</li>
+<li>
+<p>可以通过索引访问文件（<code>File</code> 对象）。</p>
+</li>
+</ul>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-html">&lt;input type=&quot;file&quot; id=&quot;fileInput&quot; multiple&gt;
+</code></pre>
+<pre><code class="language-javascript">const fileInput = document.getElementById('fileInput');
+fileInput.addEventListener('change', (e) =&gt; {
+    const files = e.target.files; // FileList
+    console.log(files[0].name); // 第一个文件名
+});
+
+</code></pre>
+<p><strong>转换数组</strong>：</p>
+<p>javascript</p>
+<p>const fileArray = Array.from(files); // 或 [...files]</p>
+<hr />
+<h2><a id="%F0%9F%8E%AF%E5%A6%82%E4%BD%95%E6%93%8D%E4%BD%9C%E7%B1%BB%E6%95%B0%E7%BB%84%EF%BC%9F" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>🎯 如何操作类数组？</strong></h2>
+<ol>
+<li>
+<p><strong>遍历</strong>：</p>
+<ul>
+<li>
+<p><code>for</code> 循环</p>
+</li>
+<li>
+<p><code>for...of</code>（推荐）</p>
+</li>
+<li>
+<p><code>forEach</code>（如果支持，如 <code>NodeList</code>、<code>DOMTokenList</code>）</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>转数组</strong>：</p>
+<ul>
+<li>
+<p><code>Array.from()</code></p>
+</li>
+<li>
+<p><code>[...arrayLike]</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>调用数组方法</strong>：</p>
+<p>javascript</p>
+<p>const divs = document.querySelectorAll('div');<br />
+const divTexts = Array.from(divs).map(div =&gt; div.textContent);</p>
+</li>
+</ol>
+<hr />
+<h3><a id="%F0%9F%92%A1%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>💡 注意事项</strong></h3>
+<ul>
+<li>
+<p><strong><code>HTMLCollection</code> 和动态 <code>NodeList</code> 会实时更新</strong>，如果在循环中修改 DOM 可能会导致问题。</p>
+</li>
+<li>
+<p><strong>尽量使用 <code>querySelectorAll</code></strong>（返回静态 <code>NodeList</code>），避免 <code>getElementsBy*</code>（返回动态 <code>HTMLCollection</code>）。</p>
+</li>
+<li>
+<p><strong>现代浏览器支持 <code>NodeList.forEach</code></strong>，但旧版 IE 不支持。</p>
+</li>
+</ul>
+<p>现在你可以轻松区分和操作这些 DOM 类数组对象了！ 🚀</p>
+]]>
+    </content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[JS：DOM基础操作相关属性和方法]]></title>
@@ -767,114 +1078,163 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[JS：DOM常用节点方法与属性]]></title>
+    <title type="html"><![CDATA[JS：DOM元素获取方法]]></title>
     <link href="justbb.fun/17428943600747.html"/>
     <updated>2025-03-25T17:19:20+08:00</updated>
     <id>justbb.fun/17428943600747.html</id>
     <content type="html">
-<![CDATA[<h2><a id="%E5%B8%B8%E7%94%A8%E8%8A%82%E7%82%B9%E6%93%8D%E4%BD%9C" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>常用节点操作</h2>
-<h3><a id="%E8%8E%B7%E5%8F%96%E8%8A%82%E7%82%B9" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>获取节点</h3>
-<pre><code class="language-javascript">// 通过ID获取
-document.getElementById('id')
-
-// 通过类名获取（返回HTMLCollection）
-document.getElementsByClassName('class')
-
-// 通过标签名获取（返回HTMLCollection）
-document.getElementsByTagName('div')
-
-// 通过CSS选择器获取（返回第一个匹配元素）
-document.querySelector('.class')
-
-// 通过CSS选择器获取所有匹配元素（返回NodeList）
-document.querySelectorAll('div.class')
+<![CDATA[<h2><a id="%E4%B8%80%E3%80%81%E6%8C%89id%E8%8E%B7%E5%8F%96" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>一、按 ID 获取</h2>
+<h3><a id="getelementbyid" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>getElementById()</code></h3>
+<pre><code class="language-javascript">const element = document.getElementById('myId');
 </code></pre>
-<h3><a id="%E5%88%9B%E5%BB%BA%E8%8A%82%E7%82%B9" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>创建节点</h3>
-<pre><code class="language-javascript">// 创建元素节点
-const newDiv = document.createElement('div')
-
-// 创建文本节点
-const newText = document.createTextNode('Hello World')
-
-// 创建属性节点（通常直接设置属性）
-newDiv.setAttribute('id', 'myDiv')
-
-</code></pre>
-<h3><a id="%E4%BF%AE%E6%94%B9%E8%8A%82%E7%82%B9" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>修改节点</h3>
-<pre><code class="language-javascript">// 修改文本内容
-element.textContent = '新内容'
-element.innerHTML = '&lt;strong&gt;HTML内容&lt;/strong&gt;'
-
-// 修改样式
-element.style.color = 'red'
-element.style.backgroundColor = '#fff'
-
-// 修改类
-element.classList.add('new-class')
-element.classList.remove('old-class')
-element.classList.toggle('active')
-</code></pre>
-<h3><a id="%E8%8A%82%E7%82%B9%E5%85%B3%E7%B3%BB" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>节点关系</h3>
-<pre><code class="language-javascript">// 父节点
-element.parentNode
-
-// 子节点
-element.childNodes // 所有类型子节点
-element.children // 仅元素子节点
-
-// 兄弟节点
-element.nextSibling
-element.previousSibling
-element.nextElementSibling // 仅元素节点
-element.previousElementSibling // 仅元素节点
-
-</code></pre>
-<h3><a id="%E6%B7%BB%E5%8A%A0%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>添加/删除节点</h3>
-<pre><code class="language-javascript">// 添加子节点
-parentElement.appendChild(newElement)
-
-// 插入节点
-parentElement.insertBefore(newElement, referenceElement)
-
-// 替换节点
-parentElement.replaceChild(newElement, oldElement)
-
-// 删除节点
-parentElement.removeChild(childElement)
-// 或现代方式
-element.remove()
-
-</code></pre>
-<h2><a id="%E5%B8%B8%E7%94%A8%E5%85%83%E7%B4%A0%E5%B1%9E%E6%80%A7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>常用元素属性</h2>
 <ul>
 <li>
-<p><code>id</code> - 元素唯一标识</p>
+<p>返回匹配指定 ID 的<strong>单个元素</strong></p>
 </li>
 <li>
-<p><code>className</code> - 元素的class属性</p>
+<p>如果找不到返回 <code>null</code></p>
 </li>
 <li>
-<p><code>classList</code> - 更方便操作class的API</p>
-</li>
-<li>
-<p><code>tagName</code> - 元素的标签名</p>
-</li>
-<li>
-<p><code>innerHTML</code> - 元素内的HTML内容</p>
-</li>
-<li>
-<p><code>textContent</code> - 元素内的文本内容</p>
-</li>
-<li>
-<p><code>value</code> - 表单元素的值</p>
-</li>
-<li>
-<p><code>style</code> - 元素的样式对象</p>
-</li>
-<li>
-<p><code>attributes</code> - 元素的所有属性集合</p>
+<p><strong>性能最优</strong>的查找方式</p>
 </li>
 </ul>
+<h2><a id="%E4%BA%8C%E3%80%81%E6%8C%89%E7%B1%BB%E5%90%8D%E8%8E%B7%E5%8F%96" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>二、按类名获取</h2>
+<h3><a id="getelementsbyclassname" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>getElementsByClassName()</code></h3>
+<pre><code class="language-javascript">const elements = document.getElementsByClassName('myClass');
+</code></pre>
+<ul>
+<li>
+<p>返回包含所有指定类名的<strong>动态 HTMLCollection</strong></p>
+</li>
+<li>
+<p>可以在特定元素上调用：<code>element.getElementsByClassName()</code></p>
+</li>
+</ul>
+<h2><a id="%E4%B8%89%E3%80%81%E6%8C%89%E6%A0%87%E7%AD%BE%E5%90%8D%E8%8E%B7%E5%8F%96" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>三、按标签名获取</h2>
+<h3><a id="getelementsbytagname" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>getElementsByTagName()</code></h3>
+<pre><code class="language-javascript">const divs = document.getElementsByTagName('div');
+</code></pre>
+<ul>
+<li>
+<p>返回所有指定标签的<strong>动态 HTMLCollection</strong></p>
+</li>
+<li>
+<p>支持通配符 <code>'*'</code> 获取所有元素</p>
+</li>
+</ul>
+<h2><a id="%E5%9B%9B%E3%80%81%E6%8C%89css%E9%80%89%E6%8B%A9%E5%99%A8%E8%8E%B7%E5%8F%96" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>四、按 CSS 选择器获取</h2>
+<h3><a id="queryselector" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>querySelector()</code></h3>
+<pre><code class="language-javascript">const element = document.querySelector('.container &gt; p.active');
+</code></pre>
+<ul>
+<li>
+<p>返回<strong>第一个</strong>匹配 CSS 选择器的元素</p>
+</li>
+<li>
+<p>找不到返回 <code>null</code></p>
+</li>
+</ul>
+<h3><a id="queryselectorall" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>querySelectorAll()</code></h3>
+<pre><code class="language-javascript">const elements = document.querySelectorAll('div.note');
+</code></pre>
+<ul>
+<li>
+<p>返回所有匹配元素的<strong>静态 NodeList</strong></p>
+</li>
+<li>
+<p>支持复杂 CSS 选择器</p>
+</li>
+</ul>
+<h2><a id="%E4%BA%94%E3%80%81%E6%8C%89name%E5%B1%9E%E6%80%A7%E8%8E%B7%E5%8F%96" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>五、按 name 属性获取</h2>
+<h3><a id="getelementsbyname" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>getElementsByName()</code></h3>
+<pre><code class="language-javascript">const inputs = document.getElementsByName('username');
+</code></pre>
+<ul>
+<li>
+<p>主要用于表单元素</p>
+</li>
+<li>
+<p>返回<strong>动态 NodeList</strong></p>
+</li>
+</ul>
+<h2><a id="%E5%85%AD%E3%80%81%E7%89%B9%E6%AE%8A%E9%9B%86%E5%90%88" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>六、特殊集合</h2>
+<h3><a id="%E6%96%87%E6%A1%A3%E7%BA%A7%E5%BF%AB%E6%8D%B7%E8%AE%BF%E9%97%AE" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>文档级快捷访问</h3>
+<pre><code class="language-javascript">document.head      // &lt;head&gt; 元素
+document.body      // &lt;body&gt; 元素
+document.forms     // 所有 &lt;form&gt; 元素
+document.images    // 所有 &lt;img&gt; 元素
+document.links     // 所有 &lt;a&gt; 和 &lt;area&gt; 元素
+document.scripts   // 所有 &lt;script&gt; 元素
+</code></pre>
+<h2><a id="%E4%B8%83%E3%80%81dom%E9%81%8D%E5%8E%86%E5%B1%9E%E6%80%A7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>七、DOM 遍历属性</h2>
+<h3><a id="%E8%8A%82%E7%82%B9%E5%85%B3%E7%B3%BB" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>节点关系</h3>
+<pre><code class="language-javascript">element.parentElement      // 父元素
+element.children          // 子元素集合 (HTMLCollection)
+element.firstElementChild // 第一个子元素
+element.lastElementChild  // 最后一个子元素
+element.nextElementSibling // 下一个兄弟元素
+element.previousElementSibling // 上一个兄弟元素
+</code></pre>
+<h3><a id="%E8%8A%82%E7%82%B9%E4%BF%A1%E6%81%AF" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>节点信息</h3>
+<pre><code class="language-javascript">element.tagName       // 标签名 (大写)
+element.id            // ID 属性
+element.className     // class 属性
+element.classList     // class 列表 (DOMTokenList)
+</code></pre>
+<h2><a id="%E5%85%AB%E3%80%81%E5%8A%A8%E6%80%81vs%E9%9D%99%E6%80%81%E9%9B%86%E5%90%88" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>八、动态 vs 静态集合</h2>
+<table>
+<thead>
+<tr>
+<th>方法/属性</th>
+<th>返回类型</th>
+<th>是否动态更新</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>getElementsBy*</code></td>
+<td>HTMLCollection</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>querySelectorAll</code></td>
+<td>NodeList</td>
+<td>❌</td>
+</tr>
+<tr>
+<td><code>childNodes</code></td>
+<td>NodeList</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>children</code></td>
+<td>HTMLCollection</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<h2><a id="%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%E5%BB%BA%E8%AE%AE" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>最佳实践建议</h2>
+<ol>
+<li>
+<p><strong>优先使用 <code>getElementById</code></strong> - 性能最佳</p>
+</li>
+<li>
+<p><strong>需要复杂选择时用 <code>querySelector/All</code></strong> - 更灵活</p>
+</li>
+<li>
+<p><strong>注意动态集合的性能影响</strong> - 频繁访问可能导致重排</p>
+</li>
+<li>
+<p><strong>现代项目推荐使用 <code>querySelector</code></strong> - 更统一的 API</p>
+</li>
+</ol>
+<h2><a id="%E7%A4%BA%E4%BE%8B%E7%BB%84%E5%90%88%E4%BD%BF%E7%94%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例组合使用</h2>
+<pre><code class="language-javascript">// 获取表单中所有必填输入框
+const requiredInputs = document.querySelectorAll('form#userForm input[required]');
+
+// 获取表格中奇数行
+const oddRows = document.querySelectorAll('table.striped tr:nth-child(odd)');
+</code></pre>
 ]]>
     </content>
   </entry>
@@ -4085,263 +4445,6 @@ car.drive(); // 输出: Driving Toyota Corolla
 <p>对象与属性的关系是紧密的，属性属于对象，对象通过属性来存储和操作数据。</p>
 </li>
 </ul>
-]]>
-    </content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[JS：数组方法列表]]></title>
-    <link href="justbb.fun/17416119491548.html"/>
-    <updated>2025-03-10T21:05:49+08:00</updated>
-    <id>justbb.fun/17416119491548.html</id>
-    <content type="html">
-<![CDATA[<table>
-<thead>
-<tr>
-<th>方法名</th>
-<th>修改原数组</th>
-<th>方法执行后返回值</th>
-<th>函数功能</th>
-<th>备注</th>
-<th>文档链接</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>push</td>
-<td>是</td>
-<td>原数组length值</td>
-<td>修改数组</td>
-<td>添加数据到数组末尾</td>
-<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/push">链接</a></td>
-</tr>
-<tr>
-<td>pop</td>
-<td>是</td>
-<td>被删除的元素</td>
-<td>修改数组</td>
-<td>删除数组末尾最后一个数据</td>
-<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/pop">链接</a></td>
-</tr>
-<tr>
-<td>shift</td>
-<td>是</td>
-<td>被删除的元素</td>
-<td>修改数组</td>
-<td>删除数组开头第一个元素</td>
-<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/shift">链接</a></td>
-</tr>
-<tr>
-<td>unshift</td>
-<td>是</td>
-<td>原数组的length值</td>
-<td>修改数组</td>
-<td>给数组开头添加数据</td>
-<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift">链接</a></td>
-</tr>
-<tr>
-<td>splice</td>
-<td>是</td>
-<td>被删除的数据组成的一个新数组</td>
-<td>修改数组</td>
-<td>删除或添加数据到数组中</td>
-<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/splice">链接</a></td>
-</tr>
-<tr>
-<td>slice</td>
-<td>否</td>
-<td>新数组</td>
-<td>获取数组中部分数据</td>
-<td>赋值数组中的数据</td>
-<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/slice">链接</a></td>
-</tr>
-<tr>
-<td>*forEach</td>
-<td>否</td>
-<td>无</td>
-<td>处理数据</td>
-<td>遍历，无返回值（undefined）</td>
-<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach">链接</a></td>
-</tr>
-<tr>
-<td>*map</td>
-<td>否</td>
-<td>新数组</td>
-<td>处理数据</td>
-<td>遍历，返回新数组</td>
-<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/map">链接</a></td>
-</tr>
-<tr>
-<td>*some</td>
-<td>否</td>
-<td>布尔值</td>
-<td>判断</td>
-<td>只要有检测函数返回真值，返回true</td>
-<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/some">链接</a></td>
-</tr>
-<tr>
-<td>*filter</td>
-<td>否</td>
-<td>新数组</td>
-<td>获取数组中部分数据</td>
-<td>返回符合检测函数的数据组成的新数组</td>
-<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">链接</a></td>
-</tr>
-<tr>
-<td>*every</td>
-<td>否</td>
-<td>布尔值</td>
-<td>判断</td>
-<td>所有数据的检测函数都返回真值，返回true</td>
-<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/every">链接</a></td>
-</tr>
-<tr>
-<td>*reduce</td>
-<td>否</td>
-<td>累加器中的数据</td>
-<td>数据处理并加总</td>
-<td>返回累加器中的数据</td>
-<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce">链接</a></td>
-</tr>
-<tr>
-<td>*reduceRight</td>
-<td>否</td>
-<td>累加器中的数据</td>
-<td>数据处理并加总</td>
-<td>返回累加器中的数据</td>
-<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/reduceRight">链接</a></td>
-</tr>
-<tr>
-<td>*sort</td>
-<td>是</td>
-<td>原数组</td>
-<td>排序</td>
-<td>排序专用</td>
-<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/sort">链接</a></td>
-</tr>
-<tr>
-<td>reverse</td>
-<td>是</td>
-<td>原数组</td>
-<td>排序</td>
-<td>反向排序</td>
-<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse">链接</a></td>
-</tr>
-<tr>
-<td>*findIndex</td>
-<td>否</td>
-<td>索引值</td>
-<td>找索引</td>
-<td>检测函数返回true，那么返回该数据的索引值</td>
-<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex">链接</a></td>
-</tr>
-<tr>
-<td>indexOf</td>
-<td>否</td>
-<td>索引值</td>
-<td>找索引</td>
-<td>返回第一个匹配数据的索引值（从左向右查）</td>
-<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf">链接</a></td>
-</tr>
-<tr>
-<td>lastIndexOf</td>
-<td>否</td>
-<td>索引值</td>
-<td>找索引</td>
-<td>返回最后一个匹配数据的索引值（从右往左查）</td>
-<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/lastIndexOf">链接</a></td>
-</tr>
-<tr>
-<td>*find</td>
-<td>否</td>
-<td>元素</td>
-<td>找元素</td>
-<td>返回检测函数返回真值的数据</td>
-<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/find">链接</a></td>
-</tr>
-<tr>
-<td>includes</td>
-<td>否</td>
-<td>布尔值</td>
-<td>判断</td>
-<td>如果传入的数据在数组中有，就返回true</td>
-<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/includes">链接</a></td>
-</tr>
-<tr>
-<td>concat</td>
-<td>否</td>
-<td>新数组</td>
-<td>合并数组</td>
-<td>原数组合并传入的数据（任何数据）到一个新数组</td>
-<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/concat">链接</a></td>
-</tr>
-<tr>
-<td>fill</td>
-<td>是</td>
-<td>原数组</td>
-<td>修改数组</td>
-<td>用某个数据覆盖填充数组中的数据</td>
-<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/fill">链接</a></td>
-</tr>
-<tr>
-<td>copyWithin</td>
-<td>是</td>
-<td>原数组</td>
-<td>修改数组</td>
-<td>用数组中的部分数据覆盖原数组中的指定索引位数据</td>
-<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/copuWithin">链接</a></td>
-</tr>
-<tr>
-<td>join</td>
-<td>否</td>
-<td>字符串</td>
-<td>转字符串</td>
-<td>链接所有数据为字符串</td>
-<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/join">链接</a></td>
-</tr>
-<tr>
-<td>keys</td>
-<td>否</td>
-<td>可迭代对象</td>
-<td>产生可迭代对象</td>
-<td>键值，就是属性名（都是数字）</td>
-<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/keys">链接</a></td>
-</tr>
-<tr>
-<td>values</td>
-<td>否</td>
-<td>可迭代对象</td>
-<td>产生可迭代对象</td>
-<td>值，数组中的数据</td>
-<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/values">链接</a></td>
-</tr>
-<tr>
-<td>entries</td>
-<td>否</td>
-<td>可迭代对象</td>
-<td>产生可迭代对象</td>
-<td>键值对，数组的形式，前面是属性名，后面是值</td>
-<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/entries">链接</a></td>
-</tr>
-</tbody>
-</table>
-]]>
-    </content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[孩子叛逆怎么办]]></title>
-    <link href="justbb.fun/17414456449769.html"/>
-    <updated>2025-03-08T22:54:04+08:00</updated>
-    <id>justbb.fun/17414456449769.html</id>
-    <content type="html">
-<![CDATA[<p>听曹操来了讲<a href="https://www.douyin.com/video/6953830580454853895">带娃</a>，他是一个在中国生活了二十多年的老外，对中美文化都很了解，看他视频也感觉他活得很通透，对很多现象都有自己的理解。</p>
-<p>他女儿最近想穿舌钉，作为爸爸肯定觉得这种有点危险，觉得女儿考虑的不全面，真穿了多半会后悔。<br />
-但14岁的叛逆期的孩子，直接说肯定不会听你的，作为家长有什么办法吗？</p>
-<p>曹操给的建议就是拖一下，她让孩子认真考虑一个月，一个月后如果还想打，就带她打。</p>
-<p>这段时间，可以让她好好冷静一下，她可能会去找一些打舌钉的好与坏，然后就渐渐对它失去兴趣了。</p>
-<p>但最大概率其实是，她可能忘了。</p>
-<p>所以这个问题就解决了。</p>
 ]]>
     </content>
   </entry>

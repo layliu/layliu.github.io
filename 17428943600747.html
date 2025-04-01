@@ -3,7 +3,7 @@
 
 <head>
     <title>
-         JS：DOM常用节点方法与属性 - JustBB 
+         JS：DOM元素获取方法 - JustBB 
     </title>
 
     <meta charset="UTF-8">
@@ -74,7 +74,7 @@
     <div class="wrapper">
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
             <header class="post-header">
-                <h1 class="post-title" itemprop="name headline">JS：DOM常用节点方法与属性</h1>
+                <h1 class="post-title" itemprop="name headline">JS：DOM元素获取方法</h1>
                 <div class="post-description">
                     
 
@@ -86,109 +86,158 @@
                 </div>
             </header>
             <div class="post-content" itemprop="articleBody">
-                <h2><a id="%E5%B8%B8%E7%94%A8%E8%8A%82%E7%82%B9%E6%93%8D%E4%BD%9C" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>常用节点操作</h2>
-<h3><a id="%E8%8E%B7%E5%8F%96%E8%8A%82%E7%82%B9" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>获取节点</h3>
-<pre><code class="language-javascript">// 通过ID获取
-document.getElementById('id')
-
-// 通过类名获取（返回HTMLCollection）
-document.getElementsByClassName('class')
-
-// 通过标签名获取（返回HTMLCollection）
-document.getElementsByTagName('div')
-
-// 通过CSS选择器获取（返回第一个匹配元素）
-document.querySelector('.class')
-
-// 通过CSS选择器获取所有匹配元素（返回NodeList）
-document.querySelectorAll('div.class')
+                <h2><a id="%E4%B8%80%E3%80%81%E6%8C%89id%E8%8E%B7%E5%8F%96" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>一、按 ID 获取</h2>
+<h3><a id="getelementbyid" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>getElementById()</code></h3>
+<pre><code class="language-javascript">const element = document.getElementById('myId');
 </code></pre>
-<h3><a id="%E5%88%9B%E5%BB%BA%E8%8A%82%E7%82%B9" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>创建节点</h3>
-<pre><code class="language-javascript">// 创建元素节点
-const newDiv = document.createElement('div')
-
-// 创建文本节点
-const newText = document.createTextNode('Hello World')
-
-// 创建属性节点（通常直接设置属性）
-newDiv.setAttribute('id', 'myDiv')
-
-</code></pre>
-<h3><a id="%E4%BF%AE%E6%94%B9%E8%8A%82%E7%82%B9" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>修改节点</h3>
-<pre><code class="language-javascript">// 修改文本内容
-element.textContent = '新内容'
-element.innerHTML = '&lt;strong&gt;HTML内容&lt;/strong&gt;'
-
-// 修改样式
-element.style.color = 'red'
-element.style.backgroundColor = '#fff'
-
-// 修改类
-element.classList.add('new-class')
-element.classList.remove('old-class')
-element.classList.toggle('active')
-</code></pre>
-<h3><a id="%E8%8A%82%E7%82%B9%E5%85%B3%E7%B3%BB" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>节点关系</h3>
-<pre><code class="language-javascript">// 父节点
-element.parentNode
-
-// 子节点
-element.childNodes // 所有类型子节点
-element.children // 仅元素子节点
-
-// 兄弟节点
-element.nextSibling
-element.previousSibling
-element.nextElementSibling // 仅元素节点
-element.previousElementSibling // 仅元素节点
-
-</code></pre>
-<h3><a id="%E6%B7%BB%E5%8A%A0%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>添加/删除节点</h3>
-<pre><code class="language-javascript">// 添加子节点
-parentElement.appendChild(newElement)
-
-// 插入节点
-parentElement.insertBefore(newElement, referenceElement)
-
-// 替换节点
-parentElement.replaceChild(newElement, oldElement)
-
-// 删除节点
-parentElement.removeChild(childElement)
-// 或现代方式
-element.remove()
-
-</code></pre>
-<h2><a id="%E5%B8%B8%E7%94%A8%E5%85%83%E7%B4%A0%E5%B1%9E%E6%80%A7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>常用元素属性</h2>
 <ul>
 <li>
-<p><code>id</code> - 元素唯一标识</p>
+<p>返回匹配指定 ID 的<strong>单个元素</strong></p>
 </li>
 <li>
-<p><code>className</code> - 元素的class属性</p>
+<p>如果找不到返回 <code>null</code></p>
 </li>
 <li>
-<p><code>classList</code> - 更方便操作class的API</p>
-</li>
-<li>
-<p><code>tagName</code> - 元素的标签名</p>
-</li>
-<li>
-<p><code>innerHTML</code> - 元素内的HTML内容</p>
-</li>
-<li>
-<p><code>textContent</code> - 元素内的文本内容</p>
-</li>
-<li>
-<p><code>value</code> - 表单元素的值</p>
-</li>
-<li>
-<p><code>style</code> - 元素的样式对象</p>
-</li>
-<li>
-<p><code>attributes</code> - 元素的所有属性集合</p>
+<p><strong>性能最优</strong>的查找方式</p>
 </li>
 </ul>
+<h2><a id="%E4%BA%8C%E3%80%81%E6%8C%89%E7%B1%BB%E5%90%8D%E8%8E%B7%E5%8F%96" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>二、按类名获取</h2>
+<h3><a id="getelementsbyclassname" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>getElementsByClassName()</code></h3>
+<pre><code class="language-javascript">const elements = document.getElementsByClassName('myClass');
+</code></pre>
+<ul>
+<li>
+<p>返回包含所有指定类名的<strong>动态 HTMLCollection</strong></p>
+</li>
+<li>
+<p>可以在特定元素上调用：<code>element.getElementsByClassName()</code></p>
+</li>
+</ul>
+<h2><a id="%E4%B8%89%E3%80%81%E6%8C%89%E6%A0%87%E7%AD%BE%E5%90%8D%E8%8E%B7%E5%8F%96" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>三、按标签名获取</h2>
+<h3><a id="getelementsbytagname" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>getElementsByTagName()</code></h3>
+<pre><code class="language-javascript">const divs = document.getElementsByTagName('div');
+</code></pre>
+<ul>
+<li>
+<p>返回所有指定标签的<strong>动态 HTMLCollection</strong></p>
+</li>
+<li>
+<p>支持通配符 <code>'*'</code> 获取所有元素</p>
+</li>
+</ul>
+<h2><a id="%E5%9B%9B%E3%80%81%E6%8C%89css%E9%80%89%E6%8B%A9%E5%99%A8%E8%8E%B7%E5%8F%96" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>四、按 CSS 选择器获取</h2>
+<h3><a id="queryselector" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>querySelector()</code></h3>
+<pre><code class="language-javascript">const element = document.querySelector('.container &gt; p.active');
+</code></pre>
+<ul>
+<li>
+<p>返回<strong>第一个</strong>匹配 CSS 选择器的元素</p>
+</li>
+<li>
+<p>找不到返回 <code>null</code></p>
+</li>
+</ul>
+<h3><a id="queryselectorall" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>querySelectorAll()</code></h3>
+<pre><code class="language-javascript">const elements = document.querySelectorAll('div.note');
+</code></pre>
+<ul>
+<li>
+<p>返回所有匹配元素的<strong>静态 NodeList</strong></p>
+</li>
+<li>
+<p>支持复杂 CSS 选择器</p>
+</li>
+</ul>
+<h2><a id="%E4%BA%94%E3%80%81%E6%8C%89name%E5%B1%9E%E6%80%A7%E8%8E%B7%E5%8F%96" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>五、按 name 属性获取</h2>
+<h3><a id="getelementsbyname" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>getElementsByName()</code></h3>
+<pre><code class="language-javascript">const inputs = document.getElementsByName('username');
+</code></pre>
+<ul>
+<li>
+<p>主要用于表单元素</p>
+</li>
+<li>
+<p>返回<strong>动态 NodeList</strong></p>
+</li>
+</ul>
+<h2><a id="%E5%85%AD%E3%80%81%E7%89%B9%E6%AE%8A%E9%9B%86%E5%90%88" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>六、特殊集合</h2>
+<h3><a id="%E6%96%87%E6%A1%A3%E7%BA%A7%E5%BF%AB%E6%8D%B7%E8%AE%BF%E9%97%AE" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>文档级快捷访问</h3>
+<pre><code class="language-javascript">document.head      // &lt;head&gt; 元素
+document.body      // &lt;body&gt; 元素
+document.forms     // 所有 &lt;form&gt; 元素
+document.images    // 所有 &lt;img&gt; 元素
+document.links     // 所有 &lt;a&gt; 和 &lt;area&gt; 元素
+document.scripts   // 所有 &lt;script&gt; 元素
+</code></pre>
+<h2><a id="%E4%B8%83%E3%80%81dom%E9%81%8D%E5%8E%86%E5%B1%9E%E6%80%A7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>七、DOM 遍历属性</h2>
+<h3><a id="%E8%8A%82%E7%82%B9%E5%85%B3%E7%B3%BB" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>节点关系</h3>
+<pre><code class="language-javascript">element.parentElement      // 父元素
+element.children          // 子元素集合 (HTMLCollection)
+element.firstElementChild // 第一个子元素
+element.lastElementChild  // 最后一个子元素
+element.nextElementSibling // 下一个兄弟元素
+element.previousElementSibling // 上一个兄弟元素
+</code></pre>
+<h3><a id="%E8%8A%82%E7%82%B9%E4%BF%A1%E6%81%AF" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>节点信息</h3>
+<pre><code class="language-javascript">element.tagName       // 标签名 (大写)
+element.id            // ID 属性
+element.className     // class 属性
+element.classList     // class 列表 (DOMTokenList)
+</code></pre>
+<h2><a id="%E5%85%AB%E3%80%81%E5%8A%A8%E6%80%81vs%E9%9D%99%E6%80%81%E9%9B%86%E5%90%88" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>八、动态 vs 静态集合</h2>
+<table>
+<thead>
+<tr>
+<th>方法/属性</th>
+<th>返回类型</th>
+<th>是否动态更新</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>getElementsBy*</code></td>
+<td>HTMLCollection</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>querySelectorAll</code></td>
+<td>NodeList</td>
+<td>❌</td>
+</tr>
+<tr>
+<td><code>childNodes</code></td>
+<td>NodeList</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>children</code></td>
+<td>HTMLCollection</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<h2><a id="%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%E5%BB%BA%E8%AE%AE" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>最佳实践建议</h2>
+<ol>
+<li>
+<p><strong>优先使用 <code>getElementById</code></strong> - 性能最佳</p>
+</li>
+<li>
+<p><strong>需要复杂选择时用 <code>querySelector/All</code></strong> - 更灵活</p>
+</li>
+<li>
+<p><strong>注意动态集合的性能影响</strong> - 频繁访问可能导致重排</p>
+</li>
+<li>
+<p><strong>现代项目推荐使用 <code>querySelector</code></strong> - 更统一的 API</p>
+</li>
+</ol>
+<h2><a id="%E7%A4%BA%E4%BE%8B%E7%BB%84%E5%90%88%E4%BD%BF%E7%94%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例组合使用</h2>
+<pre><code class="language-javascript">// 获取表单中所有必填输入框
+const requiredInputs = document.querySelectorAll('form#userForm input[required]');
+
+// 获取表格中奇数行
+const oddRows = document.querySelectorAll('table.striped tr:nth-child(odd)');
+</code></pre>
 
             </div>
 

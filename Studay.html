@@ -114,6 +114,24 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
+                        <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2025/03/30">2025-03-30T16:43:17+08:00</time></div>
+                        
+                        <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="17433241976859.html">JS：DOM中的类数组对比</a></h2>
+                        
+                        
+                        <span class="posted-cats"><a href='Studay.html'>Studay</a></span>
+                        
+                        
+                        <div itemprop="description" class="entry-description">
+                            
+                        </div>
+
+                    </div>
+                </li>
+                
+                <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
+                    <div class="entry-detail">
+
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2025/03/25">2025-03-25T19:34:32+08:00</time></div>
                         
                         <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="17428160726712.html">JS：DOM基础操作相关属性和方法</a></h2>
@@ -132,9 +150,9 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2025/03/25">2025-03-25T12:19:20+08:00</time></div>
+                        <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2025/03/25">2025-03-25T17:19:20+08:00</time></div>
                         
-                        <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="17428943600747.html">JS：DOM常用节点方法与属性</a></h2>
+                        <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="17428943600747.html">JS：DOM元素获取方法</a></h2>
                         
                         
                         <span class="posted-cats"><a href='Studay.html'>Studay</a></span>
@@ -432,6 +450,17 @@
     const updateCounts = [];
 
     // 遍历所有文章
+    
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2025/03/30"); // 直接使用 Date 构造函数
+        var pdateKey = pd
+
+        // 统计每天的更新次数
+        if (updateCounts[pdateKey]) {
+            updateCounts[pdateKey]++;
+        } else {
+            updateCounts[pdateKey] = 1;
+        }
     
         // 提取发布日期并转换为日期对象
         var pd = new Date("2025/03/25"); // 直接使用 Date 构造函数
