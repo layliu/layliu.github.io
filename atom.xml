@@ -3,7 +3,7 @@
   <title><![CDATA[JustBB]]></title>
   <link href="justbb.fun/atom.xml" rel="self"/>
   <link href="justbb.fun/"/>
-  <updated>2025-03-31T20:51:16+08:00</updated>
+  <updated>2025-04-01T08:52:07+08:00</updated>
   <id>justbb.fun/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -29,7 +29,7 @@
     <id>justbb.fun/17433241976859.html</id>
     <content type="html">
 <![CDATA[<p>在 DOM（文档对象模型）中，有许多类数组（Array-like）对象。它们类似于数组，可以使用索引访问元素，也有 <code>length</code> 属性，但不能直接使用数组方法（如 <code>push</code>、<code>pop</code>、<code>map</code> 等）。以下是常见的 DOM 类数组对象：</p>
-<h2><a id="%F0%9F%93%8C%E6%80%BB%E7%BB%93%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>**📌 总结：</h2>
+<h2><a id="%F0%9F%93%8C%E6%80%BB%E7%BB%93%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>📌 总结：</h2>
 <table>
 <thead>
 <tr>
@@ -315,7 +315,6 @@ const divTexts = Array.from(divs).map(div =&gt; div.textContent);</p>
 <p><strong>现代浏览器支持 <code>NodeList.forEach</code></strong>，但旧版 IE 不支持。</p>
 </li>
 </ul>
-<p>现在你可以轻松区分和操作这些 DOM 类数组对象了！ 🚀</p>
 ]]>
     </content>
   </entry>
