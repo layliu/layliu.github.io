@@ -3,7 +3,7 @@
 
 <head>
     <title>
-         About - JustBB 
+         做短线比较推荐的一些指标 - JustBB 
     </title>
 
     <meta charset="UTF-8">
@@ -66,48 +66,82 @@
 </html>
  <div class="page-content cuckoo">
     <div class="wrapper">
-        <article class="post">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
             <header class="post-header">
-                <h1 class="post-title">About</h1>
+                <h1 class="post-title" itemprop="name headline">做短线比较推荐的一些指标</h1>
+                <div class="post-description">
+                    
+
+                    <time datetime="2026/01/30">2026/01/30</time>
+                    
+                    <div class="author">@BB</div>
+
+
+                </div>
             </header>
-            <div class="post-content">
-                <p>JustBB</p>
-<p>瞎BB一些各种各样的投资想法，收集一些四处看到的投资技巧，盘中碎碎念，心得，AI知识库等等。</p>
+            <div class="post-content" itemprop="articleBody">
+                <p>其实很多时候做投资，买点比什么都重要，多看少操作，而确定买点其实可以看一些技术趋势指标来判断：</p>
+<ol>
+<li>一目均衡表（Ichimoku Kinko Hyo）</li>
+<li>RSI</li>
+<li>CMF</li>
+</ol>
 
             </div>
 
+
             <div style="margin-top: 50px;">
+
                 <!-- giscus 评论 -->
                 <script src="https://giscus.app/client.js"
-                data-repo="layliu/giscus-comment"
-                data-repo-id="R_kgDOJtN4ng"
-                data-category="Announcements"
-                data-category-id="DIC_kwDOJtN4ns4CXE-q"
-                data-mapping="pathname"
-                data-strict="0"
-                data-reactions-enabled="1"
-                data-emit-metadata="0"
-                data-input-position="top"
-                data-theme="light"
-                data-lang="zh-CN"
-                crossorigin="anonymous"
-                async>
+                        data-repo="layliu/giscus-comment"
+                        data-repo-id="R_kgDOJtN4ng"
+                        data-category="Announcements"
+                        data-category-id="DIC_kwDOJtN4ns4CXE-q"
+                        data-mapping="pathname"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="top"
+                        data-theme="light"
+                        data-lang="zh-CN"
+                        crossorigin="anonymous"
+                        async>
                 </script>
-           </div>
+
+
+            </div>
+
 
         </article>
     </div>
-    
 </div>
 
 <script src="asset/jquery-3.3.1.min.js"></script>
 
+<!-- 增加zoom效果 -->
+<script src="asset/zoom.js"></script>
+<!-- <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script> -->
 <script>
-    $(document).ready(function() {
+    $(function () {
+        $('img').each(function () {
+            $(this).attr("data-action", 'zoom');
+        });
+    });
+</script>
+
+
+
+
+
+<script>
+    $(document).ready(function () {
         $('#footer').show()
     })
+
+
 </script>
- <!-- <footer id="footer" class="cuckoo page-footer" style="display: none">
+  <!-- <footer id="footer" class="cuckoo page-footer" style="display: none">
     <div class="wrapper">
         <p>Designed and Written by <a href="mailto:justbb@gmail.com">liulei</a></p>
     </div>

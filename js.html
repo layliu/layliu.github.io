@@ -3,7 +3,7 @@
 
 <head>
     <title>
-         Archives - JustBB 
+         技术 - JustBB 
     </title>
 
     <meta charset="UTF-8">
@@ -64,7 +64,15 @@
 </body>
 
 </html>
- <!-- 引入 D3.js 和热力图库 -->
+ <script type="text/javascript">
+    function before_search() {
+        var searchVal = 'site:justbb.fun ' + document.getElementById('search_input').value;
+        document.getElementById('search_q').value = searchVal;
+        return true;
+    }
+</script>
+
+<!-- 引入 D3.js 和热力图库 -->
 <link rel="stylesheet" type="text/css" href="asset/calendar-heatmap.css">
 <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js" charset="utf-8"></script>
@@ -76,7 +84,19 @@
 <div class="page-content cuckoo" id="body" style="display: none">
     <div class="wrapper">
 
+        <!-- <ul class="right" id="search-wrap">
+            <li>
+                <form target="_blank" onsubmit="return before_search();" action="https://google.com/search"
+                    method="get">
+                    <input type="hidden" id="search_q" name="q" value="" />
+                    <input tabindex="1" type="search" id="search_input" placeholder="搜索内容" />
+                </form>
+            </li>
+        </ul> -->
+
         <div class="container"></div>
+        
+        
 
         <div class="home">
             <div class="divider">
@@ -88,27 +108,9 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2026/05/14">2026-05-14T10:06:52+08:00</time></div>
-                        
-                        <h2 class="pitem" itemprop="name" class="entry-title"><a itemprop="url" href="17787244129176.html">拍断大腿</a></h2>
-                        
-                        
-                        <span class="posted-cats"><a href='ssn.html'>碎碎念</a></span>
-                        
-                        
-                        <div itemprop="description" class="entry-description">
-                            
-                        </div>
-
-                    </div>
-                </li>
-                
-                <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
-                    <div class="entry-detail">
-
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2026/03/06">2026-03-06T17:17:57+08:00</time></div>
                         
-                        <h2 class="pitem" itemprop="name" class="entry-title"><a itemprop="url" href="17727886772543.html">积突信号怎么看</a></h2>
+                        <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="17727886772543.html">积突信号怎么看</a></h2>
                         
                         
                         <span class="posted-cats"><a href='js.html'>技术</a></span>
@@ -126,7 +128,7 @@
 
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2026/03/06">2026-03-06T16:52:36+08:00</time></div>
                         
-                        <h2 class="pitem" itemprop="name" class="entry-title"><a itemprop="url" href="17727871569002.html">CIS 动力系统指标</a></h2>
+                        <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="17727871569002.html">CIS 动力系统指标</a></h2>
                         
                         
                         <span class="posted-cats"><a href='js.html'>技术</a></span>
@@ -142,27 +144,9 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2026/02/12">2026-02-12T15:15:03+08:00</time></div>
-                        
-                        <h2 class="pitem" itemprop="name" class="entry-title"><a itemprop="url" href="17708805031246.html">双动量投资 高回报低风险策略</a></h2>
-                        
-                        
-                        <span class="posted-cats"><a href='cl.html'>策略</a></span>
-                        
-                        
-                        <div itemprop="description" class="entry-description">
-                            
-                        </div>
-
-                    </div>
-                </li>
-                
-                <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
-                    <div class="entry-detail">
-
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2026/02/08">2026-02-08T10:43:09+08:00</time></div>
                         
-                        <h2 class="pitem" itemprop="name" class="entry-title"><a itemprop="url" href="17705185898135.html">通达信指标模板</a></h2>
+                        <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="17705185898135.html">通达信指标模板</a></h2>
                         
                         
                         <span class="posted-cats"><a href='js.html'>技术</a></span>
@@ -180,7 +164,7 @@
 
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2026/02/08">2026-02-08T10:42:44+08:00</time></div>
                         
-                        <h2 class="pitem" itemprop="name" class="entry-title"><a itemprop="url" href="17705185643871.html">CIS交易术A股每日交易清单</a></h2>
+                        <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="17705185643871.html">CIS交易术A股每日交易清单</a></h2>
                         
                         
                         <span class="posted-cats"><a href='js.html'>技术</a></span>
@@ -196,27 +180,9 @@
                 <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
                     <div class="entry-detail">
 
-                        <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2026/02/08">2026-02-08T10:35:38+08:00</time></div>
-                        
-                        <h2 class="pitem" itemprop="name" class="entry-title"><a itemprop="url" href="17705181388006.html">CIS的股票交易术的原则</a></h2>
-                        
-                        
-                        <span class="posted-cats"><a href='cl.html'>策略</a></span>
-                        
-                        
-                        <div itemprop="description" class="entry-description">
-                            
-                        </div>
-
-                    </div>
-                </li>
-                
-                <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
-                    <div class="entry-detail">
-
                         <div class="pitem" class="entry-meta"><time class="entry-updated-time" datetime="2026/01/30">2026-01-30T17:18:19+08:00</time></div>
                         
-                        <h2 class="pitem" itemprop="name" class="entry-title"><a itemprop="url" href="17697646995184.html">做短线比较推荐的一些指标</a></h2>
+                        <h2  class="pitem" itemprop="name"  class="entry-title"><a itemprop="url" href="17697646995184.html">做短线比较推荐的一些指标</a></h2>
                         
                         
                         <span class="posted-cats"><a href='js.html'>技术</a></span>
@@ -239,7 +205,9 @@
 </div>
 
 <script src="asset/jquery-3.3.1.min.js"></script> 
-<script src="asset/utils.js"></script>
+ <script src="asset/utils.js"></script>
+
+
 
 <script>
     $(document).ready(function () {
@@ -251,141 +219,117 @@
         $('#body').show()
         $('#footer').show()
     })
+
 </script>
 
-<!-- 生成数据数组并渲染热力图 -->
+    <!-- 生成数据数组并渲染热力图 -->
 <script>
+    // 初始化一个空对象，用于存储每天的更新次数
     const updateCounts = [];
+    // 日期 → 文章URL列表 映射，用于点击跳转
     const dateArticles = {};
 
+    // 遍历所有文章
     
-        var pd = new Date("2026/05/14");
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2026/03/06"); // 直接使用 Date 构造函数
         var pdateKey = pd
         var dateKeyStr = pd.getFullYear() + '-' + String(pd.getMonth() + 1).padStart(2, '0') + '-' + String(pd.getDate()).padStart(2, '0');
 
+        // 统计每天的更新次数
         if (updateCounts[pdateKey]) {
             updateCounts[pdateKey]++;
         } else {
             updateCounts[pdateKey] = 1;
         }
 
-        if (!dateArticles[dateKeyStr]) {
-            dateArticles[dateKeyStr] = [];
-        }
-        dateArticles[dateKeyStr].push('17787244129176.html');
-    
-        var pd = new Date("2026/03/06");
-        var pdateKey = pd
-        var dateKeyStr = pd.getFullYear() + '-' + String(pd.getMonth() + 1).padStart(2, '0') + '-' + String(pd.getDate()).padStart(2, '0');
-
-        if (updateCounts[pdateKey]) {
-            updateCounts[pdateKey]++;
-        } else {
-            updateCounts[pdateKey] = 1;
-        }
-
+        // 记录每天的文章URL
         if (!dateArticles[dateKeyStr]) {
             dateArticles[dateKeyStr] = [];
         }
         dateArticles[dateKeyStr].push('17727886772543.html');
     
-        var pd = new Date("2026/03/06");
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2026/03/06"); // 直接使用 Date 构造函数
         var pdateKey = pd
         var dateKeyStr = pd.getFullYear() + '-' + String(pd.getMonth() + 1).padStart(2, '0') + '-' + String(pd.getDate()).padStart(2, '0');
 
+        // 统计每天的更新次数
         if (updateCounts[pdateKey]) {
             updateCounts[pdateKey]++;
         } else {
             updateCounts[pdateKey] = 1;
         }
 
+        // 记录每天的文章URL
         if (!dateArticles[dateKeyStr]) {
             dateArticles[dateKeyStr] = [];
         }
         dateArticles[dateKeyStr].push('17727871569002.html');
     
-        var pd = new Date("2026/02/12");
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2026/02/08"); // 直接使用 Date 构造函数
         var pdateKey = pd
         var dateKeyStr = pd.getFullYear() + '-' + String(pd.getMonth() + 1).padStart(2, '0') + '-' + String(pd.getDate()).padStart(2, '0');
 
+        // 统计每天的更新次数
         if (updateCounts[pdateKey]) {
             updateCounts[pdateKey]++;
         } else {
             updateCounts[pdateKey] = 1;
         }
 
-        if (!dateArticles[dateKeyStr]) {
-            dateArticles[dateKeyStr] = [];
-        }
-        dateArticles[dateKeyStr].push('17708805031246.html');
-    
-        var pd = new Date("2026/02/08");
-        var pdateKey = pd
-        var dateKeyStr = pd.getFullYear() + '-' + String(pd.getMonth() + 1).padStart(2, '0') + '-' + String(pd.getDate()).padStart(2, '0');
-
-        if (updateCounts[pdateKey]) {
-            updateCounts[pdateKey]++;
-        } else {
-            updateCounts[pdateKey] = 1;
-        }
-
+        // 记录每天的文章URL
         if (!dateArticles[dateKeyStr]) {
             dateArticles[dateKeyStr] = [];
         }
         dateArticles[dateKeyStr].push('17705185898135.html');
     
-        var pd = new Date("2026/02/08");
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2026/02/08"); // 直接使用 Date 构造函数
         var pdateKey = pd
         var dateKeyStr = pd.getFullYear() + '-' + String(pd.getMonth() + 1).padStart(2, '0') + '-' + String(pd.getDate()).padStart(2, '0');
 
+        // 统计每天的更新次数
         if (updateCounts[pdateKey]) {
             updateCounts[pdateKey]++;
         } else {
             updateCounts[pdateKey] = 1;
         }
 
+        // 记录每天的文章URL
         if (!dateArticles[dateKeyStr]) {
             dateArticles[dateKeyStr] = [];
         }
         dateArticles[dateKeyStr].push('17705185643871.html');
     
-        var pd = new Date("2026/02/08");
+        // 提取发布日期并转换为日期对象
+        var pd = new Date("2026/01/30"); // 直接使用 Date 构造函数
         var pdateKey = pd
         var dateKeyStr = pd.getFullYear() + '-' + String(pd.getMonth() + 1).padStart(2, '0') + '-' + String(pd.getDate()).padStart(2, '0');
 
+        // 统计每天的更新次数
         if (updateCounts[pdateKey]) {
             updateCounts[pdateKey]++;
         } else {
             updateCounts[pdateKey] = 1;
         }
 
-        if (!dateArticles[dateKeyStr]) {
-            dateArticles[dateKeyStr] = [];
-        }
-        dateArticles[dateKeyStr].push('17705181388006.html');
-    
-        var pd = new Date("2026/01/30");
-        var pdateKey = pd
-        var dateKeyStr = pd.getFullYear() + '-' + String(pd.getMonth() + 1).padStart(2, '0') + '-' + String(pd.getDate()).padStart(2, '0');
-
-        if (updateCounts[pdateKey]) {
-            updateCounts[pdateKey]++;
-        } else {
-            updateCounts[pdateKey] = 1;
-        }
-
+        // 记录每天的文章URL
         if (!dateArticles[dateKeyStr]) {
             dateArticles[dateKeyStr] = [];
         }
         dateArticles[dateKeyStr].push('17697646995184.html');
     
 
+    //将统计结果转换为数组
     const blogUpdates = Object.keys(updateCounts).map(pd => ({
             date: new Date(pd),
             count: updateCounts[pd]
         }));
+    console.log(blogUpdates);
 
-    var heatmap = calendarHeatmap()
+var heatmap = calendarHeatmap()
         .data(blogUpdates)
         .selector('.container')
         .tooltipEnabled(true)
@@ -400,8 +344,9 @@
                 window.location.href = articles[0];
             }
         });
-    
+
     heatmap();  
+
 </script>
   <!-- <footer id="footer" class="cuckoo page-footer" style="display: none">
     <div class="wrapper">

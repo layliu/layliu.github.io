@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+         积突信号怎么看 - JustBB 
+    </title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="欢迎来到JUST.bb这里是我的一个自留地，主要用来记录和分享一些工作、生活中的随笔、思考和总结。我希望通过文字，梳理自己的思路，沉淀经验，也希望能与志同道合的朋友们交流碰撞，共同成长。">
+
+    <link rel="stylesheet" type="text/css" href="asset/cuckoo.css">
+    <link rel="stylesheet" type="text/css" href="asset/main.css">
+    <link rel="shortcut icon" href="asset/favicon.ico" type="image/x-icon" />
+    <link rel="alternate" type="application/atom+xml" href="atom.xml" title="JustBB">
+
+    <link rel="stylesheet" href="asset/zoom.css">
+
+    <!-- 引入 Prism.js 核心 CSS -->
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="asset/prism-nord.css">
+    <!-- 引入 Prism.js 核心 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+     <!-- 引入 JavaScript 语言支持 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+</head>
+
+<body>
+    <header class="site-header cuckoo">
+        <div class="wrapper">
+            <a class="site-title" href="index.html">JustBB</a>
+            <nav class="site-nav">
+                <a href="#" class="menu-icon">
+                    <svg viewBox="0 0 18 15">
+                        <path fill="#424242"
+                            d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z">
+                        </path>
+                        <path fill="#424242"
+                            d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z">
+                        </path>
+                        <path fill="#424242"
+                            d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z">
+                        </path>
+                    </svg>
+                </a>
+                <div class="trigger">
+                    
+                    <a class="page-link" href="index.html">Home</a>
+                    
+                    <a class="page-link" href="archives.html">Note</a>
+                    
+                    <a class="page-link" href="about.html">About</a>
+                    
+                </div>
+            </nav>
+        </div>
+
+        
+
+    </header>
+</body>
+
+</html>
+ <div class="page-content cuckoo">
+    <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+            <header class="post-header">
+                <h1 class="post-title" itemprop="name headline">积突信号怎么看</h1>
+                <div class="post-description">
+                    
+
+                    <time datetime="2026/03/06">2026/03/06</time>
+                    
+                    <div class="author">@BB</div>
+
+
+                </div>
+            </header>
+            <div class="post-content" itemprop="articleBody">
+                <pre><code class="language-{分时积突指标" data-meta="- 建议设为主图指标}">均线:=SUM(V*C,0)/SUM(V,0);
+放量:=V&gt;MA(V,5)*2.5 AND V&gt;REF(V,1)*2;
+价格突:=C&gt;=REF(C,1)*1.003 AND C&gt;均线;
+积能:=SUM(IF(C&gt;REF(C,1),V,0),15)/SUM(V,15)&gt;0.6;
+
+{标注“积”：代表能量积攒，资金暗中吸筹}
+DRAWTEXT(FILTER(积能 AND C&gt;均线,30),C*0.998,' 积'),COLOR00FFFF;
+
+{标注“突”：代表放量突破，瞬间发力}
+DRAWTEXT(FILTER(放量 AND 价格突,20),C*1.002,' 突'),COLOR0000FF;
+
+{可选：画出分时压力线，辅助看突破}
+高:=CONST(HHV(H,0));
+DRAWBAND(高,RGB(100,0,0),高,RGB(100,0,0));
+
+</code></pre>
+<p>有了代码和信号只是第一步，分时图的“积”和“突”本质上是在捕捉<strong>资金的呼吸节奏</strong>。要像“大佬”一样看懂这些信号，你需要盯着这三个关键维度：</p>
+<hr />
+<h3><a id="1%E7%9C%8B%E2%80%9C%E7%A7%AF%E2%80%9D%E7%9A%84%E8%B4%A8%E9%87%8F%EF%BC%88%E8%93%84%E5%8A%BF%E9%98%B6%E6%AE%B5%EF%BC%89" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. 看“积”的质量（蓄势阶段）</h3>
+<p>当分时图上出现“积”时，不要急着冲进去，先观察股价的<strong>姿态</strong>：</p>
+<ul>
+<li>
+<p><strong>健康的“积”：</strong> 股价在均价线上方（或紧贴均价线）小幅震荡，下方的成交量柱状图变得密集成片（红多绿少），但股价没怎么涨。</p>
+</li>
+<li>
+<p><strong>含义：</strong> 这是“潜伏”。主力在小批量、持续性地吃货，不想惊动散户。</p>
+</li>
+<li>
+<p><strong>危险的“积”：</strong> 股价在均价线下方，虽然有“积”的信号，但反弹无力。</p>
+</li>
+<li>
+<p><strong>含义：</strong> 这可能是护盘，或者是主力在出货过程中的诱多。</p>
+</li>
+</ul>
+<h3><a id="2%E7%9C%8B%E2%80%9C%E7%AA%81%E2%80%9D%E7%9A%84%E5%8A%9B%E5%BA%A6%EF%BC%88%E7%88%86%E5%8F%91%E9%98%B6%E6%AE%B5%EF%BC%89" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. 看“突”的力度（爆发阶段）</h3>
+<p>“突”是进场或加仓的冲锋号，但要区分<strong>真突破</strong>和<strong>假拉升</strong>：</p>
+<ul>
+<li><strong>真突破（必看三个要素）：</strong></li>
+</ul>
+<ol>
+<li><strong>放量：</strong> 下方量柱必须比前几分钟明显拉长（倍量）。</li>
+<li><strong>过顶：</strong> 股价要冲破早盘的高点，或者是分时图上的横盘平台。</li>
+<li><strong>站稳：</strong> 冲上去之后，回踩不能跌破刚才突破的那个位置。</li>
+</ol>
+<ul>
+<li><strong>假拉升（骗线）：</strong> 只有一两笔大单拉上去，随后成交量迅速萎缩，股价像“心电图”一样直接掉下来。这种“突”往往是短线资金在自救。</li>
+</ul>
+<hr />
+<h3><a id="3%E7%BB%84%E5%90%88%E6%8B%B3%EF%BC%9A%E6%9C%80%E5%AE%8C%E7%BE%8E%E7%9A%84%E2%80%9C%E7%A7%AF%E7%AA%81%E2%80%9D%E6%A8%A1%E5%9E%8B" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. 组合拳：最完美的“积 + 突”模型</h3>
+<p>大佬们最喜欢的走势是：<strong>长时间的“积” + 瞬间的“突”</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>盘面表现</th>
+<th>心理博弈</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>第一步：积</strong></td>
+<td>横盘半小时以上，偶尔冒出“积”信号</td>
+<td>磨掉散户耐心，洗掉浮筹</td>
+</tr>
+<tr>
+<td><strong>第二步：突</strong></td>
+<td>突然一根长阳线穿过平台，伴随“突”信号</td>
+<td>主力发动总攻，不给思考时间</td>
+</tr>
+<tr>
+<td><strong>第三步：跟</strong></td>
+<td>股价回踩不破均价线</td>
+<td><strong>此时是最佳介入点</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3><a id="4%E4%B8%A4%E4%B8%AA%E7%BB%9D%E5%AF%B9%E7%A6%81%E5%BF%8C%EF%BC%88%E9%98%B2%E5%89%B2%E6%8C%87%E5%8D%97%EF%BC%89" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. 两个绝对禁忌（防割指南）</h3>
+<ul>
+<li><strong>忌：高位“积”。</strong> 如果一只股票已经涨了 7% 甚至 8%，此时再频繁出现“积”，大概率是主力在利用高位横盘派发筹码，千万别去接盘。</li>
+<li><strong>忌：无量“突”。</strong> 股价涨了，但下面成交量没动静（缩量上涨）。这种“突”极易“炸板”或冲高回落，属于虚火。</li>
+</ul>
+<hr />
+<h3><a id="%F0%9F%9B%A0%EF%B8%8F%E5%AE%9E%E6%88%98%E8%BF%9B%E9%98%B6%EF%BC%9A%E5%A2%9E%E5%8A%A0%E4%B8%80%E4%B8%AA%E2%80%9C%E5%8F%82%E8%80%83%E7%B3%BB%E2%80%9D" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>🛠️ 实战进阶：增加一个“参考系”</h3>
+<p>看“积、突”时，建议你同时打开<strong>量比</strong>和<strong>委比</strong>：</p>
+<ul>
+<li>如果出现“突”，且<strong>量比</strong>急剧放大（比如大于 3 或 5），说明这个突破是全场瞩目的，可靠性极高。</li>
+</ul>
+<p><strong>你想让我帮你把代码优化一下，让它在出现“突”信号时，自动把分时线变成红色或者加个警报声提示你吗？</strong></p>
+
+            </div>
+
+
+            <div style="margin-top: 50px;">
+
+                <!-- giscus 评论 -->
+                <script src="https://giscus.app/client.js"
+                        data-repo="layliu/giscus-comment"
+                        data-repo-id="R_kgDOJtN4ng"
+                        data-category="Announcements"
+                        data-category-id="DIC_kwDOJtN4ns4CXE-q"
+                        data-mapping="pathname"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="top"
+                        data-theme="light"
+                        data-lang="zh-CN"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+
+
+            </div>
+
+
+        </article>
+    </div>
+</div>
+
+<script src="asset/jquery-3.3.1.min.js"></script>
+
+<!-- 增加zoom效果 -->
+<script src="asset/zoom.js"></script>
+<!-- <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script> -->
+<script>
+    $(function () {
+        $('img').each(function () {
+            $(this).attr("data-action", 'zoom');
+        });
+    });
+</script>
+
+
+
+
+
+<script>
+    $(document).ready(function () {
+        $('#footer').show()
+    })
+
+
+</script>
+  <!-- <footer id="footer" class="cuckoo page-footer" style="display: none">
+    <div class="wrapper">
+        <p>Designed and Written by <a href="mailto:justbb@gmail.com">liulei</a></p>
+    </div>
+</footer> -->
+<!-- 
+ -->

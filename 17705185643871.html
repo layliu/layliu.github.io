@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+         CIS交易术A股每日交易清单 - JustBB 
+    </title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="欢迎来到JUST.bb这里是我的一个自留地，主要用来记录和分享一些工作、生活中的随笔、思考和总结。我希望通过文字，梳理自己的思路，沉淀经验，也希望能与志同道合的朋友们交流碰撞，共同成长。">
+
+    <link rel="stylesheet" type="text/css" href="asset/cuckoo.css">
+    <link rel="stylesheet" type="text/css" href="asset/main.css">
+    <link rel="shortcut icon" href="asset/favicon.ico" type="image/x-icon" />
+    <link rel="alternate" type="application/atom+xml" href="atom.xml" title="JustBB">
+
+    <link rel="stylesheet" href="asset/zoom.css">
+
+    <!-- 引入 Prism.js 核心 CSS -->
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="asset/prism-nord.css">
+    <!-- 引入 Prism.js 核心 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+     <!-- 引入 JavaScript 语言支持 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+</head>
+
+<body>
+    <header class="site-header cuckoo">
+        <div class="wrapper">
+            <a class="site-title" href="index.html">JustBB</a>
+            <nav class="site-nav">
+                <a href="#" class="menu-icon">
+                    <svg viewBox="0 0 18 15">
+                        <path fill="#424242"
+                            d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z">
+                        </path>
+                        <path fill="#424242"
+                            d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z">
+                        </path>
+                        <path fill="#424242"
+                            d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z">
+                        </path>
+                    </svg>
+                </a>
+                <div class="trigger">
+                    
+                    <a class="page-link" href="index.html">Home</a>
+                    
+                    <a class="page-link" href="archives.html">Note</a>
+                    
+                    <a class="page-link" href="about.html">About</a>
+                    
+                </div>
+            </nav>
+        </div>
+
+        
+
+    </header>
+</body>
+
+</html>
+ <div class="page-content cuckoo">
+    <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+            <header class="post-header">
+                <h1 class="post-title" itemprop="name headline">CIS交易术A股每日交易清单</h1>
+                <div class="post-description">
+                    
+
+                    <time datetime="2026/02/08">2026/02/08</time>
+                    
+                    <div class="author">@BB</div>
+
+
+                </div>
+            </header>
+            <div class="post-content" itemprop="articleBody">
+                <p>说明：1. 加粗单元格为【需手动填写】，其余单元格内置公式，自动计算；2. 所有金额单位：元；3. 严格遵循CIS交易铁律，公式已锁定核心逻辑（止损、仓位、盈亏比），无需手动修改；4. 复制下表到Excel，直接粘贴即可使用（公式自动生效）。</p>
+<h2><a id="%E4%B8%80%E3%80%81%E5%9F%BA%E7%A1%80%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE%EF%BC%88%E6%AF%8F%E6%97%A5%E5%BC%80%E7%9B%98%E5%89%8D%E5%A1%AB%E5%86%99%EF%BC%89" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>一、基础参数设置（每日开盘前填写）</h2>
+<table>
+<thead>
+<tr>
+<th>基础参数</th>
+<th>填写值（手动）</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>总交易资金</td>
+<td>（例：100000）</td>
+<td>可用于股票交易的全部资金，不含闲置资金</td>
+</tr>
+<tr>
+<td>止损比例（默认）</td>
+<td>5%-8%（例：6%）</td>
+<td>CIS建议5%-8%，可根据自身风险承受调整，填入数字即可（如6，无需加%）</td>
+</tr>
+<tr>
+<td>盈亏比要求（固定）</td>
+<td>3:1</td>
+<td>CIS核心铁律，公式已按3倍盈利设置，无需修改</td>
+</tr>
+<tr>
+<td>单票最大仓位（固定）</td>
+<td>20%</td>
+<td>CIS铁律，单票仓位不超过总资金20%，公式自动限制</td>
+</tr>
+<tr>
+<td>试错仓仓位（固定）</td>
+<td>10%</td>
+<td>初始试错仓位，走势符合预期可加仓至20%</td>
+</tr>
+<tr>
+<td>总仓位上限（环境好）</td>
+<td>60%</td>
+<td>大盘平开/高开、主线明确时，总仓位不超过60%</td>
+</tr>
+<tr>
+<td>总仓位上限（环境差）</td>
+<td>30%</td>
+<td>大盘下跌、涨跌家数比＜1:1时，总仓位不超过30%</td>
+</tr>
+</tbody>
+</table>
+<h2><a id="%E4%BA%8C%E3%80%81%E5%BD%93%E6%97%A5%E5%B8%82%E5%9C%BA%E7%8E%AF%E5%A2%83%E5%88%A4%E6%96%AD%EF%BC%88%E7%9B%98%E5%89%8D%E5%A1%AB%E5%86%99%EF%BC%89" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>二、当日市场环境判断（盘前填写）</h2>
+<table>
+<thead>
+<tr>
+<th>判断项目</th>
+<th>填写值（手动，√/×）</th>
+<th>判断标准</th>
+<th>自动判定仓位上限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>大盘走势（上证/创业板）</td>
+<td>√/×</td>
+<td>√=平开/高开；×=低开</td>
+<td>=IF(B2=&quot;√&quot;,\(B\)8,\(B\)10)</td>
+</tr>
+<tr>
+<td>涨跌家数比</td>
+<td>√/×</td>
+<td>√=＞1:1；×=≤1:1</td>
+<td>=IF(B3=&quot;√&quot;,\(B\)8,\(B\)10)</td>
+</tr>
+<tr>
+<td>昨日涨停高开比例</td>
+<td>√/×</td>
+<td>√=＞70%；×=≤70%</td>
+<td>=IF(B4=&quot;√&quot;,\(B\)8,\(B\)10)</td>
+</tr>
+<tr>
+<td>跌停股数量</td>
+<td>√/×</td>
+<td>√=＜3只；×=≥3只</td>
+<td>=IF(B5=&quot;√&quot;,\(B\)8,\(B\)10)</td>
+</tr>
+<tr>
+<td>主线板块确认</td>
+<td>√/×</td>
+<td>√=有≥5只涨停的主线；×=无明确主线</td>
+<td>=IF(B6=&quot;√&quot;,\(B\)8,\(B\)10)</td>
+</tr>
+<tr>
+<td><strong>最终当日总仓位上限</strong></td>
+<td>自动计算</td>
+<td>取上述判定的最低仓位上限</td>
+<td>=MIN(C2:C6)</td>
+</tr>
+</tbody>
+</table>
+<h2><a id="%E4%B8%89%E3%80%81%E6%A0%87%E7%9A%84%E4%BA%A4%E6%98%93%E6%98%8E%E7%BB%86%EF%BC%88%E6%A0%B8%E5%BF%83%E8%A1%A8%E6%A0%BC%EF%BC%8C%E6%AF%8F%E5%8F%AA%E6%A0%87%E7%9A%841%E8%A1%8C%EF%BC%89" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>三、标的交易明细（核心表格，每只标的1行）</h2>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>标的代码（手动）</th>
+<th>标的名称（手动）</th>
+<th>是否主线板块龙一/龙二（手动√/×）</th>
+<th>入场价（手动）</th>
+<th>5日线价格（手动）</th>
+<th>止损价（自动）</th>
+<th>止盈价（自动，1:3盈亏比）</th>
+<th>持仓仓位（手动，≤20%）</th>
+<th>可买入股数（自动，取整）</th>
+<th>买入金额（自动）</th>
+<th>触发止损亏损金额（自动）</th>
+<th>触发止盈盈利金额（自动）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>（例：600XXX）</td>
+<td>（例：XXX）</td>
+<td>√/×</td>
+<td>（例：15.20）</td>
+<td>（例：14.80）</td>
+<td>=MIN(B11*(1-\(B\)4/100),B12)</td>
+<td>=B11 + (B11 - C7)*3</td>
+<td>（例：10/20）</td>
+<td>=INT((\(B\)2*B14/100)/B11)</td>
+<td>=B15*B11</td>
+<td>=(B11 - C7)*B15</td>
+<td>=(C8 - B11)*B15</td>
+</tr>
+<tr>
+<td>2</td>
+<td>（例：002XXX）</td>
+<td>（例：XXX）</td>
+<td>√/×</td>
+<td>（例：28.50）</td>
+<td>（例：27.90）</td>
+<td>=MIN(B16*(1-\(B\)4/100),B17)</td>
+<td>=B16 + (B16 - C12)*3</td>
+<td>（例：10/20）</td>
+<td>=INT((\(B\)2*B19/100)/B16)</td>
+<td>=B20*B16</td>
+<td>=(B16 - C12)*B20</td>
+<td>=(C13 - B16)*B20</td>
+</tr>
+<tr>
+<td>3</td>
+<td>（例：300XXX）</td>
+<td>（例：XXX）</td>
+<td>√/×</td>
+<td>（例：42.10）</td>
+<td>（例：41.50）</td>
+<td>=MIN(B21*(1-\(B\)4/100),B22)</td>
+<td>=B21 + (B21 - C18)*3</td>
+<td>（例：10/20）</td>
+<td>=INT((\(B\)2*B23/100)/B21)</td>
+<td>=B24*B21</td>
+<td>=(B21 - C18)*B24</td>
+<td>=(C19 - B21)*B24</td>
+</tr>
+<tr>
+<td>合计</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>自动计算</td>
+<td>自动计算</td>
+<td>自动计算</td>
+<td>自动计算</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2><a id="%E5%9B%9B%E3%80%81%E5%BD%93%E6%97%A5%E4%BA%A4%E6%98%93%E5%A4%8D%E7%9B%98%EF%BC%88%E6%94%B6%E7%9B%98%E5%90%8E%E5%A1%AB%E5%86%99%EF%BC%89" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>四、当日交易复盘（收盘后填写）</h2>
+<table>
+<thead>
+<tr>
+<th>复盘项目</th>
+<th>填写内容（手动）</th>
+<th>备注（CIS逻辑提示）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>当日交易笔数</td>
+<td>（例：2）</td>
+<td>单日多次止损属正常，无需焦虑</td>
+</tr>
+<tr>
+<td>盈利笔数/亏损笔数</td>
+<td>（例：1/1）</td>
+<td>接受30%左右胜率，重点看盈亏比</td>
+</tr>
+<tr>
+<td>当日总盈利金额</td>
+<td>（例：850）</td>
+<td>盈利时让利润奔跑，不提前止盈</td>
+</tr>
+<tr>
+<td>当日总亏损金额</td>
+<td>（例：280）</td>
+<td>亏损不扛单，触发止损立即离场</td>
+</tr>
+<tr>
+<td>当日实际盈亏比</td>
+<td>自动计算</td>
+<td>需≥3:1，否则需优化筛选条件</td>
+</tr>
+<tr>
+<td>未按计划操作的情况</td>
+<td>（例：未及时止损/冲动追高）</td>
+<td>次日重点修正，执行规则优先</td>
+</tr>
+<tr>
+<td>次日优化调整建议</td>
+<td>（例：调整止损比例至7%）</td>
+<td>每日优化，固化有效规则</td>
+</tr>
+</tbody>
+</table>
+<h2><a id="%E4%BA%94%E3%80%81cis%E4%BA%A4%E6%98%93%E9%93%81%E5%BE%8B%EF%BC%88excel%E6%A8%A1%E6%9D%BF%E5%86%85%E7%BD%AE%EF%BC%8C%E7%BD%AE%E9%A1%B6%E6%8F%90%E9%86%92%EF%BC%89" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>五、CIS交易铁律（Excel模板内置，置顶提醒）</h2>
+<ul>
+<li>
+<ol>
+<li>只做上涨趋势（5日线、20日线拐头向上+量能放大），不抄底、不逢跌买入；</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>触发止损（公式计算值）立即离场，拒绝补仓、不扛单、不幻想反转；</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>单票仓位≤20%，总仓位≤当日判定上限，不超配、不重仓单一板块；</li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li>只选主线板块龙一/龙二、量能放大标的，冷门票、无量标的坚决不碰；</li>
+</ol>
+</li>
+<li>
+<ol start="5">
+<li>盘中不修改计划，收盘后再复盘优化，保持情绪中性，不被单次输赢影响；</li>
+</ol>
+</li>
+<li>
+<ol start="6">
+<li>盈亏比≥3:1，放弃“每笔必赢”，接受低胜率，靠规则实现长期盈利。</li>
+</ol>
+</li>
+</ul>
+<p>补充提示：复制到Excel后，若公式未生效，点击Excel“数据”→“计算选项”→“自动计算”即可；可根据自身需求，在不违反CIS铁律的前提下，调整止损比例、仓位上限等手动填写参数。</p>
+<blockquote>
+<p>（注：文档部分内容可能由 AI 生成）</p>
+</blockquote>
+
+            </div>
+
+
+            <div style="margin-top: 50px;">
+
+                <!-- giscus 评论 -->
+                <script src="https://giscus.app/client.js"
+                        data-repo="layliu/giscus-comment"
+                        data-repo-id="R_kgDOJtN4ng"
+                        data-category="Announcements"
+                        data-category-id="DIC_kwDOJtN4ns4CXE-q"
+                        data-mapping="pathname"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="top"
+                        data-theme="light"
+                        data-lang="zh-CN"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+
+
+            </div>
+
+
+        </article>
+    </div>
+</div>
+
+<script src="asset/jquery-3.3.1.min.js"></script>
+
+<!-- 增加zoom效果 -->
+<script src="asset/zoom.js"></script>
+<!-- <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script> -->
+<script>
+    $(function () {
+        $('img').each(function () {
+            $(this).attr("data-action", 'zoom');
+        });
+    });
+</script>
+
+
+
+
+
+<script>
+    $(document).ready(function () {
+        $('#footer').show()
+    })
+
+
+</script>
+  <!-- <footer id="footer" class="cuckoo page-footer" style="display: none">
+    <div class="wrapper">
+        <p>Designed and Written by <a href="mailto:justbb@gmail.com">liulei</a></p>
+    </div>
+</footer> -->
+<!-- 
+ -->

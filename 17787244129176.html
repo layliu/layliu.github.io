@@ -3,7 +3,7 @@
 
 <head>
     <title>
-         About - JustBB 
+         拍断大腿 - JustBB 
     </title>
 
     <meta charset="UTF-8">
@@ -66,48 +66,85 @@
 </html>
  <div class="page-content cuckoo">
     <div class="wrapper">
-        <article class="post">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
             <header class="post-header">
-                <h1 class="post-title">About</h1>
+                <h1 class="post-title" itemprop="name headline">拍断大腿</h1>
+                <div class="post-description">
+                    
+
+                    <time datetime="2026/05/14">2026/05/14</time>
+                    
+                    <div class="author">@BB</div>
+
+
+                </div>
             </header>
-            <div class="post-content">
-                <p>JustBB</p>
-<p>瞎BB一些各种各样的投资想法，收集一些四处看到的投资技巧，盘中碎碎念，心得，AI知识库等等。</p>
+            <div class="post-content" itemprop="articleBody">
+                <p>之前了解到一个抄底美股的标的，美股VIX恐慌指数。</p>
+<p>它反映了美股市场对未来30天波动的预期。数值越高，市场越慌；越低，越乐观。</p>
+<p>一般在15–30之间波动，低于15往往是市场过热，高于30则代表恐慌过度、可能反弹。</p>
+<p>比如：</p>
+<p>1）2024年7-8月美股连续下跌期间，VIX指数从13逐渐涨到18，并不断升高；8月5日，VIX冲到峰值65.73，收盘38.57。当天就是纳指阶段底部，后续迎来一波大反弹。</p>
+<p>2）去年12月VIX指数长期低于15，结果12月17日刚破15，次日纳指立马大跌3.61%。</p>
+<p>想抄底或逃顶美股，参考这个指数，跌破15出，升破30进。</p>
+<p>参考这个指标，买了后，每天盘中看，总是不涨，结果就卖掉了，没想到卖掉第二天就……🥹<br />
+<img src="media/17787244129176/17787536645608.jpg" alt="" /></p>
 
             </div>
 
+
             <div style="margin-top: 50px;">
+
                 <!-- giscus 评论 -->
                 <script src="https://giscus.app/client.js"
-                data-repo="layliu/giscus-comment"
-                data-repo-id="R_kgDOJtN4ng"
-                data-category="Announcements"
-                data-category-id="DIC_kwDOJtN4ns4CXE-q"
-                data-mapping="pathname"
-                data-strict="0"
-                data-reactions-enabled="1"
-                data-emit-metadata="0"
-                data-input-position="top"
-                data-theme="light"
-                data-lang="zh-CN"
-                crossorigin="anonymous"
-                async>
+                        data-repo="layliu/giscus-comment"
+                        data-repo-id="R_kgDOJtN4ng"
+                        data-category="Announcements"
+                        data-category-id="DIC_kwDOJtN4ns4CXE-q"
+                        data-mapping="pathname"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="top"
+                        data-theme="light"
+                        data-lang="zh-CN"
+                        crossorigin="anonymous"
+                        async>
                 </script>
-           </div>
+
+
+            </div>
+
 
         </article>
     </div>
-    
 </div>
 
 <script src="asset/jquery-3.3.1.min.js"></script>
 
+<!-- 增加zoom效果 -->
+<script src="asset/zoom.js"></script>
+<!-- <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script> -->
 <script>
-    $(document).ready(function() {
+    $(function () {
+        $('img').each(function () {
+            $(this).attr("data-action", 'zoom');
+        });
+    });
+</script>
+
+
+
+
+
+<script>
+    $(document).ready(function () {
         $('#footer').show()
     })
+
+
 </script>
- <!-- <footer id="footer" class="cuckoo page-footer" style="display: none">
+  <!-- <footer id="footer" class="cuckoo page-footer" style="display: none">
     <div class="wrapper">
         <p>Designed and Written by <a href="mailto:justbb@gmail.com">liulei</a></p>
     </div>

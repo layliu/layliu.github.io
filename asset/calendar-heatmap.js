@@ -91,7 +91,7 @@ function calendarHeatmap() {
   };
 
   chart.onClick = function (value) {
-    if (!arguments.length) { return onClick(); }
+    if (!arguments.length) { return onClick; }
     onClick = value;
     return chart;
   };

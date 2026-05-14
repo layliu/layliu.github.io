@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+         通达信指标模板 - JustBB 
+    </title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="欢迎来到JUST.bb这里是我的一个自留地，主要用来记录和分享一些工作、生活中的随笔、思考和总结。我希望通过文字，梳理自己的思路，沉淀经验，也希望能与志同道合的朋友们交流碰撞，共同成长。">
+
+    <link rel="stylesheet" type="text/css" href="asset/cuckoo.css">
+    <link rel="stylesheet" type="text/css" href="asset/main.css">
+    <link rel="shortcut icon" href="asset/favicon.ico" type="image/x-icon" />
+    <link rel="alternate" type="application/atom+xml" href="atom.xml" title="JustBB">
+
+    <link rel="stylesheet" href="asset/zoom.css">
+
+    <!-- 引入 Prism.js 核心 CSS -->
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="asset/prism-nord.css">
+    <!-- 引入 Prism.js 核心 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+     <!-- 引入 JavaScript 语言支持 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+</head>
+
+<body>
+    <header class="site-header cuckoo">
+        <div class="wrapper">
+            <a class="site-title" href="index.html">JustBB</a>
+            <nav class="site-nav">
+                <a href="#" class="menu-icon">
+                    <svg viewBox="0 0 18 15">
+                        <path fill="#424242"
+                            d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z">
+                        </path>
+                        <path fill="#424242"
+                            d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z">
+                        </path>
+                        <path fill="#424242"
+                            d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z">
+                        </path>
+                    </svg>
+                </a>
+                <div class="trigger">
+                    
+                    <a class="page-link" href="index.html">Home</a>
+                    
+                    <a class="page-link" href="archives.html">Note</a>
+                    
+                    <a class="page-link" href="about.html">About</a>
+                    
+                </div>
+            </nav>
+        </div>
+
+        
+
+    </header>
+</body>
+
+</html>
+ <div class="page-content cuckoo">
+    <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+            <header class="post-header">
+                <h1 class="post-title" itemprop="name headline">通达信指标模板</h1>
+                <div class="post-description">
+                    
+
+                    <time datetime="2026/02/08">2026/02/08</time>
+                    
+                    <div class="author">@BB</div>
+
+
+                </div>
+            </header>
+            <div class="post-content" itemprop="articleBody">
+                <h3><a id="%E9%98%B2%E5%8D%96%E9%A3%9E%E5%B8%83%E6%9E%97%E5%B8%A6%E6%8C%87%E6%A0%87" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>防卖飞布林带指标</h3>
+<pre><code class="language-{BOLL:EMA(EMA(CLOSE,10),10);}">BOLL:&quot;BOLL.BOLL&quot;;
+UB:&quot;BOLL.UB&quot;;
+LB:&quot;BOLL.LB&quot;;
+BBI:&quot;BBI.BBI&quot;,COLORB1A74B,LINETHICK2;
+多头排列:=BBI&gt;BOLL;
+多空线:EMA(EMA(C,10),10),COLORD294FC,LINETHICK1;
+大哥线:(MA(CLOSE,14)+MA(CLOSE,28)+MA(CLOSE,57)+MA(CLOSE,114))/4,COLOR2D74EA;
+
+{得分=收盘价上升+KDJ无死叉+不破BBI线+趋势向上+无巨量阴线}
+得分:=IF(C&gt;REF(C,1),1,0)+IF(&quot;KDJ.J&quot;&gt;&quot;KDJ.K&quot;,1,0)+IF(C&gt;BBI,1,0)+IF(多头排列,1,0)+IF(VOL&gt;1.5*MA(VOL,5) AND C&lt;REF(C,1),0,1);
+收盘价上升:=IF(C&gt;REF(C,1),'收盘价上升，','');
+KDJ无死叉:=IF(&quot;KDJ.J&quot;&gt;&quot;KDJ.K&quot;,'KDJ无死叉，','');
+不破BBI线:=IF(C&gt;BBI,'不破BBI线，','');
+趋势向上:=IF(多头排列,'趋势向上，','');
+无巨量阴线:=IF(VOL&gt;1.5*MA(VOL,5) AND C&lt;REF(C,1),'','无巨量阴线，');
+得分逻辑:=STRCAT(收盘价上升,STRCAT(KDJ无死叉,STRCAT(不破BBI线,STRCAT(趋势向上,无巨量阴线))));
+显示字符串:=STRCAT(STRCAT(CON2STR(得分,0),'分(持股逻辑，满分5分)'),STRCAT(HYBLOCK,STRCAT('，',DYBLOCK)));
+DRAWTEXT_FIX(ISLASTBAR,0,0.09,0,显示字符串),COLOR00FFFF;
+DRAWTEXT_FIX(ISLASTBAR,0,0.18,0,得分逻辑),COLOR00FFFF;
+</code></pre>
+<h3><a id="%E4%B8%80%E7%9B%AE%E4%BA%91%E8%B6%85%E8%B7%8C%E9%80%89%E8%82%A1%E6%8C%87%E6%A0%87" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>一目云超跌选股指标</h3>
+<pre><code class="language-{一目超跌选股}">{参数设置}
+N1:=9; N2:=26; N3:=52;
+
+{一目均衡表核心计算}
+RSV_H1:=HHV(HIGH,N1);
+RSV_L1:=LLV(LOW,N1);
+转换线:=(RSV_H1+RSV_L1)/2;
+
+RSV_H2:=HHV(HIGH,N2);
+RSV_L2:=LLV(LOW,N2);
+基准线:=(RSV_H2+RSV_L2)/2;
+
+先行A:=REF((转换线+基准线)/2,N2);
+先行B:=REF((HHV(HIGH,N3)+LLV(LOW,N3))/2,N2);
+
+{云层底部与红蓝云定义}
+云底:=MIN(先行A,先行B);
+云顶:=MAX(先行A,先行B);
+红云:=先行A &gt; 先行B;
+
+{条件1：股价在云底或红云下方超跌80%}
+{注：这里的80%理解为收盘价在云底的0.2倍以下，即极度偏离}
+C1:=CROSS(C,云底) OR (红云 AND C &lt; 云底*0.2);
+
+{条件2：RSI 6日小于30}
+C2:=RSI.RSI1 &lt; 30;
+
+{条件3：CMF 资金流向大于0}
+{CMF计算逻辑：(2*收盘-最高-最低)/(最高-最低)*成交量}
+MF:=IF(H&gt;L,(2*C-H-L)/(H-L)*V,0);
+CMF_VAL:=SUM(MF,21)/SUM(V,21);
+C3:=CMF_VAL &gt; 0;
+
+{最终选股执行}
+SELECT: C1 AND C2 AND C3;
+</code></pre>
+<h3><a id="%E4%B8%80%E7%9B%AE%E4%BA%91%E6%8A%80%E6%9C%AF%E5%9B%BE%E6%8C%87%E6%A0%87" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>一目云技术图指标</h3>
+<pre><code class="language-{指标名称:" data-meta="一目云图综合监控}">
+{--- 1. ICHIMOKU 云图核心计算 ---}
+AA:=REF((HHV(HIGH,9)+LLV(LOW,9))/2,26); 
+BB:=REF((HHV(HIGH,26)+LLV(LOW,26))/2,26); 
+云顶:=MAX(AA,BB);
+云底:=MIN(AA,BB);
+红云:=AA&lt;BB; 
+
+{--- 2. RSI 与 CMF 计算 ---}
+LC:=REF(CLOSE,1);
+RSI6:=SMA(MAX(CLOSE-LC,0),6,1)/SMA(ABS(CLOSE-LC),6,1)*100;
+
+MFV:=((CLOSE-LOW)-(HIGH-CLOSE))/(HIGH-LOW)*VOL;
+CMF_VAL:=SUM(MFV,20)/SUM(VOL,20);
+
+{--- 3. 逻辑判定 ---}
+{信号A：准备穿云}
+准备穿云:=CROSS(C, 云底) OR (ABS(C-云底)/云底 &lt; 0.01 AND C &gt; O);
+
+{信号B：红云超跌 - 偏离 &gt; 8%}
+红云超跌:=红云 AND (C &lt; 云底) AND (C/云底 &lt; 0.92);
+
+{--- 4. 视觉绘图 ---}
+{画云带背景}
+DRAWBAND(AA,RGB(80,0,0),BB,RGB(0,80,0)); 
+
+{标记K线信号}
+DRAWICON(准备穿云, LOW*0.98, 1);
+DRAWTEXT(准备穿云, LOW*0.96, ' 准备穿云'), COLORYELLOW;
+
+DRAWICON(红云超跌, LOW*0.94, 11);
+DRAWTEXT(红云超跌, LOW*0.92, ' 红云超跌'), COLORMAGENTA;
+
+{重绘K线}
+DRAWKLINE(HIGH,OPEN,LOW,CLOSE);
+
+{--- 5. 左上角数值与状态输出 ---}
+{第一行：显示CMF}
+DRAWTEXT_FIX(ISLASTBAR, 0.01, 0.02, 0, STRCAT('CMF资金流: ', CON2STR(CMF_VAL, 3))), COLORCYAN;
+
+{第二行：显示RSI6}
+DRAWTEXT_FIX(ISLASTBAR, 0.01, 0.08, 0, STRCAT('RSI(6)强度: ', CON2STR(RSI6, 2))), COLORWHITE;
+
+{状态提示}
+DRAWTEXT_FIX(ISLASTBAR AND 准备穿云, 0.01, 0.15, 0, '状态: 股价正在挑战云底'), COLORYELLOW;
+DRAWTEXT_FIX(ISLASTBAR AND 红云超跌, 0.01, 0.22, 0, '状态: 远离红云，乖离过大'), COLORRED;
+</code></pre>
+
+            </div>
+
+
+            <div style="margin-top: 50px;">
+
+                <!-- giscus 评论 -->
+                <script src="https://giscus.app/client.js"
+                        data-repo="layliu/giscus-comment"
+                        data-repo-id="R_kgDOJtN4ng"
+                        data-category="Announcements"
+                        data-category-id="DIC_kwDOJtN4ns4CXE-q"
+                        data-mapping="pathname"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="top"
+                        data-theme="light"
+                        data-lang="zh-CN"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+
+
+            </div>
+
+
+        </article>
+    </div>
+</div>
+
+<script src="asset/jquery-3.3.1.min.js"></script>
+
+<!-- 增加zoom效果 -->
+<script src="asset/zoom.js"></script>
+<!-- <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script> -->
+<script>
+    $(function () {
+        $('img').each(function () {
+            $(this).attr("data-action", 'zoom');
+        });
+    });
+</script>
+
+
+
+
+
+<script>
+    $(document).ready(function () {
+        $('#footer').show()
+    })
+
+
+</script>
+  <!-- <footer id="footer" class="cuckoo page-footer" style="display: none">
+    <div class="wrapper">
+        <p>Designed and Written by <a href="mailto:justbb@gmail.com">liulei</a></p>
+    </div>
+</footer> -->
+<!-- 
+ -->
